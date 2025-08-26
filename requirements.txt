@@ -1,0 +1,14 @@
+# Prime EFR Data Processing System - Python Dependencies
+# Python 3.8+ required
+
+# Core data processing
+pandas==2.0.3
+numpy==1.24.3
+
+# Excel file handling
+openpyxl==3.1.2
+
+# Optional: For development and testing
+# pytest==7.4.0
+# black==23.3.0
+# pylint==2.17.4

@@ -1,0 +1,59 @@
+{
+  "enrollment_processing": {
+    "excel_file": {
+      "path": "/mnt/c/Users/becas/Downloads/Prime Enrollment Funding by Facility for July.xlsx",
+      "main_sheet": "Cleaned use this one",
+      "header_row": 5,
+      "facility_sheets": [
+        "Centinela", "Legacy", "Encino-Garden Grove", "St. Francis", 
+        "Alvarado", "Pampa", "Roxborough", "Lower Bucks", 
+        "Dallas Medical Center", "Harlingen", "Knapp", "Glendora", 
+        "RHRI", "Monroe", "Saint Mary's Reno", "North Vista", 
+        "Dallas Regional", "Riverview & Gadsden", "Saint Clare's", 
+        "Landmark", "Saint Mary's Passaic", "Southern Regional", 
+        "Lehigh", "St Michael's", "Reddy Dev.", "Mission", 
+        "Coshocton", "Suburban", "Garden City", "Lake Huron", 
+        "Providence & St John", "East Liverpool", "St Joe & St Mary's", 
+        "Illinois"
+      ]
+    },
+    "column_mappings": {
+      "facility_key_col": "CLIENT ID",
+      "plan_type_col": "PLAN",
+      "location_col": "Location",
+      "alt_id_col": "ALT ID",
+      "employee_name_col": "EMPLOYEE NAME",
+      "sequence_col": "SEQ. #",
+      "relation_col": "RELATION",
+      "dept_col": "DEPT #",
+      "epo_ppo_val_col": "EPO-PPO-VAL"
+    },
+    "reference_files": {
+      "facility_mapping": "facility_mapping_complete.csv",
+      "plan_mapping": "plan_mapping_complete.csv"
+    },
+    "output_files": {
+      "summary": "enrollment_summary.csv",
+      "consolidated": "consolidated_enrollment_summary.csv",
+      "facility_report": "facility_enrollment_report.csv",
+      "processing_log": "processing_log.csv",
+      "validation_report": "validation_report.csv"
+    },
+    "processing_options": {
+      "filter_subscribers_only": true,
+      "deduplicate_contracts": true,
+      "validate_mappings": true,
+      "export_missing_mappings": true
+    },
+    "facility_groups": {
+      "centinela": {
+        "names": [
+          "Centinela Hospital Medical Center",
+          "Robotics Outpatient Center",
+          "Centinela Valley Endoscopy Center"
+        ],
+        "client_ids": ["H3270", "H3271", "H3272"]
+      }
+    }
+  }
+}
