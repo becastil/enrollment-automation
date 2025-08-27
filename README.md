@@ -11,15 +11,21 @@ python --version
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run the NEW enrollment automation (recommended)
+# 3. Run the FIXED enrollment automation (v3.2.0)
+python enrollment_automation_fixed.py  # Fixes tier collapse bug
+
+# 4. Or run standard enrollment automation
 python enrollment_automation.py
 
-# 4. Or run legacy processing
+# 5. Or run legacy processing
 python src/enrollment_data_processing.py
 
-# 5. Or use the convenience script (Windows)
+# 6. Or use the convenience script (Windows)
 run.bat
 ```
+
+### ⚠️ Important Update (v3.2.0)
+Fixed critical tier collapse bug that was incorrectly consolidating enrollment tiers. Use `enrollment_automation_fixed.py` for accurate tier distribution.
 
 ## 📋 Prerequisites
 
@@ -65,7 +71,11 @@ python -c "import pandas; import openpyxl; import numpy; print('All dependencies
 
 ```
 enrollment-automation/
-├── enrollment_automation.py         # NEW: Complete enrollment automation script
+├── enrollment_automation.py         # Complete enrollment automation script
+├── enrollment_automation_fixed.py   # FIXED: v3.2.0 - Resolves tier collapse bug
+├── enrollment_fixes_patch.py        # Patch to fix existing scripts
+├── test_enrollment_fix.py          # Test script for tier fix validation
+├── ENROLLMENT_FIX_SUMMARY.md       # Detailed fix documentation
 ├── src/                              # Core application modules
 │   ├── enrollment_data_processing.py    # Main processing engine
 │   ├── enrollment_validator.py          # Data validation module
@@ -105,9 +115,25 @@ enrollment-automation/
 
 ## 💻 Usage Guide
 
-### NEW: Enrollment Automation Script (Recommended)
+### FIXED: Enrollment Automation Script v3.2.0 (Recommended)
 
-The `enrollment_automation.py` script provides complete end-to-end enrollment processing with advanced features:
+The `enrollment_automation_fixed.py` script resolves the tier collapse bug and provides accurate enrollment processing:
+
+```bash
+# Run the fixed version for accurate tier distribution
+python enrollment_automation_fixed.py
+
+# Key fixes in v3.2.0:
+# ✅ Direct tier normalization from BEN CODE column
+# ✅ No more defaulting everything to EE+Family
+# ✅ Plan variant tracking (shows multiple EPO/PPO variants)
+# ✅ Integrity checks ensure counts match source data
+# ✅ UNKNOWN tier/plan auditing for visibility
+```
+
+### Standard Enrollment Automation Script
+
+The `enrollment_automation.py` script provides complete end-to-end enrollment processing:
 
 ```bash
 # Run the complete automation
@@ -306,7 +332,17 @@ python enrollment_processing_demo.py
 
 ### Common Issues and Solutions
 
-#### 1. "CLIENT ID" column not found
+#### 1. Tier Collapse Bug (All enrollments showing as EE+Family)
+**Issue:** Enrollment counts incorrectly collapse into single tier (often EE+Family)
+**Solution:** Use the fixed version:
+```bash
+python enrollment_automation_fixed.py
+# Or apply the patch:
+python enrollment_fixes_patch.py  # See instructions in file
+```
+**Root Cause:** The original `calculate_helper_columns()` function incorrectly inferred tiers from family composition
+
+#### 2. "CLIENT ID" column not found
 **Solution:** Check Excel header row (default: row 5). Update in config.json:
 ```json
 "header_row": 5
@@ -471,6 +507,6 @@ Proprietary
 ---
 
 **Last Updated:** 2025-08-27  
-**Version:** 3.1.0  
+**Version:** 3.2.0  
 **Maintainer:** Data Analytics Team  
-**Major Update:** Enhanced enrollment_automation.py with active subscriber filtering, CLIENT ID prioritization, and unified section finding for production deployment
+**Major Update:** Fixed critical tier collapse bug with new enrollment_automation_fixed.py. Now provides accurate tier distribution with direct BEN CODE normalization, plan variant tracking, and integrity checks.
