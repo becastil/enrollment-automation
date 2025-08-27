@@ -1120,10 +1120,10 @@ def main():
     # FILE PATHS - UPDATE THESE WITH YOUR ACTUAL FILE NAMES
     # Note: Using existing files in data/input directory
     # Update these paths when you have the actual files mentioned in requirements
-    source_file = 'data/input/Data_file_prime.xlsx'  # Your source enrollment data
-    destination_file = 'data/input/Prime_output_file.xlsx'  # Your template file
-    output_file = 'output/enrollment_updated.xlsx'  # Where to save the updated file
-    summary_file = 'output/enrollment_summary.csv'  # Where to save the summary report
+    source_file = r"H:\Ben's Personal Folder\Use this\Copy of P Drive\Ben's Personal Folder\Misc\Personal\EFR\enrollment-automation-main\Source data.xlsx"  # Your source enrollment data
+    destination_file = r"H:\Ben's Personal Folder\Use this\Copy of P Drive\Ben's Personal Folder\Misc\Personal\EFR\enrollment-automation-main\Prime Enrollment Funding by Facility for August.xlsx"  # Your template file
+    output_file = r"H:\Ben's Personal Folder\Use this\Copy of P Drive\Ben's Personal Folder\Misc\Personal\EFR\enrollment-automation-main\Prime Enrollment Funding by Facility for August.xlsx"  # Where to save the updated file
+    summary_file = r"H:\Ben's Personal Folder\Use this\Copy of P Drive\Ben's Personal Folder\Misc\Personal\EFR\enrollment-automation-main\enrollment_summary.csv"  # Where to save the summary report
     
     # Ensure output directories exist
     os.makedirs(os.path.dirname(output_file) if os.path.dirname(output_file) else '.', exist_ok=True)
