@@ -1,4 +1,4 @@
-# Prime Employee Enrollment Data Processing System
+# Employee Enrollment Data Processing System
 
 A robust Python-based solution for processing and analyzing employee enrollment data from Excel files, with automated validation, mapping, and reporting capabilities.
 
@@ -34,7 +34,7 @@ run.bat
 ```bash
 # If using git (optional)
 git clone <repository-url>
-cd Prime_EFR
+cd enrollment-automation
 
 # Or simply extract the ZIP file
 ```
@@ -64,23 +64,23 @@ python -c "import pandas; import openpyxl; import numpy; print('All dependencies
 ## 📁 Project Structure
 
 ```
-Prime_EFR/
+enrollment-automation/
 ├── enrollment_automation.py         # NEW: Complete enrollment automation script
 ├── src/                              # Core application modules
 │   ├── enrollment_data_processing.py    # Main processing engine
 │   ├── enrollment_validator.py          # Data validation module
 │   ├── enrollment_analytics.py          # Analytics and reporting
-│   └── update_prime_output.py          # Excel column updater
+│   └── update_output_file.py           # Excel column updater
 │
 ├── data/
 │   ├── reference/                   # Static reference data
 │   │   ├── facility_mapping_complete.csv  # 76 facility mappings
 │   │   └── plan_mapping_complete.csv      # 54 plan type mappings
 │   ├── input/                       # Input data files
-│   │   ├── Data_file_prime.xlsx        # Source enrollment data
-│   │   └── Prime_output_file.xlsx      # Target template file
+│   │   ├── source_data.xlsx            # Source enrollment data
+│   │   └── template_file.xlsx          # Target template file
 │   └── samples/                     # Sample data for testing
-│       └── Prime_Enrollment_Sample.xlsx
+│       └── enrollment_sample.xlsx
 │
 ├── scripts/                         # Utility scripts
 │   ├── populate_tiered_enrollment.py   # Populate enrollment tiers
@@ -114,7 +114,7 @@ The `enrollment_automation.py` script provides complete end-to-end enrollment pr
 python enrollment_automation.py
 
 # What it does:
-# 1. Reads Data_file_prime.xlsx from data/input/
+# 1. Reads source_data.xlsx from data/input/
 # 2. Filters to active subscribers (STATUS == 'A')
 # 3. Maps 82 facilities using CLIENT ID (prioritized over DEPT #)
 # 4. Calculates enrollment tiers based on family composition
@@ -147,7 +147,7 @@ plan_map = pd.read_csv('data/reference/plan_mapping_complete.csv')
 
 # Process enrollment data
 enriched, summary, filtered = build_facility_summary(
-    excel_path="data/input/Data_file_prime.xlsx",
+    excel_path="data/input/source_data.xlsx",
     sheet_name="Sheet1",
     facility_key_col="CLIENT ID",
     plan_type_col="PLAN",
@@ -160,12 +160,12 @@ summary.to_csv('output/enrollment_summary.csv', index=False)
 print(f"Processed {len(summary)} facility/plan combinations")
 ```
 
-#### 2. Update Prime Output File
+#### 2. Update Output File
 ```bash
 # Update Column D with employee counts
-python src/update_prime_output.py \
-    --source "data/input/Data_file_prime.xlsx" \
-    --target "data/input/Prime_output_file.xlsx" \
+python src/update_output_file.py \
+    --source "data/input/source_data.xlsx" \
+    --target "data/input/template_file.xlsx" \
     --dry-run  # Remove --dry-run to apply changes
 ```
 
@@ -275,7 +275,7 @@ HEADER_ROW=5
 | `enrollment_data_processing.py` | Main processing engine | `python src/enrollment_data_processing.py` |
 | `enrollment_validator.py` | Data validation | `python src/enrollment_validator.py` |
 | `enrollment_analytics.py` | Generate analytics | `python src/enrollment_analytics.py` |
-| `update_prime_output.py` | Update Excel columns | `python src/update_prime_output.py --help` |
+| `update_output_file.py` | Update Excel columns | `python src/update_output_file.py --help` |
 
 ### Utility Scripts
 
@@ -327,7 +327,7 @@ mkdir output
 #### 4. Excel file not found
 **Solution:** Verify file paths in config.json or use absolute paths:
 ```python
-excel_path = r"C:\Users\your_user\Prime_EFR\data\input\Data_file_prime.xlsx"
+excel_path = r"C:\Users\your_user\enrollment-automation\data\input\source_data.xlsx"
 ```
 
 #### 5. Memory error with large files
@@ -347,7 +347,7 @@ python src/enrollment_validator.py
 #### 7. ImportError: cannot import name 'build_facility_summary'
 **Solution:** Ensure you're in the project root directory:
 ```bash
-cd Prime_EFR
+cd enrollment-automation
 python src/enrollment_data_processing.py
 ```
 
@@ -466,7 +466,7 @@ For questions or issues:
 
 ## 📄 License
 
-Proprietary - Prime Healthcare Services
+Proprietary
 
 ---
 
