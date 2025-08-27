@@ -115,18 +115,22 @@ python enrollment_automation.py
 
 # What it does:
 # 1. Reads Data_file_prime.xlsx from data/input/
-# 2. Maps 80+ facilities using built-in TPA codes
-# 3. Calculates enrollment tiers based on family composition
-# 4. Categorizes plans as EPO/PPO/VALUE
-# 5. Generates enrollment_summary.csv in output/
-# 6. Creates enrollment_updated.xlsx with all data
+# 2. Filters to active subscribers (STATUS == 'A')
+# 3. Maps 82 facilities using CLIENT ID (prioritized over DEPT #)
+# 4. Calculates enrollment tiers based on family composition
+# 5. Categorizes plans as EPO/PPO/VALUE with pattern fallback
+# 6. Generates enrollment_summary.csv in output/
+# 7. Creates enrollment_updated.xlsx with all data
 ```
 
 **Key Features:**
 - ✅ Processes 44,000+ enrollment records automatically
-- ✅ Built-in TPA to Facility/Legacy/California mappings
+- ✅ Filters to active subscribers only (STATUS == 'A')
+- ✅ Prioritizes CLIENT ID column for facility matching
+- ✅ Built-in TPA to Facility/Legacy/California mappings (82 facilities)
 - ✅ Automatic tier calculation (EE, EE+Spouse, EE+Children, etc.)
-- ✅ Plan categorization with 70+ plan code mappings
+- ✅ Plan categorization with 70+ plan code mappings + pattern fallback
+- ✅ Unified section finding for EPO/PPO/VALUE in templates
 - ✅ Advanced pandas optimizations for performance
 - ✅ Comprehensive data validation and error handling
 
@@ -241,7 +245,8 @@ HEADER_ROW=5
 - Validate reference data completeness
 
 ### 3. **Filtering Stage**
-- Filter to subscriber records (SEQ. # = 0)
+- Filter to active records (STATUS == 'A')
+- Filter to subscriber records (RELATION == 'SELF')
 - Remove duplicates
 - Apply business rules
 
@@ -377,8 +382,10 @@ taskkill /f /im excel.exe
 - **Processing Speed**: ~15,000 rows/second (with pandas optimizations)
 - **Memory Usage**: ~46MB for 44,000 records
 - **Total Processing Time**: <5 seconds for complete pipeline
-- **Facilities Mapped**: 81 facilities across 29 groups
-- **Plan Mappings**: 70+ plan codes to EPO/PPO/VALUE
+- **Active Records**: 44,590 filtered from 44,741 total (STATUS == 'A')
+- **Facilities Mapped**: 82 facilities across 30 groups (including Alvarado)
+- **Plan Mappings**: 70+ plan codes to EPO/PPO/VALUE with pattern fallback
+- **Enrollments Processed**: 24,282 subscriber records
 
 ### Legacy Scripts
 - **Processing Speed**: ~2,300 rows/second
@@ -391,14 +398,16 @@ taskkill /f /im excel.exe
 ### Input Columns
 | Column | Description | Type | Required |
 |--------|-------------|------|----------|
-| CLIENT ID | Facility identifier | String | Yes |
+| CLIENT ID | Facility identifier (prioritized) | String | Yes |
 | PLAN | Plan code | String | Yes |
+| STATUS | Active/Inactive status (A/I) | String | Yes |
 | SEQ. # | Sequence number (0=subscriber) | Integer | Yes |
 | EMPLOYEE NAME | Employee full name | String | Yes |
-| RELATION | Relationship (SELF, SPOUSE, CHILD) | String | No |
+| RELATION | Relationship (SELF, SPOUSE, CHILD) | String | Yes |
 | EPO-PPO-VAL | Plan category | String | No |
 | EFF. DATE | Effective date | Date | No |
 | TERM | Termination date | Date | No |
+| DEPT # | Alternative facility identifier | String | No |
 
 ### Output Columns
 | Column | Description | Type |
@@ -461,7 +470,7 @@ Proprietary - Prime Healthcare Services
 
 ---
 
-**Last Updated:** 2025-08-26  
-**Version:** 3.0.0  
+**Last Updated:** 2025-08-27  
+**Version:** 3.1.0  
 **Maintainer:** Data Analytics Team  
-**Major Update:** Added enrollment_automation.py with complete TPA mappings and advanced pandas optimizations
+**Major Update:** Enhanced enrollment_automation.py with active subscriber filtering, CLIENT ID prioritization, and unified section finding for production deployment
