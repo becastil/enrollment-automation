@@ -538,6 +538,7 @@ def main():
     """
     # FILE PATHS
     source_file = "/mnt/c/Users/becas/Prime_EFR/data/input/source_data.xlsx"
+    destination_file = "/mnt/c/Users/becas/Prime_EFR/data/input/Prime Enrollment Funding by Facility for August.xlsx"
     
     try:
         print("="*80)
@@ -599,6 +600,41 @@ def main():
         output_file = "/mnt/c/Users/becas/Prime_EFR/output/tier_reconciliation_report.csv"
         df.to_csv(output_file, index=False)
         print(f"\nDiagnostic data saved to: {output_file}")
+        
+        # Create summary pivot for destination file
+        print(f"\nCreating enrollment summary...")
+        summary_pivot = df.pivot_table(
+            index=['facility_name', 'plan_group'],
+            columns='tier',
+            values='original_index',
+            aggfunc='count',
+            fill_value=0
+        ).reset_index()
+        
+        # Add total column
+        tier_cols = [col for col in summary_pivot.columns if col in TIER_ORDER]
+        if tier_cols:
+            summary_pivot['Total'] = summary_pivot[tier_cols].sum(axis=1)
+        
+        # Save to destination Excel file (overwrite)
+        print(f"Writing to destination file: {destination_file}")
+        with pd.ExcelWriter(destination_file, engine='openpyxl', mode='w') as writer:
+            # Write main summary
+            summary_pivot.to_excel(writer, sheet_name='Enrollment Summary', index=False)
+            
+            # Write detailed data
+            df.to_excel(writer, sheet_name='Detailed Data', index=False)
+            
+            # Write control totals validation
+            control_df = pd.DataFrame({
+                'Tier': TIER_ORDER,
+                'Control Total': [CONTROL_TOTALS[tier] for tier in TIER_ORDER],
+                'Actual Total': [len(df[df['tier'] == tier]) for tier in TIER_ORDER]
+            })
+            control_df['Match'] = control_df['Control Total'] == control_df['Actual Total']
+            control_df.to_excel(writer, sheet_name='Control Validation', index=False)
+        
+        print(f"✅ Destination file successfully overwritten: {destination_file}")
         
     except FileNotFoundError as e:
         print(f"\n❌ ERROR: File not found - {e}")
