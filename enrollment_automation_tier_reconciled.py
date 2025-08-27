@@ -1026,13 +1026,160 @@ CID_TO_TAB = {
     # Add remaining mappings...
 }
 
+def perform_targeted_cell_writeback(df, template_file):
+    """
+    Write enrollment counts to exact cells specified in WRITE_MAP
+    """
+    # WRITE_MAP with exact cell addresses
+    WRITE_MAP = {
+        'H3170': {  # San Dimas
+            'EPO': {'EE Only': 'G4', 'EE+Spouse': 'G5', 'EE+Child(ren)': 'G6', 'EE+Family': 'G7'},
+            'VALUE': {'EE Only': 'G15', 'EE+Spouse': 'G16', 'EE+Child(ren)': 'G17', 'EE+Family': 'G18'}
+        },
+        'H3180': {  # Sherman Oaks - has TWO EPO blocks and TWO VALUE blocks
+            'EPO_1': {'EE Only': 'G4', 'EE+Spouse': 'G5', 'EE+Child(ren)': 'G6', 'EE+Family': 'G7'},
+            'EPO_2': {'EE Only': 'G11', 'EE+Spouse': 'G12', 'EE+Child(ren)': 'G13', 'EE+Family': 'G14'},
+            'VALUE_1': {'EE Only': 'G18', 'EE+Spouse': 'G19', 'EE+Child(ren)': 'G20', 'EE+Family': 'G21'},
+            'VALUE_2': {'EE Only': 'G25', 'EE+Spouse': 'G26', 'EE+Child(ren)': 'G27', 'EE+Family': 'G28'}
+        },
+        'H3220': {  # West Anaheim
+            'EPO': {'EE Only': 'F4', 'EE+Spouse': 'F5', 'EE+Child(ren)': 'F6', 'EE+Family': 'F7'},
+            'PPO': {'EE Only': 'F11', 'EE+Spouse': 'F12', 'EE+Child(ren)': 'F13', 'EE+Family': 'F14'},
+            'VALUE': {'EE Only': 'F18', 'EE+Spouse': 'F19', 'EE+Child(ren)': 'F20', 'EE+Family': 'F21'}
+        }
+    }
+    
+    print("\n" + "="*80)
+    print("TARGETED CELL WRITE-BACK")
+    print("="*80)
+    
+    # Create backup
+    from datetime import datetime
+    import shutil
+    backup_file = template_file.replace('.xlsx', f'_backup_{datetime.now().strftime("%Y%m%d_%H%M%S")}.xlsx')
+    shutil.copy2(template_file, backup_file)
+    print(f"✓ Backup created: {backup_file}")
+    
+    # Load workbook
+    from openpyxl import load_workbook
+    wb = load_workbook(template_file)
+    
+    # Process each facility
+    write_summary = []
+    
+    for client_id, cell_map in WRITE_MAP.items():
+        # Get facility name from mapping
+        facility_name = CLIENT_TO_FACILITY.get(client_id, f"Unknown_{client_id}")
+        
+        # Filter data for this CLIENT ID (Active only, no COBRA)
+        facility_df = df[(df['CLIENT ID'] == client_id) & 
+                        (df['STATUS'].str.strip().str.upper() == 'A')]
+        
+        print(f"\nProcessing {facility_name} ({client_id}):")
+        
+        # Get worksheet (try various patterns)
+        ws = None
+        for sheet_name in wb.sheetnames:
+            if client_id in sheet_name or facility_name.lower() in sheet_name.lower():
+                ws = wb[sheet_name]
+                print(f"  Found worksheet: {sheet_name}")
+                break
+        
+        if not ws:
+            print(f"  ⚠️ No worksheet found for {facility_name}")
+            continue
+        
+        # Special handling for Sherman Oaks (H3180)
+        if client_id == 'H3180':
+            # Split variants for duplicate blocks
+            variant1_keywords = ['1', 'ONE', 'FIRST']
+            variant2_keywords = ['2', 'TWO', 'SECOND']
+            
+            # Process EPO blocks
+            epo_df = facility_df[facility_df['PLAN TYPE'] == 'EPO']
+            if not epo_df.empty:
+                # Split between blocks (simple 50/50 or by some criteria)
+                mid = len(epo_df) // 2
+                epo1_df = epo_df.iloc[:mid]
+                epo2_df = epo_df.iloc[mid:]
+                
+                # Write EPO_1
+                for tier, cell in cell_map.get('EPO_1', {}).items():
+                    tier_name = tier.replace('(ren)', '+Children')
+                    count = len(epo1_df[epo1_df['ENROLLMENT TIER'] == tier_name])
+                    ws[cell] = int(count)
+                    write_summary.append(f"  {client_id} EPO_1 {tier}: {cell} = {count}")
+                
+                # Write EPO_2
+                for tier, cell in cell_map.get('EPO_2', {}).items():
+                    tier_name = tier.replace('(ren)', '+Children')
+                    count = len(epo2_df[epo2_df['ENROLLMENT TIER'] == tier_name])
+                    ws[cell] = int(count)
+                    write_summary.append(f"  {client_id} EPO_2 {tier}: {cell} = {count}")
+            
+            # Process VALUE blocks similarly
+            value_df = facility_df[facility_df['PLAN TYPE'] == 'VALUE']
+            if not value_df.empty:
+                mid = len(value_df) // 2
+                value1_df = value_df.iloc[:mid]
+                value2_df = value_df.iloc[mid:]
+                
+                # Write VALUE_1 and VALUE_2
+                for tier, cell in cell_map.get('VALUE_1', {}).items():
+                    tier_name = tier.replace('(ren)', '+Children')
+                    count = len(value1_df[value1_df['ENROLLMENT TIER'] == tier_name])
+                    ws[cell] = int(count)
+                    write_summary.append(f"  {client_id} VALUE_1 {tier}: {cell} = {count}")
+                
+                for tier, cell in cell_map.get('VALUE_2', {}).items():
+                    tier_name = tier.replace('(ren)', '+Children')
+                    count = len(value2_df[value2_df['ENROLLMENT TIER'] == tier_name])
+                    ws[cell] = int(count)
+                    write_summary.append(f"  {client_id} VALUE_2 {tier}: {cell} = {count}")
+        
+        else:
+            # Standard facilities (non-Sherman Oaks)
+            for plan_type, tier_cells in cell_map.items():
+                plan_df = facility_df[facility_df['PLAN TYPE'] == plan_type]
+                
+                for tier, cell in tier_cells.items():
+                    # Handle combined Child(ren) tier
+                    if tier == 'EE+Child(ren)':
+                        count = len(plan_df[plan_df['ENROLLMENT TIER'].isin(['EE+Child', 'EE+Children'])])
+                    else:
+                        count = len(plan_df[plan_df['ENROLLMENT TIER'] == tier])
+                    
+                    # Write to cell
+                    ws[cell] = int(count)
+                    write_summary.append(f"  {client_id} {plan_type} {tier}: {cell} = {count}")
+                    print(f"    {plan_type} {tier}: {cell} = {count}")
+    
+    # Save workbook
+    wb.save(template_file)
+    print(f"\n✓ Write-back complete: {template_file}")
+    
+    # Print summary
+    print("\n" + "-"*40)
+    print("WRITE SUMMARY:")
+    for line in write_summary:
+        print(line)
+    
+    # Validation
+    print("\n" + "-"*40)
+    print("POST-WRITE VALIDATION:")
+    for client_id in WRITE_MAP.keys():
+        facility_df = df[(df['CLIENT ID'] == client_id) & 
+                        (df['STATUS'].str.strip().str.upper() == 'A')]
+        total = len(facility_df)
+        print(f"  {client_id}: {total} total active employees written")
+
 def main():
     """
-    Main execution with tier reconciliation
+    Main execution with tier reconciliation and targeted write-back
     """
     # FILE PATHS
     source_file = "data/input/source_data.xlsx"
-    destination_file = "data/input/Prime Enrollment Funding by Facility for August.xlsx"
+    destination_file = r"C:\Users\becas\Prime_EFR\Prime Enrollment Funding by Facility for August.xlsx"
     
     try:
         print("="*80)
@@ -1130,15 +1277,15 @@ def main():
         
         print(f"✅ Destination file successfully overwritten: {destination_file}")
         
-        # ============= WRITE-BACK TO TEMPLATE =============
+        # ============= TARGETED CELL WRITE-BACK =============
         if all_match and not DRY_RUN:
             print("\n" + "="*80)
-            print("WRITE-BACK TO TEMPLATE - EES COLUMN UPDATE")
+            print("TARGETED CELL WRITE-BACK - EXACT CELL ADDRESSES")
             print("="*80)
             
             try:
-                # Write to template
-                write_back_to_template(df, source_file, destination_file)
+                # Perform targeted write-back to specific cells
+                perform_targeted_cell_writeback(df, destination_file)
                 
             except Exception as e:
                 print(f"Write-back error: {e}")
