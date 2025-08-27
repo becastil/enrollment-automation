@@ -532,13 +532,507 @@ def print_facility_comparison(df, facility_id, facility_name):
     if unknown > 0:
         print(f"  UNKNOWN: {unknown}")
 
+# ============= WRITE-BACK FUNCTIONS =============
+
+DRY_RUN = False  # Set to True for preview mode
+STRICT_CONTROL_CHECK = True  # Set False if ground truth includes COBRA
+
+import csv
+from openpyxl.utils import get_column_letter
+import re
+from collections import defaultdict
+import shutil
+
+def is_active_for_ees(status):
+    """Active only for Ees write-back - NO COBRA"""
+    t = str(status).strip().upper() if pd.notna(status) else ""
+    return t == "A" or t.startswith("A")
+
+def create_employee_group(df):
+    """Create EMPLOYEE_GROUP identifier with priority order"""
+    # Try columns in priority order
+    id_columns = ['EMPLOYEE ID', 'EMP ID', 'Employee_ID', 'ALT ID']
+    
+    for id_col in id_columns:
+        if id_col in df.columns and df[id_col].notna().sum() > len(df) * 0.5:
+            # Clean and combine with CLIENT ID
+            df['EMPLOYEE_GROUP'] = (
+                df['CLIENT ID'].astype(str).str.strip().str.upper() + '_' +
+                df[id_col].astype(str).str.strip().str.upper()
+            )
+            print(f"   Created EMPLOYEE_GROUP using CLIENT ID + {id_col}")
+            return df
+    
+    # Fallback to EMPLOYEE NAME (not present in our data, so use DEP SSN)
+    if 'DEP SSN' in df.columns:
+        df['EMPLOYEE_GROUP'] = (
+            df['CLIENT ID'].astype(str).str.strip().str.upper() + '_' +
+            df['DEP SSN'].astype(str).str.strip().str.upper()
+        )
+        print(f"   Created EMPLOYEE_GROUP using CLIENT ID + DEP SSN")
+    else:
+        raise ValueError("Cannot create EMPLOYEE_GROUP: no suitable ID column found")
+    
+    return df
+
+def calculate_tier_from_composition(family_df, emp_group):
+    """Calculate tier from complete family composition"""
+    relations = family_df['RELATION'].str.strip().str.upper().tolist()
+    
+    # Must have SELF anchor
+    has_self = any(r in ['SELF', 'EE', 'EMPLOYEE'] for r in relations)
+    if not has_self:
+        return 'UNKNOWN'
+    
+    # Check for spouse
+    has_spouse = any(r in ['SPOUSE', 'HUSBAND', 'WIFE'] for r in relations)
+    
+    # Count children  
+    child_count = sum(1 for r in relations if r in ['CHILD', 'SON', 'DAUGHTER', 'DEPENDENT'])
+    
+    # Determine tier (exact logic as specified)
+    if has_spouse and child_count > 0:
+        return 'EE+Family'
+    elif has_spouse:
+        return 'EE+Spouse'
+    elif child_count > 0:
+        if child_count == 1:
+            return 'EE+Child'
+        else:
+            return 'EE+Children'
+    else:
+        return 'EE Only'
+
+def deduplicate_enrollments(df):
+    """Deduplicate keeping latest EFF. DATE"""
+    initial_count = len(df)
+    
+    # Parse dates safely
+    if 'EFF. DATE' in df.columns:
+        df['EFF. DATE'] = pd.to_datetime(df['EFF. DATE'], errors='coerce')
+    
+    # Sort by date (latest first) and deduplicate
+    df_sorted = df.sort_values('EFF. DATE', ascending=False, na_position='last')
+    df_dedup = df_sorted.drop_duplicates(
+        subset=['CLIENT ID', 'EMPLOYEE_GROUP', 'PLAN'], 
+        keep='first'
+    )
+    
+    rows_removed = initial_count - len(df_dedup)
+    if rows_removed > 0:
+        print(f"   Deduplication: removed {rows_removed} duplicates")
+    
+    return df_dedup
+
+def build_facility_plan_tier_data(df_subs):
+    """Build nested dict with all tier keys"""
+    data = {}
+    unknown_plans = []
+    
+    for _, row in df_subs.iterrows():
+        client_id = row['CLIENT ID']
+        tier = row['CALCULATED_TIER']
+        plan_raw = row['PLAN']
+        
+        # Map plan
+        plan_group, _ = infer_plan_group_and_variant(plan_raw)
+        
+        if plan_group == 'UNKNOWN':
+            if len(unknown_plans) < 3:
+                unknown_plans.append((client_id, plan_raw))
+            continue
+        
+        # Initialize nested structure with ALL tier keys
+        if client_id not in data:
+            data[client_id] = {}
+        
+        if plan_group not in data[client_id]:
+            data[client_id][plan_group] = {
+                'EE Only': 0,
+                'EE+Spouse': 0,
+                'EE+Child': 0,
+                'EE+Children': 0,
+                'EE+Family': 0
+            }
+        
+        # Increment count
+        if tier in data[client_id][plan_group]:
+            data[client_id][plan_group][tier] += 1
+    
+    # Check for unknown plans
+    if unknown_plans:
+        print(f"   WARNING: {len(unknown_plans)} unknown plans. First 3:")
+        for client_id, plan in unknown_plans[:3]:
+            print(f"     {client_id}: {plan}")
+        if len(unknown_plans) > 10:  # Fail if too many
+            raise ValueError(f"Too many unknown plans: {len(unknown_plans)}")
+    
+    return data
+
+def get_cell_value_safe(ws, row, col):
+    """Get cell value handling merged cells"""
+    cell = ws.cell(row=row, column=col)
+    
+    # Check if cell is in merged range
+    for merged_range in ws.merged_cells.ranges:
+        if cell.coordinate in merged_range:
+            # Return top-left cell value
+            top_left_row = merged_range.min_row
+            top_left_col = merged_range.min_col
+            return ws.cell(row=top_left_row, column=top_left_col).value
+    
+    return cell.value
+
+def calculate_jaccard(s1, s2):
+    """Token-based Jaccard similarity"""
+    def tokenize(s):
+        # Clean and tokenize
+        tokens = re.sub(r'[^\w\s]', ' ', str(s).upper()).split()
+        # Remove stop words
+        stop = {'THE', 'OF', 'AND', 'AT', 'A', 'INC', 'LLC', 'CENTER', 'HOSPITAL', 'MEDICAL'}
+        return {t for t in tokens if len(t) > 1 and t not in stop}
+    
+    t1, t2 = tokenize(s1), tokenize(s2)
+    
+    if not t1 or not t2:
+        return 0.0
+    
+    intersection = len(t1 & t2)
+    union = len(t1 | t2)
+    
+    return intersection / union if union > 0 else 0.0
+
+def find_facility_location_strict(ws, facility_name, client_id):
+    """Require CLIENT ID hit or Jaccard ≥0.90"""
+    candidates = []
+    
+    for r in range(1, min(ws.max_row, 40)+1):
+        for c in range(1, min(ws.max_column, 10)+1):
+            val = get_cell_value_safe(ws, r, c)
+            if not val:
+                continue
+            
+            val_str = str(val)
+            
+            # Check for CLIENT ID (highest priority)
+            if client_id and str(client_id) in val_str:
+                return r, c
+            
+            # Calculate Jaccard similarity
+            score = calculate_jaccard(facility_name, val_str)
+            candidates.append((score, r, c, val_str[:50]))
+    
+    # Sort by score
+    candidates.sort(reverse=True, key=lambda x: x[0])
+    
+    # Accept only if ≥0.90
+    if candidates and candidates[0][0] >= 0.90:
+        return candidates[0][1], candidates[0][2]
+    
+    # Show top 3 candidates
+    print(f"    ERROR: No match for '{facility_name}' (CID: {client_id})")
+    if candidates:
+        print(f"    Top candidates:")
+        for i, (score, r, c, text) in enumerate(candidates[:3]):
+            print(f"      {i+1}. Score {score:.2f}: '{text}' at row {r}, col {c}")
+    
+    return None, None
+
+def find_ees_col_strict(ws, facility_row, facility_col):
+    """Find Ees with strict length limit"""
+    for r in range(max(1, facility_row-3), min(ws.max_row, facility_row+3)):
+        for c in range(1, min(ws.max_column, 20)+1):
+            val = get_cell_value_safe(ws, r, c)
+            if (isinstance(val, str) and 
+                len(val) <= 6 and  # Avoid "Rees calc..."
+                re.search(r'\bees\b', val, re.IGNORECASE)):
+                return c
+    
+    # Fallback with warning
+    fallback = facility_col + 3
+    print(f"    WARNING: 'Ees' not found, using col {fallback}")
+    return fallback
+
+def find_plan_section_tolerant(ws, facility_row, facility_col, plan_type):
+    """Search with regex for plan headers"""
+    # Build regex pattern based on plan type
+    if plan_type == 'EPO':
+        pattern = r'^(EPO|EPO\s+PLAN|EPO\s*[-–])'
+    elif plan_type == 'PPO':
+        pattern = r'^(PPO|PPO\s+PLAN|PPO\s*[-–])'
+    elif plan_type == 'VALUE':
+        pattern = r'^(VALUE|VAL|VALUE\s+PLAN|VAL\s*[-–])'
+    else:
+        return None
+    
+    search_start = facility_row + 1
+    search_end = min(ws.max_row, facility_row + 30)
+    
+    # Search facility column first
+    for r in range(search_start, search_end):
+        val = get_cell_value_safe(ws, r, facility_col)
+        if val and re.search(pattern, str(val).strip().upper()):
+            return r
+    
+    # Try one column left and right
+    for offset in [-1, 1]:
+        for r in range(search_start, search_end):
+            val = get_cell_value_safe(ws, r, facility_col + offset)
+            if val and re.search(pattern, str(val).strip().upper()):
+                print(f"    Found {plan_type} at column offset {offset}")
+                return r
+    
+    return None
+
+def detect_combined_children_tolerant(ws, start_row, label_col):
+    """Detect children rows with flexible matching"""
+    # Check rows 2-3 for child labels
+    for offset in [2, 3]:
+        label = get_cell_value_safe(ws, start_row + offset, label_col)
+        if label:
+            # Remove punctuation and check
+            label_clean = re.sub(r'[^\w\s]', '', str(label).lower())
+            if any(term in label_clean for term in ['children', 'child(ren)', 'child ren']):
+                return True
+    return False
+
+def write_tier_rows_safe(ws, start_row, ees_col, tier_counts, label_col):
+    """Write with int coercion"""
+    combined = detect_combined_children_tolerant(ws, start_row, label_col)
+    
+    # Zero-fill first
+    rows_to_clear = 4 if combined else 5
+    for offset in range(rows_to_clear):
+        ws.cell(row=start_row + offset, column=ees_col, value=0)
+    
+    # Write as integers
+    if combined:
+        child_total = int(tier_counts.get('EE+Child', 0) + tier_counts.get('EE+Children', 0))
+        ws.cell(row=start_row + 0, column=ees_col, value=int(tier_counts.get('EE Only', 0)))
+        ws.cell(row=start_row + 1, column=ees_col, value=int(tier_counts.get('EE+Spouse', 0)))
+        ws.cell(row=start_row + 2, column=ees_col, value=child_total)
+        ws.cell(row=start_row + 3, column=ees_col, value=int(tier_counts.get('EE+Family', 0)))
+        written_sum = sum([
+            int(tier_counts.get('EE Only', 0)),
+            int(tier_counts.get('EE+Spouse', 0)),
+            child_total,
+            int(tier_counts.get('EE+Family', 0))
+        ])
+    else:
+        ws.cell(row=start_row + 0, column=ees_col, value=int(tier_counts.get('EE Only', 0)))
+        ws.cell(row=start_row + 1, column=ees_col, value=int(tier_counts.get('EE+Spouse', 0)))
+        ws.cell(row=start_row + 2, column=ees_col, value=int(tier_counts.get('EE+Child', 0)))
+        ws.cell(row=start_row + 3, column=ees_col, value=int(tier_counts.get('EE+Children', 0)))
+        ws.cell(row=start_row + 4, column=ees_col, value=int(tier_counts.get('EE+Family', 0)))
+        written_sum = sum(int(v) for v in tier_counts.values())
+    
+    return written_sum, combined
+
+def write_back_to_template(df_reconciled, source_file, template_file):
+    """Main write-back function"""
+    print("\n1. Preparing write-back data...")
+    
+    # Reload full data to get all relations (not just subscribers)
+    df_full = pd.read_excel(source_file)
+    df_full = df_full[df_full['STATUS'].apply(is_active_for_ees)]
+    df_full = create_employee_group(df_full)
+    
+    print(f"   Full active dataset: {len(df_full)} rows")
+    
+    # Calculate tiers on COMPLETE families (including dependents)
+    print("\n2. Calculating tiers from family composition...")
+    tier_map = {}
+    unknown_samples = []
+    
+    for (cid, eg), family in df_full.groupby(['CLIENT ID', 'EMPLOYEE_GROUP']):
+        tier = calculate_tier_from_composition(family, eg)
+        if tier == 'UNKNOWN' and len(unknown_samples) < 3:
+            unknown_samples.append((cid, eg))
+        tier_map[(cid, eg)] = tier
+    
+    if unknown_samples:
+        print(f"   WARNING: {len([t for t in tier_map.values() if t == 'UNKNOWN'])} groups without SELF anchor")
+        for cid, eg in unknown_samples:
+            print(f"     {cid} / {eg}")
+    
+    # NOW filter to subscribers only
+    print("\n3. Filtering to subscribers...")
+    df_subs = df_full[df_full['RELATION'].str.strip().str.upper().isin(['SELF', 'EE', 'EMPLOYEE'])]
+    print(f"   Subscriber records: {len(df_subs)}")
+    
+    # Add calculated tiers
+    df_subs['CALCULATED_TIER'] = df_subs.apply(
+        lambda r: tier_map.get((r['CLIENT ID'], r['EMPLOYEE_GROUP']), 'UNKNOWN'), 
+        axis=1
+    )
+    
+    # Deduplicate
+    df_final = deduplicate_enrollments(df_subs)
+    
+    # Build aggregated data
+    print("\n4. Building facility/plan/tier aggregations...")
+    tier_data = build_facility_plan_tier_data(df_final)
+    
+    # Load template workbook
+    print("\n5. Writing to template file...")
+    
+    # Create new template path
+    write_template = "Prime Enrollment Funding by Facility for August.xlsx"
+    
+    try:
+        wb = load_workbook(write_template)
+    except PermissionError:
+        print("ERROR: Template file is open in Excel. Please close and retry.")
+        return
+    except FileNotFoundError:
+        print(f"ERROR: Template file not found: {write_template}")
+        return
+    
+    # Process facilities (sample for now)
+    test_facilities = ['H3170', 'H3220', 'H3280']  # San Dimas, West Anaheim, Shasta
+    
+    for client_id in test_facilities:
+        if client_id not in tier_data:
+            print(f"   {client_id}: No data")
+            continue
+        
+        facility_name = TPA_TO_FACILITY.get(client_id, 'UNKNOWN')
+        tab = CID_TO_TAB.get(client_id, 'Legacy')  # Default to Legacy
+        
+        if tab not in wb.sheetnames:
+            print(f"   {facility_name} ({client_id}): Tab '{tab}' not found")
+            continue
+        
+        ws = wb[tab]
+        print(f"\n   {facility_name} ({client_id}) on tab '{tab}':")
+        
+        # Find facility
+        fac_row, fac_col = find_facility_location_strict(ws, facility_name, client_id)
+        if not fac_row:
+            continue
+        
+        # Find Ees column
+        ees_col = find_ees_col_strict(ws, fac_row, fac_col)
+        label_col = ees_col - 1
+        col_letter = get_column_letter(ees_col)
+        
+        # Write each plan
+        for plan_type in ['EPO', 'PPO', 'VALUE']:
+            section_row = find_plan_section_tolerant(ws, fac_row, fac_col, plan_type)
+            
+            if not section_row:
+                print(f"     {plan_type}: Section not found")
+                continue
+            
+            # Get tier counts
+            tier_counts = tier_data[client_id].get(plan_type, {
+                'EE Only': 0, 'EE+Spouse': 0, 'EE+Child': 0,
+                'EE+Children': 0, 'EE+Family': 0
+            })
+            
+            # Write values
+            written_sum, combined = write_tier_rows_safe(ws, section_row, ees_col, tier_counts, label_col)
+            
+            end_row = section_row + (3 if combined else 4)
+            print(f"     {plan_type}: {col_letter}{section_row}:{col_letter}{end_row} = {written_sum}")
+    
+    # Save
+    output_file = write_template.replace('.xlsx', '_with_ees.xlsx')
+    wb.save(output_file)
+    wb.close()
+    
+    print(f"\n   Saved to: {output_file}")
+    
+    # Spot check
+    print("\n6. Spot check validation:")
+    spot_check_facilities(output_file, {'H3170': 223, 'H3220': 707, 'H3280': 638}, tier_data)
+
+def spot_check_facilities(output_file, expected_counts, tier_data):
+    """Comprehensive spot check with sum verification"""
+    wb = load_workbook(output_file, data_only=True)
+    
+    for client_id, expected_total in expected_counts.items():
+        facility_name = TPA_TO_FACILITY.get(client_id, 'UNKNOWN')
+        tab = CID_TO_TAB.get(client_id, 'Legacy')
+        
+        if tab not in wb.sheetnames:
+            print(f"   {facility_name} ({client_id}): TAB NOT FOUND")
+            continue
+        
+        ws = wb[tab]
+        
+        # Find facility
+        fac_row, fac_col = find_facility_location_strict(ws, facility_name, client_id)
+        if not fac_row:
+            print(f"   {facility_name} ({client_id}): FACILITY NOT FOUND")
+            continue
+        
+        # Find Ees column
+        ees_col = find_ees_col_strict(ws, fac_row, fac_col)
+        label_col = ees_col - 1
+        
+        # Sum all plan sections
+        total_written = 0
+        plan_details = []
+        
+        for plan_type in ['EPO', 'PPO', 'VALUE']:
+            section_row = find_plan_section_tolerant(ws, fac_row, fac_col, plan_type)
+            
+            if not section_row:
+                continue
+            
+            # Detect combined mode
+            combined = detect_combined_children_tolerant(ws, section_row, label_col)
+            
+            # Sum values
+            rows_to_sum = 4 if combined else 5
+            plan_sum = sum(
+                int(ws.cell(row=section_row + i, column=ees_col).value or 0)
+                for i in range(rows_to_sum)
+            )
+            
+            total_written += plan_sum
+            plan_details.append(f"{plan_type}={plan_sum}")
+        
+        # Compare to expected
+        status = "PASS" if total_written == expected_total else "FAIL"
+        details = ", ".join(plan_details) if plan_details else "no plans found"
+        
+        print(f"   {facility_name} ({client_id}): {status}")
+        print(f"      Expected: {expected_total}, Written: {total_written} ({details})")
+        
+        # Also compare to tier_data if available
+        if client_id in tier_data:
+            source_total = sum(
+                sum(tiers.values())
+                for tiers in tier_data[client_id].values()
+            )
+            if source_total != total_written:
+                print(f"      WARNING: Source had {source_total}, sheet has {total_written}")
+    
+    wb.close()
+
+# Add CID_TO_TAB mapping
+CID_TO_TAB = {
+    'H3100': 'Legacy', 'H3105': 'Legacy', 'H3110': 'Legacy', 'H3115': 'Legacy',
+    'H3120': 'Legacy', 'H3130': 'Legacy', 'H3140': 'Legacy', 'H3150': 'Legacy',
+    'H3160': 'Legacy', 'H3170': 'Legacy', 'H3180': 'Legacy', 'H3190': 'Legacy',
+    'H3200': 'Legacy', 'H3210': 'Legacy', 'H3220': 'Encino-Garden Grove',
+    'H3230': 'Legacy', 'H3240': 'Legacy', 'H3250': 'Encino-Garden Grove',
+    'H3260': 'Encino-Garden Grove', 'H3270': 'Centinela', 'H3271': 'Centinela',
+    'H3272': 'Centinela', 'H3275': 'St. Francis', 'H3276': 'St. Francis',
+    'H3277': 'St. Francis', 'H3280': 'Legacy', 'H3285': 'Legacy',
+    'H3290': 'Legacy', 'H3300': 'Legacy', 'H3310': 'Alvarado',
+    # Add remaining mappings...
+}
+
 def main():
     """
     Main execution with tier reconciliation
     """
     # FILE PATHS
-    source_file = r"C:\Users\becas\Prime_EFR\data\input\source_data.xlsx"
-    destination_file = r"C:\Users\becas\Prime_EFR\data\input\Prime Enrollment Funding by Facility for August.xlsx"
+    source_file = "data/input/source_data.xlsx"
+    destination_file = "data/input/Prime Enrollment Funding by Facility for August.xlsx"
     
     try:
         print("="*80)
@@ -597,7 +1091,7 @@ def main():
             print("Review the waterfall and unknown audit to identify remaining issues")
         
         # Save diagnostic output
-        output_file = r"C:\Users\becas\Prime_EFR\output\tier_reconciliation_report.csv"
+        output_file = "output/tier_reconciliation_report.csv"
         df.to_csv(output_file, index=False)
         print(f"\nDiagnostic data saved to: {output_file}")
         
@@ -635,6 +1129,21 @@ def main():
             control_df.to_excel(writer, sheet_name='Control Validation', index=False)
         
         print(f"✅ Destination file successfully overwritten: {destination_file}")
+        
+        # ============= WRITE-BACK TO TEMPLATE =============
+        if all_match and not DRY_RUN:
+            print("\n" + "="*80)
+            print("WRITE-BACK TO TEMPLATE - EES COLUMN UPDATE")
+            print("="*80)
+            
+            try:
+                # Write to template
+                write_back_to_template(df, source_file, destination_file)
+                
+            except Exception as e:
+                print(f"Write-back error: {e}")
+                import traceback
+                traceback.print_exc()
         
     except FileNotFoundError as e:
         print(f"\n❌ ERROR: File not found - {e}")
