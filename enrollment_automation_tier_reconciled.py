@@ -537,8 +537,8 @@ def main():
     Main execution with tier reconciliation
     """
     # FILE PATHS
-    source_file = "/mnt/c/Users/becas/Prime_EFR/data/input/source_data.xlsx"
-    destination_file = "/mnt/c/Users/becas/Prime_EFR/data/input/Prime Enrollment Funding by Facility for August.xlsx"
+    source_file = r"C:\Users\becas\Prime_EFR\data\input\source_data.xlsx"
+    destination_file = r"C:\Users\becas\Prime_EFR\data\input\Prime Enrollment Funding by Facility for August.xlsx"
     
     try:
         print("="*80)
@@ -597,7 +597,7 @@ def main():
             print("Review the waterfall and unknown audit to identify remaining issues")
         
         # Save diagnostic output
-        output_file = "/mnt/c/Users/becas/Prime_EFR/output/tier_reconciliation_report.csv"
+        output_file = r"C:\Users\becas\Prime_EFR\output\tier_reconciliation_report.csv"
         df.to_csv(output_file, index=False)
         print(f"\nDiagnostic data saved to: {output_file}")
         
