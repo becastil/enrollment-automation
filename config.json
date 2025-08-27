@@ -1,8 +1,8 @@
 {
   "enrollment_processing": {
     "excel_file": {
-      "path": "/mnt/c/Users/becas/Downloads/Prime Enrollment Funding by Facility for July.xlsx",
-      "main_sheet": "Cleaned use this one",
+      "path": "data/input/source_data.xlsx",
+      "main_sheet": "Sheet1",
       "header_row": 5,
       "facility_sheets": [
         "Centinela", "Legacy", "Encino-Garden Grove", "St. Francis", 
@@ -29,15 +29,15 @@
       "epo_ppo_val_col": "EPO-PPO-VAL"
     },
     "reference_files": {
-      "facility_mapping": "facility_mapping_complete.csv",
-      "plan_mapping": "plan_mapping_complete.csv"
+      "facility_mapping": "data/reference/facility_mapping_complete.csv",
+      "plan_mapping": "data/reference/plan_mapping_complete.csv"
     },
     "output_files": {
-      "summary": "enrollment_summary.csv",
-      "consolidated": "consolidated_enrollment_summary.csv",
-      "facility_report": "facility_enrollment_report.csv",
-      "processing_log": "processing_log.csv",
-      "validation_report": "validation_report.csv"
+      "summary": "output/enrollment_summary.csv",
+      "consolidated": "output/consolidated_enrollment_summary.csv",
+      "facility_report": "output/facility_enrollment_report.csv",
+      "processing_log": "output/processing_log.csv",
+      "validation_report": "output/validation_report.csv"
     },
     "processing_options": {
       "filter_subscribers_only": true,

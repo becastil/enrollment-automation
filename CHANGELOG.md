@@ -1,9 +1,48 @@
 # Changelog
 
-All notable changes to the Enrollment Automation project will be documented in this file.
+All notable changes to the Prime Employee Enrollment Data Processing System are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [3.3.0] - 2025-08-27
+
+### Added
+- Comprehensive directory cleanup and reorganization
+- Legacy scripts archive directory (`scripts/legacy/`) for version history
+- Proper .gitignore file for Python projects
+- Consolidated documentation into single CHANGELOG.md
+
+### Changed
+- **Main script is now `enrollment_automation_complete.py`** with all fixes integrated
+- Moved all test files to `tests/` directory  
+- Moved all Excel data files to `data/input/` directory
+- Updated README to reflect new simplified structure
+- Archived older script versions to `scripts/legacy/`
+
+### Removed
+- Redundant backup scripts and diagnostic files
+- Duplicate fix summary documentation files (consolidated here)
+- Loose Excel files from root directory
+
+## [3.2.1] - 2025-08-27
+
+### Fixed
+- **741 Missing Employees Issue**: Resolved silent data drops in enrollment pipeline
+  - Fixed strict STATUS filter (now accepts 'A', 'ACTIVE', 'ACT', etc.)
+  - Fixed strict RELATION filter (now accepts 'SELF', 'EE', 'EMPLOYEE', 'SUBSCRIBER', etc.)
+  - Fixed unmapped facilities being dropped (now preserved as UNKNOWN)
+  - Fixed key cleaning issues causing mismatches
+
+### Added
+- Row-loss waterfall tracking at 8 pipeline stages
+- Flexible filtering helper functions (`is_active()`, `is_subscriber()`)
+- `clean_key()` function for consistent key normalization
+- Comprehensive diagnostic reporting with sample dropped rows
+
+### Changed
+- Improved data preservation: 44,500 rows out from 45,000 in (vs 43,759 before)
+- Row recovery: 741 employees no longer silently dropped
 
 ## [3.2.0] - 2025-08-27
 

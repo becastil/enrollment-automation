@@ -1,6 +1,6 @@
-# Employee Enrollment Data Processing System
+# Prime Employee Enrollment Data Processing System
 
-A robust Python-based solution for processing and analyzing employee enrollment data from Excel files, with automated validation, mapping, and reporting capabilities.
+A robust Python-based solution for processing and analyzing Prime employee enrollment data from Excel files, with automated validation, mapping, and reporting capabilities.
 
 ## 🚀 Quick Start
 
@@ -11,21 +11,18 @@ python --version
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run the FIXED enrollment automation (v3.2.0)
-python enrollment_automation_fixed.py  # Fixes tier collapse bug
+# 3. Run the enrollment automation
+python enrollment_automation_complete.py
 
-# 4. Or run standard enrollment automation
-python enrollment_automation.py
-
-# 5. Or run legacy processing
-python src/enrollment_data_processing.py
-
-# 6. Or use the convenience script (Windows)
+# 4. Or use the convenience script (Windows)
 run.bat
 ```
 
-### ⚠️ Important Update (v3.2.0)
-Fixed critical tier collapse bug that was incorrectly consolidating enrollment tiers. Use `enrollment_automation_fixed.py` for accurate tier distribution.
+### ✨ Latest Version (v3.3.0)
+- All critical fixes integrated into single main script
+- 741 missing employees issue resolved
+- Tier collapse bug fixed
+- Cleaner directory structure
 
 ## 📋 Prerequisites
 
@@ -70,13 +67,9 @@ python -c "import pandas; import openpyxl; import numpy; print('All dependencies
 ## 📁 Project Structure
 
 ```
-enrollment-automation/
-├── enrollment_automation.py         # Complete enrollment automation script
-├── enrollment_automation_fixed.py   # FIXED: v3.2.0 - Resolves tier collapse bug
-├── enrollment_fixes_patch.py        # Patch to fix existing scripts
-├── test_enrollment_fix.py          # Test script for tier fix validation
-├── ENROLLMENT_FIX_SUMMARY.md       # Detailed fix documentation
-├── src/                              # Core application modules
+Prime_EFR/
+├── enrollment_automation_complete.py    # Main script with all fixes integrated
+├── src/                                 # Core application modules
 │   ├── enrollment_data_processing.py    # Main processing engine
 │   ├── enrollment_validator.py          # Data validation module
 │   ├── enrollment_analytics.py          # Analytics and reporting
@@ -107,37 +100,32 @@ enrollment-automation/
 ├── output/                          # Generated output (auto-created)
 │   └── [Generated files will appear here]
 │
+├── scripts/                         # Utility scripts
+│   ├── legacy/                     # Archived older versions
+│   │   ├── enrollment_automation.py
+│   │   ├── enrollment_automation_fixed.py
+│   │   └── enrollment_fixes_patch.py
+│   ├── populate_tiered_enrollment.py
+│   ├── check_excel_columns.py
+│   └── create_sample_excel.py
+│
 ├── config.json                      # Configuration settings
 ├── requirements.txt                 # Python dependencies
 ├── run.bat                         # Windows convenience script
+├── CHANGELOG.md                    # Version history and fixes
+├── .gitignore                      # Git ignore rules
 └── README.md                       # This file
 ```
 
 ## 💻 Usage Guide
 
-### FIXED: Enrollment Automation Script v3.2.0 (Recommended)
+### Main Enrollment Automation Script
 
-The `enrollment_automation_fixed.py` script resolves the tier collapse bug and provides accurate enrollment processing:
-
-```bash
-# Run the fixed version for accurate tier distribution
-python enrollment_automation_fixed.py
-
-# Key fixes in v3.2.0:
-# ✅ Direct tier normalization from BEN CODE column
-# ✅ No more defaulting everything to EE+Family
-# ✅ Plan variant tracking (shows multiple EPO/PPO variants)
-# ✅ Integrity checks ensure counts match source data
-# ✅ UNKNOWN tier/plan auditing for visibility
-```
-
-### Standard Enrollment Automation Script
-
-The `enrollment_automation.py` script provides complete end-to-end enrollment processing:
+The `enrollment_automation_complete.py` script provides complete end-to-end enrollment processing with all fixes:
 
 ```bash
-# Run the complete automation
-python enrollment_automation.py
+# Run the complete automation with all fixes
+python enrollment_automation_complete.py
 
 # What it does:
 # 1. Reads source_data.xlsx from data/input/
@@ -297,7 +285,7 @@ HEADER_ROW=5
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
-| **`enrollment_automation.py`** | **NEW: Complete automation with all mappings** | **`python enrollment_automation.py`** |
+| **`enrollment_automation_complete.py`** | **Main script with all fixes integrated** | **`python enrollment_automation_complete.py`** |
 | `enrollment_data_processing.py` | Main processing engine | `python src/enrollment_data_processing.py` |
 | `enrollment_validator.py` | Data validation | `python src/enrollment_validator.py` |
 | `enrollment_analytics.py` | Generate analytics | `python src/enrollment_analytics.py` |
@@ -332,17 +320,7 @@ python enrollment_processing_demo.py
 
 ### Common Issues and Solutions
 
-#### 1. Tier Collapse Bug (All enrollments showing as EE+Family)
-**Issue:** Enrollment counts incorrectly collapse into single tier (often EE+Family)
-**Solution:** Use the fixed version:
-```bash
-python enrollment_automation_fixed.py
-# Or apply the patch:
-python enrollment_fixes_patch.py  # See instructions in file
-```
-**Root Cause:** The original `calculate_helper_columns()` function incorrectly inferred tiers from family composition
-
-#### 2. "CLIENT ID" column not found
+#### 1. "CLIENT ID" column not found
 **Solution:** Check Excel header row (default: row 5). Update in config.json:
 ```json
 "header_row": 5
@@ -507,6 +485,6 @@ Proprietary
 ---
 
 **Last Updated:** 2025-08-27  
-**Version:** 3.2.0  
+**Version:** 3.3.0  
 **Maintainer:** Data Analytics Team  
-**Major Update:** Fixed critical tier collapse bug with new enrollment_automation_fixed.py. Now provides accurate tier distribution with direct BEN CODE normalization, plan variant tracking, and integrity checks.
+**Status:** Production Ready - All critical fixes integrated into `enrollment_automation_complete.py`
