@@ -149,11 +149,12 @@ def clean_key(s):
     return ' '.join(str(s).strip().upper().split())
 
 def is_active(status):
-    """Flexible active status check"""
+    """Flexible active status check - includes A (Active) and C (COBRA/Continued)"""
     if pd.isna(status):
         return False
     s = str(status).strip().upper()
-    return s in ['A', 'ACTIVE', 'ACT'] or s.startswith('A')
+    # Include both A (Active) and C (COBRA/Continued coverage)
+    return s in ['A', 'ACTIVE', 'ACT', 'C', 'COBRA', 'CONTINUED'] or s.startswith('A')
 
 def is_subscriber(relation):
     """Flexible subscriber check"""
@@ -536,7 +537,7 @@ def main():
     Main execution with tier reconciliation
     """
     # FILE PATHS
-    source_file = r"C:\Users\becas\Prime_EFR\data\input\source_data.xlsx"
+    source_file = "/mnt/c/Users/becas/Prime_EFR/data/input/source_data.xlsx"
     
     try:
         print("="*80)
@@ -595,7 +596,7 @@ def main():
             print("Review the waterfall and unknown audit to identify remaining issues")
         
         # Save diagnostic output
-        output_file = r"C:\Users\becas\Prime_EFR\output\tier_reconciliation_report.csv"
+        output_file = "/mnt/c/Users/becas/Prime_EFR/output/tier_reconciliation_report.csv"
         df.to_csv(output_file, index=False)
         print(f"\nDiagnostic data saved to: {output_file}")
         

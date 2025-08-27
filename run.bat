@@ -48,9 +48,9 @@ goto end
 
 :process
 echo.
-echo Running enrollment automation with 741 employee reconciliation...
+echo Running enrollment automation with tier reconciliation (all fixes)...
 echo.
-python enrollment_automation_reconciled.py
+python enrollment_automation_tier_reconciled.py
 echo.
 echo Processing complete! Check the output folder for results.
 pause

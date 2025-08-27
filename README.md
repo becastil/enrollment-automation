@@ -11,19 +11,19 @@ python --version
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run the enrollment automation with reconciliation
-python enrollment_automation_reconciled.py
+# 3. Run the enrollment automation with all fixes
+python enrollment_automation_tier_reconciled.py
 
 # 4. Or use the convenience script (Windows)
 run.bat
 ```
 
-### ✨ Latest Version (v3.4.0)
-- Complete 741 missing employees reconciliation
-- H3280 Shasta Regional (638 employees) recovered
-- H3394 Summit Surgery fuzzy matching fixed
-- 102 employees across 40+ facilities recovered
-- Comprehensive reconciliation reporting
+### ✨ Latest Version (v3.5.0)
+- Tier reconciliation: Exact control totals (14533/2639/4413/3123)
+- 741 missing employees fully recovered
+- 106-row tier discrepancy resolved
+- Waterfall tracking through 8 pipeline stages
+- Comprehensive unknown tier auditing
 
 ## 📋 Prerequisites
 
