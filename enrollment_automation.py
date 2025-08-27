@@ -37,6 +37,7 @@ from openpyxl import load_workbook  # For reading and writing Excel files
 from openpyxl.utils import get_column_letter  # For converting column numbers to letters (like 1→A, 2→B)
 import warnings  # For handling warning messages
 import traceback  # For showing detailed error information if something goes wrong
+import os  # For working with file paths and directories
 warnings.filterwarnings('ignore')  # Hide unnecessary warning messages to keep output clean
 
 # IMPORTANT CONFIGURATION SECTION #1:
@@ -327,6 +328,9 @@ FACILITY_MAPPING = {
         'H3670': 'Prime Healthcare Illinois Medical Group, LLC',
         'H3675': 'Prime Healthcare Home Care and Hospice',
         'H3680': 'Prime Healthcare Senior Living'
+    },
+    'Alvarado': {
+        'H3310': 'Alvarado Hospital'
     }
 }
 
@@ -443,6 +447,22 @@ BEN_CODE_TO_TIER = {
     'ECH': 'EE & Children',         # Employee + multiple children
     'FAM': 'EE & Family'            # Employee + Spouse + Children
 }
+
+def infer_plan_type(code):
+    """
+    This function infers the plan type from the plan code
+    if it's not in our mapping dictionary.
+    It looks for keywords like PPO, EPO, VALUE in the code.
+    """
+    s = str(code).upper() if pd.notna(code) else ''
+    if 'PPO' in s: 
+        return 'PPO'
+    if 'EPO' in s: 
+        return 'EPO'
+    if 'VAL' in s or 'VALUE' in s: 
+        return 'VALUE'
+    # Default to VALUE if can't determine
+    return 'VALUE'
 
 def calculate_helper_columns(df):
     """
@@ -565,11 +585,18 @@ def read_source_data(file_path, legend_sheet='Legend'):
     # Read main data from Excel
     df = pd.read_excel(file_path, sheet_name=0)  # Main data sheet
     
+    # Filter to only active subscribers if STATUS column exists
+    if 'STATUS' in df.columns:
+        original_count = len(df)
+        df = df[df['STATUS'].astype(str).str.upper().eq('A')].copy()
+        print(f"Filtered to {len(df)} active rows (STATUS == 'A') from {original_count} total rows")
+    
     # Find the column with Client IDs - prioritize CLIENT ID which has TPA codes
     id_column = None
     for col in ['CLIENT ID', 'CLIENT_ID', 'TPA Code', 'DEPT #']:
         if col in df.columns:
             id_column = col
+            print(f"Using {id_column} for facility matching")
             break
     
     if id_column:
@@ -639,9 +666,9 @@ def process_enrollment_data(df):
         subscribers_df = df.copy()
         print("Warning: No RELATION column found, processing all rows")
     
-    # Map plan codes and benefit codes to categories
+    # Map plan codes and benefit codes to categories with fallback
     subscribers_df = subscribers_df.assign(
-        plan_type=lambda x: x['PLAN'].map(PLAN_TO_TYPE).fillna('VALUE')
+        plan_type=lambda x: x['PLAN'].map(PLAN_TO_TYPE).fillna(x['PLAN'].apply(infer_plan_type))
         if 'PLAN' in x.columns else 'VALUE',
         tier=lambda x: x['CALCULATED_BEN_CODE'].map(BEN_CODE_TO_TIER).fillna('EE')
         if 'CALCULATED_BEN_CODE' in x.columns 
@@ -674,8 +701,8 @@ def process_enrollment_data(df):
         processed_data[tab_name] = {}
         
         for client_id, facility_name in facilities.items():
-            # Find data for this facility
-            id_columns = ['DEPT #', 'CLIENT ID', 'CLIENT_ID', 'TPA Code']
+            # Find data for this facility - prioritize CLIENT ID
+            id_columns = ['CLIENT ID', 'CLIENT_ID', 'TPA Code', 'DEPT #']
             facility_data = None
             
             for col in id_columns:
@@ -993,23 +1020,23 @@ def update_destination_file(destination_path, processed_data, output_path=None):
             print(f"  Found '{facility_name}' at {get_column_letter(facility_col)}{facility_row}")
             print(f"    -> Will place enrollments in column {get_column_letter(enrollment_col)}")
             
-            # EPO section starts 1 row down from facility name
-            epo_start_row = facility_row + 1
-            if 'EPO' in plan_data:
-                print(f"    -> EPO enrollments in rows {epo_start_row}-{epo_start_row+4}")
-                update_plan_section_by_position(ws, epo_start_row, enrollment_col, plan_data['EPO'])
+            # Find and update EPO section
+            epo_row = find_section_start(ws, facility_row, ('EPO',))
+            if epo_row and 'EPO' in plan_data:
+                print(f"    -> EPO enrollments starting at row {epo_row}")
+                update_plan_section_by_position(ws, epo_row, enrollment_col, plan_data['EPO'])
             
-            # PPO section if exists
-            ppo_start_row = find_ppo_section_start(ws, facility_row, facility_col)
-            if ppo_start_row and 'PPO' in plan_data:
-                print(f"    -> PPO enrollments in rows {ppo_start_row+1}-{ppo_start_row+5}")
-                update_plan_section_by_position(ws, ppo_start_row + 1, enrollment_col, plan_data['PPO'])
+            # Find and update PPO section if exists
+            ppo_row = find_section_start(ws, facility_row, ('PPO',))
+            if ppo_row and 'PPO' in plan_data:
+                print(f"    -> PPO enrollments starting at row {ppo_row}")
+                update_plan_section_by_position(ws, ppo_row, enrollment_col, plan_data['PPO'])
             
-            # VALUE section
-            value_start_row = find_value_section_start(ws, facility_row, facility_col)
-            if value_start_row and 'VALUE' in plan_data:
-                print(f"    -> VALUE enrollments in rows {value_start_row+1}-{value_start_row+5}")
-                update_plan_section_by_position(ws, value_start_row + 1, enrollment_col, plan_data['VALUE'])
+            # Find and update VALUE section
+            value_row = find_section_start(ws, facility_row, ('VALUE',))
+            if value_row and 'VALUE' in plan_data:
+                print(f"    -> VALUE enrollments starting at row {value_row}")
+                update_plan_section_by_position(ws, value_row, enrollment_col, plan_data['VALUE'])
     
     # Save the updated workbook
     if output_path:
@@ -1019,36 +1046,22 @@ def update_destination_file(destination_path, processed_data, output_path=None):
     
     print(f"Successfully updated enrollment data!")
 
-def find_ppo_section_start(ws, facility_row, facility_col, max_search=15):
+def find_section_start(ws, anchor_row, keywords=('EPO',)):
     """
-    This function locates the PPO plan section in the template
-    Templates usually have sections for different plan types
-    This finds where the PPO section starts
+    This function finds where a section (EPO, PPO, VALUE) starts in the template
+    It searches from the anchor_row down about 25 rows, across the first 10 columns
+    for any of the specified keywords.
     """
-    # Search for "PPO" text in the same column as facility
-    for row in range(facility_row + 5, facility_row + max_search):
-        cell_value = ws.cell(row=row, column=facility_col).value
-        if cell_value and 'PPO' in str(cell_value).upper():
-            return row
-    return None
-
-def find_value_section_start(ws, facility_row, facility_col, max_search=15):
-    """
-    This function locates the VALUE plan section in the template
-    Templates usually have:
-    1. Facility name at the top
-    2. EPO section (rows for each coverage tier)
-    3. VALUE section below that
+    # Search from anchor_row down ~25 rows, across first 10 columns
+    max_r = min(ws.max_row, anchor_row + 25)
+    max_c = min(ws.max_column, 10)
     
-    This finds where #3 starts so we put VALUE numbers in the right place
-    """
-    # Search for "VALUE" text in the same column as facility
-    for row in range(facility_row + 6, facility_row + max_search):
-        cell_value = ws.cell(row=row, column=facility_col).value
-        if cell_value and 'VALUE' in str(cell_value).upper():
-            return row
-    # If not found, estimate based on typical spacing
-    return facility_row + 7
+    for r in range(anchor_row, max_r + 1):
+        for c in range(1, max_c + 1):
+            val = ws.cell(row=r, column=c).value
+            if isinstance(val, str) and any(k in val.upper() for k in keywords):
+                return r
+    return None
 
 def update_plan_section_by_position(ws, start_row, col, tier_data):
     """
@@ -1105,11 +1118,16 @@ def main():
     4. Update the template file
     """
     # FILE PATHS - UPDATE THESE WITH YOUR ACTUAL FILE NAMES
-    # Using the existing directory structure
+    # Note: Using existing files in data/input directory
+    # Update these paths when you have the actual files mentioned in requirements
     source_file = 'data/input/Data_file_prime.xlsx'  # Your source enrollment data
     destination_file = 'data/input/Prime_output_file.xlsx'  # Your template file
     output_file = 'output/enrollment_updated.xlsx'  # Where to save the updated file
     summary_file = 'output/enrollment_summary.csv'  # Where to save the summary report
+    
+    # Ensure output directories exist
+    os.makedirs(os.path.dirname(output_file) if os.path.dirname(output_file) else '.', exist_ok=True)
+    os.makedirs(os.path.dirname(summary_file) if os.path.dirname(summary_file) else '.', exist_ok=True)
     
     print("="*60)
     print("ENROLLMENT AUTOMATION SYSTEM")
