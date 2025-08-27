@@ -1,0 +1,77 @@
+facility,client_id,expected_missing
+Shasta Regional Medical Center,H3280,638
+Summit Surgery Center at St. Mary's Galena,H3394,1
+Bio-Medical Services,H3130,2
+Centinela Hospital Medical Center,H3270,4
+Centinela Valley Endoscopy Center,H3272,0
+Chino Valley Medical Center,H3100,0
+Chino Valley Medical Center RNs,H3300,0
+Coshocton County Memorial Hospital,H3591,0
+CPCN Physicians Service (30) STM,H3564,0
+CPCN Physicians Service (32) STJ,H3565,0
+Dallas Medical Center,H3335,0
+Dallas Regional Medical Center,H3337,2
+Desert Valley Hospital,H3140,4
+Desert Valley Medical Group,H3150,0
+East Liverpool City Hospital,H3592,2
+Encino Hospital Medical Center,H3250,0
+Gadsden Physicians Management,H3339,0
+Garden City Hospital,H3375,3
+Garden City Medical Group,H3385,0
+Garden Grove Hospital Medical Center,H3260,1
+Harlingen Medical Center,H3370,1
+Holy Family Medical Center,H3660,0
+Huntington Beach Hospital,H3210,2
+Knapp Medical Center,H3355,0
+Knapp Medical Group,H3360,0
+La Palma Intercommunity Hospital,H3200,0
+Lake Huron Medical Center,H3381,1
+Lake Huron Medical Group,H3382,0
+Landmark Medical Center,H3392,3
+Lower Bucks Hospital,H3330,1
+MedSpace Services LLC,H3665,0
+Mercy Medical Center - Aurora LLC,H3605,0
+Mission Regional Medical Center,H3540,1
+Monroe Hospital,H3397,1
+Montclair Hospital Medical Center,H3160,2
+North Vista Hospital,H3398,5
+Ohio Valley Home Health Services,H3594,0
+Pampa Regional Medical Center,H3320,0
+Paradise Valley Hospital,H3230,2
+Paradise Valley Medical Group,H3240,0
+Physician's Surgery Center Downey,H3277,0
+Premiere Healthcare Staffing,H3115,0
+Prime Healthcare Home Care and Hospice,H3675,2
+Prime Healthcare Illinois Medical Group LLC,H3670,1
+Prime Healthcare Senior Living,H3680,0
+Prime Management Services,H3110,6
+Providence Medical Center,H3340,4
+Resurrection Medical Center - Chicago LLC,H3615,1
+River Valley Physicians,H3595,0
+Riverview Regional Medical Center,H3338,2
+Roxborough Memorial Hospital,H3325,0
+Saint Clare's Health System,H3500,12
+Saint Francis Hospital - Evanston LLC,H3625,0
+Saint Joseph Hospital - Elgin LLC,H3630,1
+Saint Joseph Hospital - Joliet LLC,H3635,0
+Saint Mary of Nazareth Hospital - Chicago LLC,H3655,1
+Saint Mary's General Hospital - Passaic NJ,H3505,3
+Saint Mary's Medical Group,H3396,2
+Saint Mary's Regional Medical Center,H3395,3
+San Dimas Community Hospital,H3170,2
+Shasta Medical Group,H3285,0
+Sherman Oaks Hospital,H3180,2
+Shoreline Surgery Center,H3276,0
+South Kansas City Surgical Center,H3562,1
+Southern Regional Medical Center,H3510,1
+St. Francis Medical Center,H3275,11
+St. John Hospital,H3345,1
+St. Joseph Medical Center,H3561,0
+St. Mary's Hospital - Kankakee LLC,H3645,1
+St. Mary's Medical Center,H3560,1
+St. Mary's Surgical Center,H3566,0
+St. Michael's Medical Center,H3530,0
+Suburban Community Hospital,H3598,0
+Suburban Medical Group,H3599,0
+United Home Health Services,H3380,0
+West Anaheim Medical Center,H3220,7
