@@ -48,9 +48,9 @@ goto end
 
 :process
 echo.
-echo Running main enrollment data processing...
+echo Running enrollment automation with 741 employee reconciliation...
 echo.
-python src\enrollment_data_processing.py
+python enrollment_automation_reconciled.py
 echo.
 echo Processing complete! Check the output folder for results.
 pause

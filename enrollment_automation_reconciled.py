@@ -806,7 +806,7 @@ def main():
     # FILE PATHS
     source_file = r"C:\Users\becas\Prime_EFR\data\input\source_data.xlsx"
     destination_file = r"C:\Users\becas\Prime_EFR\data\input\Prime Enrollment Funding by Facility for August.xlsx"
-    output_file = r"C:\Users\becas\Prime_EFR\data\input\Prime Enrollment Funding by Facility for August_reconciled.xlsx"
+    output_file = r"C:\Users\becas\Prime_EFR\data\input\Prime Enrollment Funding by Facility for August.xlsx"  # Overwrite original
     summary_csv = r"C:\Users\becas\Prime_EFR\output\enrollment_summary_reconciled.csv"
     recon_csv = r"C:\Users\becas\Prime_EFR\output\reconciliation_report.csv"
     

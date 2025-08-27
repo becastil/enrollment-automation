@@ -11,18 +11,19 @@ python --version
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run the enrollment automation
-python enrollment_automation_complete.py
+# 3. Run the enrollment automation with reconciliation
+python enrollment_automation_reconciled.py
 
 # 4. Or use the convenience script (Windows)
 run.bat
 ```
 
-### ✨ Latest Version (v3.3.0)
-- All critical fixes integrated into single main script
-- 741 missing employees issue resolved
-- Tier collapse bug fixed
-- Cleaner directory structure
+### ✨ Latest Version (v3.4.0)
+- Complete 741 missing employees reconciliation
+- H3280 Shasta Regional (638 employees) recovered
+- H3394 Summit Surgery fuzzy matching fixed
+- 102 employees across 40+ facilities recovered
+- Comprehensive reconciliation reporting
 
 ## 📋 Prerequisites
 
@@ -68,7 +69,7 @@ python -c "import pandas; import openpyxl; import numpy; print('All dependencies
 
 ```
 Prime_EFR/
-├── enrollment_automation_complete.py    # Main script with all fixes integrated
+├── enrollment_automation_reconciled.py  # Main script with 741 employee fix
 ├── src/                                 # Core application modules
 │   ├── enrollment_data_processing.py    # Main processing engine
 │   ├── enrollment_validator.py          # Data validation module
@@ -121,11 +122,11 @@ Prime_EFR/
 
 ### Main Enrollment Automation Script
 
-The `enrollment_automation_complete.py` script provides complete end-to-end enrollment processing with all fixes:
+The `enrollment_automation_reconciled.py` script provides complete end-to-end enrollment processing with 741 employee reconciliation:
 
 ```bash
 # Run the complete automation with all fixes
-python enrollment_automation_complete.py
+python enrollment_automation_reconciled.py
 
 # What it does:
 # 1. Reads source_data.xlsx from data/input/
@@ -485,6 +486,6 @@ Proprietary
 ---
 
 **Last Updated:** 2025-08-27  
-**Version:** 3.3.0  
+**Version:** 3.4.0  
 **Maintainer:** Data Analytics Team  
-**Status:** Production Ready - All critical fixes integrated into `enrollment_automation_complete.py`
+**Status:** Production Ready - 741 missing employees recovered in `enrollment_automation_reconciled.py`
