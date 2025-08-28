@@ -840,7 +840,7 @@ def write_to_specific_sheet(wb, sheet_name, write_map, tier_data, block_aggregat
     return write_log
 
 # Import write maps from separate file
-from write_maps_fixed import SHEET_WRITE_MAPS
+from write_maps import SHEET_WRITE_MAPS
 
 def perform_comprehensive_writeback(workbook_path, tier_data, block_aggregations, output_path=None, dry_run=False):
     """Perform comprehensive write-back to all configured sheets"""

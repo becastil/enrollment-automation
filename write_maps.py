@@ -449,7 +449,7 @@ SHEET_WRITE_MAPS = {
     'Lake Huron': LAKE_HURON_WRITE_MAP,
     'Providence & St John': PROVIDENCE_ST_JOHN_WRITE_MAP,  # Fixed: removed period
     'East Liverpool': EAST_LIVERPOOL_WRITE_MAP,  # Fixed: removed "City"
-    'St Joe & St Mary's': ST_JOE_ST_MARYS_WRITE_MAP,  # Added missing sheet
+    'St Joe & St Mary\'s': ST_JOE_ST_MARYS_WRITE_MAP,  # Added missing sheet
     'Illinois': ILLINOIS_WRITE_MAP,
 }
 
