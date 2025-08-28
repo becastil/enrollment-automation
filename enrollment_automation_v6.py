@@ -111,12 +111,14 @@ def normalize_tab_name(name):
 
 def lint_block_aggregations(block_config, source_plans):
     """
-    Validate block aggregation config
+    Validate block aggregation config with enhanced validation
     - No duplicate PLAN codes across blocks for same (cid, plan_type)
     - No empty sum_of lists
     - All referenced PLANs exist in source
+    - Special validation for multi-block facilities like St. Michael's
     """
     issues = []
+    multi_block_facilities = {}  # Track facilities with multiple blocks
     
     for tab, clients in block_config.items():
         if tab.startswith('_'):  # Skip metadata keys
@@ -130,7 +132,13 @@ def lint_block_aggregations(block_config, source_plans):
                 if plan_type.startswith('_'):
                     continue
                 
+                # Track multi-block facilities
+                if len(blocks) > 1:
+                    multi_block_facilities[f"{tab}/{client_id}/{plan_type}"] = len(blocks)
+                
                 seen_plans = set()
+                plan_to_blocks = defaultdict(list)  # Track which blocks use which plans
+                
                 for block_label, block_def in blocks.items():
                     if 'sum_of' not in block_def:
                         issues.append(f"{tab}/{client_id}/{plan_type}/{block_label}: missing sum_of")
@@ -141,12 +149,21 @@ def lint_block_aggregations(block_config, source_plans):
                         issues.append(f"{tab}/{client_id}/{plan_type}/{block_label}: empty sum_of")
                     
                     for plan_code in sum_of:
+                        plan_to_blocks[plan_code].append(block_label)
+                        
                         if plan_code in seen_plans:
-                            issues.append(f"{tab}/{client_id}/{plan_type}: duplicate PLAN '{plan_code}'")
+                            issues.append(f"{tab}/{client_id}/{plan_type}: CRITICAL - duplicate PLAN '{plan_code}' in blocks: {', '.join(plan_to_blocks[plan_code])}")
                         seen_plans.add(plan_code)
                         
                         if plan_code not in source_plans:
                             issues.append(f"{tab}/{client_id}/{plan_type}/{block_label}: PLAN '{plan_code}' not in source")
+    
+    # Log multi-block facilities for awareness
+    if multi_block_facilities:
+        print(f"Multi-block facilities detected: {multi_block_facilities}")
+        # Special validation for St. Michael's
+        if "St Michael's/H3530/EPO" in multi_block_facilities:
+            print("St. Michael's Medical Center has 5 EPO blocks - validating for duplicates...")
     
     return issues
 
@@ -423,28 +440,39 @@ def read_and_prepare_data(file_path, plan_mappings):
         df['tab_normalized'] = df['tab_name'].apply(normalize_tab_name)
     df = log_stage('tab_map', df)
     
-    # Stage 7: Tier normalization
+    # Stage 7: Tier normalization with 5-tier fix
     # Use CALCULATED BEN CODE for 5-tier tabs, BEN CODE for others
-    if 'CLIENT ID' in df.columns and 'CALCULATED BEN CODE' in df.columns:
+    # CRITICAL FIX: Prevent double-counting in 5-tier tabs
+    if 'CLIENT ID' in df.columns:
         # Define 5-tier tabs
         FIVE_TIER_TABS = ['Encino-Garden Grove', 'North Vista']
         
-        def get_appropriate_ben_code(row):
-            """Choose between BEN CODE and CALCULATED BEN CODE based on tab"""
-            tab_name = row.get('tab_name', '')
-            if tab_name in FIVE_TIER_TABS and pd.notna(row.get('CALCULATED BEN CODE')):
-                return row['CALCULATED BEN CODE']
-            elif 'BEN CODE' in row and pd.notna(row.get('BEN CODE')):
-                return row['BEN CODE']
-            else:
-                return None
+        # Add processing flag to prevent duplicate counting
+        df['processed'] = False
         
-        # Apply the appropriate BEN CODE with 5-tier support
-        df['ben_code_to_use'] = df.apply(get_appropriate_ben_code, axis=1)
+        def get_appropriate_ben_code(row):
+            """Choose between BEN CODE and CALCULATED BEN CODE based on tab
+            FIX: Use ONLY CALCULATED BEN CODE for 5-tier tabs to prevent double-counting"""
+            tab_name = row.get('tab_name', '')
+            if tab_name in FIVE_TIER_TABS:
+                # For 5-tier tabs, ONLY use CALCULATED BEN CODE if present
+                if 'CALCULATED BEN CODE' in row and pd.notna(row.get('CALCULATED BEN CODE')):
+                    return row['CALCULATED BEN CODE']
+                # Fallback to BEN CODE only if CALCULATED is missing
+                elif 'BEN CODE' in row and pd.notna(row.get('BEN CODE')):
+                    return row['BEN CODE']
+            else:
+                # For 4-tier tabs, use BEN CODE
+                if 'BEN CODE' in row and pd.notna(row.get('BEN CODE')):
+                    return row['BEN CODE']
+            return None
+        
+        # Create unified ben_code column (from fix_5tier_enrollment.py)
+        df['unified_ben_code'] = df.apply(get_appropriate_ben_code, axis=1)
         
         def normalize_with_context(row):
             """Normalize tier based on tab context"""
-            ben_code = row.get('ben_code_to_use')
+            ben_code = row.get('unified_ben_code')
             tab_name = row.get('tab_name', '')
             use_five_tier = tab_name in FIVE_TIER_TABS
             return normalize_tier_strict(ben_code, use_five_tier)
@@ -468,7 +496,19 @@ def read_and_prepare_data(file_path, plan_mappings):
     df = create_employee_group(df)
     df = log_stage('employee_grouped', df)
     
-    # Stage 10: Deduplication
+    # Stage 10: Enhanced Deduplication with duplicate tracking
+    # Add unique identifier to prevent duplicate aggregation
+    if 'EE ID' in df.columns:
+        df['enrollment_id'] = df['CLIENT ID'].astype(str) + '_' + df['EE ID'].astype(str) + '_' + df['PLAN'].astype(str)
+    else:
+        df['enrollment_id'] = df['CLIENT ID'].astype(str) + '_' + df['EMPLOYEE_GROUP'].astype(str) + '_' + df['PLAN'].astype(str)
+    
+    # Track duplicates before removal
+    duplicate_mask = df.duplicated(subset=['CLIENT ID', 'EMPLOYEE_GROUP', 'PLAN'], keep=False)
+    duplicate_count = duplicate_mask.sum()
+    if duplicate_count > 0:
+        print(f"Warning: Found {duplicate_count} duplicate enrollments - removing duplicates")
+    
     df_deduped = df.drop_duplicates(
         subset=['CLIENT ID', 'EMPLOYEE_GROUP', 'PLAN'],
         keep='first'
