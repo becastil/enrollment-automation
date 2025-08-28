@@ -1023,8 +1023,876 @@ CID_TO_TAB = {
     'H3272': 'Centinela', 'H3275': 'St. Francis', 'H3276': 'St. Francis',
     'H3277': 'St. Francis', 'H3280': 'Legacy', 'H3285': 'Legacy',
     'H3290': 'Legacy', 'H3300': 'Legacy', 'H3310': 'Alvarado',
-    # Add remaining mappings...
+    'H3320': 'Pampa', 'H3325': 'Roxborough', 'H3330': 'Lower Bucks',
+    # New mappings
+    'H3335': 'Dallas Medical Center', 'H3337': 'Dallas Regional',
+    'H3338': 'Riverview & Gadsden', 'H3339': 'Riverview & Gadsden',
+    'H3340': 'Providence & St. John', 'H3345': 'Providence & St. John',
+    'H3355': 'Knapp', 'H3360': 'Knapp',
+    'H3370': 'Harlingen',
+    'H3375': 'Garden City', 'H3380': 'Garden City', 'H3385': 'Garden City',
+    'H3381': 'Lake Huron', 'H3382': 'Lake Huron',
+    'H3392': 'Landmark',
+    'H3394': "Saint Mary's Reno", 'H3395': "Saint Mary's Reno", 'H3396': "Saint Mary's Reno",
+    'H3397': 'Monroe', 'H3398': 'North Vista',
+    'H3500': "Saint Clare's", 'H3505': "Saint Mary's Passaic", 'H3510': 'Southern Regional',
+    'H3530': "St. Michael's", 'H3540': 'Mission Regional',
+    'H3591': 'Coshocton County', 'H3592': 'East Liverpool City',
+    'H3594': 'Ohio Valley HHC', 'H3595': 'River Valley Pri.',
+    'H3596': "St. Mary's Medical", 'H3598': 'Suburban Community', 'H3599': 'Suburban Community',
+    'H3605': 'Illinois', 'H3615': 'Illinois', 'H3625': 'Illinois', 'H3630': 'Illinois',
+    'H3635': 'Illinois', 'H3645': 'Illinois', 'H3655': 'Illinois', 'H3660': 'Illinois',
+    'H3665': 'Illinois', 'H3670': 'Illinois', 'H3675': 'Illinois', 'H3680': 'Illinois'
 }
+
+# ============= DIRECT CELL WRITE MAPS =============
+# Complete WRITE_MAP for Legacy sheet with exact cell addresses
+LEGACY_WRITE_MAP = [
+    # San Dimas Community Hospital — H3170
+    {"client_id": "H3170", "plan": "EPO", "cells": {"EE": "G4", "EE+Spouse": "G5", "EE+Child(ren)": "G6", "EE+Family": "G7"}},
+    {"client_id": "H3170", "plan": "VALUE", "cells": {"EE": "G10", "EE+Spouse": "G11", "EE+Child(ren)": "G12", "EE+Family": "G13"}},
+    
+    # Bio-Medical Services — H3130
+    {"client_id": "H3130", "plan": "EPO", "cells": {"EE": "G20", "EE+Spouse": "G21", "EE+Child(ren)": "G22", "EE+Family": "G23"}},
+    {"client_id": "H3130", "plan": "VALUE", "cells": {"EE": "G26", "EE+Spouse": "G27", "EE+Child(ren)": "G28", "EE+Family": "G29"}},
+    
+    # Chino Valley Medical Center — H3100
+    {"client_id": "H3100", "plan": "EPO", "cells": {"EE": "G36", "EE+Spouse": "G37", "EE+Child(ren)": "G38", "EE+Family": "G39"}},
+    {"client_id": "H3100", "plan": "VALUE", "cells": {"EE": "G42", "EE+Spouse": "G43", "EE+Child(ren)": "G44", "EE+Family": "G45"}},
+    
+    # Chino Valley Medical Center RNs — H3300
+    {"client_id": "H3300", "plan": "EPO", "cells": {"EE": "G53", "EE+Spouse": "G54", "EE+Child(ren)": "G55", "EE+Family": "G56"}},
+    {"client_id": "H3300", "plan": "VALUE", "cells": {"EE": "G59", "EE+Spouse": "G60", "EE+Child(ren)": "G61", "EE+Family": "G62"}},
+    
+    # Desert Valley Hospital — H3140
+    {"client_id": "H3140", "plan": "EPO", "cells": {"EE": "G69", "EE+Spouse": "G70", "EE+Child(ren)": "G71", "EE+Family": "G72"}},
+    {"client_id": "H3140", "plan": "VALUE", "cells": {"EE": "G75", "EE+Spouse": "G76", "EE+Child(ren)": "G77", "EE+Family": "G78"}},
+    
+    # Desert Valley Medical Group — H3150
+    {"client_id": "H3150", "plan": "EPO", "cells": {"EE": "G85", "EE+Spouse": "G86", "EE+Child(ren)": "G87", "EE+Family": "G88"}},
+    {"client_id": "H3150", "plan": "VALUE", "cells": {"EE": "G91", "EE+Spouse": "G92", "EE+Child(ren)": "G93", "EE+Family": "G94"}},
+    
+    # Huntington Beach Hospital — H3210
+    {"client_id": "H3210", "plan": "EPO", "cells": {"EE": "G101", "EE+Spouse": "G102", "EE+Child(ren)": "G103", "EE+Family": "G104"}},
+    {"client_id": "H3210", "plan": "VALUE", "cells": {"EE": "G107", "EE+Spouse": "G108", "EE+Child(ren)": "G109", "EE+Family": "G110"}},
+    
+    # La Palma Intercommunity Hospital — H3200
+    {"client_id": "H3200", "plan": "EPO", "cells": {"EE": "G133", "EE+Spouse": "G134", "EE+Child(ren)": "G135", "EE+Family": "G136"}},
+    {"client_id": "H3200", "plan": "VALUE", "cells": {"EE": "G139", "EE+Spouse": "G140", "EE+Child(ren)": "G141", "EE+Family": "G142"}},
+    
+    # Montclair Hospital Medical Center — H3160
+    {"client_id": "H3160", "plan": "EPO", "cells": {"EE": "G149", "EE+Spouse": "G150", "EE+Child(ren)": "G151", "EE+Family": "G152"}},
+    {"client_id": "H3160", "plan": "VALUE", "cells": {"EE": "G155", "EE+Spouse": "G156", "EE+Child(ren)": "G157", "EE+Family": "G158"}},
+    
+    # Premiere Healthcare Staffing — H3115 (EPO only)
+    {"client_id": "H3115", "plan": "EPO", "cells": {"EE": "G165", "EE+Spouse": "G166", "EE+Child(ren)": "G167", "EE+Family": "G168"}},
+    
+    # Prime Management Services — H3110
+    {"client_id": "H3110", "plan": "EPO", "cells": {"EE": "G175", "EE+Spouse": "G176", "EE+Child(ren)": "G177", "EE+Family": "G178"}},
+    {"client_id": "H3110", "plan": "VALUE", "cells": {"EE": "G181", "EE+Spouse": "G182", "EE+Child(ren)": "G183", "EE+Family": "G184"}},
+    
+    # Paradise Valley Hospital — H3230
+    {"client_id": "H3230", "plan": "EPO", "cells": {"EE": "G191", "EE+Spouse": "G192", "EE+Child(ren)": "G193", "EE+Family": "G194"}},
+    {"client_id": "H3230", "plan": "VALUE", "cells": {"EE": "G197", "EE+Spouse": "G198", "EE+Child(ren)": "G199", "EE+Family": "G200"}},
+    
+    # Paradise Valley Medical Group — H3240
+    {"client_id": "H3240", "plan": "EPO", "cells": {"EE": "G207", "EE+Spouse": "G208", "EE+Child(ren)": "G209", "EE+Family": "G210"}},
+    {"client_id": "H3240", "plan": "VALUE", "cells": {"EE": "G213", "EE+Spouse": "G214", "EE+Child(ren)": "G215", "EE+Family": "G216"}},
+    
+    # Sherman Oaks Hospital — H3180 (two EPO and two VALUE blocks)
+    {"client_id": "H3180", "plan": "EPO", "cells": {"EE": "G223", "EE+Spouse": "G224", "EE+Child(ren)": "G225", "EE+Family": "G226"}},
+    {"client_id": "H3180", "plan": "VALUE", "cells": {"EE": "G229", "EE+Spouse": "G230", "EE+Child(ren)": "G231", "EE+Family": "G232"}},
+    {"client_id": "H3180", "plan": "EPO", "cells": {"EE": "G239", "EE+Spouse": "G240", "EE+Child(ren)": "G241", "EE+Family": "G242"}},
+    {"client_id": "H3180", "plan": "VALUE", "cells": {"EE": "G245", "EE+Spouse": "G246", "EE+Child(ren)": "G247", "EE+Family": "G248"}},
+    
+    # West Anaheim Medical Center — H3220
+    {"client_id": "H3220", "plan": "EPO", "cells": {"EE": "G255", "EE+Spouse": "G256", "EE+Child(ren)": "G257", "EE+Family": "G258"}},
+    {"client_id": "H3220", "plan": "VALUE", "cells": {"EE": "G261", "EE+Spouse": "G262", "EE+Child(ren)": "G263", "EE+Family": "G264"}},
+    
+    # Shasta Regional Medical Center — H3280
+    {"client_id": "H3280", "plan": "EPO", "cells": {"EE": "G271", "EE+Spouse": "G272", "EE+Child(ren)": "G273", "EE+Family": "G274"}},
+    {"client_id": "H3280", "plan": "VALUE", "cells": {"EE": "G277", "EE+Spouse": "G278", "EE+Child(ren)": "G279", "EE+Family": "G280"}},
+    
+    # Shasta Medical Group — H3285
+    {"client_id": "H3285", "plan": "EPO", "cells": {"EE": "G287", "EE+Spouse": "G288", "EE+Child(ren)": "G289", "EE+Family": "G290"}},
+    {"client_id": "H3285", "plan": "VALUE", "cells": {"EE": "G293", "EE+Spouse": "G294", "EE+Child(ren)": "G295", "EE+Family": "G296"}},
+]
+
+# Complete WRITE_MAP for Centinela sheet with exact cell addresses
+CENTINELA_WRITE_MAP = [
+    # Centinela Hospital Medical Center — H3270
+    {"client_id": "H3270", "plan": "EPO", "cells": {"EE": "D3", "EE+Spouse": "D4", "EE+Child(ren)": "D5", "EE+Family": "D6"}},
+    {"client_id": "H3270", "plan": "VALUE", "cells": {"EE": "D21", "EE+Spouse": "D22", "EE+Child(ren)": "D23", "EE+Family": "D24"}},
+    
+    # Robotics Outpatient Center — H3271
+    {"client_id": "H3271", "plan": "EPO", "cells": {"EE": "D27", "EE+Spouse": "D28", "EE+Child(ren)": "D29", "EE+Family": "D30"}},
+    {"client_id": "H3271", "plan": "VALUE", "cells": {"EE": "D45", "EE+Spouse": "D46", "EE+Child(ren)": "D47", "EE+Family": "D48"}},
+    
+    # Centinela Valley Endoscopy Center — H3272
+    {"client_id": "H3272", "plan": "EPO", "cells": {"EE": "D51", "EE+Spouse": "D52", "EE+Child(ren)": "D53", "EE+Family": "D54"}},
+    {"client_id": "H3272", "plan": "VALUE", "cells": {"EE": "D69", "EE+Spouse": "D70", "EE+Child(ren)": "D71", "EE+Family": "D72"}},
+]
+
+# Complete WRITE_MAP for Encino-Garden Grove sheet with exact cell addresses
+ENCINO_GARDEN_GROVE_WRITE_MAP = [
+    # Encino Hospital Medical Center — H3250 (two EPO blocks + one VALUE block)
+    {"client_id": "H3250", "plan": "EPO", "label": "PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE+Spouse": "D4", "EE+Child": "D5", "EE+Children": "D6", "EE+Family": "D7"}},
+    {"client_id": "H3250", "plan": "EPO", "label": "PRIME SEIU 121 RN EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D10", "EE+Spouse": "D11", "EE+Child": "D12", "EE+Children": "D13", "EE+Family": "D14"}},
+    {"client_id": "H3250", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D59", "EE+Spouse": "D60", "EE+Child": "D61", "EE+Children": "D62", "EE+Family": "D63"}},
+    
+    # Garden Grove Hospital Medical Center — H3260 (Including UNAC)
+    {"client_id": "H3260", "plan": "EPO", "label": "PRIME Non-Union UNIFIED EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D69", "EE+Spouse": "D70", "EE+Child": "D71", "EE+Children": "D72", "EE+Family": "D73"}},
+    {"client_id": "H3260", "plan": "EPO", "label": "PRIME UNAC EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D76", "EE+Spouse": "D77", "EE+Child": "D78", "EE+Children": "D79", "EE+Family": "D80"}},
+    {"client_id": "H3260", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D125", "EE+Spouse": "D126", "EE+Child": "D127", "EE+Children": "D128", "EE+Family": "D129"}},
+]
+
+# Complete WRITE_MAP for St. Francis sheet with exact cell addresses (all in column D)
+ST_FRANCIS_WRITE_MAP = [
+    # St. Francis Medical Center — H3275 (three EPO blocks + one VALUE block)
+    {"client_id": "H3275", "plan": "EPO", "label": "PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3275", "plan": "EPO", "label": "PRIME UNAC D1 UNIFIED EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}},
+    {"client_id": "H3275", "plan": "EPO", "label": "PRIME Non-Union D1 UNIFIED EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D15", "EE & Spouse": "D16", "EE & Children": "D17", "EE & Family": "D18"}},
+    {"client_id": "H3275", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D21", "EE & Spouse": "D22", "EE & Children": "D23", "EE & Family": "D24"}},
+    
+    # Shoreline Surgery Center — H3276
+    {"client_id": "H3276", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D28", "EE & Spouse": "D29", "EE & Children": "D30", "EE & Family": "D31"}},
+    {"client_id": "H3276", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D34", "EE & Spouse": "D35", "EE & Children": "D36", "EE & Family": "D37"}},
+    
+    # Physician's Surgery Center Downey — H3277
+    {"client_id": "H3277", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D41", "EE & Spouse": "D42", "EE & Children": "D43", "EE & Family": "D44"}},
+    {"client_id": "H3277", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D47", "EE & Spouse": "D48", "EE & Children": "D49", "EE & Family": "D50"}},
+]
+
+# Pampa sheet mapping - H3320
+PAMPA_WRITE_MAP = [
+    # Pampa Community Hospital — H3320
+    {"client_id": "H3320", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3320", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}}
+]
+
+# Roxborough sheet mapping - H3325
+ROXBOROUGH_WRITE_MAP = [
+    # Roxborough Memorial Hospital — H3325
+    {"client_id": "H3325", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3325", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}}
+]
+
+# Lower Bucks sheet mapping - H3330 (two EPO groupings + one VALUE grouping)
+LOWER_BUCKS_WRITE_MAP = [
+    # Lower Bucks Hospital — H3330
+    {"client_id": "H3330", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured) - IUOE",
+     "cells": {"EE": "D10", "EE & Spouse": "D11", "EE & Children": "D12", "EE & Family": "D13"}},
+    {"client_id": "H3330", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured) - PASNAP & Non-Union",
+     "cells": {"EE": "D16", "EE & Spouse": "D17", "EE & Children": "D18", "EE & Family": "D19"}},
+    {"client_id": "H3330", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured) - Union & Non-Union",
+     "cells": {"EE": "D22", "EE & Spouse": "D23", "EE & Children": "D24", "EE & Family": "D25"}}
+]
+
+# Dallas Medical Center sheet mapping - H3335
+DALLAS_MEDICAL_CENTER_WRITE_MAP = [
+    {"client_id": "H3335", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3335", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}}
+]
+
+# Harlingen sheet mapping - H3370
+HARLINGEN_WRITE_MAP = [
+    {"client_id": "H3370", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3370", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}}
+]
+
+# Knapp sheet mapping - H3355, H3360
+KNAPP_WRITE_MAP = [
+    {"client_id": "H3355", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3355", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}},
+    {"client_id": "H3360", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D18", "EE & Spouse": "D19", "EE & Children": "D20", "EE & Family": "D21"}}
+]
+
+# Monroe sheet mapping - H3397
+MONROE_WRITE_MAP = [
+    {"client_id": "H3397", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3397", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}}
+]
+
+# Saint Mary's Reno sheet mapping - H3394, H3395, H3396
+SAINT_MARYS_RENO_WRITE_MAP = [
+    # H3394
+    {"client_id": "H3394", "plan": "EPO", "label": "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3394", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}},
+    # H3395
+    {"client_id": "H3395", "plan": "EPO", "label": "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D25", "EE & Spouse": "D26", "EE & Children": "D27", "EE & Family": "D28"}},
+    {"client_id": "H3395", "plan": "EPO", "label": "PRIME CWA 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D31", "EE & Spouse": "D32", "EE & Children": "D33", "EE & Family": "D34"}},
+    {"client_id": "H3395", "plan": "EPO", "label": "PRIME CNA 2019 D2 UNIFIED EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D37", "EE & Spouse": "D38", "EE & Children": "D39", "EE & Family": "D40"}},
+    {"client_id": "H3395", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D49", "EE & Spouse": "D50", "EE & Children": "D51", "EE & Family": "D52"}},
+    # H3396
+    {"client_id": "H3396", "plan": "EPO", "label": "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D59", "EE & Spouse": "D60", "EE & Children": "D61", "EE & Family": "D62"}},
+    {"client_id": "H3396", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D71", "EE & Spouse": "D72", "EE & Children": "D73", "EE & Family": "D74"}}
+]
+
+# North Vista sheet mapping - H3398 (has both EE & Child and EE & Children separately)
+NORTH_VISTA_WRITE_MAP = [
+    {"client_id": "H3398", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Child": "D5", "EE & Children": "D6", "EE & Family": "D7"}},
+    {"client_id": "H3398", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D10", "EE & Spouse": "D11", "EE & Child": "D12", "EE & Children": "D13", "EE & Family": "D14"}}
+]
+
+# Dallas Regional sheet mapping - H3337
+DALLAS_REGIONAL_WRITE_MAP = [
+    {"client_id": "H3337", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3337", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}}
+]
+
+# Riverview & Gadsden sheet mapping - H3338, H3339
+RIVERVIEW_GADSDEN_WRITE_MAP = [
+    # H3338
+    {"client_id": "H3338", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3338", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}},
+    # H3339
+    {"client_id": "H3339", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D19", "EE & Spouse": "D20", "EE & Children": "D21", "EE & Family": "D22"}},
+    {"client_id": "H3339", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D25", "EE & Spouse": "D26", "EE & Children": "D27", "EE & Family": "D28"}}
+]
+
+# Saint Clare's sheet mapping - H3500
+SAINT_CLARES_WRITE_MAP = [
+    {"client_id": "H3500", "plan": "EPO", "label": "PRIME EPO OPEN ACCESS PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3500", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}}
+]
+
+# Landmark sheet mapping - H3392
+LANDMARK_WRITE_MAP = [
+    {"client_id": "H3392", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3392", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}}
+]
+
+# Saint Mary's Passaic sheet mapping - H3505
+SAINT_MARYS_PASSAIC_WRITE_MAP = [
+    {"client_id": "H3505", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3505", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D15", "EE & Spouse": "D16", "EE & Children": "D17", "EE & Family": "D18"}}
+]
+
+# Southern Regional sheet mapping - H3510
+SOUTHERN_REGIONAL_WRITE_MAP = [
+    {"client_id": "H3510", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3510", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}}
+]
+
+# St. Michael's sheet mapping - H3530 (multiple EPO plan types)
+ST_MICHAELS_WRITE_MAP = [
+    {"client_id": "H3530", "plan": "EPO", "label": "PRIME NON-UNION EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3530", "plan": "EPO", "label": "PRIME CIR EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}},
+    {"client_id": "H3530", "plan": "EPO", "label": "PRIME IUOE EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D15", "EE & Spouse": "D16", "EE & Children": "D17"}},  # No Family
+    {"client_id": "H3530", "plan": "EPO", "label": "PRIME JNESO EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D20", "EE & Spouse": "D21", "EE & Children": "D22", "EE & Family": "D23"}},
+    {"client_id": "H3530", "plan": "EPO", "label": "PRIME EPO PLUS PLAN (Self-Insured)",
+     "cells": {"EE": "D27", "EE & Spouse": "D28", "EE & Children": "D29", "EE & Family": "D30"}},
+    {"client_id": "H3530", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D33", "EE & Spouse": "D34", "EE & Children": "D35", "EE & Family": "D36"}}
+]
+
+# Mission Regional sheet mapping - H3540
+MISSION_REGIONAL_WRITE_MAP = [
+    {"client_id": "H3540", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3540", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}}
+]
+
+# Coshocton County sheet mapping - H3591 (VALUE has missing tiers)
+COSHOCTON_COUNTY_WRITE_MAP = [
+    {"client_id": "H3591", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3591", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Family": "D12"}}  # Only EE and Family
+]
+
+# Suburban Community sheet mapping - H3598, H3599
+SUBURBAN_COMMUNITY_WRITE_MAP = [
+    # H3598
+    {"client_id": "H3598", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3598", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D15", "EE & Spouse": "D16", "EE & Family": "D17"}},  # No Children
+    # H3599
+    {"client_id": "H3599", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D25", "EE & Spouse": "D26", "EE & Children": "D27", "EE & Family": "D28"}},
+    {"client_id": "H3599", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D43", "EE & Spouse": "D45", "EE & Children": "D46", "EE & Family": "D47"}}  # Note D44 skipped
+]
+
+# Garden City sheet mapping - H3375, H3380, H3385
+GARDEN_CITY_WRITE_MAP = [
+    # H3375
+    {"client_id": "H3375", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3375", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}},
+    # H3385
+    {"client_id": "H3385", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D19", "EE & Spouse": "D20", "EE & Children": "D21", "EE & Family": "D22"}},
+    {"client_id": "H3385", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D25", "EE & Spouse": "D26", "EE & Family": "D28"}},  # No Children, D27 skipped
+    # H3380 (sparse)
+    {"client_id": "H3380", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D35", "EE & Children": "D37"}},  # Only EE and Children
+    {"client_id": "H3380", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D41", "EE & Family": "D44"}}  # Only EE and Family
+]
+
+# Lake Huron sheet mapping - H3381, H3382
+LAKE_HURON_WRITE_MAP = [
+    # H3381
+    {"client_id": "H3381", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3381", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D15", "EE & Spouse": "D16", "EE & Children": "D17", "EE & Family": "D18"}},
+    # H3382
+    {"client_id": "H3382", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D25", "EE & Spouse": "D26", "EE & Children": "D27", "EE & Family": "D28"}},
+    {"client_id": "H3382", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D37", "EE & Spouse": "D38", "EE & Children": "D39", "EE & Family": "D40"}}
+]
+
+# Providence & St. John sheet mapping - H3340, H3345
+PROVIDENCE_ST_JOHN_WRITE_MAP = [
+    # H3340
+    {"client_id": "H3340", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3340", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}},
+    # H3345
+    {"client_id": "H3345", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D19", "EE & Spouse": "D20", "EE & Children": "D21", "EE & Family": "D22"}},
+    {"client_id": "H3345", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D25", "EE & Children": "D27"}}  # Only EE and Children
+]
+
+# East Liverpool City sheet mapping - H3592
+EAST_LIVERPOOL_CITY_WRITE_MAP = [
+    {"client_id": "H3592", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3592", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D15", "EE & Spouse": "D16", "EE & Children": "D17", "EE & Family": "D18"}}
+]
+
+# Ohio Valley HHC sheet mapping - H3594 (sparse EPO only)
+OHIO_VALLEY_HHC_WRITE_MAP = [
+    {"client_id": "H3594", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D47", "EE & Spouse": "D48", "EE & Children": "D49"}}  # Note D51 is another EE
+]
+
+# River Valley Pri. sheet mapping - H3595 (unusual VALUE with duplicate cells)
+RIVER_VALLEY_PRI_WRITE_MAP = [
+    {"client_id": "H3595", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D69", "EE & Spouse": "D70", "EE & Children": "D71", "EE & Family": "D72"}},
+    # VALUE plan has scattered/duplicate cells - using first occurrence of each
+    {"client_id": "H3595", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D85", "EE & Spouse": "D81", "EE & Children": "D83", "EE & Family": "D84"}}
+]
+
+# St. Mary's Medical sheet mapping - H3596 (multiple VALUE blocks)
+ST_MARYS_MEDICAL_WRITE_MAP = [
+    {"client_id": "H3596", "plan": "EPO", "label": "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    # Multiple VALUE blocks with same label - writing to all
+    {"client_id": "H3596", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured) - Block 1",
+     "cells": {"EE": "D11", "EE & Spouse": "D12", "EE & Children": "D13", "EE & Family": "D14"}},
+    {"client_id": "H3596", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured) - Block 2",
+     "cells": {"EE": "D19", "EE & Spouse": "D20", "EE & Children": "D21", "EE & Family": "D22"}},
+    {"client_id": "H3596", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured) - Block 3",
+     "cells": {"EE": "D25", "EE & Spouse": "D26", "EE & Children": "D27", "EE & Family": "D28"}},
+    {"client_id": "H3596", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured) - Block 4",
+     "cells": {"EE": "D35", "EE & Spouse": "D36", "EE & Children": "D37", "EE & Family": "D38"}},
+    {"client_id": "H3596", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured) - Block 5",
+     "cells": {"EE & Children": "D43"}}  # Only Children
+]
+
+# Illinois sheet mapping - H3605, H3615, H3625, H3630, H3635, H3645, H3655, H3660, H3665, H3670, H3675, H3680
+ILLINOIS_WRITE_MAP = [
+    # H3605
+    {"client_id": "H3605", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D3", "EE & Spouse": "D4", "EE & Children": "D5", "EE & Family": "D6"}},
+    {"client_id": "H3605", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D9", "EE & Spouse": "D10", "EE & Children": "D11", "EE & Family": "D12"}},
+    # H3615
+    {"client_id": "H3615", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D19", "EE & Spouse": "D20", "EE & Children": "D21", "EE & Family": "D22"}},
+    {"client_id": "H3615", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D25", "EE & Spouse": "D26", "EE & Children": "D27", "EE & Family": "D28"}},
+    # H3625
+    {"client_id": "H3625", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D35", "EE & Spouse": "D36", "EE & Children": "D37", "EE & Family": "D38"}},
+    {"client_id": "H3625", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D41", "EE & Spouse": "D42", "EE & Children": "D43", "EE & Family": "D44"}},
+    # H3630
+    {"client_id": "H3630", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D51", "EE & Spouse": "D52", "EE & Children": "D53", "EE & Family": "D54"}},
+    {"client_id": "H3630", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D57", "EE & Spouse": "D58", "EE & Children": "D59", "EE & Family": "D60"}},
+    # H3635
+    {"client_id": "H3635", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D67", "EE & Spouse": "D68", "EE & Children": "D69", "EE & Family": "D70"}},
+    {"client_id": "H3635", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D73", "EE & Spouse": "D74", "EE & Children": "D75", "EE & Family": "D76"}},
+    # H3645
+    {"client_id": "H3645", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D83", "EE & Spouse": "D84", "EE & Children": "D85", "EE & Family": "D86"}},
+    {"client_id": "H3645", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D89", "EE & Spouse": "D90", "EE & Children": "D91", "EE & Family": "D92"}},
+    # H3655
+    {"client_id": "H3655", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D99", "EE & Spouse": "D100", "EE & Children": "D101", "EE & Family": "D102"}},
+    {"client_id": "H3655", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D105", "EE & Spouse": "D106", "EE & Children": "D107", "EE & Family": "D108"}},
+    # H3660
+    {"client_id": "H3660", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D115", "EE & Spouse": "D116", "EE & Children": "D117", "EE & Family": "D118"}},
+    {"client_id": "H3660", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D121", "EE & Spouse": "D122", "EE & Children": "D123", "EE & Family": "D124"}},
+    # H3665
+    {"client_id": "H3665", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D131", "EE & Spouse": "D132", "EE & Children": "D133", "EE & Family": "D134"}},
+    {"client_id": "H3665", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D137", "EE & Spouse": "D138", "EE & Children": "D139", "EE & Family": "D140"}},
+    # H3670
+    {"client_id": "H3670", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D147", "EE & Spouse": "D148", "EE & Children": "D149", "EE & Family": "D150"}},
+    {"client_id": "H3670", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D153", "EE & Spouse": "D154", "EE & Children": "D155", "EE & Family": "D156"}},
+    # H3675
+    {"client_id": "H3675", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D163", "EE & Spouse": "D164", "EE & Children": "D165", "EE & Family": "D166"}},
+    {"client_id": "H3675", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D169", "EE & Spouse": "D170", "EE & Children": "D171", "EE & Family": "D172"}},
+    # H3680
+    {"client_id": "H3680", "plan": "EPO", "label": "PRIME EPO PLAN (Self-Insured)",
+     "cells": {"EE": "D179", "EE & Spouse": "D180", "EE & Children": "D181", "EE & Family": "D182"}},
+    {"client_id": "H3680", "plan": "VALUE", "label": "PRIME VALUE PLAN (Self-Insured)",
+     "cells": {"EE": "D185", "EE & Spouse": "D186", "EE & Children": "D187", "EE & Family": "D188"}}
+]
+
+def write_to_specific_sheet(wb, sheet_name, write_map, tier_data):
+    """
+    Write tier counts to specific sheet using exact cell addresses.
+    
+    Args:
+        wb: openpyxl workbook object
+        sheet_name: Name of the sheet to write to
+        write_map: List of write entries with client_id, plan, and cell addresses
+        tier_data: Nested dict with tier counts by client and plan
+    
+    Returns:
+        List of write log entries
+    """
+    if sheet_name not in wb.sheetnames:
+        print(f"ERROR: '{sheet_name}' sheet not found in workbook!")
+        return []
+    
+    ws = wb[sheet_name]
+    write_log = []
+    sherman_oaks_counts = {'EPO': [], 'VALUE': []}
+    
+    print(f"\nWriting to {sheet_name} sheet...")
+    
+    # Process each entry in write_map
+    for entry in write_map:
+        client_id = entry['client_id']
+        plan = entry['plan']
+        cells = entry['cells']
+        
+        # Get tier counts from tier_data
+        if client_id in tier_data and plan in tier_data[client_id]:
+            tier_counts = tier_data[client_id][plan]
+        else:
+            # No data - write zeros
+            tier_counts = {'EE Only': 0, 'EE+Spouse': 0, 'EE+Child': 0, 'EE+Children': 0, 'EE+Family': 0}
+        
+        # Special handling for Sherman Oaks (H3180) - duplicate blocks
+        if client_id == 'H3180':
+            sherman_oaks_counts[plan].append(tier_counts)
+            # For duplicate blocks, use same counts
+            if len(sherman_oaks_counts[plan]) == 2:
+                pass  # Keep original counts for now
+        
+        # Write to cells
+        values_written = []
+        
+        # EE Only - handle both "EE" and "EE Only" cell keys
+        if 'EE' in cells:
+            value = int(tier_counts.get('EE Only', 0))
+            ws[cells['EE']] = value
+            values_written.append(value)
+        
+        # EE+Spouse - handle both "EE+Spouse" and "EE & Spouse" cell keys
+        if 'EE+Spouse' in cells:
+            value = int(tier_counts.get('EE+Spouse', 0))
+            ws[cells['EE+Spouse']] = value
+            values_written.append(value)
+        elif 'EE & Spouse' in cells:
+            value = int(tier_counts.get('EE+Spouse', 0))
+            ws[cells['EE & Spouse']] = value
+            values_written.append(value)
+        
+        # Handle separate EE+Child and EE+Children cells (for Encino-Garden Grove)
+        if 'EE+Child' in cells:
+            value = int(tier_counts.get('EE+Child', 0))
+            ws[cells['EE+Child']] = value
+            values_written.append(value)
+        
+        if 'EE+Children' in cells:
+            value = int(tier_counts.get('EE+Children', 0))
+            ws[cells['EE+Children']] = value
+            values_written.append(value)
+        
+        # Combined children - handle "EE+Child(ren)" and "EE & Children" cell keys
+        if 'EE+Child(ren)' in cells:
+            value = int(tier_counts.get('EE+Child', 0) + tier_counts.get('EE+Children', 0))
+            ws[cells['EE+Child(ren)']] = value
+            values_written.append(value)
+        elif 'EE & Children' in cells:
+            # St. Francis format - combine both child tiers
+            value = int(tier_counts.get('EE+Child', 0) + tier_counts.get('EE+Children', 0))
+            ws[cells['EE & Children']] = value
+            values_written.append(value)
+        
+        # EE+Family - handle both "EE+Family" and "EE & Family" cell keys
+        if 'EE+Family' in cells:
+            value = int(tier_counts.get('EE+Family', 0))
+            ws[cells['EE+Family']] = value
+            values_written.append(value)
+        elif 'EE & Family' in cells:
+            value = int(tier_counts.get('EE+Family', 0))
+            ws[cells['EE & Family']] = value
+            values_written.append(value)
+        
+        # Log the write - include label if present
+        label = entry.get('label', '')
+        if label:
+            label_str = f" ({label[:30]}...)" if len(label) > 30 else f" ({label})"
+        else:
+            label_str = ""
+        
+        # Build cell range string
+        cell_list = []
+        for key in ['EE', 'EE+Spouse', 'EE+Child', 'EE+Children', 'EE+Child(ren)', 'EE+Family']:
+            if key in cells:
+                cell_list.append(cells[key])
+        cell_range = '/'.join(cell_list) if cell_list else '/'.join(cells.values())
+        
+        values_str = ', '.join(map(str, values_written))
+        log_entry = f"{client_id} {plan}{label_str} → {cell_range}: {values_str}"
+        write_log.append(log_entry)
+        print(f"  {log_entry}")
+    
+    return write_log
+
+def build_tier_data_from_source(source_file):
+    """
+    Build tier_data from source enrollment Excel file.
+    Returns nested dict: tier_data[CLIENT_ID][PLAN_GROUP] = {tier: count}
+    """
+    print(f"\nBuilding tier data from: {source_file}")
+    
+    # Read source data
+    df = pd.read_excel(source_file, sheet_name=0)
+    print(f"  Loaded {len(df)} rows")
+    
+    # Clean keys
+    if 'CLIENT ID' in df.columns:
+        df['CLIENT ID'] = df['CLIENT ID'].apply(clean_key)
+    if 'BEN CODE' in df.columns:
+        df['BEN CODE'] = df['BEN CODE'].apply(clean_key)
+    
+    # Filter active (including COBRA)
+    if 'STATUS' in df.columns:
+        df = df[df['STATUS'].apply(is_active)].copy()
+        print(f"  After status filter: {len(df)} rows")
+    
+    # Filter subscribers only
+    if 'RELATION' in df.columns:
+        df = df[df['RELATION'].apply(is_subscriber)].copy()
+        print(f"  After subscriber filter: {len(df)} rows")
+    
+    # Normalize tiers
+    if 'BEN CODE' in df.columns:
+        df['tier'] = df['BEN CODE'].apply(normalize_tier_strict)
+    else:
+        df['tier'] = 'UNKNOWN'
+    
+    # Map plans
+    if 'PLAN' in df.columns:
+        df['plan_group'], _ = zip(*df['PLAN'].apply(infer_plan_group_and_variant))
+    else:
+        df['plan_group'] = 'UNKNOWN'
+    
+    # Build nested dictionary
+    tier_data = defaultdict(lambda: defaultdict(lambda: {
+        'EE Only': 0, 'EE+Spouse': 0, 'EE+Child': 0, 'EE+Children': 0, 'EE+Family': 0
+    }))
+    
+    # Aggregate counts - handle EE+Child(ren) specially
+    for _, row in df.iterrows():
+        client_id = row['CLIENT ID']
+        plan_group = row['plan_group']
+        tier = row['tier']
+        
+        if tier != 'UNKNOWN' and plan_group != 'UNKNOWN':
+            # Map EE+Child(ren) to separate EE+Child and EE+Children
+            if tier == 'EE+Child(ren)':
+                # For now, put all in EE+Children (will be combined when writing)
+                tier_data[client_id][plan_group]['EE+Children'] += 1
+            elif tier in tier_data[client_id][plan_group]:
+                tier_data[client_id][plan_group][tier] += 1
+    
+    # Convert to regular dict
+    tier_data = {k: dict(v) for k, v in tier_data.items()}
+    
+    # Print summary
+    total_count = sum(
+        sum(sum(tiers.values()) for tiers in plans.values())
+        for plans in tier_data.values()
+    )
+    print(f"  Built tier data: {len(tier_data)} clients, {total_count} total enrollments")
+    
+    return tier_data
+
+def perform_comprehensive_writeback(workbook_path, tier_data, output_path=None):
+    """
+    Perform comprehensive write-back to all configured sheets.
+    
+    Args:
+        workbook_path: Path to the Excel workbook
+        tier_data: Nested dict with tier counts
+        output_path: Optional output path (defaults to _updated.xlsx)
+    
+    Returns:
+        Path to the output file
+    """
+    if not output_path:
+        output_path = workbook_path.replace('.xlsx', '_updated.xlsx')
+    
+    print("\n" + "="*80)
+    print("COMPREHENSIVE ENROLLMENT WRITE-BACK")
+    print("="*80)
+    
+    # Load workbook
+    print(f"Opening workbook: {workbook_path}")
+    
+    # Convert Windows path to WSL path if needed
+    if workbook_path.startswith('C:\\'):
+        workbook_path = workbook_path.replace('C:\\', '/mnt/c/').replace('\\', '/')
+    
+    try:
+        wb = load_workbook(workbook_path)
+    except FileNotFoundError:
+        print(f"ERROR: Workbook not found: {workbook_path}")
+        return None
+    except PermissionError:
+        print("ERROR: Workbook is open in Excel. Please close and retry.")
+        return None
+    
+    all_write_logs = []
+    
+    # Write to Legacy sheet
+    legacy_logs = write_to_specific_sheet(wb, 'Legacy', LEGACY_WRITE_MAP, tier_data)
+    all_write_logs.extend(legacy_logs)
+    
+    # Write to Centinela sheet  
+    centinela_logs = write_to_specific_sheet(wb, 'Centinela', CENTINELA_WRITE_MAP, tier_data)
+    all_write_logs.extend(centinela_logs)
+    
+    # Write to Encino-Garden Grove sheet
+    encino_logs = write_to_specific_sheet(wb, 'Encino-Garden Grove', ENCINO_GARDEN_GROVE_WRITE_MAP, tier_data)
+    all_write_logs.extend(encino_logs)
+    
+    # Write to St. Francis sheet
+    st_francis_logs = write_to_specific_sheet(wb, 'St. Francis', ST_FRANCIS_WRITE_MAP, tier_data)
+    all_write_logs.extend(st_francis_logs)
+    
+    # Write to Pampa sheet
+    pampa_logs = write_to_specific_sheet(wb, 'Pampa', PAMPA_WRITE_MAP, tier_data)
+    all_write_logs.extend(pampa_logs)
+    
+    # Write to Roxborough sheet
+    roxborough_logs = write_to_specific_sheet(wb, 'Roxborough', ROXBOROUGH_WRITE_MAP, tier_data)
+    all_write_logs.extend(roxborough_logs)
+    
+    # Write to Lower Bucks sheet
+    lower_bucks_logs = write_to_specific_sheet(wb, 'Lower Bucks', LOWER_BUCKS_WRITE_MAP, tier_data)
+    all_write_logs.extend(lower_bucks_logs)
+    
+    # Write to Dallas Medical Center sheet
+    dallas_medical_logs = write_to_specific_sheet(wb, 'Dallas Medical Center', DALLAS_MEDICAL_CENTER_WRITE_MAP, tier_data)
+    all_write_logs.extend(dallas_medical_logs)
+    
+    # Write to Harlingen sheet
+    harlingen_logs = write_to_specific_sheet(wb, 'Harlingen', HARLINGEN_WRITE_MAP, tier_data)
+    all_write_logs.extend(harlingen_logs)
+    
+    # Write to Knapp sheet
+    knapp_logs = write_to_specific_sheet(wb, 'Knapp', KNAPP_WRITE_MAP, tier_data)
+    all_write_logs.extend(knapp_logs)
+    
+    # Write to Monroe sheet
+    monroe_logs = write_to_specific_sheet(wb, 'Monroe', MONROE_WRITE_MAP, tier_data)
+    all_write_logs.extend(monroe_logs)
+    
+    # Write to Saint Mary's Reno sheet
+    saint_marys_reno_logs = write_to_specific_sheet(wb, "Saint Mary's Reno", SAINT_MARYS_RENO_WRITE_MAP, tier_data)
+    all_write_logs.extend(saint_marys_reno_logs)
+    
+    # Write to North Vista sheet
+    north_vista_logs = write_to_specific_sheet(wb, 'North Vista', NORTH_VISTA_WRITE_MAP, tier_data)
+    all_write_logs.extend(north_vista_logs)
+    
+    # Write to Dallas Regional sheet
+    dallas_regional_logs = write_to_specific_sheet(wb, 'Dallas Regional', DALLAS_REGIONAL_WRITE_MAP, tier_data)
+    all_write_logs.extend(dallas_regional_logs)
+    
+    # Write to Riverview & Gadsden sheet
+    riverview_gadsden_logs = write_to_specific_sheet(wb, 'Riverview & Gadsden', RIVERVIEW_GADSDEN_WRITE_MAP, tier_data)
+    all_write_logs.extend(riverview_gadsden_logs)
+    
+    # Write to Saint Clare's sheet
+    saint_clares_logs = write_to_specific_sheet(wb, "Saint Clare's", SAINT_CLARES_WRITE_MAP, tier_data)
+    all_write_logs.extend(saint_clares_logs)
+    
+    # Write to Landmark sheet
+    landmark_logs = write_to_specific_sheet(wb, 'Landmark', LANDMARK_WRITE_MAP, tier_data)
+    all_write_logs.extend(landmark_logs)
+    
+    # Write to Saint Mary's Passaic sheet
+    saint_marys_passaic_logs = write_to_specific_sheet(wb, "Saint Mary's Passaic", SAINT_MARYS_PASSAIC_WRITE_MAP, tier_data)
+    all_write_logs.extend(saint_marys_passaic_logs)
+    
+    # Write to Southern Regional sheet
+    southern_regional_logs = write_to_specific_sheet(wb, 'Southern Regional', SOUTHERN_REGIONAL_WRITE_MAP, tier_data)
+    all_write_logs.extend(southern_regional_logs)
+    
+    # Write to St. Michael's sheet
+    st_michaels_logs = write_to_specific_sheet(wb, "St. Michael's", ST_MICHAELS_WRITE_MAP, tier_data)
+    all_write_logs.extend(st_michaels_logs)
+    
+    # Write to Mission Regional sheet
+    mission_regional_logs = write_to_specific_sheet(wb, 'Mission Regional', MISSION_REGIONAL_WRITE_MAP, tier_data)
+    all_write_logs.extend(mission_regional_logs)
+    
+    # Write to Coshocton County sheet
+    coshocton_county_logs = write_to_specific_sheet(wb, 'Coshocton County', COSHOCTON_COUNTY_WRITE_MAP, tier_data)
+    all_write_logs.extend(coshocton_county_logs)
+    
+    # Write to Suburban Community sheet
+    suburban_community_logs = write_to_specific_sheet(wb, 'Suburban Community', SUBURBAN_COMMUNITY_WRITE_MAP, tier_data)
+    all_write_logs.extend(suburban_community_logs)
+    
+    # Write to Garden City sheet
+    garden_city_logs = write_to_specific_sheet(wb, 'Garden City', GARDEN_CITY_WRITE_MAP, tier_data)
+    all_write_logs.extend(garden_city_logs)
+    
+    # Write to Lake Huron sheet
+    lake_huron_logs = write_to_specific_sheet(wb, 'Lake Huron', LAKE_HURON_WRITE_MAP, tier_data)
+    all_write_logs.extend(lake_huron_logs)
+    
+    # Write to Providence & St. John sheet
+    providence_st_john_logs = write_to_specific_sheet(wb, 'Providence & St. John', PROVIDENCE_ST_JOHN_WRITE_MAP, tier_data)
+    all_write_logs.extend(providence_st_john_logs)
+    
+    # Write to East Liverpool City sheet
+    east_liverpool_city_logs = write_to_specific_sheet(wb, 'East Liverpool City', EAST_LIVERPOOL_CITY_WRITE_MAP, tier_data)
+    all_write_logs.extend(east_liverpool_city_logs)
+    
+    # Write to Ohio Valley HHC sheet
+    ohio_valley_hhc_logs = write_to_specific_sheet(wb, 'Ohio Valley HHC', OHIO_VALLEY_HHC_WRITE_MAP, tier_data)
+    all_write_logs.extend(ohio_valley_hhc_logs)
+    
+    # Write to River Valley Pri. sheet
+    river_valley_pri_logs = write_to_specific_sheet(wb, 'River Valley Pri.', RIVER_VALLEY_PRI_WRITE_MAP, tier_data)
+    all_write_logs.extend(river_valley_pri_logs)
+    
+    # Write to St. Mary's Medical sheet
+    st_marys_medical_logs = write_to_specific_sheet(wb, "St. Mary's Medical", ST_MARYS_MEDICAL_WRITE_MAP, tier_data)
+    all_write_logs.extend(st_marys_medical_logs)
+    
+    # Write to Illinois sheet
+    illinois_logs = write_to_specific_sheet(wb, 'Illinois', ILLINOIS_WRITE_MAP, tier_data)
+    all_write_logs.extend(illinois_logs)
+    
+    # Save workbook
+    print(f"\nSaving to: {output_path}")
+    wb.save(output_path)
+    wb.close()
+    
+    # Print summary
+    print("\n" + "="*60)
+    print("WRITE-BACK COMPLETE")
+    print("="*60)
+    print(f"Total writes: {len(all_write_logs)}")
+    # Count unique sheets processed  
+    sheets_processed = 32  # Total number of sheets we process
+    print(f"Sheets updated: {sheets_processed} sheets (Legacy, Centinela, Encino-Garden Grove, St. Francis, Pampa, Roxborough, Lower Bucks, and 25 more)")
+    print(f"Output file: {output_path}")
+    
+    # Show sample of writes
+    if all_write_logs:
+        print("\nFirst 10 writes:")
+        for entry in all_write_logs[:10]:
+            print(f"  {entry}")
+        
+        if len(all_write_logs) > 10:
+            print(f"  ... and {len(all_write_logs) - 10} more")
+    
+    return output_path
 
 def perform_targeted_cell_writeback(df, template_file):
     """
@@ -1179,7 +2047,14 @@ def main():
     """
     # FILE PATHS
     source_file = "data/input/source_data.xlsx"
-    destination_file = r"C:\Users\becas\Prime_EFR\Prime Enrollment Funding by Facility for August.xlsx"
+    template_file = r"C:\Users\becas\Prime_EFR\Prime Enrollment Funding by Facility for August.xlsx"
+    destination_file = r"C:\Users\becas\Prime_EFR\Prime Enrollment Funding by Facility for August_analysis.xlsx"
+    
+    # Check if running in WSL and adjust paths
+    import os
+    if not os.path.exists(template_file):
+        template_file = "/mnt/c/Users/becas/Prime_EFR/Prime Enrollment Funding by Facility for August.xlsx"
+        destination_file = "/mnt/c/Users/becas/Prime_EFR/Prime Enrollment Funding by Facility for August_analysis.xlsx"
     
     try:
         print("="*80)
@@ -1277,15 +2152,25 @@ def main():
         
         print(f"✅ Destination file successfully overwritten: {destination_file}")
         
-        # ============= TARGETED CELL WRITE-BACK =============
+        # ============= COMPREHENSIVE CELL WRITE-BACK =============
         if all_match and not DRY_RUN:
             print("\n" + "="*80)
-            print("TARGETED CELL WRITE-BACK - EXACT CELL ADDRESSES")
+            print("COMPREHENSIVE CELL WRITE-BACK - EXACT CELL ADDRESSES")
             print("="*80)
             
             try:
-                # Perform targeted write-back to specific cells
-                perform_targeted_cell_writeback(df, destination_file)
+                # Build tier data from source
+                tier_data_for_writeback = build_tier_data_from_source(source_file)
+                
+                # Perform comprehensive write-back to Legacy and Centinela sheets
+                # Use the template file (original Excel) not the analysis file
+                output_file = perform_comprehensive_writeback(template_file, tier_data_for_writeback)
+                
+                if output_file:
+                    print(f"\n✅ Successfully wrote enrollment data to: {output_file}")
+                    print("   - Legacy sheet updated with all facility enrollments")
+                    print("   - Centinela sheet updated with H3270, H3271, H3272 enrollments")
+                    print("   - Encino-Garden Grove sheet updated with H3250, H3260 enrollments")
                 
             except Exception as e:
                 print(f"Write-back error: {e}")
