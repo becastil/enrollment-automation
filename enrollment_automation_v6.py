@@ -908,10 +908,10 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Enrollment Automation V6 - Declarative Aggregations')
-    parser.add_argument('--source', default='data/input/source_data.xlsx',
+    parser.add_argument('--source', default='C:\\Users\\becas\\Prime_EFR\\data\\input\\source_data.xlsx',
                        help='Source data file path')
     parser.add_argument('--workbook', 
-                       default='Prime Enrollment Funding by Facility for August.xlsx',
+                       default='C:\\Users\\becas\\Prime_EFR\\Prime Enrollment Funding by Facility for August.xlsx',
                        help='Template workbook path')
     parser.add_argument('--output', help='Output file path (optional)')
     parser.add_argument('--strict-control', action='store_true', default=True,
