@@ -51,20 +51,6 @@
         }
       },
       "_children_policy": "split"
-    },
-    "H3220": {
-      "_comment": "West Anaheim Medical Center - simple mapping",
-      "EPO": {
-        "PRIME EPO PLAN (Self-Insured)": {
-          "sum_of": ["PRIMEMMWAEPO"]
-        }
-      },
-      "VALUE": {
-        "PRIME VALUE PLAN (Self-Insured)": {
-          "sum_of": ["PRIMEMMWAVALUE"]
-        }
-      },
-      "_children_policy": "split"
     }
   },
   
@@ -123,7 +109,7 @@
       },
       "VALUE": {
         "PRIME VALUE PLAN (Self-Insured)": {
-          "sum_of": ["PRIMEMMVAL", "PRIMEMMVALUE", "PRIMEMMSMVALUE"]
+          "sum_of": ["PRIMEMMVAL", "PRIMEMMVALUE"]
         }
       },
       "_children_policy": "combined"
@@ -137,7 +123,7 @@
       },
       "VALUE": {
         "PRIME VALUE PLAN (Self-Insured)": {
-          "sum_of": ["PRIMEMMSRVALUE"]
+          "sum_of": ["PRIMEMMVALUE"]
         }
       },
       "_children_policy": "combined"
@@ -169,7 +155,7 @@
       },
       "VALUE": {
         "PRIME VALUE PLAN (Self-Insured)": {
-          "sum_of": ["PRIMEMMVAL", "PRIMEMMSTJVALUE"]
+          "sum_of": ["PRIMEMMVAL"]
         }
       },
       "_children_policy": "combined"
@@ -185,7 +171,7 @@
       },
       "VALUE": {
         "PRIME VALUE PLAN (Self-Insured)": {
-          "sum_of": ["PRIMEMMNVVALUE"]
+          "sum_of": ["PRIMEMMVALUE"]
         }
       },
       "_children_policy": "split"
