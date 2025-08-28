@@ -1,0 +1,515 @@
+Tab,Facility,Plan Type,Tier,Count
+Legacy,San Dimas Community Hospital,EPO,EE,110
+Legacy,San Dimas Community Hospital,EPO,EE & Spouse,23
+Legacy,San Dimas Community Hospital,EPO,EE & Children,44
+Legacy,San Dimas Community Hospital,EPO,EE & Family,23
+Legacy,San Dimas Community Hospital,VALUE,EE,11
+Legacy,San Dimas Community Hospital,VALUE,EE & Spouse,2
+Legacy,San Dimas Community Hospital,VALUE,EE & Children,4
+Legacy,San Dimas Community Hospital,VALUE,EE & Family,4
+Legacy,Bio-Medical Services,EPO,EE,215
+Legacy,Bio-Medical Services,EPO,EE & Spouse,34
+Legacy,Bio-Medical Services,EPO,EE & Children,47
+Legacy,Bio-Medical Services,EPO,EE & Family,40
+Legacy,Bio-Medical Services,VALUE,EE,18
+Legacy,Bio-Medical Services,VALUE,EE & Spouse,1
+Legacy,Bio-Medical Services,VALUE,EE & Children,4
+Legacy,Bio-Medical Services,VALUE,EE & Family,1
+Legacy,Chino Valley Medical Center,EPO,EE,146
+Legacy,Chino Valley Medical Center,EPO,EE & Spouse,19
+Legacy,Chino Valley Medical Center,EPO,EE & Children,25
+Legacy,Chino Valley Medical Center,EPO,EE & Family,11
+Legacy,Chino Valley Medical Center,VALUE,EE,12
+Legacy,Chino Valley Medical Center,VALUE,EE & Spouse,1
+Legacy,Chino Valley Medical Center RNs,EPO,EE,41
+Legacy,Chino Valley Medical Center RNs,EPO,EE & Spouse,7
+Legacy,Chino Valley Medical Center RNs,EPO,EE & Children,9
+Legacy,Chino Valley Medical Center RNs,EPO,EE & Family,8
+Legacy,Chino Valley Medical Center RNs,VALUE,EE,3
+Legacy,Chino Valley Medical Center RNs,VALUE,EE & Children,1
+Legacy,Chino Valley Medical Center RNs,VALUE,EE & Family,2
+Legacy,Desert Valley Hospital,EPO,EE,317
+Legacy,Desert Valley Hospital,EPO,EE & Spouse,49
+Legacy,Desert Valley Hospital,EPO,EE & Children,170
+Legacy,Desert Valley Hospital,EPO,EE & Family,85
+Legacy,Desert Valley Hospital,VALUE,EE,28
+Legacy,Desert Valley Hospital,VALUE,EE & Spouse,2
+Legacy,Desert Valley Hospital,VALUE,EE & Children,10
+Legacy,Desert Valley Hospital,VALUE,EE & Family,3
+Legacy,Desert Valley Medical Group,EPO,EE,89
+Legacy,Desert Valley Medical Group,EPO,EE & Spouse,20
+Legacy,Desert Valley Medical Group,EPO,EE & Children,40
+Legacy,Desert Valley Medical Group,EPO,EE & Family,28
+Legacy,Desert Valley Medical Group,VALUE,EE,1
+Legacy,Desert Valley Medical Group,VALUE,EE & Children,3
+Legacy,Desert Valley Medical Group,VALUE,EE & Family,3
+Legacy,Huntington Beach Hospital,EPO,EE,159
+Legacy,Huntington Beach Hospital,EPO,EE & Spouse,17
+Legacy,Huntington Beach Hospital,EPO,EE & Children,42
+Legacy,Huntington Beach Hospital,EPO,EE & Family,21
+Legacy,Huntington Beach Hospital,VALUE,EE,33
+Legacy,Huntington Beach Hospital,VALUE,EE & Spouse,4
+Legacy,Huntington Beach Hospital,VALUE,EE & Children,3
+Legacy,Huntington Beach Hospital,VALUE,EE & Family,3
+Legacy,La Palma Intercommunity Hospital,EPO,EE,147
+Legacy,La Palma Intercommunity Hospital,EPO,EE & Spouse,29
+Legacy,La Palma Intercommunity Hospital,EPO,EE & Children,30
+Legacy,La Palma Intercommunity Hospital,EPO,EE & Family,22
+Legacy,La Palma Intercommunity Hospital,VALUE,EE,16
+Legacy,La Palma Intercommunity Hospital,VALUE,EE & Spouse,2
+Legacy,La Palma Intercommunity Hospital,VALUE,EE & Children,2
+Legacy,La Palma Intercommunity Hospital,VALUE,EE & Family,3
+Legacy,Montclair Hospital Medical Center,EPO,EE,97
+Legacy,Montclair Hospital Medical Center,EPO,EE & Spouse,17
+Legacy,Montclair Hospital Medical Center,EPO,EE & Children,17
+Legacy,Montclair Hospital Medical Center,EPO,EE & Family,23
+Legacy,Montclair Hospital Medical Center,VALUE,EE,18
+Legacy,Montclair Hospital Medical Center,VALUE,EE & Spouse,3
+Legacy,Montclair Hospital Medical Center,VALUE,EE & Children,4
+Legacy,Montclair Hospital Medical Center,VALUE,EE & Family,1
+Legacy,Premiere Healthcare Staffing,EPO,EE,4
+Legacy,Premiere Healthcare Staffing,EPO,EE & Children,1
+Legacy,Premiere Healthcare Staffing,EPO,EE & Family,1
+Legacy,Prime Management Services,EPO,EE,753
+Legacy,Prime Management Services,EPO,EE & Spouse,107
+Legacy,Prime Management Services,EPO,EE & Children,217
+Legacy,Prime Management Services,EPO,EE & Family,168
+Legacy,Prime Management Services,VALUE,EE,34
+Legacy,Prime Management Services,VALUE,EE & Spouse,3
+Legacy,Prime Management Services,VALUE,EE & Children,11
+Legacy,Prime Management Services,VALUE,EE & Family,13
+Legacy,Paradise Valley Hospital,EPO,EE,327
+Legacy,Paradise Valley Hospital,EPO,EE & Spouse,57
+Legacy,Paradise Valley Hospital,EPO,EE & Children,59
+Legacy,Paradise Valley Hospital,EPO,EE & Family,38
+Legacy,Paradise Valley Hospital,VALUE,EE,26
+Legacy,Paradise Valley Hospital,VALUE,EE & Spouse,8
+Legacy,Paradise Valley Hospital,VALUE,EE & Children,9
+Legacy,Paradise Valley Hospital,VALUE,EE & Family,3
+Legacy,Paradise Valley Medical Group,EPO,EE,2
+Legacy,Paradise Valley Medical Group,EPO,EE & Family,2
+Legacy,Sherman Oaks Hospital,EPO,EE,196
+Legacy,Sherman Oaks Hospital,EPO,EE & Spouse,54
+Legacy,Sherman Oaks Hospital,EPO,EE & Children,40
+Legacy,Sherman Oaks Hospital,EPO,EE & Family,38
+Legacy,Sherman Oaks Hospital,VALUE,EE,30
+Legacy,Sherman Oaks Hospital,VALUE,EE & Spouse,4
+Legacy,Sherman Oaks Hospital,VALUE,EE & Children,3
+Legacy,Sherman Oaks Hospital,VALUE,EE & Family,3
+Legacy,West Anaheim Medical Center,EPO,EE,417
+Legacy,West Anaheim Medical Center,EPO,EE & Spouse,41
+Legacy,West Anaheim Medical Center,EPO,EE & Children,83
+Legacy,West Anaheim Medical Center,EPO,EE & Family,83
+Legacy,West Anaheim Medical Center,VALUE,EE,59
+Legacy,West Anaheim Medical Center,VALUE,EE & Spouse,3
+Legacy,West Anaheim Medical Center,VALUE,EE & Children,6
+Legacy,West Anaheim Medical Center,VALUE,EE & Family,8
+Legacy,Shasta Regional Medical Center,EPO,EE,292
+Legacy,Shasta Regional Medical Center,EPO,EE & Spouse,94
+Legacy,Shasta Regional Medical Center,EPO,EE & Children,107
+Legacy,Shasta Regional Medical Center,EPO,EE & Family,106
+Legacy,Shasta Regional Medical Center,VALUE,EE,21
+Legacy,Shasta Regional Medical Center,VALUE,EE & Spouse,2
+Legacy,Shasta Regional Medical Center,VALUE,EE & Children,6
+Legacy,Shasta Regional Medical Center,VALUE,EE & Family,7
+Legacy,Shasta Medical Group,EPO,EE,14
+Legacy,Shasta Medical Group,EPO,EE & Spouse,4
+Legacy,Shasta Medical Group,EPO,EE & Children,7
+Legacy,Shasta Medical Group,EPO,EE & Family,3
+Centinela,Centinela Hospital Medical Center,EPO,EE,503
+Centinela,Centinela Hospital Medical Center,EPO,EE & Spouse,72
+Centinela,Centinela Hospital Medical Center,EPO,EE & Children,120
+Centinela,Centinela Hospital Medical Center,EPO,EE & Family,84
+Centinela,Centinela Hospital Medical Center,VALUE,EE,73
+Centinela,Centinela Hospital Medical Center,VALUE,EE & Spouse,3
+Centinela,Centinela Hospital Medical Center,VALUE,EE & Children,13
+Centinela,Centinela Hospital Medical Center,VALUE,EE & Family,3
+Centinela,Centinela Valley Endoscopy Center,EPO,EE,2
+Centinela,Centinela Valley Endoscopy Center,VALUE,EE,3
+Encino-Garden Grove,Encino Hospital Medical Center,EPO,EE,106
+Encino-Garden Grove,Encino Hospital Medical Center,EPO,EE & Spouse,35
+Encino-Garden Grove,Encino Hospital Medical Center,EPO,EE & Children,27
+Encino-Garden Grove,Encino Hospital Medical Center,EPO,EE & Family,38
+Encino-Garden Grove,Encino Hospital Medical Center,VALUE,EE,19
+Encino-Garden Grove,Encino Hospital Medical Center,VALUE,EE & Spouse,7
+Encino-Garden Grove,Encino Hospital Medical Center,VALUE,EE & Children,6
+Encino-Garden Grove,Encino Hospital Medical Center,VALUE,EE & Family,1
+Encino-Garden Grove,Garden Grove Hospital Medical Center,EPO,EE,150
+Encino-Garden Grove,Garden Grove Hospital Medical Center,EPO,EE & Spouse,29
+Encino-Garden Grove,Garden Grove Hospital Medical Center,EPO,EE & Children,38
+Encino-Garden Grove,Garden Grove Hospital Medical Center,EPO,EE & Family,54
+Encino-Garden Grove,Garden Grove Hospital Medical Center,VALUE,EE,24
+Encino-Garden Grove,Garden Grove Hospital Medical Center,VALUE,EE & Spouse,1
+Encino-Garden Grove,Garden Grove Hospital Medical Center,VALUE,EE & Children,3
+Encino-Garden Grove,Garden Grove Hospital Medical Center,VALUE,EE & Family,4
+St. Francis,St. Francis Medical Center,EPO,EE,527
+St. Francis,St. Francis Medical Center,EPO,EE & Spouse,83
+St. Francis,St. Francis Medical Center,EPO,EE & Children,181
+St. Francis,St. Francis Medical Center,EPO,EE & Family,140
+St. Francis,St. Francis Medical Center,VALUE,EE,93
+St. Francis,St. Francis Medical Center,VALUE,EE & Spouse,7
+St. Francis,St. Francis Medical Center,VALUE,EE & Children,16
+St. Francis,St. Francis Medical Center,VALUE,EE & Family,9
+St. Francis,Shoreline Surgery Center,EPO,EE,1
+St. Francis,Shoreline Surgery Center,EPO,EE & Children,1
+St. Francis,Shoreline Surgery Center,VALUE,EE,1
+St. Francis,Physician's Surgery Center Downey,EPO,EE,2
+St. Francis,Physician's Surgery Center Downey,VALUE,EE,2
+St. Francis,Physician's Surgery Center Downey,VALUE,EE & Children,3
+Pampa,Pampa Regional Medical Center,EPO,EE,91
+Pampa,Pampa Regional Medical Center,EPO,EE & Spouse,23
+Pampa,Pampa Regional Medical Center,EPO,EE & Children,56
+Pampa,Pampa Regional Medical Center,EPO,EE & Family,28
+Pampa,Pampa Regional Medical Center,VALUE,EE,4
+Pampa,Pampa Regional Medical Center,VALUE,EE & Spouse,1
+Pampa,Pampa Regional Medical Center,VALUE,EE & Children,3
+Pampa,Pampa Regional Medical Center,VALUE,EE & Family,2
+Roxborough,Roxborough Memorial Hospital,EPO,EE,172
+Roxborough,Roxborough Memorial Hospital,EPO,EE & Spouse,16
+Roxborough,Roxborough Memorial Hospital,EPO,EE & Children,33
+Roxborough,Roxborough Memorial Hospital,EPO,EE & Family,17
+Roxborough,Roxborough Memorial Hospital,VALUE,EE,46
+Roxborough,Roxborough Memorial Hospital,VALUE,EE & Spouse,3
+Roxborough,Roxborough Memorial Hospital,VALUE,EE & Children,10
+Roxborough,Roxborough Memorial Hospital,VALUE,EE & Family,3
+Lower Bucks,Lower Bucks Hospital,EPO,EE,194
+Lower Bucks,Lower Bucks Hospital,EPO,EE & Spouse,49
+Lower Bucks,Lower Bucks Hospital,EPO,EE & Children,37
+Lower Bucks,Lower Bucks Hospital,EPO,EE & Family,42
+Lower Bucks,Lower Bucks Hospital,VALUE,EE,21
+Lower Bucks,Lower Bucks Hospital,VALUE,EE & Children,8
+Lower Bucks,Lower Bucks Hospital,VALUE,EE & Family,2
+Dallas Medical Center,Dallas Medical Center,EPO,EE,115
+Dallas Medical Center,Dallas Medical Center,EPO,EE & Spouse,24
+Dallas Medical Center,Dallas Medical Center,EPO,EE & Children,35
+Dallas Medical Center,Dallas Medical Center,EPO,EE & Family,35
+Dallas Medical Center,Dallas Medical Center,VALUE,EE,10
+Dallas Medical Center,Dallas Medical Center,VALUE,EE & Spouse,1
+Dallas Medical Center,Dallas Medical Center,VALUE,EE & Children,5
+Dallas Medical Center,Dallas Medical Center,VALUE,EE & Family,1
+Harlingen,Harlingen Medical Center,EPO,EE,253
+Harlingen,Harlingen Medical Center,EPO,EE & Spouse,57
+Harlingen,Harlingen Medical Center,EPO,EE & Children,146
+Harlingen,Harlingen Medical Center,EPO,EE & Family,63
+Harlingen,Harlingen Medical Center,VALUE,EE,32
+Harlingen,Harlingen Medical Center,VALUE,EE & Spouse,4
+Harlingen,Harlingen Medical Center,VALUE,EE & Children,5
+Harlingen,Harlingen Medical Center,VALUE,EE & Family,4
+Knapp,Knapp Medical Center,EPO,EE,228
+Knapp,Knapp Medical Center,EPO,EE & Spouse,44
+Knapp,Knapp Medical Center,EPO,EE & Children,110
+Knapp,Knapp Medical Center,EPO,EE & Family,67
+Knapp,Knapp Medical Center,VALUE,EE,15
+Knapp,Knapp Medical Center,VALUE,EE & Spouse,3
+Knapp,Knapp Medical Center,VALUE,EE & Children,7
+Knapp,Knapp Medical Center,VALUE,EE & Family,6
+Knapp,Knapp Medical Group,EPO,EE,3
+Knapp,Knapp Medical Group,EPO,EE & Children,2
+Knapp,Knapp Medical Group,EPO,EE & Family,2
+Monroe,Monroe Hospital,EPO,EE,91
+Monroe,Monroe Hospital,EPO,EE & Spouse,19
+Monroe,Monroe Hospital,EPO,EE & Children,42
+Monroe,Monroe Hospital,EPO,EE & Family,23
+Monroe,Monroe Hospital,VALUE,EE,12
+Monroe,Monroe Hospital,VALUE,EE & Children,5
+Monroe,Monroe Hospital,VALUE,EE & Family,1
+Saint Mary's Reno,Saint Mary's Regional Medical Center,EPO,EE,342
+Saint Mary's Reno,Saint Mary's Regional Medical Center,EPO,EE & Spouse,105
+Saint Mary's Reno,Saint Mary's Regional Medical Center,EPO,EE & Children,110
+Saint Mary's Reno,Saint Mary's Regional Medical Center,EPO,EE & Family,92
+Saint Mary's Reno,Saint Mary's Regional Medical Center,VALUE,EE,35
+Saint Mary's Reno,Saint Mary's Regional Medical Center,VALUE,EE & Spouse,5
+Saint Mary's Reno,Saint Mary's Regional Medical Center,VALUE,EE & Children,7
+Saint Mary's Reno,Saint Mary's Regional Medical Center,VALUE,EE & Family,8
+Saint Mary's Reno,Saint Mary's Medical Group,EPO,EE,45
+Saint Mary's Reno,Saint Mary's Medical Group,EPO,EE & Spouse,10
+Saint Mary's Reno,Saint Mary's Medical Group,EPO,EE & Children,17
+Saint Mary's Reno,Saint Mary's Medical Group,EPO,EE & Family,16
+Saint Mary's Reno,Saint Mary's Medical Group,VALUE,EE,4
+Saint Mary's Reno,Saint Mary's Medical Group,VALUE,EE & Children,1
+North Vista,North Vista Hospital,EPO,EE,333
+North Vista,North Vista Hospital,EPO,EE & Spouse,44
+North Vista,North Vista Hospital,EPO,EE & Children,110
+North Vista,North Vista Hospital,EPO,EE & Family,70
+North Vista,North Vista Hospital,VALUE,EE,47
+North Vista,North Vista Hospital,VALUE,EE & Spouse,2
+North Vista,North Vista Hospital,VALUE,EE & Children,12
+North Vista,North Vista Hospital,VALUE,EE & Family,5
+Dallas Regional,Dallas Regional Medical Center,EPO,EE,163
+Dallas Regional,Dallas Regional Medical Center,EPO,EE & Spouse,36
+Dallas Regional,Dallas Regional Medical Center,EPO,EE & Children,64
+Dallas Regional,Dallas Regional Medical Center,EPO,EE & Family,54
+Dallas Regional,Dallas Regional Medical Center,VALUE,EE,43
+Dallas Regional,Dallas Regional Medical Center,VALUE,EE & Spouse,6
+Dallas Regional,Dallas Regional Medical Center,VALUE,EE & Children,12
+Dallas Regional,Dallas Regional Medical Center,VALUE,EE & Family,10
+Riverview & Gadsden,Riverview Regional Medical Center,EPO,EE,255
+Riverview & Gadsden,Riverview Regional Medical Center,EPO,EE & Spouse,69
+Riverview & Gadsden,Riverview Regional Medical Center,EPO,EE & Children,69
+Riverview & Gadsden,Riverview Regional Medical Center,EPO,EE & Family,58
+Riverview & Gadsden,Riverview Regional Medical Center,VALUE,EE,40
+Riverview & Gadsden,Riverview Regional Medical Center,VALUE,EE & Spouse,7
+Riverview & Gadsden,Riverview Regional Medical Center,VALUE,EE & Children,8
+Riverview & Gadsden,Riverview Regional Medical Center,VALUE,EE & Family,4
+Riverview & Gadsden,Gadsden Physicians Management,EPO,EE,19
+Riverview & Gadsden,Gadsden Physicians Management,EPO,EE & Spouse,5
+Riverview & Gadsden,Gadsden Physicians Management,EPO,EE & Children,4
+Riverview & Gadsden,Gadsden Physicians Management,EPO,EE & Family,6
+Riverview & Gadsden,Gadsden Physicians Management,VALUE,EE & Family,1
+Saint Clare's,Saint Clare's Health System,EPO,EE,729
+Saint Clare's,Saint Clare's Health System,EPO,EE & Spouse,144
+Saint Clare's,Saint Clare's Health System,EPO,EE & Children,194
+Saint Clare's,Saint Clare's Health System,EPO,EE & Family,168
+Saint Clare's,Saint Clare's Health System,VALUE,EE,77
+Saint Clare's,Saint Clare's Health System,VALUE,EE & Spouse,10
+Saint Clare's,Saint Clare's Health System,VALUE,EE & Children,16
+Saint Clare's,Saint Clare's Health System,VALUE,EE & Family,7
+Landmark,Landmark Medical Center,EPO,EE,222
+Landmark,Landmark Medical Center,EPO,EE & Spouse,69
+Landmark,Landmark Medical Center,EPO,EE & Children,46
+Landmark,Landmark Medical Center,EPO,EE & Family,72
+Landmark,Landmark Medical Center,VALUE,EE,16
+Landmark,Landmark Medical Center,VALUE,EE & Spouse,2
+Landmark,Landmark Medical Center,VALUE,EE & Children,4
+Landmark,Landmark Medical Center,VALUE,EE & Family,2
+Saint Mary's Passaic,"Saint Mary's General Hospital - Passaic, NJ",EPO,EE,312
+Saint Mary's Passaic,"Saint Mary's General Hospital - Passaic, NJ",EPO,EE & Spouse,49
+Saint Mary's Passaic,"Saint Mary's General Hospital - Passaic, NJ",EPO,EE & Children,53
+Saint Mary's Passaic,"Saint Mary's General Hospital - Passaic, NJ",EPO,EE & Family,50
+Saint Mary's Passaic,"Saint Mary's General Hospital - Passaic, NJ",VALUE,EE,57
+Saint Mary's Passaic,"Saint Mary's General Hospital - Passaic, NJ",VALUE,EE & Spouse,7
+Saint Mary's Passaic,"Saint Mary's General Hospital - Passaic, NJ",VALUE,EE & Children,15
+Saint Mary's Passaic,"Saint Mary's General Hospital - Passaic, NJ",VALUE,EE & Family,12
+Southern Regional,Southern Regional Medical Center,EPO,EE,250
+Southern Regional,Southern Regional Medical Center,EPO,EE & Spouse,37
+Southern Regional,Southern Regional Medical Center,EPO,EE & Children,74
+Southern Regional,Southern Regional Medical Center,EPO,EE & Family,45
+Southern Regional,Southern Regional Medical Center,VALUE,EE,49
+Southern Regional,Southern Regional Medical Center,VALUE,EE & Spouse,6
+Southern Regional,Southern Regional Medical Center,VALUE,EE & Children,21
+Southern Regional,Southern Regional Medical Center,VALUE,EE & Family,7
+St Michael's,St. Michael's Medical Center,EPO,EE,270
+St Michael's,St. Michael's Medical Center,EPO,EE & Spouse,55
+St Michael's,St. Michael's Medical Center,EPO,EE & Children,45
+St Michael's,St. Michael's Medical Center,EPO,EE & Family,51
+St Michael's,St. Michael's Medical Center,VALUE,EE,21
+St Michael's,St. Michael's Medical Center,VALUE,EE & Spouse,3
+St Michael's,St. Michael's Medical Center,VALUE,EE & Children,6
+St Michael's,St. Michael's Medical Center,VALUE,EE & Family,3
+Mission,Mission Regional Medical Center,EPO,EE,303
+Mission,Mission Regional Medical Center,EPO,EE & Spouse,59
+Mission,Mission Regional Medical Center,EPO,EE & Children,168
+Mission,Mission Regional Medical Center,EPO,EE & Family,100
+Mission,Mission Regional Medical Center,VALUE,EE,28
+Mission,Mission Regional Medical Center,VALUE,EE & Spouse,4
+Mission,Mission Regional Medical Center,VALUE,EE & Children,7
+Mission,Mission Regional Medical Center,VALUE,EE & Family,10
+Coshocton,Coshocton County Memorial Hospital,EPO,EE,104
+Coshocton,Coshocton County Memorial Hospital,EPO,EE & Spouse,37
+Coshocton,Coshocton County Memorial Hospital,EPO,EE & Children,41
+Coshocton,Coshocton County Memorial Hospital,EPO,EE & Family,24
+Coshocton,Coshocton County Memorial Hospital,VALUE,EE,8
+Coshocton,Coshocton County Memorial Hospital,VALUE,EE & Family,3
+Suburban,Suburban Community Hospital,EPO,EE,27
+Suburban,Suburban Community Hospital,EPO,EE & Spouse,1
+Suburban,Suburban Community Hospital,EPO,EE & Children,1
+Suburban,Suburban Community Hospital,EPO,EE & Family,4
+Suburban,Suburban Community Hospital,VALUE,EE,2
+Suburban,Suburban Medical Group,EPO,EE,5
+Suburban,Suburban Medical Group,EPO,EE & Spouse,1
+Suburban,Suburban Medical Group,EPO,EE & Children,3
+Suburban,Suburban Medical Group,EPO,EE & Family,3
+Garden City,Garden City Hospital,EPO,EE,257
+Garden City,Garden City Hospital,EPO,EE & Spouse,53
+Garden City,Garden City Hospital,EPO,EE & Children,96
+Garden City,Garden City Hospital,EPO,EE & Family,47
+Garden City,Garden City Hospital,VALUE,EE,46
+Garden City,Garden City Hospital,VALUE,EE & Spouse,6
+Garden City,Garden City Hospital,VALUE,EE & Children,11
+Garden City,Garden City Hospital,VALUE,EE & Family,6
+Garden City,Garden City Medical Group,EPO,EE,45
+Garden City,Garden City Medical Group,EPO,EE & Spouse,5
+Garden City,Garden City Medical Group,EPO,EE & Children,1
+Garden City,Garden City Medical Group,EPO,EE & Family,4
+Garden City,Garden City Medical Group,VALUE,EE,4
+Garden City,Garden City Medical Group,VALUE,EE & Family,1
+Garden City,United Home Health Services,EPO,EE,4
+Garden City,United Home Health Services,EPO,EE & Children,1
+Garden City,United Home Health Services,EPO,EE & Family,2
+Garden City,United Home Health Services,VALUE,EE & Family,1
+Lake Huron,Lake Huron Medical Center,EPO,EE,138
+Lake Huron,Lake Huron Medical Center,EPO,EE & Spouse,32
+Lake Huron,Lake Huron Medical Center,EPO,EE & Children,49
+Lake Huron,Lake Huron Medical Center,EPO,EE & Family,24
+Lake Huron,Lake Huron Medical Center,VALUE,EE,12
+Lake Huron,Lake Huron Medical Center,VALUE,EE & Spouse,5
+Lake Huron,Lake Huron Medical Center,VALUE,EE & Children,4
+Lake Huron,Lake Huron Medical Center,VALUE,EE & Family,1
+Lake Huron,Lake Huron Medical Group,EPO,EE,14
+Lake Huron,Lake Huron Medical Group,EPO,EE & Spouse,4
+Lake Huron,Lake Huron Medical Group,EPO,EE & Children,6
+Lake Huron,Lake Huron Medical Group,EPO,EE & Family,6
+Providence & St John,Providence Medical Center,EPO,EE,236
+Providence & St John,Providence Medical Center,EPO,EE & Spouse,58
+Providence & St John,Providence Medical Center,EPO,EE & Children,70
+Providence & St John,Providence Medical Center,EPO,EE & Family,44
+Providence & St John,Providence Medical Center,VALUE,EE,17
+Providence & St John,Providence Medical Center,VALUE,EE & Spouse,2
+Providence & St John,Providence Medical Center,VALUE,EE & Children,4
+Providence & St John,Providence Medical Center,VALUE,EE & Family,6
+Providence & St John,St. John Hospital,EPO,EE,67
+Providence & St John,St. John Hospital,EPO,EE & Spouse,15
+Providence & St John,St. John Hospital,EPO,EE & Children,37
+Providence & St John,St. John Hospital,EPO,EE & Family,16
+Providence & St John,St. John Hospital,VALUE,EE,8
+Providence & St John,St. John Hospital,VALUE,EE & Children,1
+Providence & St John,St. John Hospital,VALUE,EE & Family,1
+East Liverpool,East Liverpool City Hospital,EPO,EE,192
+East Liverpool,East Liverpool City Hospital,EPO,EE & Spouse,50
+East Liverpool,East Liverpool City Hospital,EPO,EE & Children,42
+East Liverpool,East Liverpool City Hospital,EPO,EE & Family,51
+East Liverpool,East Liverpool City Hospital,VALUE,EE,10
+East Liverpool,East Liverpool City Hospital,VALUE,EE & Spouse,2
+East Liverpool,East Liverpool City Hospital,VALUE,EE & Children,6
+East Liverpool,East Liverpool City Hospital,VALUE,EE & Family,1
+East Liverpool,Ohio Valley Home Health Services,EPO,EE,3
+East Liverpool,Ohio Valley Home Health Services,EPO,EE & Spouse,1
+East Liverpool,Ohio Valley Home Health Services,EPO,EE & Children,4
+East Liverpool,River Valley Physicians,EPO,EE,18
+East Liverpool,River Valley Physicians,EPO,EE & Spouse,5
+East Liverpool,River Valley Physicians,EPO,EE & Children,1
+East Liverpool,River Valley Physicians,EPO,EE & Family,7
+East Liverpool,River Valley Physicians,VALUE,EE,2
+East Liverpool,River Valley Physicians,VALUE,EE & Spouse,1
+St Joe & St Mary's,St. Mary's Medical Center,EPO,EE,113
+St Joe & St Mary's,St. Mary's Medical Center,EPO,EE & Spouse,31
+St Joe & St Mary's,St. Mary's Medical Center,EPO,EE & Children,60
+St Joe & St Mary's,St. Mary's Medical Center,EPO,EE & Family,28
+St Joe & St Mary's,St. Mary's Medical Center,VALUE,EE,9
+St Joe & St Mary's,St. Mary's Medical Center,VALUE,EE & Children,8
+St Joe & St Mary's,St. Mary's Medical Center,VALUE,EE & Family,2
+St Joe & St Mary's,St. Joseph Medical Center,EPO,EE,301
+St Joe & St Mary's,St. Joseph Medical Center,EPO,EE & Spouse,44
+St Joe & St Mary's,St. Joseph Medical Center,EPO,EE & Children,110
+St Joe & St Mary's,St. Joseph Medical Center,EPO,EE & Family,41
+St Joe & St Mary's,St. Joseph Medical Center,VALUE,EE,25
+St Joe & St Mary's,St. Joseph Medical Center,VALUE,EE & Spouse,2
+St Joe & St Mary's,St. Joseph Medical Center,VALUE,EE & Children,8
+St Joe & St Mary's,St. Joseph Medical Center,VALUE,EE & Family,2
+St Joe & St Mary's,South Kansas City Surgical Center,EPO,EE,8
+St Joe & St Mary's,South Kansas City Surgical Center,EPO,EE & Spouse,2
+St Joe & St Mary's,South Kansas City Surgical Center,EPO,EE & Children,11
+St Joe & St Mary's,South Kansas City Surgical Center,EPO,EE & Family,1
+St Joe & St Mary's,South Kansas City Surgical Center,VALUE,EE,1
+St Joe & St Mary's,CPCN Physicians Service (30) STM,EPO,EE,20
+St Joe & St Mary's,CPCN Physicians Service (30) STM,EPO,EE & Spouse,4
+St Joe & St Mary's,CPCN Physicians Service (30) STM,EPO,EE & Children,10
+St Joe & St Mary's,CPCN Physicians Service (30) STM,EPO,EE & Family,9
+St Joe & St Mary's,CPCN Physicians Service (30) STM,VALUE,EE,1
+St Joe & St Mary's,CPCN Physicians Service (30) STM,VALUE,EE & Family,1
+St Joe & St Mary's,CPCN Physicians Service (32) STJ,EPO,EE,15
+St Joe & St Mary's,CPCN Physicians Service (32) STJ,EPO,EE & Spouse,5
+St Joe & St Mary's,CPCN Physicians Service (32) STJ,EPO,EE & Children,8
+St Joe & St Mary's,CPCN Physicians Service (32) STJ,EPO,EE & Family,7
+St Joe & St Mary's,CPCN Physicians Service (32) STJ,VALUE,EE,1
+St Joe & St Mary's,CPCN Physicians Service (32) STJ,VALUE,EE & Spouse,1
+St Joe & St Mary's,CPCN Physicians Service (32) STJ,VALUE,EE & Family,1
+St Joe & St Mary's,St. Mary's Surgical Center,EPO,EE,7
+St Joe & St Mary's,St. Mary's Surgical Center,EPO,EE & Spouse,1
+St Joe & St Mary's,St. Mary's Surgical Center,EPO,EE & Children,3
+St Joe & St Mary's,St. Mary's Surgical Center,VALUE,EE,1
+St Joe & St Mary's,St. Mary's Surgical Center,VALUE,EE & Children,1
+Illinois,Mercy Medical Center - Aurora LLC,EPO,EE,166
+Illinois,Mercy Medical Center - Aurora LLC,EPO,EE & Spouse,29
+Illinois,Mercy Medical Center - Aurora LLC,EPO,EE & Children,58
+Illinois,Mercy Medical Center - Aurora LLC,EPO,EE & Family,31
+Illinois,Mercy Medical Center - Aurora LLC,VALUE,EE,32
+Illinois,Mercy Medical Center - Aurora LLC,VALUE,EE & Spouse,4
+Illinois,Mercy Medical Center - Aurora LLC,VALUE,EE & Children,13
+Illinois,Mercy Medical Center - Aurora LLC,VALUE,EE & Family,8
+Illinois,Resurrection Medical Center - Chicago LLC,EPO,EE,330
+Illinois,Resurrection Medical Center - Chicago LLC,EPO,EE & Spouse,75
+Illinois,Resurrection Medical Center - Chicago LLC,EPO,EE & Children,109
+Illinois,Resurrection Medical Center - Chicago LLC,EPO,EE & Family,72
+Illinois,Resurrection Medical Center - Chicago LLC,VALUE,EE,47
+Illinois,Resurrection Medical Center - Chicago LLC,VALUE,EE & Spouse,6
+Illinois,Resurrection Medical Center - Chicago LLC,VALUE,EE & Children,8
+Illinois,Resurrection Medical Center - Chicago LLC,VALUE,EE & Family,4
+Illinois,Saint Francis Hospital - Evanston LLC,EPO,EE,368
+Illinois,Saint Francis Hospital - Evanston LLC,EPO,EE & Spouse,38
+Illinois,Saint Francis Hospital - Evanston LLC,EPO,EE & Children,57
+Illinois,Saint Francis Hospital - Evanston LLC,EPO,EE & Family,43
+Illinois,Saint Francis Hospital - Evanston LLC,VALUE,EE,47
+Illinois,Saint Francis Hospital - Evanston LLC,VALUE,EE & Spouse,6
+Illinois,Saint Francis Hospital - Evanston LLC,VALUE,EE & Children,10
+Illinois,Saint Francis Hospital - Evanston LLC,VALUE,EE & Family,9
+Illinois,Saint Joseph Hospital - Elgin LLC,EPO,EE,144
+Illinois,Saint Joseph Hospital - Elgin LLC,EPO,EE & Spouse,23
+Illinois,Saint Joseph Hospital - Elgin LLC,EPO,EE & Children,55
+Illinois,Saint Joseph Hospital - Elgin LLC,EPO,EE & Family,36
+Illinois,Saint Joseph Hospital - Elgin LLC,VALUE,EE,14
+Illinois,Saint Joseph Hospital - Elgin LLC,VALUE,EE & Spouse,5
+Illinois,Saint Joseph Hospital - Elgin LLC,VALUE,EE & Children,6
+Illinois,Saint Joseph Hospital - Elgin LLC,VALUE,EE & Family,1
+Illinois,Saint Joseph Hospital - Joliet LLC,EPO,EE,344
+Illinois,Saint Joseph Hospital - Joliet LLC,EPO,EE & Spouse,50
+Illinois,Saint Joseph Hospital - Joliet LLC,EPO,EE & Children,127
+Illinois,Saint Joseph Hospital - Joliet LLC,EPO,EE & Family,87
+Illinois,Saint Joseph Hospital - Joliet LLC,VALUE,EE,40
+Illinois,Saint Joseph Hospital - Joliet LLC,VALUE,EE & Spouse,6
+Illinois,Saint Joseph Hospital - Joliet LLC,VALUE,EE & Children,24
+Illinois,Saint Joseph Hospital - Joliet LLC,VALUE,EE & Family,7
+Illinois,"St. Mary's Hospital - Kankakee, LLC",EPO,EE,131
+Illinois,"St. Mary's Hospital - Kankakee, LLC",EPO,EE & Spouse,28
+Illinois,"St. Mary's Hospital - Kankakee, LLC",EPO,EE & Children,72
+Illinois,"St. Mary's Hospital - Kankakee, LLC",EPO,EE & Family,36
+Illinois,"St. Mary's Hospital - Kankakee, LLC",VALUE,EE,16
+Illinois,"St. Mary's Hospital - Kankakee, LLC",VALUE,EE & Spouse,1
+Illinois,"St. Mary's Hospital - Kankakee, LLC",VALUE,EE & Children,3
+Illinois,"St. Mary's Hospital - Kankakee, LLC",VALUE,EE & Family,2
+Illinois,"Saint Mary of Nazareth Hospital - Chicago, LLC",EPO,EE,431
+Illinois,"Saint Mary of Nazareth Hospital - Chicago, LLC",EPO,EE & Spouse,43
+Illinois,"Saint Mary of Nazareth Hospital - Chicago, LLC",EPO,EE & Children,95
+Illinois,"Saint Mary of Nazareth Hospital - Chicago, LLC",EPO,EE & Family,46
+Illinois,"Saint Mary of Nazareth Hospital - Chicago, LLC",VALUE,EE,51
+Illinois,"Saint Mary of Nazareth Hospital - Chicago, LLC",VALUE,EE & Spouse,4
+Illinois,"Saint Mary of Nazareth Hospital - Chicago, LLC",VALUE,EE & Children,12
+Illinois,"Saint Mary of Nazareth Hospital - Chicago, LLC",VALUE,EE & Family,6
+Illinois,Holy Family Medical Center,EPO,EE,78
+Illinois,Holy Family Medical Center,EPO,EE & Spouse,20
+Illinois,Holy Family Medical Center,EPO,EE & Children,27
+Illinois,Holy Family Medical Center,EPO,EE & Family,37
+Illinois,Holy Family Medical Center,VALUE,EE,11
+Illinois,Holy Family Medical Center,VALUE,EE & Spouse,3
+Illinois,Holy Family Medical Center,VALUE,EE & Children,4
+Illinois,Holy Family Medical Center,VALUE,EE & Family,2
+Illinois,"MedSpace Services, LLC",EPO,EE,35
+Illinois,"MedSpace Services, LLC",EPO,EE & Spouse,9
+Illinois,"MedSpace Services, LLC",EPO,EE & Children,15
+Illinois,"MedSpace Services, LLC",EPO,EE & Family,14
+Illinois,"MedSpace Services, LLC",VALUE,EE,3
+Illinois,"MedSpace Services, LLC",VALUE,EE & Spouse,2
+Illinois,"MedSpace Services, LLC",VALUE,EE & Children,1
+Illinois,"MedSpace Services, LLC",VALUE,EE & Family,2
+Illinois,"Prime Healthcare Illinois Medical Group, LLC",EPO,EE,223
+Illinois,"Prime Healthcare Illinois Medical Group, LLC",EPO,EE & Spouse,47
+Illinois,"Prime Healthcare Illinois Medical Group, LLC",EPO,EE & Children,86
+Illinois,"Prime Healthcare Illinois Medical Group, LLC",EPO,EE & Family,69
+Illinois,"Prime Healthcare Illinois Medical Group, LLC",VALUE,EE,25
+Illinois,"Prime Healthcare Illinois Medical Group, LLC",VALUE,EE & Spouse,9
+Illinois,"Prime Healthcare Illinois Medical Group, LLC",VALUE,EE & Children,9
+Illinois,"Prime Healthcare Illinois Medical Group, LLC",VALUE,EE & Family,11
+Illinois,Prime Healthcare Home Care and Hospice,EPO,EE,38
+Illinois,Prime Healthcare Home Care and Hospice,EPO,EE & Spouse,9
+Illinois,Prime Healthcare Home Care and Hospice,EPO,EE & Children,20
+Illinois,Prime Healthcare Home Care and Hospice,EPO,EE & Family,7
+Illinois,Prime Healthcare Home Care and Hospice,VALUE,EE,3
+Illinois,Prime Healthcare Home Care and Hospice,VALUE,EE & Children,2
+Illinois,Prime Healthcare Senior Living,EPO,EE,56
+Illinois,Prime Healthcare Senior Living,EPO,EE & Spouse,14
+Illinois,Prime Healthcare Senior Living,EPO,EE & Children,20
+Illinois,Prime Healthcare Senior Living,EPO,EE & Family,8
+Illinois,Prime Healthcare Senior Living,VALUE,EE,6
+Illinois,Prime Healthcare Senior Living,VALUE,EE & Spouse,3
+Illinois,Prime Healthcare Senior Living,VALUE,EE & Children,2
+Illinois,Prime Healthcare Senior Living,VALUE,EE & Family,2

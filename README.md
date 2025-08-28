@@ -1,15 +1,12 @@
 # Prime Employee Enrollment Data Processing System
 
-A robust Python-based solution for processing and analyzing Prime employee enrollment data with comprehensive tier reconciliation, validation, and automated write-back to Excel templates.
+A robust Python-based solution for processing and analyzing Prime employee enrollment data with declarative block aggregations, comprehensive tier reconciliation, validation, and automated write-back to Excel templates.
 
 ## 🚀 Quick Start
 
 ```bash
-# Windows users - easiest method:
-run_enrollment.bat
-
-# Or run directly with Python:
-python enrollment_automation_tier_reconciled.py
+# Run the latest version with declarative aggregations:
+python enrollment_automation_v6.py
 
 # Or use the Python runner:
 python run_enrollment.py
@@ -17,7 +14,7 @@ python run_enrollment.py
 
 ## ✨ Features
 
-### Version 4.0.0 - Complete Tier Reconciliation
+### Version 6.0.0 - Declarative Block Aggregations
 - ✅ **Exact Control Totals**: 24,708 enrollments (14,533 EE / 2,639 Spouse / 4,413 Children / 3,123 Family)
 - ✅ **Comprehensive Validation**: Pre-write control assertions ensure data integrity
 - ✅ **Full Audit Trail**: CSV write log with all operations
@@ -55,24 +52,29 @@ python -c "import pandas; import openpyxl; import numpy; print('✓ All dependen
 
 ```
 Prime_EFR/
-├── enrollment_automation_tier_reconciled.py  # Main script - does everything!
-├── run_enrollment.bat                       # Windows batch runner
-├── run_enrollment.py                        # Cross-platform Python runner
+├── enrollment_automation_v6.py             # Main script with declarative aggregations
+├── write_maps.py                          # Write map definitions for all 29 sheets
+├── run_enrollment.py                      # Cross-platform Python runner
 ├── Prime Enrollment Funding by Facility for August.xlsx  # Excel template
+│
+├── config/                                # Configuration files
+│   ├── block_aggregations.json           # Declarative block routing
+│   └── plan_mappings.json                # PLAN code to EPO/VALUE mappings
 │
 ├── data/
 │   ├── input/
-│   │   └── source_data.xlsx                # Source enrollment data
-│   ├── reference/                          # Facility and plan mappings
-│   └── samples/                            # Sample data for testing
+│   │   └── source_data.xlsx             # Source enrollment data
+│   └── reference/                        # Facility mappings
 │
-├── output/                                  # Generated reports and logs
-│   ├── write_log.csv                       # Detailed write operations log
-│   ├── tier_reconciliation_report.csv      # Tier validation report
-│   └── [Other output files]
+├── output/                                # Generated reports and logs
+│   ├── write_log.csv                     # Detailed write operations
+│   ├── tier_reconciliation_report.csv    # Tier validation report
+│   └── archive/                          # Old output files
 │
-├── scripts/                                 # Utility scripts
-│   └── legacy/                             # Previous versions (archived)
+├── scripts/
+│   └── versions/                         # Previous versions (archived)
+│       ├── enrollment_automation_tier_reconciled.py
+│       └── enrollment_automation_v5.py
 │
 ├── tests/                                   # Test files
 ├── docs/                                    # Documentation
@@ -84,10 +86,10 @@ Prime_EFR/
 
 ### Running the Main Script
 
-The `enrollment_automation_tier_reconciled.py` script handles everything:
+The `enrollment_automation_v6.py` script handles everything:
 
 ```bash
-python enrollment_automation_tier_reconciled.py
+python enrollment_automation_v6.py
 ```
 
 **What it does:**
@@ -183,15 +185,19 @@ ls data/input/source_data.xlsx
 - **Write Operations**: ~600 cell writes
 - **Total Runtime**: < 10 seconds typical
 
-## 🔄 Recent Updates (v4.0.0)
+## 🔄 Recent Updates
 
-- Fixed PLAN TYPE → PLAN column issues
-- Added pre/post write validation
-- Implemented deduplication logic
-- Added comprehensive CSV logging
-- Made fully Windows-compatible
-- Added flexible EEs column detection
-- Improved unknown tracking and reporting
+### Version 6.0.0 (Latest)
+- Declarative block aggregations via JSON config
+- Multi-block dedupe fixes using (client_id, plan, label) key
+- PLAN code to block routing with sum_of lists
+- 29-sheet allowlist with Alvarado exclusion
+- Config-driven aggregations in `config/block_aggregations.json`
+
+### Version 5.0.0 
+- Fixed 17 critical issues including multi-block bugs
+- Added CLI arguments and config persistence
+- Enhanced logging with block_id and reason tracking
 
 ## 📌 Best Practices
 
@@ -215,7 +221,7 @@ Proprietary - Prime Healthcare
 
 ---
 
-**Version:** 4.0.0  
-**Last Updated:** 2024-12-28  
+**Version:** 6.0.0  
+**Last Updated:** 2025-08-28  
 **Maintainer:** Data Analytics Team  
 **Status:** Production Ready

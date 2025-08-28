@@ -21,7 +21,7 @@ def main():
     
     try:
         # Import and run the main script
-        import enrollment_automation_tier_reconciled as eat
+        import enrollment_automation_v6 as eat
         
         # Check for required files
         template_file = "Prime Enrollment Funding by Facility for August.xlsx"

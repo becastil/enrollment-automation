@@ -5,6 +5,58 @@ All notable changes to the Prime Employee Enrollment Data Processing System are 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0] - 2025-08-28
+
+### 🎯 Major Release - Declarative Block Aggregations
+
+### Added
+- **Declarative block aggregations** - JSON config-driven block routing
+- **config/block_aggregations.json** - Defines tab → client → plan → block mappings
+- **config/plan_mappings.json** - Maps 100+ PLAN codes to EPO/VALUE groups
+- **Multi-block dedupe fix** - Uses (client_id, plan, label) key
+- **29-sheet allowlist** - Enforces allowed tabs with Alvarado exclusion
+- **PLAN code routing** - sum_of lists for each block
+- **Per-tab children policy** - split vs combined configuration
+- **write_maps.py** - Centralized write map definitions
+
+### Changed 
+- **Block aggregation** - Now config-driven instead of hardcoded
+- **PLAN mapping** - Moved to external JSON config
+- **Project structure** - Added config/ directory, scripts/versions/ archive
+
+### Fixed
+- **Multi-block bug** - Sherman Oaks and Lower Bucks blocks now work correctly
+- **Double counting** - Proper deduplication prevents duplicate writes
+- **UNASSIGNED guard** - Catches unmapped PLAN codes
+
+## [5.0.0] - 2025-08-27
+
+### 🔧 Critical Fixes Release - 17 Major Issues Resolved
+
+### Fixed
+1. **Multi-block dedupe** - Fixed dedupe key from (client_id, plan) to (client_id, plan, block_label)
+2. **Control assertions** - Pre-write validation ensuring 24,708 total
+3. **Plan mappings** - Added 100+ PLAN code mappings
+4. **Variant splitting** - Sherman Oaks EPO/VALUE split by variant
+5. **Children tier logic** - Combined vs split policies per tab
+6. **Post-write verification** - Fixed reason variable check
+7. **Windows compatibility** - Proper path handling
+8. **Block ID tracking** - Enhanced logging with block_id
+9. **PROCESSED_SHEETS** - Only tracks non-zero writes
+10. **CLI arguments** - Added argparse for config management
+11. **Config persistence** - JSON config file support
+12. **BEN CODE mapping** - Diagnostic table generation
+13. **NaN handling** - Fixed create_employee_group
+14. **Child whitelist** - Proper relation filtering
+15. **PLAN_DISTINCTS** - Diagnostic table for unique plans
+16. **resolve_plan_blocks** - Config persistence for mappings
+17. **CSV format** - Enhanced with block_id and reason columns
+
+### Added
+- **CLI arguments** - --dry-run, --config, --output-dir support
+- **Config management** - JSON persistence for mappings
+- **Enhanced logging** - Block-level tracking and diagnostics
+
 ## [4.0.0] - 2024-12-28
 
 ### 🚀 Major Refactor - Complete Tier Reconciliation

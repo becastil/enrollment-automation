@@ -1,0 +1,41 @@
+CLIENT ID,Facility,Expected Missing,Now Missing,Recovered,Status
+H3280,Shasta Regional Medical Center,638,0,638,✓ FIXED
+H3394,Summit Surgery Center at St. Mary's Galena,1,0,1,✓ FIXED
+H3130,Bio Med Services,2,0,2,✓ FIXED
+H3270,Centinela,4,0,4,✓ FIXED
+H3337,Dallas Regional Medical Center,2,0,2,✓ FIXED
+H3140,Desert Valley Hospital,4,0,4,✓ FIXED
+H3592,East Liverpool City Hospital,2,0,2,✓ FIXED
+H3375,Garden City Hospital,3,0,3,✓ FIXED
+H3260,Garden Grove,1,0,1,✓ FIXED
+H3370,Harlingen Medical Center,1,0,1,✓ FIXED
+H3210,Huntington Beach,2,0,2,✓ FIXED
+H3381,Lake Huron Medical Center,1,0,1,✓ FIXED
+H3392,Landmark Medical Center,3,0,3,✓ FIXED
+H3330,Lower Bucks,1,0,1,✓ FIXED
+H3540,Mission Regional Medical Center,1,0,1,✓ FIXED
+H3397,Monroe Hospital,1,0,1,✓ FIXED
+H3160,Montclair,2,0,2,✓ FIXED
+H3398,North Vista Hospital,5,0,5,✓ FIXED
+H3230,Paradise Valley,2,0,2,✓ FIXED
+H3675,Prime Healthcare Home Care and Hospice,2,0,2,✓ FIXED
+H3670,"Prime Healthcare Illinois Medical Group, LLC",1,0,1,✓ FIXED
+H3110,Prime Management,6,0,6,✓ FIXED
+H3340,Providence Medical Center,4,0,4,✓ FIXED
+H3615,Resurrection Medical Center - Chicago LLC,1,0,1,✓ FIXED
+H3338,Riverview Regional Medical Center,2,0,2,✓ FIXED
+H3500,St Clare's Health System,12,0,12,✓ FIXED
+H3630,Saint Joseph Hospital - Elgin LLC,1,0,1,✓ FIXED
+H3655,"Saint Mary of Nazareth Hospital - Chicago, LLC",1,0,1,✓ FIXED
+H3505,Saint Mary's General Hospital,3,0,3,✓ FIXED
+H3396,St. Mary's Medical Group,2,0,2,✓ FIXED
+H3395,St. Mary's Regional Medical Center,3,0,3,✓ FIXED
+H3170,San Dimas,2,0,2,✓ FIXED
+H3180,Sherman Oaks,2,0,2,✓ FIXED
+H3562,South Kansas City Surgi Center,1,0,1,✓ FIXED
+H3510,Southern Medical Regional Center,1,0,1,✓ FIXED
+H3275,St. Francis Medical Center,11,0,11,✓ FIXED
+H3345,St. John Hospital,1,0,1,✓ FIXED
+H3645,"St. Mary's Hospital - Kankakee, LLC",1,0,1,✓ FIXED
+H3560,St. Mary's Medical Center,1,0,1,✓ FIXED
+H3220,West Anaheim,7,0,7,✓ FIXED
