@@ -152,6 +152,13 @@ output/*.csv
 output/*.json
 !output/.gitkeep
 
+# Excel files in root directory
+*.xlsx
+*.xls
+*.xlsm
+# But keep the main template
+!Prime Enrollment Funding by Facility for August.xlsx
+
 # Temporary files
 *.tmp
 *.bak
