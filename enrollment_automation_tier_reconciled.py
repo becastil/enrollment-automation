@@ -1795,7 +1795,9 @@ def perform_comprehensive_writeback(workbook_path, tier_data, output_path=None):
     PROCESSED_SHEETS = set()
     
     if not output_path:
-        output_path = workbook_path.replace('.xlsx', '_updated.xlsx')
+        # Create output path by replacing extension
+        base_name = os.path.splitext(workbook_path)[0]
+        output_path = f"{base_name}_updated.xlsx"
     
     print("\n" + "="*80)
     print("COMPREHENSIVE ENROLLMENT WRITE-BACK")
@@ -1809,9 +1811,8 @@ def perform_comprehensive_writeback(workbook_path, tier_data, output_path=None):
     # Load workbook
     print(f"Opening workbook: {workbook_path}")
     
-    # Convert Windows path to WSL path if needed
-    if workbook_path.startswith('C:\\'):
-        workbook_path = workbook_path.replace('C:\\', '/mnt/c/').replace('\\', '/')
+    # Normalize the path for the current OS
+    workbook_path = os.path.normpath(workbook_path)
     
     try:
         wb = load_workbook(workbook_path)
@@ -1958,8 +1959,10 @@ def perform_comprehensive_writeback(workbook_path, tier_data, output_path=None):
         wb.close()
     
     # CSV audit log
-    os.makedirs('output', exist_ok=True)
-    with open('output/write_log.csv', 'w', newline='') as f:
+    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'output')
+    os.makedirs(output_dir, exist_ok=True)
+    write_log_path = os.path.join(output_dir, 'write_log.csv')
+    with open(write_log_path, 'w', newline='') as f:
         w = _csv.writer(f)
         w.writerow(['sheet','client_id','plan','tier','cell','value'])
         w.writerows(WRITE_LOG_ROWS)
@@ -1969,7 +1972,7 @@ def perform_comprehensive_writeback(workbook_path, tier_data, output_path=None):
     print("="*60)
     print(f"Total writes: {len(all_write_logs)}")
     print(f"Sheets updated: {len(PROCESSED_SHEETS)} -> {', '.join(sorted(PROCESSED_SHEETS))}")
-    print(f"Write log: output/write_log.csv")
+    print(f"Write log: {write_log_path}")
     print(f"Output file: {output_path if not DRY_RUN_WRITE else '[DRY RUN - not saved]'}")
     
     # Post-write verification: compare source tier_data sums to what was written
@@ -2166,16 +2169,20 @@ def main():
     waterfall_stages = []
     removed_rows_samples = {}
     
-    # FILE PATHS
-    source_file = "data/input/source_data.xlsx"
-    template_file = r"C:\Users\becas\Prime_EFR\Prime Enrollment Funding by Facility for August.xlsx"
-    destination_file = r"C:\Users\becas\Prime_EFR\Prime Enrollment Funding by Facility for August_analysis.xlsx"
+    # FILE PATHS - Use relative paths for cross-platform compatibility
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    source_file = os.path.join("data", "input", "source_data.xlsx")
     
-    # Check if running in WSL and adjust paths
-    import os
+    # Try to find the template file in the current directory first
+    template_filename = "Prime Enrollment Funding by Facility for August.xlsx"
+    template_file = os.path.join(base_dir, template_filename)
+    
+    # If not found in base dir, try current working directory
     if not os.path.exists(template_file):
-        template_file = "/mnt/c/Users/becas/Prime_EFR/Prime Enrollment Funding by Facility for August.xlsx"
-        destination_file = "/mnt/c/Users/becas/Prime_EFR/Prime Enrollment Funding by Facility for August_analysis.xlsx"
+        template_file = template_filename
+    
+    # Create destination file path
+    destination_file = os.path.join(base_dir, "Prime Enrollment Funding by Facility for August_analysis.xlsx")
     
     try:
         print("="*80)
