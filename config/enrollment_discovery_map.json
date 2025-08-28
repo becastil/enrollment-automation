@@ -1,13 +1,615 @@
 {
-  "Saint Clare's": {
-    "tab_name": "Saint Clare's",
+  "Monroe": {
+    "tab_name": "Monroe",
     "facilities": {
-      "H3500": {
+      "H3397": {
         "header_cell": "A2",
         "header_column": "A",
         "plans": [
           {
-            "plan_name": "PRIME EPO OPEN ACCESS PLAN (Self-Insured)",
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Saint Mary's Reno": {
+    "tab_name": "Saint Mary's Reno",
+    "facilities": {
+      "H3394": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": []
+      },
+      "H3395": {
+        "header_cell": "A24",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
+            "plan_cell": "A25",
+            "tiers": {
+              "EE+Family": "D28"
+            }
+          }
+        ]
+      },
+      "H3396": {
+        "header_cell": "A58",
+        "header_column": "A",
+        "plans": []
+      }
+    }
+  },
+  "Centinela": {
+    "tab_name": "Centinela",
+    "facilities": {
+      "H3270": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      },
+      "H3271": {
+        "header_cell": "A26",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A27",
+            "tiers": {
+              "EE+Family": "D30"
+            }
+          }
+        ]
+      },
+      "H3272": {
+        "header_cell": "A50",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A51",
+            "tiers": {
+              "EE+Family": "D54"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Lake Huron": {
+    "tab_name": "Lake Huron",
+    "facilities": {
+      "H3381": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      },
+      "H3382": {
+        "header_cell": "A24",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A25",
+            "tiers": {
+              "EE+Family": "D28"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Dallas Medical Center": {
+    "tab_name": "Dallas Medical Center",
+    "facilities": {
+      "H3335": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "St Michael's": {
+    "tab_name": "St Michael's",
+    "facilities": {
+      "H3530": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME NON-UNION EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Harlingen": {
+    "tab_name": "Harlingen",
+    "facilities": {
+      "H3370": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Providence & St John": {
+    "tab_name": "Providence & St John",
+    "facilities": {
+      "H3340": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      },
+      "H3345": {
+        "header_cell": "A18",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A19",
+            "tiers": {
+              "EE+Family": "D22"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "St. Francis": {
+    "tab_name": "St. Francis",
+    "facilities": {
+      "H3275": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      },
+      "H3276": {
+        "header_cell": "A27",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A28",
+            "tiers": {
+              "EE+Family": "D31"
+            }
+          }
+        ]
+      },
+      "H3277": {
+        "header_cell": "A40",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A41",
+            "tiers": {
+              "EE+Family": "D44"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Mission": {
+    "tab_name": "Mission",
+    "facilities": {
+      "H3540": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Pampa": {
+    "tab_name": "Pampa",
+    "facilities": {
+      "H3320": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Encino-Garden Grove": {
+    "tab_name": "Encino-Garden Grove",
+    "facilities": {
+      "H3250": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D7"
+            }
+          }
+        ]
+      },
+      "H3260": {
+        "header_cell": "A68",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME Non-Union UNIFIED EPO PLAN (Self-Insured)",
+            "plan_cell": "A69",
+            "tiers": {
+              "EE+Family": "D73"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Roxborough": {
+    "tab_name": "Roxborough",
+    "facilities": {
+      "H3325": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "East Liverpool": {
+    "tab_name": "East Liverpool",
+    "facilities": {
+      "H3592": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Knapp": {
+    "tab_name": "Knapp",
+    "facilities": {
+      "H3355": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      },
+      "H3360": {
+        "header_cell": "A17",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A18",
+            "tiers": {
+              "EE+Family": "D21"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Suburban": {
+    "tab_name": "Suburban",
+    "facilities": {
+      "H3598": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      },
+      "H3599": {
+        "header_cell": "A24",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A25",
+            "tiers": {
+              "EE+Family": "D28"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Landmark": {
+    "tab_name": "Landmark",
+    "facilities": {
+      "H3392": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Coshocton": {
+    "tab_name": "Coshocton",
+    "facilities": {
+      "H3591": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Dallas Regional": {
+    "tab_name": "Dallas Regional",
+    "facilities": {
+      "H3337": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Garden City": {
+    "tab_name": "Garden City",
+    "facilities": {
+      "H3375": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      },
+      "H3380": {
+        "header_cell": "A34",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A35",
+            "tiers": {
+              "EE+Family": "D38"
+            }
+          }
+        ]
+      },
+      "H3385": {
+        "header_cell": "A18",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A19",
+            "tiers": {
+              "EE+Family": "D22"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Southern Regional": {
+    "tab_name": "Southern Regional",
+    "facilities": {
+      "H3510": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "North Vista": {
+    "tab_name": "North Vista",
+    "facilities": {
+      "H3398": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D7"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Riverview & Gadsden": {
+    "tab_name": "Riverview & Gadsden",
+    "facilities": {
+      "H3338": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D6"
+            }
+          }
+        ]
+      },
+      "H3339": {
+        "header_cell": "A18",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_cell": "A19",
+            "tiers": {
+              "EE+Family": "D22"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Lower Bucks": {
+    "tab_name": "Lower Bucks",
+    "facilities": {
+      "H3330": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLATINUM PLAN (Self-Insured) - IUOE",
+            "plan_cell": "A3",
+            "tiers": {
+              "EE+Family": "D7"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Legacy": {
+    "tab_name": "Legacy",
+    "facilities": {}
+  },
+  "Saint Mary's Passaic": {
+    "tab_name": "Saint Mary's Passaic",
+    "facilities": {
+      "H3505": {
+        "header_cell": "A2",
+        "header_column": "A",
+        "plans": [
+          {
+            "plan_name": "PRIME EPO PLAN (Self-Insured)",
             "plan_cell": "A3",
             "tiers": {
               "EE+Family": "D6"
@@ -178,617 +780,15 @@
       }
     }
   },
-  "Garden City": {
-    "tab_name": "Garden City",
+  "Saint Clare's": {
+    "tab_name": "Saint Clare's",
     "facilities": {
-      "H3375": {
+      "H3500": {
         "header_cell": "A2",
         "header_column": "A",
         "plans": [
           {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      },
-      "H3380": {
-        "header_cell": "A34",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A35",
-            "tiers": {
-              "EE+Family": "D38"
-            }
-          }
-        ]
-      },
-      "H3385": {
-        "header_cell": "A18",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A19",
-            "tiers": {
-              "EE+Family": "D22"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Lake Huron": {
-    "tab_name": "Lake Huron",
-    "facilities": {
-      "H3381": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      },
-      "H3382": {
-        "header_cell": "A24",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A25",
-            "tiers": {
-              "EE+Family": "D28"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Suburban": {
-    "tab_name": "Suburban",
-    "facilities": {
-      "H3598": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      },
-      "H3599": {
-        "header_cell": "A24",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A25",
-            "tiers": {
-              "EE+Family": "D28"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "East Liverpool": {
-    "tab_name": "East Liverpool",
-    "facilities": {
-      "H3592": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Dallas Medical Center": {
-    "tab_name": "Dallas Medical Center",
-    "facilities": {
-      "H3335": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "St Michael's": {
-    "tab_name": "St Michael's",
-    "facilities": {
-      "H3530": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME NON-UNION EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Landmark": {
-    "tab_name": "Landmark",
-    "facilities": {
-      "H3392": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Legacy": {
-    "tab_name": "Legacy",
-    "facilities": {}
-  },
-  "St. Francis": {
-    "tab_name": "St. Francis",
-    "facilities": {
-      "H3275": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      },
-      "H3276": {
-        "header_cell": "A27",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A28",
-            "tiers": {
-              "EE+Family": "D31"
-            }
-          }
-        ]
-      },
-      "H3277": {
-        "header_cell": "A40",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A41",
-            "tiers": {
-              "EE+Family": "D44"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Lower Bucks": {
-    "tab_name": "Lower Bucks",
-    "facilities": {
-      "H3330": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLATINUM PLAN (Self-Insured) - IUOE",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D7"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "North Vista": {
-    "tab_name": "North Vista",
-    "facilities": {
-      "H3398": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D7"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Riverview & Gadsden": {
-    "tab_name": "Riverview & Gadsden",
-    "facilities": {
-      "H3338": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      },
-      "H3339": {
-        "header_cell": "A18",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A19",
-            "tiers": {
-              "EE+Family": "D22"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Harlingen": {
-    "tab_name": "Harlingen",
-    "facilities": {
-      "H3370": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Coshocton": {
-    "tab_name": "Coshocton",
-    "facilities": {
-      "H3591": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Knapp": {
-    "tab_name": "Knapp",
-    "facilities": {
-      "H3355": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      },
-      "H3360": {
-        "header_cell": "A17",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A18",
-            "tiers": {
-              "EE+Family": "D21"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Providence & St John": {
-    "tab_name": "Providence & St John",
-    "facilities": {
-      "H3340": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      },
-      "H3345": {
-        "header_cell": "A18",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A19",
-            "tiers": {
-              "EE+Family": "D22"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Pampa": {
-    "tab_name": "Pampa",
-    "facilities": {
-      "H3320": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Saint Mary's Reno": {
-    "tab_name": "Saint Mary's Reno",
-    "facilities": {
-      "H3394": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": []
-      },
-      "H3395": {
-        "header_cell": "A24",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
-            "plan_cell": "A25",
-            "tiers": {
-              "EE+Family": "D28"
-            }
-          }
-        ]
-      },
-      "H3396": {
-        "header_cell": "A58",
-        "header_column": "A",
-        "plans": []
-      }
-    }
-  },
-  "Centinela": {
-    "tab_name": "Centinela",
-    "facilities": {
-      "H3270": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      },
-      "H3271": {
-        "header_cell": "A26",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A27",
-            "tiers": {
-              "EE+Family": "D30"
-            }
-          }
-        ]
-      },
-      "H3272": {
-        "header_cell": "A50",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A51",
-            "tiers": {
-              "EE+Family": "D54"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Encino-Garden Grove": {
-    "tab_name": "Encino-Garden Grove",
-    "facilities": {
-      "H3250": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D7"
-            }
-          }
-        ]
-      },
-      "H3260": {
-        "header_cell": "A68",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME Non-Union UNIFIED EPO PLAN (Self-Insured)",
-            "plan_cell": "A69",
-            "tiers": {
-              "EE+Family": "D73"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Dallas Regional": {
-    "tab_name": "Dallas Regional",
-    "facilities": {
-      "H3337": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Monroe": {
-    "tab_name": "Monroe",
-    "facilities": {
-      "H3397": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Roxborough": {
-    "tab_name": "Roxborough",
-    "facilities": {
-      "H3325": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Saint Mary's Passaic": {
-    "tab_name": "Saint Mary's Passaic",
-    "facilities": {
-      "H3505": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Mission": {
-    "tab_name": "Mission",
-    "facilities": {
-      "H3540": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
-            "plan_cell": "A3",
-            "tiers": {
-              "EE+Family": "D6"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "Southern Regional": {
-    "tab_name": "Southern Regional",
-    "facilities": {
-      "H3510": {
-        "header_cell": "A2",
-        "header_column": "A",
-        "plans": [
-          {
-            "plan_name": "PRIME EPO PLAN (Self-Insured)",
+            "plan_name": "PRIME EPO OPEN ACCESS PLAN (Self-Insured)",
             "plan_cell": "A3",
             "tiers": {
               "EE+Family": "D6"

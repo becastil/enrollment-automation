@@ -1,0 +1,485 @@
+Tab,ClientID,PlanType,Tier,Value
+Centinela,H3270,EPO,EE Only,506
+Centinela,H3270,EPO,EE+Child(ren),120
+Centinela,H3270,EPO,EE+Family,84
+Centinela,H3270,EPO,EE+Spouse,73
+Centinela,H3270,VALUE,EE Only,73
+Centinela,H3270,VALUE,EE+Child(ren),13
+Centinela,H3270,VALUE,EE+Family,3
+Centinela,H3270,VALUE,EE+Spouse,3
+Centinela,H3272,EPO,EE Only,2
+Centinela,H3272,VALUE,EE Only,3
+Coshocton,H3591,EPO,EE Only,104
+Coshocton,H3591,EPO,EE+Child(ren),41
+Coshocton,H3591,EPO,EE+Family,24
+Coshocton,H3591,EPO,EE+Spouse,37
+Coshocton,H3591,VALUE,EE Only,8
+Coshocton,H3591,VALUE,EE+Family,3
+Dallas Medical Center,H3335,EPO,EE Only,115
+Dallas Medical Center,H3335,EPO,EE+Child(ren),35
+Dallas Medical Center,H3335,EPO,EE+Family,35
+Dallas Medical Center,H3335,EPO,EE+Spouse,24
+Dallas Medical Center,H3335,VALUE,EE Only,10
+Dallas Medical Center,H3335,VALUE,EE+Child(ren),5
+Dallas Medical Center,H3335,VALUE,EE+Family,1
+Dallas Medical Center,H3335,VALUE,EE+Spouse,1
+Dallas Regional,H3337,EPO,EE Only,164
+Dallas Regional,H3337,EPO,EE+Child(ren),64
+Dallas Regional,H3337,EPO,EE+Family,54
+Dallas Regional,H3337,EPO,EE+Spouse,37
+Dallas Regional,H3337,VALUE,EE Only,43
+Dallas Regional,H3337,VALUE,EE+Child(ren),12
+Dallas Regional,H3337,VALUE,EE+Family,10
+Dallas Regional,H3337,VALUE,EE+Spouse,6
+East Liverpool,H3592,EPO,EE Only,194
+East Liverpool,H3592,EPO,EE+Child(ren),42
+East Liverpool,H3592,EPO,EE+Family,51
+East Liverpool,H3592,EPO,EE+Spouse,50
+East Liverpool,H3592,VALUE,EE Only,10
+East Liverpool,H3592,VALUE,EE+Child(ren),6
+East Liverpool,H3592,VALUE,EE+Family,1
+East Liverpool,H3592,VALUE,EE+Spouse,2
+Encino-Garden Grove,H3220,EPO,EE Only,421
+Encino-Garden Grove,H3220,EPO,EE+1 Dep,47
+Encino-Garden Grove,H3220,EPO,EE+Child,37
+Encino-Garden Grove,H3220,EPO,EE+Family,83
+Encino-Garden Grove,H3220,EPO,EE+Spouse,42
+Encino-Garden Grove,H3220,VALUE,EE Only,60
+Encino-Garden Grove,H3220,VALUE,EE+1 Dep,3
+Encino-Garden Grove,H3220,VALUE,EE+Child,3
+Encino-Garden Grove,H3220,VALUE,EE+Family,8
+Encino-Garden Grove,H3220,VALUE,EE+Spouse,3
+Encino-Garden Grove,H3250,EPO,EE Only,106
+Encino-Garden Grove,H3250,EPO,EE+1 Dep,14
+Encino-Garden Grove,H3250,EPO,EE+Child,13
+Encino-Garden Grove,H3250,EPO,EE+Family,38
+Encino-Garden Grove,H3250,EPO,EE+Spouse,35
+Encino-Garden Grove,H3250,VALUE,EE Only,19
+Encino-Garden Grove,H3250,VALUE,EE+1 Dep,2
+Encino-Garden Grove,H3250,VALUE,EE+Child,4
+Encino-Garden Grove,H3250,VALUE,EE+Family,1
+Encino-Garden Grove,H3250,VALUE,EE+Spouse,7
+Encino-Garden Grove,H3260,EPO,EE Only,151
+Encino-Garden Grove,H3260,EPO,EE+1 Dep,23
+Encino-Garden Grove,H3260,EPO,EE+Child,15
+Encino-Garden Grove,H3260,EPO,EE+Family,54
+Encino-Garden Grove,H3260,EPO,EE+Spouse,29
+Encino-Garden Grove,H3260,VALUE,EE Only,24
+Encino-Garden Grove,H3260,VALUE,EE+1 Dep,3
+Encino-Garden Grove,H3260,VALUE,EE+Family,4
+Encino-Garden Grove,H3260,VALUE,EE+Spouse,1
+Garden City,H3375,EPO,EE Only,257
+Garden City,H3375,EPO,EE+Child(ren),96
+Garden City,H3375,EPO,EE+Family,47
+Garden City,H3375,EPO,EE+Spouse,54
+Garden City,H3375,VALUE,EE Only,48
+Garden City,H3375,VALUE,EE+Child(ren),11
+Garden City,H3375,VALUE,EE+Family,6
+Garden City,H3375,VALUE,EE+Spouse,6
+Garden City,H3380,EPO,EE Only,4
+Garden City,H3380,EPO,EE+Child(ren),1
+Garden City,H3380,EPO,EE+Family,2
+Garden City,H3380,VALUE,EE+Family,1
+Garden City,H3385,EPO,EE Only,45
+Garden City,H3385,EPO,EE+Child(ren),1
+Garden City,H3385,EPO,EE+Family,4
+Garden City,H3385,EPO,EE+Spouse,5
+Garden City,H3385,VALUE,EE Only,4
+Garden City,H3385,VALUE,EE+Family,1
+Harlingen,H3370,EPO,EE Only,254
+Harlingen,H3370,EPO,EE+Child(ren),146
+Harlingen,H3370,EPO,EE+Family,63
+Harlingen,H3370,EPO,EE+Spouse,57
+Harlingen,H3370,VALUE,EE Only,32
+Harlingen,H3370,VALUE,EE+Child(ren),5
+Harlingen,H3370,VALUE,EE+Family,4
+Harlingen,H3370,VALUE,EE+Spouse,4
+Illinois,H3605,EPO,EE Only,166
+Illinois,H3605,EPO,EE+Child(ren),58
+Illinois,H3605,EPO,EE+Family,31
+Illinois,H3605,EPO,EE+Spouse,29
+Illinois,H3605,VALUE,EE Only,32
+Illinois,H3605,VALUE,EE+Child(ren),13
+Illinois,H3605,VALUE,EE+Family,8
+Illinois,H3605,VALUE,EE+Spouse,4
+Illinois,H3615,EPO,EE Only,331
+Illinois,H3615,EPO,EE+Child(ren),109
+Illinois,H3615,EPO,EE+Family,72
+Illinois,H3615,EPO,EE+Spouse,75
+Illinois,H3615,VALUE,EE Only,47
+Illinois,H3615,VALUE,EE+Child(ren),8
+Illinois,H3615,VALUE,EE+Family,4
+Illinois,H3615,VALUE,EE+Spouse,6
+Illinois,H3625,EPO,EE Only,368
+Illinois,H3625,EPO,EE+Child(ren),57
+Illinois,H3625,EPO,EE+Family,43
+Illinois,H3625,EPO,EE+Spouse,38
+Illinois,H3625,VALUE,EE Only,47
+Illinois,H3625,VALUE,EE+Child(ren),10
+Illinois,H3625,VALUE,EE+Family,9
+Illinois,H3625,VALUE,EE+Spouse,6
+Illinois,H3630,EPO,EE Only,145
+Illinois,H3630,EPO,EE+Child(ren),55
+Illinois,H3630,EPO,EE+Family,36
+Illinois,H3630,EPO,EE+Spouse,23
+Illinois,H3630,VALUE,EE Only,14
+Illinois,H3630,VALUE,EE+Child(ren),6
+Illinois,H3630,VALUE,EE+Family,1
+Illinois,H3630,VALUE,EE+Spouse,5
+Illinois,H3635,EPO,EE Only,344
+Illinois,H3635,EPO,EE+Child(ren),127
+Illinois,H3635,EPO,EE+Family,87
+Illinois,H3635,EPO,EE+Spouse,50
+Illinois,H3635,VALUE,EE Only,40
+Illinois,H3635,VALUE,EE+Child(ren),24
+Illinois,H3635,VALUE,EE+Family,7
+Illinois,H3635,VALUE,EE+Spouse,6
+Illinois,H3645,EPO,EE Only,131
+Illinois,H3645,EPO,EE+Child(ren),72
+Illinois,H3645,EPO,EE+Family,36
+Illinois,H3645,EPO,EE+Spouse,29
+Illinois,H3645,VALUE,EE Only,16
+Illinois,H3645,VALUE,EE+Child(ren),3
+Illinois,H3645,VALUE,EE+Family,2
+Illinois,H3645,VALUE,EE+Spouse,1
+Illinois,H3655,EPO,EE Only,432
+Illinois,H3655,EPO,EE+Child(ren),95
+Illinois,H3655,EPO,EE+Family,46
+Illinois,H3655,EPO,EE+Spouse,43
+Illinois,H3655,VALUE,EE Only,51
+Illinois,H3655,VALUE,EE+Child(ren),12
+Illinois,H3655,VALUE,EE+Family,6
+Illinois,H3655,VALUE,EE+Spouse,4
+Illinois,H3660,EPO,EE Only,78
+Illinois,H3660,EPO,EE+Child(ren),27
+Illinois,H3660,EPO,EE+Family,37
+Illinois,H3660,EPO,EE+Spouse,20
+Illinois,H3660,VALUE,EE Only,11
+Illinois,H3660,VALUE,EE+Child(ren),4
+Illinois,H3660,VALUE,EE+Family,2
+Illinois,H3660,VALUE,EE+Spouse,3
+Illinois,H3665,EPO,EE Only,35
+Illinois,H3665,EPO,EE+Child(ren),15
+Illinois,H3665,EPO,EE+Family,14
+Illinois,H3665,EPO,EE+Spouse,9
+Illinois,H3665,VALUE,EE Only,3
+Illinois,H3665,VALUE,EE+Child(ren),1
+Illinois,H3665,VALUE,EE+Family,2
+Illinois,H3665,VALUE,EE+Spouse,2
+Illinois,H3670,EPO,EE Only,224
+Illinois,H3670,EPO,EE+Child(ren),86
+Illinois,H3670,EPO,EE+Family,69
+Illinois,H3670,EPO,EE+Spouse,47
+Illinois,H3670,VALUE,EE Only,25
+Illinois,H3670,VALUE,EE+Child(ren),9
+Illinois,H3670,VALUE,EE+Family,11
+Illinois,H3670,VALUE,EE+Spouse,9
+Illinois,H3675,EPO,EE Only,40
+Illinois,H3675,EPO,EE+Child(ren),20
+Illinois,H3675,EPO,EE+Family,7
+Illinois,H3675,EPO,EE+Spouse,9
+Illinois,H3675,VALUE,EE Only,3
+Illinois,H3675,VALUE,EE+Child(ren),2
+Illinois,H3680,EPO,EE Only,56
+Illinois,H3680,EPO,EE+Child(ren),20
+Illinois,H3680,EPO,EE+Family,8
+Illinois,H3680,EPO,EE+Spouse,14
+Illinois,H3680,VALUE,EE Only,6
+Illinois,H3680,VALUE,EE+Child(ren),2
+Illinois,H3680,VALUE,EE+Family,2
+Illinois,H3680,VALUE,EE+Spouse,3
+Knapp,H3355,EPO,EE Only,228
+Knapp,H3355,EPO,EE+Child(ren),110
+Knapp,H3355,EPO,EE+Family,67
+Knapp,H3355,EPO,EE+Spouse,44
+Knapp,H3355,VALUE,EE Only,15
+Knapp,H3355,VALUE,EE+Child(ren),7
+Knapp,H3355,VALUE,EE+Family,6
+Knapp,H3355,VALUE,EE+Spouse,3
+Knapp,H3360,EPO,EE Only,3
+Knapp,H3360,EPO,EE+Child(ren),2
+Knapp,H3360,EPO,EE+Family,2
+Lake Huron,H3381,EPO,EE Only,139
+Lake Huron,H3381,EPO,EE+Child(ren),49
+Lake Huron,H3381,EPO,EE+Family,24
+Lake Huron,H3381,EPO,EE+Spouse,32
+Lake Huron,H3381,VALUE,EE Only,12
+Lake Huron,H3381,VALUE,EE+Child(ren),4
+Lake Huron,H3381,VALUE,EE+Family,1
+Lake Huron,H3381,VALUE,EE+Spouse,5
+Lake Huron,H3382,EPO,EE Only,14
+Lake Huron,H3382,EPO,EE+Child(ren),6
+Lake Huron,H3382,EPO,EE+Family,6
+Lake Huron,H3382,EPO,EE+Spouse,4
+Landmark,H3392,EPO,EE Only,225
+Landmark,H3392,EPO,EE+Child(ren),46
+Landmark,H3392,EPO,EE+Family,72
+Landmark,H3392,EPO,EE+Spouse,69
+Landmark,H3392,VALUE,EE Only,16
+Landmark,H3392,VALUE,EE+Child(ren),4
+Landmark,H3392,VALUE,EE+Family,2
+Landmark,H3392,VALUE,EE+Spouse,2
+Legacy,H3100,EPO,EE Only,146
+Legacy,H3100,EPO,EE+Child(ren),25
+Legacy,H3100,EPO,EE+Family,11
+Legacy,H3100,EPO,EE+Spouse,19
+Legacy,H3100,VALUE,EE Only,12
+Legacy,H3100,VALUE,EE+Spouse,1
+Legacy,H3110,EPO,EE Only,756
+Legacy,H3110,EPO,EE+Child(ren),217
+Legacy,H3110,EPO,EE+Family,169
+Legacy,H3110,EPO,EE+Spouse,107
+Legacy,H3110,VALUE,EE Only,34
+Legacy,H3110,VALUE,EE+Child(ren),11
+Legacy,H3110,VALUE,EE+Family,14
+Legacy,H3110,VALUE,EE+Spouse,4
+Legacy,H3115,EPO,EE Only,4
+Legacy,H3115,EPO,EE+Child(ren),1
+Legacy,H3115,EPO,EE+Family,1
+Legacy,H3130,EPO,EE Only,217
+Legacy,H3130,EPO,EE+Child(ren),47
+Legacy,H3130,EPO,EE+Family,40
+Legacy,H3130,EPO,EE+Spouse,34
+Legacy,H3130,VALUE,EE Only,18
+Legacy,H3130,VALUE,EE+Child(ren),4
+Legacy,H3130,VALUE,EE+Family,1
+Legacy,H3130,VALUE,EE+Spouse,1
+Legacy,H3140,EPO,EE Only,319
+Legacy,H3140,EPO,EE+Child(ren),171
+Legacy,H3140,EPO,EE+Family,85
+Legacy,H3140,EPO,EE+Spouse,50
+Legacy,H3140,VALUE,EE Only,28
+Legacy,H3140,VALUE,EE+Child(ren),10
+Legacy,H3140,VALUE,EE+Family,3
+Legacy,H3140,VALUE,EE+Spouse,2
+Legacy,H3150,EPO,EE Only,89
+Legacy,H3150,EPO,EE+Child(ren),40
+Legacy,H3150,EPO,EE+Family,28
+Legacy,H3150,EPO,EE+Spouse,20
+Legacy,H3150,VALUE,EE Only,1
+Legacy,H3150,VALUE,EE+Child(ren),3
+Legacy,H3150,VALUE,EE+Family,3
+Legacy,H3160,EPO,EE Only,98
+Legacy,H3160,EPO,EE+Child(ren),17
+Legacy,H3160,EPO,EE+Family,24
+Legacy,H3160,EPO,EE+Spouse,17
+Legacy,H3160,VALUE,EE Only,18
+Legacy,H3160,VALUE,EE+Child(ren),4
+Legacy,H3160,VALUE,EE+Family,1
+Legacy,H3160,VALUE,EE+Spouse,3
+Legacy,H3170,EPO,EE Only,111
+Legacy,H3170,EPO,EE+Child(ren),44
+Legacy,H3170,EPO,EE+Family,23
+Legacy,H3170,EPO,EE+Spouse,24
+Legacy,H3170,VALUE,EE Only,11
+Legacy,H3170,VALUE,EE+Child(ren),4
+Legacy,H3170,VALUE,EE+Family,4
+Legacy,H3170,VALUE,EE+Spouse,2
+Legacy,H3180,EPO,EE Only,198
+Legacy,H3180,EPO,EE+Child(ren),40
+Legacy,H3180,EPO,EE+Family,38
+Legacy,H3180,EPO,EE+Spouse,54
+Legacy,H3180,VALUE,EE Only,30
+Legacy,H3180,VALUE,EE+Child(ren),3
+Legacy,H3180,VALUE,EE+Family,3
+Legacy,H3180,VALUE,EE+Spouse,4
+Legacy,H3200,EPO,EE Only,147
+Legacy,H3200,EPO,EE+Child(ren),30
+Legacy,H3200,EPO,EE+Family,22
+Legacy,H3200,EPO,EE+Spouse,29
+Legacy,H3200,VALUE,EE Only,16
+Legacy,H3200,VALUE,EE+Child(ren),2
+Legacy,H3200,VALUE,EE+Family,3
+Legacy,H3200,VALUE,EE+Spouse,2
+Legacy,H3210,EPO,EE Only,161
+Legacy,H3210,EPO,EE+Child(ren),42
+Legacy,H3210,EPO,EE+Family,21
+Legacy,H3210,EPO,EE+Spouse,17
+Legacy,H3210,VALUE,EE Only,33
+Legacy,H3210,VALUE,EE+Child(ren),3
+Legacy,H3210,VALUE,EE+Family,3
+Legacy,H3210,VALUE,EE+Spouse,4
+Legacy,H3230,EPO,EE Only,329
+Legacy,H3230,EPO,EE+Child(ren),59
+Legacy,H3230,EPO,EE+Family,38
+Legacy,H3230,EPO,EE+Spouse,57
+Legacy,H3230,VALUE,EE Only,26
+Legacy,H3230,VALUE,EE+Child(ren),9
+Legacy,H3230,VALUE,EE+Family,3
+Legacy,H3230,VALUE,EE+Spouse,8
+Legacy,H3240,EPO,EE Only,2
+Legacy,H3240,EPO,EE+Family,2
+Legacy,H3280,EPO,EE Only,295
+Legacy,H3280,EPO,EE+Child(ren),107
+Legacy,H3280,EPO,EE+Family,106
+Legacy,H3280,EPO,EE+Spouse,94
+Legacy,H3280,VALUE,EE Only,21
+Legacy,H3280,VALUE,EE+Child(ren),6
+Legacy,H3280,VALUE,EE+Family,7
+Legacy,H3280,VALUE,EE+Spouse,2
+Legacy,H3285,EPO,EE Only,14
+Legacy,H3285,EPO,EE+Child(ren),7
+Legacy,H3285,EPO,EE+Family,3
+Legacy,H3285,EPO,EE+Spouse,4
+Legacy,H3300,EPO,EE Only,41
+Legacy,H3300,EPO,EE+Child(ren),9
+Legacy,H3300,EPO,EE+Family,8
+Legacy,H3300,EPO,EE+Spouse,7
+Legacy,H3300,VALUE,EE Only,3
+Legacy,H3300,VALUE,EE+Child(ren),1
+Legacy,H3300,VALUE,EE+Family,2
+Lower Bucks,H3330,EPO,EE Only,195
+Lower Bucks,H3330,EPO,EE+Child(ren),37
+Lower Bucks,H3330,EPO,EE+Family,42
+Lower Bucks,H3330,EPO,EE+Spouse,49
+Lower Bucks,H3330,VALUE,EE Only,21
+Lower Bucks,H3330,VALUE,EE+Child(ren),8
+Lower Bucks,H3330,VALUE,EE+Family,2
+Mission,H3540,EPO,EE Only,303
+Mission,H3540,EPO,EE+Child(ren),168
+Mission,H3540,EPO,EE+Family,100
+Mission,H3540,EPO,EE+Spouse,60
+Mission,H3540,VALUE,EE Only,28
+Mission,H3540,VALUE,EE+Child(ren),7
+Mission,H3540,VALUE,EE+Family,10
+Mission,H3540,VALUE,EE+Spouse,4
+Monroe,H3397,EPO,EE Only,92
+Monroe,H3397,EPO,EE+Child(ren),42
+Monroe,H3397,EPO,EE+Family,23
+Monroe,H3397,EPO,EE+Spouse,19
+Monroe,H3397,VALUE,EE Only,12
+Monroe,H3397,VALUE,EE+Child(ren),5
+Monroe,H3397,VALUE,EE+Family,1
+North Vista,H3398,EPO,EE Only,336
+North Vista,H3398,EPO,EE+1 Dep,53
+North Vista,H3398,EPO,EE+Child,57
+North Vista,H3398,EPO,EE+Family,70
+North Vista,H3398,EPO,EE+Spouse,45
+North Vista,H3398,VALUE,EE Only,48
+North Vista,H3398,VALUE,EE+1 Dep,7
+North Vista,H3398,VALUE,EE+Child,5
+North Vista,H3398,VALUE,EE+Family,5
+North Vista,H3398,VALUE,EE+Spouse,2
+Ohio Valley HHC,H3594,EPO,EE Only,3
+Ohio Valley HHC,H3594,EPO,EE+Child(ren),4
+Ohio Valley HHC,H3594,EPO,EE+Spouse,1
+Pampa,H3320,EPO,EE Only,91
+Pampa,H3320,EPO,EE+Child(ren),56
+Pampa,H3320,EPO,EE+Family,28
+Pampa,H3320,EPO,EE+Spouse,23
+Pampa,H3320,VALUE,EE Only,4
+Pampa,H3320,VALUE,EE+Child(ren),3
+Pampa,H3320,VALUE,EE+Family,2
+Pampa,H3320,VALUE,EE+Spouse,1
+Providence & St John,H3340,EPO,EE Only,239
+Providence & St John,H3340,EPO,EE+Child(ren),70
+Providence & St John,H3340,EPO,EE+Family,44
+Providence & St John,H3340,EPO,EE+Spouse,59
+Providence & St John,H3340,VALUE,EE Only,17
+Providence & St John,H3340,VALUE,EE+Child(ren),4
+Providence & St John,H3340,VALUE,EE+Family,6
+Providence & St John,H3340,VALUE,EE+Spouse,2
+Providence & St John,H3345,EPO,EE Only,67
+Providence & St John,H3345,EPO,EE+Child(ren),37
+Providence & St John,H3345,EPO,EE+Family,16
+Providence & St John,H3345,EPO,EE+Spouse,16
+Providence & St John,H3345,VALUE,EE Only,8
+Providence & St John,H3345,VALUE,EE+Child(ren),1
+Providence & St John,H3345,VALUE,EE+Family,1
+River Valley Pri.,H3595,EPO,EE Only,18
+River Valley Pri.,H3595,EPO,EE+Child(ren),1
+River Valley Pri.,H3595,EPO,EE+Family,7
+River Valley Pri.,H3595,EPO,EE+Spouse,5
+River Valley Pri.,H3595,VALUE,EE Only,2
+River Valley Pri.,H3595,VALUE,EE+Spouse,1
+Riverview & Gadsden,H3338,EPO,EE Only,257
+Riverview & Gadsden,H3338,EPO,EE+Child(ren),69
+Riverview & Gadsden,H3338,EPO,EE+Family,58
+Riverview & Gadsden,H3338,EPO,EE+Spouse,69
+Riverview & Gadsden,H3338,VALUE,EE Only,40
+Riverview & Gadsden,H3338,VALUE,EE+Child(ren),8
+Riverview & Gadsden,H3338,VALUE,EE+Family,4
+Riverview & Gadsden,H3338,VALUE,EE+Spouse,7
+Riverview & Gadsden,H3339,EPO,EE Only,19
+Riverview & Gadsden,H3339,EPO,EE+Child(ren),4
+Riverview & Gadsden,H3339,EPO,EE+Family,6
+Riverview & Gadsden,H3339,EPO,EE+Spouse,5
+Riverview & Gadsden,H3339,VALUE,EE+Family,1
+Roxborough,H3325,EPO,EE Only,172
+Roxborough,H3325,EPO,EE+Child(ren),33
+Roxborough,H3325,EPO,EE+Family,17
+Roxborough,H3325,EPO,EE+Spouse,16
+Roxborough,H3325,VALUE,EE Only,46
+Roxborough,H3325,VALUE,EE+Child(ren),10
+Roxborough,H3325,VALUE,EE+Family,3
+Roxborough,H3325,VALUE,EE+Spouse,3
+Saint Clare's,H3500,EPO,EE Only,740
+Saint Clare's,H3500,EPO,EE+Child(ren),194
+Saint Clare's,H3500,EPO,EE+Family,168
+Saint Clare's,H3500,EPO,EE+Spouse,144
+Saint Clare's,H3500,VALUE,EE Only,77
+Saint Clare's,H3500,VALUE,EE+Child(ren),16
+Saint Clare's,H3500,VALUE,EE+Family,7
+Saint Clare's,H3500,VALUE,EE+Spouse,11
+Saint Mary's Passaic,H3505,EPO,EE Only,334
+Saint Mary's Passaic,H3505,EPO,EE+Child(ren),54
+Saint Mary's Passaic,H3505,EPO,EE+Family,51
+Saint Mary's Passaic,H3505,EPO,EE+Spouse,52
+Saint Mary's Passaic,H3505,VALUE,EE Only,38
+Saint Mary's Passaic,H3505,VALUE,EE+Child(ren),14
+Saint Mary's Passaic,H3505,VALUE,EE+Family,11
+Saint Mary's Passaic,H3505,VALUE,EE+Spouse,4
+Saint Mary's Reno,H3394,VALUE,EE Only,1
+Saint Mary's Reno,H3395,EPO,EE Only,344
+Saint Mary's Reno,H3395,EPO,EE+Child(ren),110
+Saint Mary's Reno,H3395,EPO,EE+Family,92
+Saint Mary's Reno,H3395,EPO,EE+Spouse,106
+Saint Mary's Reno,H3395,VALUE,EE Only,35
+Saint Mary's Reno,H3395,VALUE,EE+Child(ren),7
+Saint Mary's Reno,H3395,VALUE,EE+Family,8
+Saint Mary's Reno,H3395,VALUE,EE+Spouse,5
+Saint Mary's Reno,H3396,EPO,EE Only,47
+Saint Mary's Reno,H3396,EPO,EE+Child(ren),17
+Saint Mary's Reno,H3396,EPO,EE+Family,16
+Saint Mary's Reno,H3396,EPO,EE+Spouse,10
+Saint Mary's Reno,H3396,VALUE,EE Only,4
+Saint Mary's Reno,H3396,VALUE,EE+Child(ren),1
+Southern Regional,H3510,EPO,EE Only,250
+Southern Regional,H3510,EPO,EE+Child(ren),74
+Southern Regional,H3510,EPO,EE+Family,45
+Southern Regional,H3510,EPO,EE+Spouse,37
+Southern Regional,H3510,VALUE,EE Only,49
+Southern Regional,H3510,VALUE,EE+Child(ren),21
+Southern Regional,H3510,VALUE,EE+Family,7
+Southern Regional,H3510,VALUE,EE+Spouse,7
+St Michael's,H3530,EPO,EE Only,270
+St Michael's,H3530,EPO,EE+Child(ren),45
+St Michael's,H3530,EPO,EE+Family,51
+St Michael's,H3530,EPO,EE+Spouse,55
+St Michael's,H3530,VALUE,EE Only,21
+St Michael's,H3530,VALUE,EE+Child(ren),6
+St Michael's,H3530,VALUE,EE+Family,3
+St Michael's,H3530,VALUE,EE+Spouse,3
+St. Francis,H3275,EPO,EE Only,536
+St. Francis,H3275,EPO,EE+Child(ren),181
+St. Francis,H3275,EPO,EE+Family,142
+St. Francis,H3275,EPO,EE+Spouse,83
+St. Francis,H3275,VALUE,EE Only,93
+St. Francis,H3275,VALUE,EE+Child(ren),16
+St. Francis,H3275,VALUE,EE+Family,9
+St. Francis,H3275,VALUE,EE+Spouse,7
+St. Francis,H3276,EPO,EE Only,1
+St. Francis,H3276,EPO,EE+Child(ren),1
+St. Francis,H3276,VALUE,EE Only,1
+St. Francis,H3277,EPO,EE Only,2
+St. Francis,H3277,VALUE,EE Only,2
+St. Francis,H3277,VALUE,EE+Child(ren),3
+Suburban,H3598,EPO,EE Only,27
+Suburban,H3598,EPO,EE+Child(ren),1
+Suburban,H3598,EPO,EE+Family,4
+Suburban,H3598,EPO,EE+Spouse,1
+Suburban,H3598,VALUE,EE Only,2
+Suburban,H3599,EPO,EE Only,5
+Suburban,H3599,EPO,EE+Child(ren),3
+Suburban,H3599,EPO,EE+Family,3
+Suburban,H3599,EPO,EE+Spouse,1
