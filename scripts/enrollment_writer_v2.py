@@ -49,6 +49,7 @@ class EnrollmentWriterV2:
         self.discovery_map = {}
         self.block_aggregations = load_block_aggregations()
         self.enrollment_data = {}
+        self.tier_data = {}  # Aggregated tier counts
         self.write_log = []
         
     def discover_template_structure(self):
@@ -74,7 +75,9 @@ class EnrollmentWriterV2:
         print(f"\nTotal: {total_facilities} facilities across {len(self.discovery_map)} tabs")
         
         # Save discovery map
-        self.analyzer.save_discovery_map('config/enrollment_discovery_map.json')
+        config_dir = os.path.join(os.path.dirname(self.template_path), 'config')
+        discovery_path = os.path.join(config_dir, 'enrollment_discovery_map.json')
+        self.analyzer.save_discovery_map(discovery_path)
         
         return True
     
@@ -88,15 +91,15 @@ class EnrollmentWriterV2:
         plan_mappings = load_plan_mappings()
         df = read_and_prepare_data(self.source_data_path, plan_mappings)
         
-        # Build tier data
-        tier_data = build_tier_data_from_source(
+        # Build aggregated tier data (dictionary structure)
+        self.tier_data = build_tier_data_from_source(
             df, 
             self.block_aggregations,
-            plan_mappings
+            False  # allow_ppo parameter
         )
         
-        # Organize by tab and facility
-        for _, row in tier_data.iterrows():
+        # Organize source data by tab and facility (using DataFrame rows)
+        for _, row in df.iterrows():
             client_id = row.get('CLIENT ID')
             if not client_id or client_id not in CID_TO_TAB:
                 continue
@@ -117,7 +120,8 @@ class EnrollmentWriterV2:
             for facilities in self.enrollment_data.values()
         )
         
-        print(f"✓ Loaded {len(tier_data)} enrollment records")
+        print(f"✓ Loaded {len(df)} source records")
+        print(f"✓ Aggregated into {len(self.tier_data)} facilities")
         print(f"✓ Organized into {len(self.enrollment_data)} tabs")
         print(f"✓ Covering {total_records} facilities")
         
@@ -233,8 +237,9 @@ class EnrollmentWriterV2:
         
         # Save the updated workbook
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        output_path = f"output/enrollment_output_{timestamp}.xlsx"
-        os.makedirs('output', exist_ok=True)
+        output_dir = os.path.join(os.path.dirname(self.template_path), 'output')
+        output_path = os.path.join(output_dir, f"enrollment_output_{timestamp}.xlsx")
+        os.makedirs(output_dir, exist_ok=True)
         
         self.writer.save_workbook(output_path)
         
@@ -273,8 +278,9 @@ class EnrollmentWriterV2:
     
     def save_write_log(self):
         """Save detailed write log"""
-        log_path = 'logs/enrollment_write_log.json'
-        os.makedirs('logs', exist_ok=True)
+        log_dir = os.path.join(os.path.dirname(self.template_path), 'logs')
+        log_path = os.path.join(log_dir, 'enrollment_write_log.json')
+        os.makedirs(log_dir, exist_ok=True)
         
         with open(log_path, 'w') as f:
             json.dump(self.write_log, f, indent=2)
@@ -353,32 +359,23 @@ def main():
     print("ENROLLMENT WRITER V2 - DYNAMIC DISCOVERY")
     print("="*70)
     
-    # File paths
-    template_path = r"C:\Users\becas\Prime_EFR\templates\enrollment_template.xlsx"
+    # File paths - using raw strings for Windows compatibility
+    template_path = r"C:\Users\becas\Prime_EFR\Prime Enrollment Funding by Facility for August.xlsx"
     source_data_path = r"C:\Users\becas\Prime_EFR\data\input\source_data.xlsx"
     
     # Check files exist
     if not os.path.exists(source_data_path):
         print(f"\n✗ Source data not found: {source_data_path}")
-        print("  Using sample data for demonstration...")
-        
-        # Show comparison anyway
-        compare_with_static_approach()
-        
-        print("\n" + "="*70)
-        print("NEXT STEPS")
-        print("="*70)
-        print("\n1. Place your Excel template at:")
-        print(f"   {template_path}")
-        print("\n2. Ensure source data is at:")
-        print(f"   {source_data_path}")
-        print("\n3. Run this script to:")
-        print("   • Discover template structure")
-        print("   • Load enrollment data")
-        print("   • Write values dynamically")
-        print("   • Validate results")
-        
-        return 0
+        print("\nPlease ensure the source data file exists at the specified location.")
+        return 1
+    
+    if not os.path.exists(template_path):
+        print(f"\n✗ Template not found: {template_path}")
+        print("\nPlease ensure the Excel template file exists at the specified location.")
+        return 1
+    
+    print(f"\n✓ Source data found: {source_data_path}")
+    print(f"✓ Template found: {template_path}")
     
     # Initialize writer
     writer = EnrollmentWriterV2(template_path, source_data_path)
@@ -415,4 +412,80 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    import argparse
+    
+    # Set up argument parser for optional path overrides
+    parser = argparse.ArgumentParser(description='Enrollment Writer V2 - Dynamic Excel Discovery')
+    parser.add_argument('--template', 
+                       default=r"C:\Users\becas\Prime_EFR\Prime Enrollment Funding by Facility for August.xlsx",
+                       help='Path to Excel template file')
+    parser.add_argument('--source', 
+                       default=r"C:\Users\becas\Prime_EFR\data\input\source_data.xlsx",
+                       help='Path to source data file')
+    
+    args = parser.parse_args()
+    
+    # Override main function to use args if provided
+    def main_with_args():
+        """Main function with command-line arguments"""
+        
+        print("\n" + "="*70)
+        print("ENROLLMENT WRITER V2 - DYNAMIC DISCOVERY")
+        print("="*70)
+        
+        # Use provided paths or defaults
+        template_path = args.template
+        source_data_path = args.source
+        
+        # Normalize paths for Windows
+        template_path = os.path.normpath(template_path)
+        source_data_path = os.path.normpath(source_data_path)
+        
+        # Check files exist
+        if not os.path.exists(source_data_path):
+            print(f"\n✗ Source data not found: {source_data_path}")
+            print("\nPlease ensure the source data file exists at the specified location.")
+            return 1
+        
+        if not os.path.exists(template_path):
+            print(f"\n✗ Template not found: {template_path}")
+            print("\nPlease ensure the Excel template file exists at the specified location.")
+            return 1
+        
+        print(f"\n✓ Source data found: {source_data_path}")
+        print(f"✓ Template found: {template_path}")
+        
+        # Initialize writer
+        writer = EnrollmentWriterV2(template_path, source_data_path)
+        
+        # Step 1: Discover template structure
+        if not writer.discover_template_structure():
+            print("✗ Discovery failed")
+            return 1
+        
+        # Step 2: Load enrollment data
+        if not writer.load_enrollment_data():
+            print("✗ Failed to load enrollment data")
+            return 1
+        
+        # Step 3: Write enrollments
+        if not writer.write_all_enrollments():
+            print("✗ Writing failed")
+            return 1
+        
+        # Step 4: Validate
+        writer.validate_written_values()
+        
+        # Show comparison
+        compare_with_static_approach()
+        
+        print("\n" + "="*70)
+        print("COMPLETE!")
+        print("="*70)
+        print("\n✅ Successfully implemented dynamic Excel discovery")
+        print("✅ No more static cell mappings needed")
+        print("✅ System automatically finds where to write values")
+        
+        return 0
+    
+    sys.exit(main_with_args())
