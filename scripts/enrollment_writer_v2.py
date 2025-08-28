@@ -173,12 +173,25 @@ class EnrollmentWriterV2:
         print("WRITING ENROLLMENT DATA")
         print("="*50)
         
-        # Initialize writer
-        self.writer = SmartExcelWriter(self.template_path, self.discovery_map)
+        # First, create a copy of the template
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        output_dir = os.path.join(os.path.dirname(self.template_path), 'output')
+        output_filename = f"enrollment_output_{timestamp}.xlsx"
+        output_path = os.path.join(output_dir, output_filename)
+        os.makedirs(output_dir, exist_ok=True)
         
-        # Load template with proper options
+        # Copy template file to output
+        import shutil
+        print(f"\n  Copying template to output...")
+        shutil.copy2(self.template_path, output_path)
+        print(f"  ✓ Created working copy: {output_filename}")
+        
+        # Now work with the copy
+        self.writer = SmartExcelWriter(output_path, self.discovery_map)
+        
+        # Load the copied file for editing
         if not self.writer.load_template():
-            print("✗ Failed to load template for writing")
+            print("✗ Failed to load copied file for writing")
             return False
         
         print(f"  Template loaded successfully")
@@ -239,20 +252,17 @@ class EnrollmentWriterV2:
         print(f"✓ Successfully wrote: {success_count} values")
         print(f"✗ Failed to write: {fail_count} values")
         
-        # Save the updated workbook
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        output_dir = os.path.join(os.path.dirname(self.template_path), 'output')
-        output_path = os.path.join(output_dir, f"enrollment_output_{timestamp}.xlsx")
-        os.makedirs(output_dir, exist_ok=True)
-        
-        # Save the workbook with proper handling
-        save_result = self.writer.save_workbook(output_path)
+        # Save the changes to the already-copied file
+        # output_path was already set when we copied the template
+        save_result = self.writer.save_workbook()
         if not save_result:
             print("✗ Failed to save workbook properly")
             return False
         
-        print(f"\n✅ Output file created: {output_path}")
-        print(f"   Size: {os.path.getsize(output_path):,} bytes")
+        final_path = self.writer.template_path  # This is the output file path
+        print(f"\n✅ Output file created: {final_path}")
+        if os.path.exists(final_path):
+            print(f"   Size: {os.path.getsize(final_path):,} bytes")
         
         # Save write log
         self.save_write_log()

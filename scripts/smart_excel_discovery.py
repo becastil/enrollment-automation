@@ -22,6 +22,7 @@ import openpyxl
 from openpyxl import load_workbook
 from collections import defaultdict
 import re
+import shutil
 from typing import Dict, List, Tuple, Optional, Any
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -577,28 +578,22 @@ class SmartExcelWriter:
     
     def save_workbook(self, output_path: str = None):
         """Save the workbook with written values"""
+        # If no output path specified, save to the same file (in-place update)
         if not output_path:
-            output_path = self.template_path.replace('.xlsx', '_updated.xlsx')
+            output_path = self.template_path
         
         try:
-            # Ensure output directory exists
-            os.makedirs(os.path.dirname(output_path), exist_ok=True)
-            
-            # Save the workbook (openpyxl handles Excel format properly)
+            # Save the workbook
             self.workbook.save(output_path)
             
-            # Close the workbook to ensure proper file closure
-            self.workbook.close()
+            # Properly close the workbook
+            if hasattr(self.workbook, 'close'):
+                self.workbook.close()
             
-            print(f"\n✓ Saved updated workbook to: {output_path}")
+            print(f"\n✓ Saved updated workbook")
             return output_path
         except Exception as e:
             print(f"\n✗ Error saving workbook: {e}")
-            # Try to close workbook even on error
-            try:
-                self.workbook.close()
-            except:
-                pass
             return None
 
 
