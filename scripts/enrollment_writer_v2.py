@@ -371,9 +371,20 @@ def main():
     print("="*70)
     
     # File paths - handle both Windows and WSL paths
-    # Always use WSL paths when running in WSL
-    template_path = "/mnt/c/Users/becas/Prime_EFR/Prime Enrollment Funding by Facility for August.xlsx"
-    source_data_path = "/mnt/c/Users/becas/Prime_EFR/data/input/source_data.xlsx"
+    # Detect if running in Windows or WSL/Linux
+    import platform
+    is_windows = platform.system() == 'Windows'
+    
+    if is_windows:
+        # Windows paths
+        template_path = r"C:\Users\becas\Prime_EFR\Prime Enrollment Funding by Facility for August.xlsx"
+        source_data_path = r"C:\Users\becas\Prime_EFR\data\input\source_data.xlsx"
+        print(f"  Running on Windows")
+    else:
+        # WSL/Linux paths
+        template_path = "/mnt/c/Users/becas/Prime_EFR/Prime Enrollment Funding by Facility for August.xlsx"
+        source_data_path = "/mnt/c/Users/becas/Prime_EFR/data/input/source_data.xlsx"
+        print(f"  Running on Linux/WSL")
     
     # Check files exist
     if not os.path.exists(source_data_path):
@@ -445,11 +456,35 @@ if __name__ == "__main__":
         print("ENROLLMENT WRITER V2 - DYNAMIC DISCOVERY")
         print("="*70)
         
-        # Use provided paths or defaults
-        template_path = args.template
-        source_data_path = args.source
+        # Detect if running in Windows or WSL/Linux
+        import platform
+        is_windows = platform.system() == 'Windows'
         
-        # Normalize paths for Windows
+        # Use provided paths or set defaults based on OS
+        if args.template == parser.get_default('template'):
+            # Use OS-specific default
+            if is_windows:
+                template_path = r"C:\Users\becas\Prime_EFR\Prime Enrollment Funding by Facility for August.xlsx"
+            else:
+                template_path = "/mnt/c/Users/becas/Prime_EFR/Prime Enrollment Funding by Facility for August.xlsx"
+        else:
+            template_path = args.template
+        
+        if args.source == parser.get_default('source'):
+            # Use OS-specific default
+            if is_windows:
+                source_data_path = r"C:\Users\becas\Prime_EFR\data\input\source_data.xlsx"
+            else:
+                source_data_path = "/mnt/c/Users/becas/Prime_EFR/data/input/source_data.xlsx"
+        else:
+            source_data_path = args.source
+        
+        if is_windows:
+            print(f"  Running on Windows")
+        else:
+            print(f"  Running on Linux/WSL")
+        
+        # Normalize paths based on OS
         template_path = os.path.normpath(template_path)
         source_data_path = os.path.normpath(source_data_path)
         
