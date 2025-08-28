@@ -176,9 +176,13 @@ class EnrollmentWriterV2:
         # Initialize writer
         self.writer = SmartExcelWriter(self.template_path, self.discovery_map)
         
+        # Load template with proper options
         if not self.writer.load_template():
             print("✗ Failed to load template for writing")
             return False
+        
+        print(f"  Template loaded successfully")
+        print(f"  Workbook has {len(self.writer.workbook.sheetnames)} sheets")
         
         success_count = 0
         fail_count = 0
@@ -241,7 +245,14 @@ class EnrollmentWriterV2:
         output_path = os.path.join(output_dir, f"enrollment_output_{timestamp}.xlsx")
         os.makedirs(output_dir, exist_ok=True)
         
-        self.writer.save_workbook(output_path)
+        # Save the workbook with proper handling
+        save_result = self.writer.save_workbook(output_path)
+        if not save_result:
+            print("✗ Failed to save workbook properly")
+            return False
+        
+        print(f"\n✅ Output file created: {output_path}")
+        print(f"   Size: {os.path.getsize(output_path):,} bytes")
         
         # Save write log
         self.save_write_log()
@@ -359,9 +370,10 @@ def main():
     print("ENROLLMENT WRITER V2 - DYNAMIC DISCOVERY")
     print("="*70)
     
-    # File paths - using raw strings for Windows compatibility
-    template_path = r"C:\Users\becas\Prime_EFR\Prime Enrollment Funding by Facility for August.xlsx"
-    source_data_path = r"C:\Users\becas\Prime_EFR\data\input\source_data.xlsx"
+    # File paths - handle both Windows and WSL paths
+    # Always use WSL paths when running in WSL
+    template_path = "/mnt/c/Users/becas/Prime_EFR/Prime Enrollment Funding by Facility for August.xlsx"
+    source_data_path = "/mnt/c/Users/becas/Prime_EFR/data/input/source_data.xlsx"
     
     # Check files exist
     if not os.path.exists(source_data_path):
@@ -417,10 +429,10 @@ if __name__ == "__main__":
     # Set up argument parser for optional path overrides
     parser = argparse.ArgumentParser(description='Enrollment Writer V2 - Dynamic Excel Discovery')
     parser.add_argument('--template', 
-                       default=r"C:\Users\becas\Prime_EFR\Prime Enrollment Funding by Facility for August.xlsx",
+                       default="/mnt/c/Users/becas/Prime_EFR/Prime Enrollment Funding by Facility for August.xlsx",
                        help='Path to Excel template file')
     parser.add_argument('--source', 
-                       default=r"C:\Users\becas\Prime_EFR\data\input\source_data.xlsx",
+                       default="/mnt/c/Users/becas/Prime_EFR/data/input/source_data.xlsx",
                        help='Path to source data file')
     
     args = parser.parse_args()

@@ -54,7 +54,14 @@ class TemplateAnalyzer:
     def load_template(self):
         """Load the Excel template"""
         try:
-            self.workbook = load_workbook(self.template_path, read_only=False, keep_vba=True)
+            # Load with all preservation options to prevent corruption
+            self.workbook = load_workbook(
+                self.template_path, 
+                read_only=False, 
+                keep_vba=True,
+                data_only=False,  # Preserve formulas
+                keep_links=True   # Preserve external links
+            )
             print(f"✓ Loaded template: {self.template_path}")
             return True
         except Exception as e:
@@ -501,7 +508,14 @@ class SmartExcelWriter:
     def load_template(self):
         """Load the Excel template for writing"""
         try:
-            self.workbook = load_workbook(self.template_path, keep_vba=True)
+            # Load with all preservation options to prevent corruption
+            self.workbook = load_workbook(
+                self.template_path, 
+                keep_vba=True,
+                data_only=False,  # Preserve formulas
+                keep_links=True   # Preserve external links
+            )
+            print(f"✓ Loaded template for writing: {self.template_path}")
             return True
         except Exception as e:
             print(f"Error loading template for writing: {e}")
@@ -566,9 +580,26 @@ class SmartExcelWriter:
         if not output_path:
             output_path = self.template_path.replace('.xlsx', '_updated.xlsx')
         
-        self.workbook.save(output_path)
-        print(f"\n✓ Saved updated workbook to: {output_path}")
-        return output_path
+        try:
+            # Ensure output directory exists
+            os.makedirs(os.path.dirname(output_path), exist_ok=True)
+            
+            # Save the workbook (openpyxl handles Excel format properly)
+            self.workbook.save(output_path)
+            
+            # Close the workbook to ensure proper file closure
+            self.workbook.close()
+            
+            print(f"\n✓ Saved updated workbook to: {output_path}")
+            return output_path
+        except Exception as e:
+            print(f"\n✗ Error saving workbook: {e}")
+            # Try to close workbook even on error
+            try:
+                self.workbook.close()
+            except:
+                pass
+            return None
 
 
 def test_discovery_with_legacy():

@@ -1,0 +1,2794 @@
+[
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3250",
+    "plan": "PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 35,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3250",
+    "plan": "PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+1 Dep",
+    "value": 14,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3250",
+    "plan": "PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 106,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3250",
+    "plan": "PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 38,
+    "status": "success"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3250",
+    "plan": "PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Child",
+    "value": 13,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3250",
+    "plan": "PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 19,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3250",
+    "plan": "PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 7,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3250",
+    "plan": "PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+1 Dep",
+    "value": 2,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3250",
+    "plan": "PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 1,
+    "status": "success"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3250",
+    "plan": "PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Child",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3260",
+    "plan": "PRIME Non-Union UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 151,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3260",
+    "plan": "PRIME Non-Union UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 29,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3260",
+    "plan": "PRIME Non-Union UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+1 Dep",
+    "value": 23,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3260",
+    "plan": "PRIME Non-Union UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 54,
+    "status": "success"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3260",
+    "plan": "PRIME Non-Union UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Child",
+    "value": 15,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3260",
+    "plan": "PRIME Non-Union UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 24,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3260",
+    "plan": "PRIME Non-Union UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+1 Dep",
+    "value": 3,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3260",
+    "plan": "PRIME Non-Union UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 1,
+    "status": "failed"
+  },
+  {
+    "tab": "Encino-Garden Grove",
+    "client_id": "H3260",
+    "plan": "PRIME Non-Union UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 4,
+    "status": "success"
+  },
+  {
+    "tab": "Centinela",
+    "client_id": "H3270",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 73,
+    "status": "failed"
+  },
+  {
+    "tab": "Centinela",
+    "client_id": "H3270",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 13,
+    "status": "failed"
+  },
+  {
+    "tab": "Centinela",
+    "client_id": "H3270",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 3,
+    "status": "success"
+  },
+  {
+    "tab": "Centinela",
+    "client_id": "H3270",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 3,
+    "status": "failed"
+  },
+  {
+    "tab": "Centinela",
+    "client_id": "H3270",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 506,
+    "status": "failed"
+  },
+  {
+    "tab": "Centinela",
+    "client_id": "H3270",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 84,
+    "status": "success"
+  },
+  {
+    "tab": "Centinela",
+    "client_id": "H3270",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 120,
+    "status": "failed"
+  },
+  {
+    "tab": "Centinela",
+    "client_id": "H3270",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 73,
+    "status": "failed"
+  },
+  {
+    "tab": "Centinela",
+    "client_id": "H3272",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 2,
+    "status": "failed"
+  },
+  {
+    "tab": "Centinela",
+    "client_id": "H3272",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 3,
+    "status": "failed"
+  },
+  {
+    "tab": "St. Francis",
+    "client_id": "H3275",
+    "plan": "PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 536,
+    "status": "failed"
+  },
+  {
+    "tab": "St. Francis",
+    "client_id": "H3275",
+    "plan": "PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 142,
+    "status": "success"
+  },
+  {
+    "tab": "St. Francis",
+    "client_id": "H3275",
+    "plan": "PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 181,
+    "status": "failed"
+  },
+  {
+    "tab": "St. Francis",
+    "client_id": "H3275",
+    "plan": "PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 83,
+    "status": "failed"
+  },
+  {
+    "tab": "St. Francis",
+    "client_id": "H3275",
+    "plan": "PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 93,
+    "status": "failed"
+  },
+  {
+    "tab": "St. Francis",
+    "client_id": "H3275",
+    "plan": "PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 16,
+    "status": "failed"
+  },
+  {
+    "tab": "St. Francis",
+    "client_id": "H3275",
+    "plan": "PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 7,
+    "status": "failed"
+  },
+  {
+    "tab": "St. Francis",
+    "client_id": "H3275",
+    "plan": "PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 9,
+    "status": "success"
+  },
+  {
+    "tab": "St. Francis",
+    "client_id": "H3276",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 1,
+    "status": "failed"
+  },
+  {
+    "tab": "St. Francis",
+    "client_id": "H3276",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 1,
+    "status": "failed"
+  },
+  {
+    "tab": "St. Francis",
+    "client_id": "H3276",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 1,
+    "status": "failed"
+  },
+  {
+    "tab": "St. Francis",
+    "client_id": "H3277",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 2,
+    "status": "failed"
+  },
+  {
+    "tab": "St. Francis",
+    "client_id": "H3277",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 2,
+    "status": "failed"
+  },
+  {
+    "tab": "St. Francis",
+    "client_id": "H3277",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 3,
+    "status": "failed"
+  },
+  {
+    "tab": "Pampa",
+    "client_id": "H3320",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 91,
+    "status": "failed"
+  },
+  {
+    "tab": "Pampa",
+    "client_id": "H3320",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 56,
+    "status": "failed"
+  },
+  {
+    "tab": "Pampa",
+    "client_id": "H3320",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 23,
+    "status": "failed"
+  },
+  {
+    "tab": "Pampa",
+    "client_id": "H3320",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 28,
+    "status": "success"
+  },
+  {
+    "tab": "Pampa",
+    "client_id": "H3320",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 2,
+    "status": "success"
+  },
+  {
+    "tab": "Pampa",
+    "client_id": "H3320",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 3,
+    "status": "failed"
+  },
+  {
+    "tab": "Pampa",
+    "client_id": "H3320",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Pampa",
+    "client_id": "H3320",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 1,
+    "status": "failed"
+  },
+  {
+    "tab": "Roxborough",
+    "client_id": "H3325",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 33,
+    "status": "failed"
+  },
+  {
+    "tab": "Roxborough",
+    "client_id": "H3325",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 172,
+    "status": "failed"
+  },
+  {
+    "tab": "Roxborough",
+    "client_id": "H3325",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 16,
+    "status": "failed"
+  },
+  {
+    "tab": "Roxborough",
+    "client_id": "H3325",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 17,
+    "status": "success"
+  },
+  {
+    "tab": "Roxborough",
+    "client_id": "H3325",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 46,
+    "status": "failed"
+  },
+  {
+    "tab": "Roxborough",
+    "client_id": "H3325",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 10,
+    "status": "failed"
+  },
+  {
+    "tab": "Roxborough",
+    "client_id": "H3325",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 3,
+    "status": "success"
+  },
+  {
+    "tab": "Roxborough",
+    "client_id": "H3325",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 3,
+    "status": "failed"
+  },
+  {
+    "tab": "Lower Bucks",
+    "client_id": "H3330",
+    "plan": "PRIME EPO PLATINUM PLAN (Self-Insured) - IUOE",
+    "tier": "EE+Child(ren)",
+    "value": 8,
+    "status": "failed"
+  },
+  {
+    "tab": "Lower Bucks",
+    "client_id": "H3330",
+    "plan": "PRIME EPO PLATINUM PLAN (Self-Insured) - IUOE",
+    "tier": "EE Only",
+    "value": 21,
+    "status": "failed"
+  },
+  {
+    "tab": "Lower Bucks",
+    "client_id": "H3330",
+    "plan": "PRIME EPO PLATINUM PLAN (Self-Insured) - IUOE",
+    "tier": "EE+Family",
+    "value": 2,
+    "status": "success"
+  },
+  {
+    "tab": "Lower Bucks",
+    "client_id": "H3330",
+    "plan": "PRIME EPO PLATINUM PLAN (Self-Insured) - IUOE",
+    "tier": "EE Only",
+    "value": 195,
+    "status": "failed"
+  },
+  {
+    "tab": "Lower Bucks",
+    "client_id": "H3330",
+    "plan": "PRIME EPO PLATINUM PLAN (Self-Insured) - IUOE",
+    "tier": "EE+Family",
+    "value": 42,
+    "status": "success"
+  },
+  {
+    "tab": "Lower Bucks",
+    "client_id": "H3330",
+    "plan": "PRIME EPO PLATINUM PLAN (Self-Insured) - IUOE",
+    "tier": "EE+Spouse",
+    "value": 49,
+    "status": "failed"
+  },
+  {
+    "tab": "Lower Bucks",
+    "client_id": "H3330",
+    "plan": "PRIME EPO PLATINUM PLAN (Self-Insured) - IUOE",
+    "tier": "EE+Child(ren)",
+    "value": 37,
+    "status": "failed"
+  },
+  {
+    "tab": "Dallas Medical Center",
+    "client_id": "H3335",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 35,
+    "status": "success"
+  },
+  {
+    "tab": "Dallas Medical Center",
+    "client_id": "H3335",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 115,
+    "status": "failed"
+  },
+  {
+    "tab": "Dallas Medical Center",
+    "client_id": "H3335",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 24,
+    "status": "failed"
+  },
+  {
+    "tab": "Dallas Medical Center",
+    "client_id": "H3335",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 35,
+    "status": "failed"
+  },
+  {
+    "tab": "Dallas Medical Center",
+    "client_id": "H3335",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 10,
+    "status": "failed"
+  },
+  {
+    "tab": "Dallas Medical Center",
+    "client_id": "H3335",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 5,
+    "status": "failed"
+  },
+  {
+    "tab": "Dallas Medical Center",
+    "client_id": "H3335",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 1,
+    "status": "failed"
+  },
+  {
+    "tab": "Dallas Medical Center",
+    "client_id": "H3335",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 1,
+    "status": "success"
+  },
+  {
+    "tab": "Dallas Regional",
+    "client_id": "H3337",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 164,
+    "status": "failed"
+  },
+  {
+    "tab": "Dallas Regional",
+    "client_id": "H3337",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 37,
+    "status": "failed"
+  },
+  {
+    "tab": "Dallas Regional",
+    "client_id": "H3337",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 54,
+    "status": "success"
+  },
+  {
+    "tab": "Dallas Regional",
+    "client_id": "H3337",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 64,
+    "status": "failed"
+  },
+  {
+    "tab": "Dallas Regional",
+    "client_id": "H3337",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 43,
+    "status": "failed"
+  },
+  {
+    "tab": "Dallas Regional",
+    "client_id": "H3337",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 12,
+    "status": "failed"
+  },
+  {
+    "tab": "Dallas Regional",
+    "client_id": "H3337",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 10,
+    "status": "success"
+  },
+  {
+    "tab": "Dallas Regional",
+    "client_id": "H3337",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 6,
+    "status": "failed"
+  },
+  {
+    "tab": "Riverview & Gadsden",
+    "client_id": "H3338",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 4,
+    "status": "success"
+  },
+  {
+    "tab": "Riverview & Gadsden",
+    "client_id": "H3338",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 40,
+    "status": "failed"
+  },
+  {
+    "tab": "Riverview & Gadsden",
+    "client_id": "H3338",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 8,
+    "status": "failed"
+  },
+  {
+    "tab": "Riverview & Gadsden",
+    "client_id": "H3338",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 7,
+    "status": "failed"
+  },
+  {
+    "tab": "Riverview & Gadsden",
+    "client_id": "H3338",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 257,
+    "status": "failed"
+  },
+  {
+    "tab": "Riverview & Gadsden",
+    "client_id": "H3338",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 69,
+    "status": "failed"
+  },
+  {
+    "tab": "Riverview & Gadsden",
+    "client_id": "H3338",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 69,
+    "status": "failed"
+  },
+  {
+    "tab": "Riverview & Gadsden",
+    "client_id": "H3338",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 58,
+    "status": "success"
+  },
+  {
+    "tab": "Riverview & Gadsden",
+    "client_id": "H3339",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 1,
+    "status": "success"
+  },
+  {
+    "tab": "Riverview & Gadsden",
+    "client_id": "H3339",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Riverview & Gadsden",
+    "client_id": "H3339",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 6,
+    "status": "success"
+  },
+  {
+    "tab": "Riverview & Gadsden",
+    "client_id": "H3339",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 19,
+    "status": "failed"
+  },
+  {
+    "tab": "Riverview & Gadsden",
+    "client_id": "H3339",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 5,
+    "status": "failed"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3340",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 70,
+    "status": "failed"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3340",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 239,
+    "status": "failed"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3340",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 59,
+    "status": "failed"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3340",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 44,
+    "status": "success"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3340",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 6,
+    "status": "success"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3340",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 2,
+    "status": "failed"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3340",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 17,
+    "status": "failed"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3340",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3345",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 16,
+    "status": "success"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3345",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 67,
+    "status": "failed"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3345",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 16,
+    "status": "failed"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3345",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 37,
+    "status": "failed"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3345",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 8,
+    "status": "failed"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3345",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 1,
+    "status": "failed"
+  },
+  {
+    "tab": "Providence & St John",
+    "client_id": "H3345",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 1,
+    "status": "success"
+  },
+  {
+    "tab": "Knapp",
+    "client_id": "H3355",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 228,
+    "status": "failed"
+  },
+  {
+    "tab": "Knapp",
+    "client_id": "H3355",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 67,
+    "status": "success"
+  },
+  {
+    "tab": "Knapp",
+    "client_id": "H3355",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 110,
+    "status": "failed"
+  },
+  {
+    "tab": "Knapp",
+    "client_id": "H3355",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 44,
+    "status": "failed"
+  },
+  {
+    "tab": "Knapp",
+    "client_id": "H3355",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 15,
+    "status": "failed"
+  },
+  {
+    "tab": "Knapp",
+    "client_id": "H3355",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 3,
+    "status": "failed"
+  },
+  {
+    "tab": "Knapp",
+    "client_id": "H3355",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 7,
+    "status": "failed"
+  },
+  {
+    "tab": "Knapp",
+    "client_id": "H3355",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 6,
+    "status": "success"
+  },
+  {
+    "tab": "Knapp",
+    "client_id": "H3360",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 3,
+    "status": "failed"
+  },
+  {
+    "tab": "Knapp",
+    "client_id": "H3360",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 2,
+    "status": "failed"
+  },
+  {
+    "tab": "Knapp",
+    "client_id": "H3360",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 2,
+    "status": "success"
+  },
+  {
+    "tab": "Harlingen",
+    "client_id": "H3370",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 146,
+    "status": "failed"
+  },
+  {
+    "tab": "Harlingen",
+    "client_id": "H3370",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 57,
+    "status": "failed"
+  },
+  {
+    "tab": "Harlingen",
+    "client_id": "H3370",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 63,
+    "status": "success"
+  },
+  {
+    "tab": "Harlingen",
+    "client_id": "H3370",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 254,
+    "status": "failed"
+  },
+  {
+    "tab": "Harlingen",
+    "client_id": "H3370",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 32,
+    "status": "failed"
+  },
+  {
+    "tab": "Harlingen",
+    "client_id": "H3370",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Harlingen",
+    "client_id": "H3370",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 5,
+    "status": "failed"
+  },
+  {
+    "tab": "Harlingen",
+    "client_id": "H3370",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 4,
+    "status": "success"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3375",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 96,
+    "status": "failed"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3375",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 47,
+    "status": "success"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3375",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 257,
+    "status": "failed"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3375",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 54,
+    "status": "failed"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3375",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 48,
+    "status": "failed"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3375",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 6,
+    "status": "success"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3375",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 6,
+    "status": "failed"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3375",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 11,
+    "status": "failed"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3380",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3380",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 1,
+    "status": "failed"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3380",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 2,
+    "status": "success"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3380",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 1,
+    "status": "success"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3385",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 5,
+    "status": "failed"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3385",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 45,
+    "status": "failed"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3385",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 4,
+    "status": "success"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3385",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 1,
+    "status": "failed"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3385",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Garden City",
+    "client_id": "H3385",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 1,
+    "status": "success"
+  },
+  {
+    "tab": "Lake Huron",
+    "client_id": "H3381",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 139,
+    "status": "failed"
+  },
+  {
+    "tab": "Lake Huron",
+    "client_id": "H3381",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 49,
+    "status": "failed"
+  },
+  {
+    "tab": "Lake Huron",
+    "client_id": "H3381",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 32,
+    "status": "failed"
+  },
+  {
+    "tab": "Lake Huron",
+    "client_id": "H3381",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 24,
+    "status": "success"
+  },
+  {
+    "tab": "Lake Huron",
+    "client_id": "H3381",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 12,
+    "status": "failed"
+  },
+  {
+    "tab": "Lake Huron",
+    "client_id": "H3381",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 5,
+    "status": "failed"
+  },
+  {
+    "tab": "Lake Huron",
+    "client_id": "H3381",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 1,
+    "status": "success"
+  },
+  {
+    "tab": "Lake Huron",
+    "client_id": "H3381",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Lake Huron",
+    "client_id": "H3382",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Lake Huron",
+    "client_id": "H3382",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 6,
+    "status": "success"
+  },
+  {
+    "tab": "Lake Huron",
+    "client_id": "H3382",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 14,
+    "status": "failed"
+  },
+  {
+    "tab": "Lake Huron",
+    "client_id": "H3382",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 6,
+    "status": "failed"
+  },
+  {
+    "tab": "Landmark",
+    "client_id": "H3392",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 225,
+    "status": "failed"
+  },
+  {
+    "tab": "Landmark",
+    "client_id": "H3392",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 69,
+    "status": "failed"
+  },
+  {
+    "tab": "Landmark",
+    "client_id": "H3392",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 72,
+    "status": "success"
+  },
+  {
+    "tab": "Landmark",
+    "client_id": "H3392",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 46,
+    "status": "failed"
+  },
+  {
+    "tab": "Landmark",
+    "client_id": "H3392",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 2,
+    "status": "success"
+  },
+  {
+    "tab": "Landmark",
+    "client_id": "H3392",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 16,
+    "status": "failed"
+  },
+  {
+    "tab": "Landmark",
+    "client_id": "H3392",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Landmark",
+    "client_id": "H3392",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 2,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Mary's Reno",
+    "client_id": "H3395",
+    "plan": "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 106,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Mary's Reno",
+    "client_id": "H3395",
+    "plan": "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 344,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Mary's Reno",
+    "client_id": "H3395",
+    "plan": "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 110,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Mary's Reno",
+    "client_id": "H3395",
+    "plan": "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 92,
+    "status": "success"
+  },
+  {
+    "tab": "Saint Mary's Reno",
+    "client_id": "H3395",
+    "plan": "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 35,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Mary's Reno",
+    "client_id": "H3395",
+    "plan": "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 7,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Mary's Reno",
+    "client_id": "H3395",
+    "plan": "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 8,
+    "status": "success"
+  },
+  {
+    "tab": "Saint Mary's Reno",
+    "client_id": "H3395",
+    "plan": "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 5,
+    "status": "failed"
+  },
+  {
+    "tab": "Monroe",
+    "client_id": "H3397",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 92,
+    "status": "failed"
+  },
+  {
+    "tab": "Monroe",
+    "client_id": "H3397",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 42,
+    "status": "failed"
+  },
+  {
+    "tab": "Monroe",
+    "client_id": "H3397",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 19,
+    "status": "failed"
+  },
+  {
+    "tab": "Monroe",
+    "client_id": "H3397",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 23,
+    "status": "success"
+  },
+  {
+    "tab": "Monroe",
+    "client_id": "H3397",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 12,
+    "status": "failed"
+  },
+  {
+    "tab": "Monroe",
+    "client_id": "H3397",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 5,
+    "status": "failed"
+  },
+  {
+    "tab": "Monroe",
+    "client_id": "H3397",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 1,
+    "status": "success"
+  },
+  {
+    "tab": "North Vista",
+    "client_id": "H3398",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 336,
+    "status": "failed"
+  },
+  {
+    "tab": "North Vista",
+    "client_id": "H3398",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 70,
+    "status": "success"
+  },
+  {
+    "tab": "North Vista",
+    "client_id": "H3398",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child",
+    "value": 57,
+    "status": "failed"
+  },
+  {
+    "tab": "North Vista",
+    "client_id": "H3398",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+1 Dep",
+    "value": 53,
+    "status": "failed"
+  },
+  {
+    "tab": "North Vista",
+    "client_id": "H3398",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 45,
+    "status": "failed"
+  },
+  {
+    "tab": "North Vista",
+    "client_id": "H3398",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 48,
+    "status": "failed"
+  },
+  {
+    "tab": "North Vista",
+    "client_id": "H3398",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 5,
+    "status": "success"
+  },
+  {
+    "tab": "North Vista",
+    "client_id": "H3398",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+1 Dep",
+    "value": 7,
+    "status": "failed"
+  },
+  {
+    "tab": "North Vista",
+    "client_id": "H3398",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 2,
+    "status": "failed"
+  },
+  {
+    "tab": "North Vista",
+    "client_id": "H3398",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child",
+    "value": 5,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Clare's",
+    "client_id": "H3500",
+    "plan": "PRIME EPO OPEN ACCESS PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 194,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Clare's",
+    "client_id": "H3500",
+    "plan": "PRIME EPO OPEN ACCESS PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 144,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Clare's",
+    "client_id": "H3500",
+    "plan": "PRIME EPO OPEN ACCESS PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 740,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Clare's",
+    "client_id": "H3500",
+    "plan": "PRIME EPO OPEN ACCESS PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 168,
+    "status": "success"
+  },
+  {
+    "tab": "Saint Clare's",
+    "client_id": "H3500",
+    "plan": "PRIME EPO OPEN ACCESS PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 77,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Clare's",
+    "client_id": "H3500",
+    "plan": "PRIME EPO OPEN ACCESS PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 16,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Clare's",
+    "client_id": "H3500",
+    "plan": "PRIME EPO OPEN ACCESS PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 11,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Clare's",
+    "client_id": "H3500",
+    "plan": "PRIME EPO OPEN ACCESS PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 7,
+    "status": "success"
+  },
+  {
+    "tab": "Saint Mary's Passaic",
+    "client_id": "H3505",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 334,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Mary's Passaic",
+    "client_id": "H3505",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 52,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Mary's Passaic",
+    "client_id": "H3505",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 51,
+    "status": "success"
+  },
+  {
+    "tab": "Saint Mary's Passaic",
+    "client_id": "H3505",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 54,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Mary's Passaic",
+    "client_id": "H3505",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 38,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Mary's Passaic",
+    "client_id": "H3505",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 14,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Mary's Passaic",
+    "client_id": "H3505",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Saint Mary's Passaic",
+    "client_id": "H3505",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 11,
+    "status": "success"
+  },
+  {
+    "tab": "Southern Regional",
+    "client_id": "H3510",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 250,
+    "status": "failed"
+  },
+  {
+    "tab": "Southern Regional",
+    "client_id": "H3510",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 45,
+    "status": "success"
+  },
+  {
+    "tab": "Southern Regional",
+    "client_id": "H3510",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 74,
+    "status": "failed"
+  },
+  {
+    "tab": "Southern Regional",
+    "client_id": "H3510",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 37,
+    "status": "failed"
+  },
+  {
+    "tab": "Southern Regional",
+    "client_id": "H3510",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 49,
+    "status": "failed"
+  },
+  {
+    "tab": "Southern Regional",
+    "client_id": "H3510",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 7,
+    "status": "success"
+  },
+  {
+    "tab": "Southern Regional",
+    "client_id": "H3510",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 21,
+    "status": "failed"
+  },
+  {
+    "tab": "Southern Regional",
+    "client_id": "H3510",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 7,
+    "status": "failed"
+  },
+  {
+    "tab": "St Michael's",
+    "client_id": "H3530",
+    "plan": "PRIME NON-UNION EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 270,
+    "status": "failed"
+  },
+  {
+    "tab": "St Michael's",
+    "client_id": "H3530",
+    "plan": "PRIME NON-UNION EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 51,
+    "status": "success"
+  },
+  {
+    "tab": "St Michael's",
+    "client_id": "H3530",
+    "plan": "PRIME NON-UNION EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 55,
+    "status": "failed"
+  },
+  {
+    "tab": "St Michael's",
+    "client_id": "H3530",
+    "plan": "PRIME NON-UNION EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 45,
+    "status": "failed"
+  },
+  {
+    "tab": "St Michael's",
+    "client_id": "H3530",
+    "plan": "PRIME NON-UNION EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 21,
+    "status": "failed"
+  },
+  {
+    "tab": "St Michael's",
+    "client_id": "H3530",
+    "plan": "PRIME NON-UNION EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 3,
+    "status": "failed"
+  },
+  {
+    "tab": "St Michael's",
+    "client_id": "H3530",
+    "plan": "PRIME NON-UNION EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 6,
+    "status": "failed"
+  },
+  {
+    "tab": "St Michael's",
+    "client_id": "H3530",
+    "plan": "PRIME NON-UNION EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 3,
+    "status": "success"
+  },
+  {
+    "tab": "Mission",
+    "client_id": "H3540",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 60,
+    "status": "failed"
+  },
+  {
+    "tab": "Mission",
+    "client_id": "H3540",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 303,
+    "status": "failed"
+  },
+  {
+    "tab": "Mission",
+    "client_id": "H3540",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 168,
+    "status": "failed"
+  },
+  {
+    "tab": "Mission",
+    "client_id": "H3540",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 100,
+    "status": "success"
+  },
+  {
+    "tab": "Mission",
+    "client_id": "H3540",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 28,
+    "status": "failed"
+  },
+  {
+    "tab": "Mission",
+    "client_id": "H3540",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 10,
+    "status": "success"
+  },
+  {
+    "tab": "Mission",
+    "client_id": "H3540",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Mission",
+    "client_id": "H3540",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 7,
+    "status": "failed"
+  },
+  {
+    "tab": "Coshocton",
+    "client_id": "H3591",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 104,
+    "status": "failed"
+  },
+  {
+    "tab": "Coshocton",
+    "client_id": "H3591",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 37,
+    "status": "failed"
+  },
+  {
+    "tab": "Coshocton",
+    "client_id": "H3591",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 41,
+    "status": "failed"
+  },
+  {
+    "tab": "Coshocton",
+    "client_id": "H3591",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 24,
+    "status": "success"
+  },
+  {
+    "tab": "Coshocton",
+    "client_id": "H3591",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 8,
+    "status": "failed"
+  },
+  {
+    "tab": "Coshocton",
+    "client_id": "H3591",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 3,
+    "status": "success"
+  },
+  {
+    "tab": "East Liverpool",
+    "client_id": "H3592",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 194,
+    "status": "failed"
+  },
+  {
+    "tab": "East Liverpool",
+    "client_id": "H3592",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 51,
+    "status": "success"
+  },
+  {
+    "tab": "East Liverpool",
+    "client_id": "H3592",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 50,
+    "status": "failed"
+  },
+  {
+    "tab": "East Liverpool",
+    "client_id": "H3592",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 42,
+    "status": "failed"
+  },
+  {
+    "tab": "East Liverpool",
+    "client_id": "H3592",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 10,
+    "status": "failed"
+  },
+  {
+    "tab": "East Liverpool",
+    "client_id": "H3592",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 2,
+    "status": "failed"
+  },
+  {
+    "tab": "East Liverpool",
+    "client_id": "H3592",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 6,
+    "status": "failed"
+  },
+  {
+    "tab": "East Liverpool",
+    "client_id": "H3592",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 1,
+    "status": "success"
+  },
+  {
+    "tab": "Suburban",
+    "client_id": "H3598",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 27,
+    "status": "failed"
+  },
+  {
+    "tab": "Suburban",
+    "client_id": "H3598",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 4,
+    "status": "success"
+  },
+  {
+    "tab": "Suburban",
+    "client_id": "H3598",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 1,
+    "status": "failed"
+  },
+  {
+    "tab": "Suburban",
+    "client_id": "H3598",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 1,
+    "status": "failed"
+  },
+  {
+    "tab": "Suburban",
+    "client_id": "H3598",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 2,
+    "status": "failed"
+  },
+  {
+    "tab": "Suburban",
+    "client_id": "H3599",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 3,
+    "status": "success"
+  },
+  {
+    "tab": "Suburban",
+    "client_id": "H3599",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 1,
+    "status": "failed"
+  },
+  {
+    "tab": "Suburban",
+    "client_id": "H3599",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 5,
+    "status": "failed"
+  },
+  {
+    "tab": "Suburban",
+    "client_id": "H3599",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 3,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3605",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 166,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3605",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 58,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3605",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 31,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3605",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 29,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3605",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 32,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3605",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 13,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3605",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 8,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3605",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3615",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 331,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3615",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 109,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3615",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 72,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3615",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 75,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3615",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 47,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3615",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 8,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3615",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 6,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3615",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 4,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3625",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 368,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3625",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 57,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3625",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 38,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3625",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 43,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3625",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 47,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3625",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 10,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3625",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 6,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3625",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 9,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3630",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 23,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3630",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 145,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3630",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 55,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3630",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 36,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3630",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 6,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3630",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 1,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3630",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 14,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3630",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 5,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3635",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 87,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3635",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 344,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3635",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 127,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3635",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 50,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3635",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 24,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3635",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 40,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3635",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 6,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3635",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 7,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3645",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 29,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3645",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 131,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3645",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 72,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3645",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 36,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3645",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 16,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3645",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 1,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3645",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 2,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3645",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 3,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3655",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 432,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3655",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 95,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3655",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 46,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3655",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 43,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3655",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 6,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3655",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 51,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3655",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 12,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3655",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3660",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 20,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3660",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 27,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3660",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 37,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3660",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 78,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3660",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 3,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3660",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 11,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3660",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 4,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3660",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 2,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3665",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 35,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3665",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 9,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3665",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 15,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3665",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 14,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3665",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 2,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3665",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 2,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3665",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 3,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3665",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 1,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3670",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 224,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3670",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 86,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3670",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 47,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3670",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 69,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3670",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 9,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3670",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 25,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3670",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 11,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3670",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 9,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3675",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 40,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3675",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 20,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3675",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 9,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3675",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 7,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3675",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 2,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3675",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 3,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3680",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 8,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3680",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 20,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3680",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 56,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3680",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 14,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3680",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE Only",
+    "value": 6,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3680",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Child(ren)",
+    "value": 2,
+    "status": "failed"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3680",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Family",
+    "value": 2,
+    "status": "success"
+  },
+  {
+    "tab": "Illinois",
+    "client_id": "H3680",
+    "plan": "PRIME EPO PLAN (Self-Insured)",
+    "tier": "EE+Spouse",
+    "value": 3,
+    "status": "failed"
+  }
+]
