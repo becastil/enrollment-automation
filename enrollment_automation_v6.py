@@ -51,13 +51,13 @@ CONTROL_TOTAL = sum(CONTROL_TOTALS.values())  # 24,708
 
 # HARD ALLOWLIST - Only these 29 sheets will be processed
 ALLOWED_TABS = [
-    "Centinela", "Coshocton County", "Dallas Medical Center", "Dallas Regional",
-    "East Liverpool City", "Encino-Garden Grove", "Garden City", "Harlingen",
+    "Centinela", "Coshocton", "Dallas Medical Center", "Dallas Regional",
+    "East Liverpool", "Encino-Garden Grove", "Garden City", "Harlingen",
     "Illinois", "Knapp", "Lake Huron", "Landmark", "Legacy", "Lower Bucks",
-    "Mission Regional", "Monroe", "North Vista", "Pampa", "Providence & St. John",
+    "Mission", "Monroe", "North Vista", "Pampa", "Providence & St John",
     "Riverview & Gadsden", "Roxborough", "Saint Clare's", "Saint Mary's Passaic",
-    "Saint Mary's Reno", "Southern Regional", "St. Joe & St. Mary's",
-    "St. Michael's", "St. Francis", "Suburban Community"
+    "Saint Mary's Reno", "Southern Regional", "St Joe & St Mary's",
+    "St Michael's", "St. Francis", "Suburban"
 ]
 
 # Excluded CLIENT IDs
@@ -288,8 +288,8 @@ CID_TO_TAB = {
     'H3337': 'Dallas Regional',
     'H3338': 'Riverview & Gadsden',
     'H3339': 'Riverview & Gadsden',
-    'H3340': 'Providence & St. John',
-    'H3345': 'Providence & St. John',
+    'H3340': 'Providence & St John',
+    'H3345': 'Providence & St John',
     'H3355': 'Knapp',
     'H3360': 'Knapp',
     'H3370': 'Harlingen',
@@ -307,15 +307,15 @@ CID_TO_TAB = {
     'H3500': "Saint Clare's",
     'H3505': "Saint Mary's Passaic",
     'H3510': 'Southern Regional',
-    'H3530': "St. Michael's",
-    'H3540': 'Mission Regional',
-    'H3591': 'Coshocton County',
-    'H3592': 'East Liverpool City',
+    'H3530': 'St Michael\'s',
+    'H3540': 'Mission',
+    'H3591': 'Coshocton',
+    'H3592': 'East Liverpool',
     'H3594': 'Ohio Valley HHC',
     'H3595': 'River Valley Pri.',
     'H3596': "St. Mary's Medical",
-    'H3598': 'Suburban Community',
-    'H3599': 'Suburban Community',
+    'H3598': 'Suburban',
+    'H3599': 'Suburban',
     
     # Illinois facilities
     'H3605': 'Illinois', 'H3615': 'Illinois', 'H3625': 'Illinois', 'H3630': 'Illinois',
@@ -496,12 +496,10 @@ def build_tier_data_from_source(df, block_aggregations, allow_ppo=False):
         
         # Aggregate tier counts
         if tier == 'EE+Child(ren)':
-            # Split into Child and Children for now
-            tier_data[client_id][plan_group][block_label]['EE+Child'] += 0.5
-            tier_data[client_id][plan_group][block_label]['EE+Children'] += 0.5
+            # Map to EE+Children for consistency
+            tier_data[client_id][plan_group][block_label]['EE+Children'] += 1
         else:
-            tier_key = tier.replace('EE+Child(ren)', 'EE+Children')
-            tier_data[client_id][plan_group][block_label][tier_key] += 1
+            tier_data[client_id][plan_group][block_label][tier] += 1
     
     # Print block diagnostics
     print("\n" + "="*80)
@@ -612,6 +610,34 @@ def get_children_policy(tab_name, client_id, block_aggregations):
     
     return default_policy
 
+def get_actual_sheet_name(wb, desired_name):
+    """
+    Find the actual sheet name in the workbook that matches the desired name
+    Uses fuzzy matching to handle variations in punctuation, spacing, etc.
+    """
+    # Direct match first
+    if desired_name in wb.sheetnames:
+        return desired_name
+    
+    # Known mappings for common variations (now aligned with ALLOWED_TABS)
+    sheet_mappings = {
+        # These are already in correct format in ALLOWED_TABS
+        # Keeping for backward compatibility if needed
+    }
+    
+    if desired_name in sheet_mappings:
+        actual = sheet_mappings[desired_name]
+        if actual in wb.sheetnames:
+            return actual
+    
+    # Try normalized matching
+    normalized_desired = normalize_tab_name(desired_name)
+    for sheet in wb.sheetnames:
+        if normalize_tab_name(sheet) == normalized_desired:
+            return sheet
+    
+    return None
+
 def write_to_specific_sheet(wb, sheet_name, write_map, tier_data, block_aggregations):
     """
     Write tier counts to specific sheet with block-level matching
@@ -623,11 +649,13 @@ def write_to_specific_sheet(wb, sheet_name, write_map, tier_data, block_aggregat
         print(f"⚠️ Skipped '{sheet_name}' - not in allowlist")
         return []
     
-    if sheet_name not in wb.sheetnames:
+    # Find the actual sheet name in workbook
+    actual_sheet_name = get_actual_sheet_name(wb, sheet_name)
+    if not actual_sheet_name:
         print(f"❌ ERROR: '{sheet_name}' sheet not found in workbook!")
         return []
     
-    ws = wb[sheet_name]
+    ws = wb[actual_sheet_name]
     PROCESSED_SHEETS.add(sheet_name)
     write_log = []
     seen_blocks = set()  # Track (client_id, plan_type, block_label) for dedupe
@@ -666,12 +694,18 @@ def write_to_specific_sheet(wb, sheet_name, write_map, tier_data, block_aggregat
                 for tier, count in blocks[block_label].items():
                     tier_counts[tier] = int(count)
             else:
-                # Try to find a matching block
-                for block_key, block_counts in blocks.items():
-                    if block_label in block_key or block_key in block_label:
-                        for tier, count in block_counts.items():
-                            tier_counts[tier] = int(count)
-                        break
+                # If only one block exists for this client/plan, use it regardless of label
+                if len(blocks) == 1:
+                    block_key = list(blocks.keys())[0]
+                    for tier, count in blocks[block_key].items():
+                        tier_counts[tier] = int(count)
+                else:
+                    # Try to find a matching block by partial match
+                    for block_key, block_counts in blocks.items():
+                        if block_label and block_key and (block_label in block_key or block_key in block_label):
+                            for tier, count in block_counts.items():
+                                tier_counts[tier] = int(count)
+                            break
         
         # Apply children policy
         children_policy = get_children_policy(sheet_name, client_id, block_aggregations)
@@ -722,7 +756,7 @@ def write_to_specific_sheet(wb, sheet_name, write_map, tier_data, block_aggregat
     return write_log
 
 # Import write maps from separate file
-from write_maps import SHEET_WRITE_MAPS
+from write_maps_fixed import SHEET_WRITE_MAPS
 
 def perform_comprehensive_writeback(workbook_path, tier_data, block_aggregations, output_path=None, dry_run=False):
     """Perform comprehensive write-back to all configured sheets"""
