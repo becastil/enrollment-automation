@@ -25,8 +25,12 @@ from openpyxl.utils import get_column_letter
 import warnings
 import traceback
 import os
+import re
+import csv as _csv
+import shutil
 from difflib import SequenceMatcher
-from collections import Counter
+from collections import Counter, defaultdict
+from collections import Counter as _Ctr
 warnings.filterwarnings('ignore')
 
 # CONTROL TOTALS - GROUND TRUTH
@@ -43,6 +47,10 @@ CONTROL_TOTAL = sum(CONTROL_TOTALS.values())  # 24,708
 waterfall_stages = []
 unknown_tiers_tracker = Counter()
 removed_rows_samples = {}
+
+# Write tracking globals
+WRITE_LOG_ROWS = []   # (sheet, client_id, plan, tier_label, cell, value)
+PROCESSED_SHEETS = set()
 
 def log_stage(stage_name, df, prev_df=None):
     """
@@ -536,17 +544,52 @@ def print_facility_comparison(df, facility_id, facility_name):
 
 DRY_RUN = False  # Set to True for preview mode
 STRICT_CONTROL_CHECK = True  # Set False if ground truth includes COBRA
-
-import csv
-from openpyxl.utils import get_column_letter
-import re
-from collections import defaultdict
-import shutil
+DRY_RUN_WRITE = False  # Set to True to produce CSV without saving workbook
 
 def is_active_for_ees(status):
     """Active only for Ees write-back - NO COBRA"""
     t = str(status).strip().upper() if pd.notna(status) else ""
     return t == "A" or t.startswith("A")
+
+def assert_control_from_tier_data(tier_data):
+    """Assert global control totals using built tier_data (COBRA included)."""
+    totals = _Ctr({'EE Only':0,'EE+Spouse':0,'EE+Child(ren)':0,'EE+Family':0})
+    for client_plans in tier_data.values():
+        for counts in client_plans.values():
+            totals['EE Only']   += int(counts.get('EE Only',0))
+            totals['EE+Spouse'] += int(counts.get('EE+Spouse',0))
+            child_total = int(counts.get('EE+Child',0)) + int(counts.get('EE+Children',0))
+            totals['EE+Child(ren)'] += child_total
+            totals['EE+Family'] += int(counts.get('EE+Family',0))
+
+    deltas = {k: totals[k] - CONTROL_TOTALS[k] for k in CONTROL_TOTALS}
+    ok = all(v == 0 for v in deltas.values())
+    print("CONTROL CHECK (from tier_data) ->", dict(totals), "Δ:", deltas, "|", "OK" if ok else "FAIL")
+    return ok
+
+def _soft_assert_label(ws, any_cell_addr, expected_snippet):
+    """Optional label sanity check"""
+    if not expected_snippet:
+        return
+    r = ws[any_cell_addr].row
+    c = ws[any_cell_addr].column - 1  # usually label is one column left
+    if c < 1:
+        return
+    label = str(ws.cell(r, c).value or '').upper()
+    if expected_snippet.split()[0].upper() not in label:
+        print(f"  ⚠ Label check @ {get_column_letter(c)}{r}: '{label[:50]}' vs expected ~ '{expected_snippet[:50]}'")
+
+def _log(sheet, client_id, plan, tier_lbl, cell, value):
+    """Log write operation"""
+    WRITE_LOG_ROWS.append((sheet, client_id, plan, tier_lbl, cell, int(value)))
+
+def route_sherman_oaks_block(plan_raw):
+    """Route Sherman Oaks blocks by variant/union (stub for future implementation)"""
+    s = clean_key(plan_raw)
+    # Example rule: union keywords to block 2
+    if any(x in s for x in ['CIR','JNESO','IUOE','UNION']):
+        return 'EPO_2' if 'EPO' in s else 'VALUE_2'
+    return 'EPO_1' if 'EPO' in s else 'VALUE_1'
 
 def create_employee_group(df):
     """Create EMPLOYEE_GROUP identifier with priority order"""
@@ -738,20 +781,23 @@ def find_facility_location_strict(ws, facility_name, client_id):
     
     return None, None
 
-def find_ees_col_strict(ws, facility_row, facility_col):
-    """Find Ees with strict length limit"""
+def find_ees_col_flexible(ws, facility_row, facility_col):
+    """Find the column that holds the employee counts (EEs)."""
+    patterns = [r'\bEE\b', r'\bEES\b', r"\bEE'?S\b", r'\bEMP(LOYEES?)?\b']
     for r in range(max(1, facility_row-3), min(ws.max_row, facility_row+3)):
         for c in range(1, min(ws.max_column, 20)+1):
             val = get_cell_value_safe(ws, r, c)
-            if (isinstance(val, str) and 
-                len(val) <= 6 and  # Avoid "Rees calc..."
-                re.search(r'\bees\b', val, re.IGNORECASE)):
-                return c
-    
-    # Fallback with warning
+            if isinstance(val, str):
+                txt = val.strip()
+                if any(re.search(p, txt, re.IGNORECASE) for p in patterns) and len(txt) <= 20:
+                    return c
     fallback = facility_col + 3
-    print(f"    WARNING: 'Ees' not found, using col {fallback}")
+    print(f"    WARNING: 'EEs' not found near row {facility_row}, defaulting to col {fallback}")
     return fallback
+
+def find_ees_col_strict(ws, facility_row, facility_col):
+    """Backward compatibility - calls flexible version"""
+    return find_ees_col_flexible(ws, facility_row, facility_col)
 
 def find_plan_section_tolerant(ws, facility_row, facility_col, plan_type):
     """Search with regex for plan headers"""
@@ -1540,8 +1586,9 @@ def write_to_specific_sheet(wb, sheet_name, write_map, tier_data):
         return []
     
     ws = wb[sheet_name]
+    PROCESSED_SHEETS.add(sheet_name)
     write_log = []
-    sherman_oaks_counts = {'EPO': [], 'VALUE': []}
+    seen_plan = set()  # Track (client_id, plan) for deduplication
     
     print(f"\nWriting to {sheet_name} sheet...")
     
@@ -1550,90 +1597,96 @@ def write_to_specific_sheet(wb, sheet_name, write_map, tier_data):
         client_id = entry['client_id']
         plan = entry['plan']
         cells = entry['cells']
+        label = entry.get('label', '')
         
-        # Get tier counts from tier_data
+        # Handle duplicate blocks with first_only policy
+        key = (client_id, plan)
+        if key in seen_plan and entry.get('dedupe_policy', 'first_only') == 'first_only':
+            # Zero any duplicate blocks to avoid double counting
+            for cell in cells.values():
+                ws[cell] = 0
+                _log(sheet_name, client_id, plan, 'DUPLICATE-ZERO', cell, 0)
+            print(f"  Skipped duplicate block for {key} (first_only).")
+            continue
+        seen_plan.add(key)
+        
+        # Get tier counts (or zeros)
+        tier_counts = {'EE Only': 0, 'EE+Spouse': 0, 'EE+Child': 0, 'EE+Children': 0, 'EE+Family': 0}
         if client_id in tier_data and plan in tier_data[client_id]:
-            tier_counts = tier_data[client_id][plan]
-        else:
-            # No data - write zeros
-            tier_counts = {'EE Only': 0, 'EE+Spouse': 0, 'EE+Child': 0, 'EE+Children': 0, 'EE+Family': 0}
+            tier_counts.update({k:int(v) for k,v in tier_data[client_id][plan].items()})
         
-        # Special handling for Sherman Oaks (H3180) - duplicate blocks
-        if client_id == 'H3180':
-            sherman_oaks_counts[plan].append(tier_counts)
-            # For duplicate blocks, use same counts
-            if len(sherman_oaks_counts[plan]) == 2:
-                pass  # Keep original counts for now
+        # Zero-fill all cells first
+        for cell in cells.values():
+            ws[cell] = 0
         
-        # Write to cells
+        # Optional label sanity check using any cell as anchor
+        anchor_cell = next(iter(cells.values()))
+        _soft_assert_label(ws, anchor_cell, label)
+        
+        # Unified children bucket
+        child_total = int(tier_counts.get('EE+Child', 0)) + int(tier_counts.get('EE+Children', 0))
+        
         values_written = []
         
-        # EE Only - handle both "EE" and "EE Only" cell keys
+        # EE
         if 'EE' in cells:
-            value = int(tier_counts.get('EE Only', 0))
-            ws[cells['EE']] = value
-            values_written.append(value)
+            v = int(tier_counts.get('EE Only', 0))
+            ws[cells['EE']] = v
+            _log(sheet_name, client_id, plan, 'EE', cells['EE'], v)
+            values_written.append(v)
         
-        # EE+Spouse - handle both "EE+Spouse" and "EE & Spouse" cell keys
+        # Spouse
         if 'EE+Spouse' in cells:
-            value = int(tier_counts.get('EE+Spouse', 0))
-            ws[cells['EE+Spouse']] = value
-            values_written.append(value)
+            v = int(tier_counts.get('EE+Spouse', 0))
+            ws[cells['EE+Spouse']] = v
+            _log(sheet_name, client_id, plan, 'EE+Spouse', cells['EE+Spouse'], v)
+            values_written.append(v)
         elif 'EE & Spouse' in cells:
-            value = int(tier_counts.get('EE+Spouse', 0))
-            ws[cells['EE & Spouse']] = value
-            values_written.append(value)
+            v = int(tier_counts.get('EE+Spouse', 0))
+            ws[cells['EE & Spouse']] = v
+            _log(sheet_name, client_id, plan, 'EE & Spouse', cells['EE & Spouse'], v)
+            values_written.append(v)
         
-        # Handle separate EE+Child and EE+Children cells (for Encino-Garden Grove)
-        if 'EE+Child' in cells:
-            value = int(tier_counts.get('EE+Child', 0))
-            ws[cells['EE+Child']] = value
-            values_written.append(value)
-        
-        if 'EE+Children' in cells:
-            value = int(tier_counts.get('EE+Children', 0))
-            ws[cells['EE+Children']] = value
-            values_written.append(value)
-        
-        # Combined children - handle "EE+Child(ren)" and "EE & Children" cell keys
+        # Children — prefer a single combined target
         if 'EE+Child(ren)' in cells:
-            value = int(tier_counts.get('EE+Child', 0) + tier_counts.get('EE+Children', 0))
-            ws[cells['EE+Child(ren)']] = value
-            values_written.append(value)
+            ws[cells['EE+Child(ren)']] = child_total
+            _log(sheet_name, client_id, plan, 'EE+Child(ren)', cells['EE+Child(ren)'], child_total)
+            values_written.append(child_total)
         elif 'EE & Children' in cells:
-            # St. Francis format - combine both child tiers
-            value = int(tier_counts.get('EE+Child', 0) + tier_counts.get('EE+Children', 0))
-            ws[cells['EE & Children']] = value
-            values_written.append(value)
+            ws[cells['EE & Children']] = child_total
+            _log(sheet_name, client_id, plan, 'EE & Children', cells['EE & Children'], child_total)
+            values_written.append(child_total)
+        elif 'EE+Children' in cells:
+            ws[cells['EE+Children']] = child_total
+            _log(sheet_name, client_id, plan, 'EE+Children', cells['EE+Children'], child_total)
+            values_written.append(child_total)
+        elif 'EE & Child' in cells:
+            ws[cells['EE & Child']] = child_total
+            _log(sheet_name, client_id, plan, 'EE & Child', cells['EE & Child'], child_total)
+            values_written.append(child_total)
+        elif 'EE+Child' in cells:
+            ws[cells['EE+Child']] = child_total
+            _log(sheet_name, client_id, plan, 'EE+Child', cells['EE+Child'], child_total)
+            values_written.append(child_total)
         
-        # EE+Family - handle both "EE+Family" and "EE & Family" cell keys
+        # Family
         if 'EE+Family' in cells:
-            value = int(tier_counts.get('EE+Family', 0))
-            ws[cells['EE+Family']] = value
-            values_written.append(value)
+            v = int(tier_counts.get('EE+Family', 0))
+            ws[cells['EE+Family']] = v
+            _log(sheet_name, client_id, plan, 'EE+Family', cells['EE+Family'], v)
+            values_written.append(v)
         elif 'EE & Family' in cells:
-            value = int(tier_counts.get('EE+Family', 0))
-            ws[cells['EE & Family']] = value
-            values_written.append(value)
+            v = int(tier_counts.get('EE+Family', 0))
+            ws[cells['EE & Family']] = v
+            _log(sheet_name, client_id, plan, 'EE & Family', cells['EE & Family'], v)
+            values_written.append(v)
         
-        # Log the write - include label if present
-        label = entry.get('label', '')
-        if label:
-            label_str = f" ({label[:30]}...)" if len(label) > 30 else f" ({label})"
-        else:
-            label_str = ""
-        
-        # Build cell range string
-        cell_list = []
-        for key in ['EE', 'EE+Spouse', 'EE+Child', 'EE+Children', 'EE+Child(ren)', 'EE+Family']:
-            if key in cells:
-                cell_list.append(cells[key])
-        cell_range = '/'.join(cell_list) if cell_list else '/'.join(cells.values())
-        
-        values_str = ', '.join(map(str, values_written))
-        log_entry = f"{client_id} {plan}{label_str} → {cell_range}: {values_str}"
+        # Logging line per entry
+        cell_range = '/'.join(cells.values())
+        label_str = f" ({label[:30]}...)" if label and len(label) > 30 else (f" ({label})" if label else "")
+        log_entry = f"{client_id} {plan}{label_str} → {cell_range}: {', '.join(map(str, values_written))}"
         write_log.append(log_entry)
-        print(f"  {log_entry}")
+        print("  " + log_entry)
     
     return write_log
 
@@ -1681,19 +1734,36 @@ def build_tier_data_from_source(source_file):
         'EE Only': 0, 'EE+Spouse': 0, 'EE+Child': 0, 'EE+Children': 0, 'EE+Family': 0
     }))
     
+    # Track unknowns for visibility
+    unknown_plans = []
+    
     # Aggregate counts - handle EE+Child(ren) specially
     for _, row in df.iterrows():
         client_id = row['CLIENT ID']
         plan_group = row['plan_group']
         tier = row['tier']
         
-        if tier != 'UNKNOWN' and plan_group != 'UNKNOWN':
-            # Map EE+Child(ren) to separate EE+Child and EE+Children
-            if tier == 'EE+Child(ren)':
-                # For now, put all in EE+Children (will be combined when writing)
-                tier_data[client_id][plan_group]['EE+Children'] += 1
-            elif tier in tier_data[client_id][plan_group]:
-                tier_data[client_id][plan_group][tier] += 1
+        if tier == 'UNKNOWN' or plan_group == 'UNKNOWN':
+            if len(unknown_plans) < 10:
+                unknown_plans.append((
+                    row.get('CLIENT ID', ''), 
+                    row.get('PLAN', ''), 
+                    row.get('BEN CODE', '')
+                ))
+            continue
+            
+        # Map EE+Child(ren) to separate EE+Child and EE+Children
+        if tier == 'EE+Child(ren)':
+            # For now, put all in EE+Children (will be combined when writing)
+            tier_data[client_id][plan_group]['EE+Children'] += 1
+        elif tier in tier_data[client_id][plan_group]:
+            tier_data[client_id][plan_group][tier] += 1
+    
+    # Report unknowns
+    if unknown_plans:
+        print(f"  ⚠ UNKNOWN plans/tiers skipped: {len(unknown_plans)} (showing first 10)")
+        for cid, plan, ben in unknown_plans[:10]:
+            print(f"     {cid}: PLAN='{plan}'  BEN='{ben}'")
     
     # Convert to regular dict
     tier_data = {k: dict(v) for k, v in tier_data.items()}
@@ -1719,12 +1789,22 @@ def perform_comprehensive_writeback(workbook_path, tier_data, output_path=None):
     Returns:
         Path to the output file
     """
+    # Reset runtime globals before each run
+    global WRITE_LOG_ROWS, PROCESSED_SHEETS
+    WRITE_LOG_ROWS = []
+    PROCESSED_SHEETS = set()
+    
     if not output_path:
         output_path = workbook_path.replace('.xlsx', '_updated.xlsx')
     
     print("\n" + "="*80)
     print("COMPREHENSIVE ENROLLMENT WRITE-BACK")
     print("="*80)
+    
+    # Pre-write control assertion
+    if STRICT_CONTROL_CHECK and not assert_control_from_tier_data(tier_data):
+        print("❌ Control totals mismatch—aborting write-back.")
+        return None
     
     # Load workbook
     print(f"Opening workbook: {workbook_path}")
@@ -1868,20 +1948,52 @@ def perform_comprehensive_writeback(workbook_path, tier_data, output_path=None):
     illinois_logs = write_to_specific_sheet(wb, 'Illinois', ILLINOIS_WRITE_MAP, tier_data)
     all_write_logs.extend(illinois_logs)
     
-    # Save workbook
-    print(f"\nSaving to: {output_path}")
-    wb.save(output_path)
-    wb.close()
+    # Save workbook (unless dry run)
+    if not DRY_RUN_WRITE:
+        print(f"\nSaving to: {output_path}")
+        wb.save(output_path)
+        wb.close()
+    else:
+        print(f"\n[DRY RUN] Would save to: {output_path}")
+        wb.close()
     
-    # Print summary
+    # CSV audit log
+    os.makedirs('output', exist_ok=True)
+    with open('output/write_log.csv', 'w', newline='') as f:
+        w = _csv.writer(f)
+        w.writerow(['sheet','client_id','plan','tier','cell','value'])
+        w.writerows(WRITE_LOG_ROWS)
+    
     print("\n" + "="*60)
     print("WRITE-BACK COMPLETE")
     print("="*60)
     print(f"Total writes: {len(all_write_logs)}")
-    # Count unique sheets processed  
-    sheets_processed = 32  # Total number of sheets we process
-    print(f"Sheets updated: {sheets_processed} sheets (Legacy, Centinela, Encino-Garden Grove, St. Francis, Pampa, Roxborough, Lower Bucks, and 25 more)")
-    print(f"Output file: {output_path}")
+    print(f"Sheets updated: {len(PROCESSED_SHEETS)} -> {', '.join(sorted(PROCESSED_SHEETS))}")
+    print(f"Write log: output/write_log.csv")
+    print(f"Output file: {output_path if not DRY_RUN_WRITE else '[DRY RUN - not saved]'}")
+    
+    # Post-write verification: compare source tier_data sums to what was written
+    from collections import Counter as _Counter
+    by_key = _Counter()  # (client_id, plan) -> written sum
+    for _, cid, plan, _, _, val in WRITE_LOG_ROWS:
+        if 'DUPLICATE-ZERO' not in plan:  # Skip duplicate zeros
+            by_key[(cid, plan)] += int(val)
+    
+    mismatches = []
+    for cid, plans in tier_data.items():
+        for plan, counts in plans.items():
+            src_sum = int(counts.get('EE Only',0)) + int(counts.get('EE+Spouse',0)) + \
+                      int(counts.get('EE+Family',0)) + int(counts.get('EE+Child',0)) + int(counts.get('EE+Children',0))
+            sheet_sum = by_key.get((cid, plan), 0)
+            if src_sum != sheet_sum:
+                mismatches.append((cid, plan, src_sum, sheet_sum))
+    
+    if mismatches:
+        print("⚠ Post-write mismatches (first 20):")
+        for cid, plan, src, sheet in mismatches[:20]:
+            print(f"  {cid} {plan}: source={src} vs sheet={sheet}")
+    else:
+        print("✓ Post-write verification: all client/plan totals match.")
     
     # Show sample of writes
     if all_write_logs:
@@ -1937,7 +2049,7 @@ def perform_targeted_cell_writeback(df, template_file):
     
     for client_id, cell_map in WRITE_MAP.items():
         # Get facility name from mapping
-        facility_name = CLIENT_TO_FACILITY.get(client_id, f"Unknown_{client_id}")
+        facility_name = TPA_TO_FACILITY.get(client_id, f"Unknown_{client_id}")
         
         # Filter data for this CLIENT ID (Active only, no COBRA)
         facility_df = df[(df['CLIENT ID'] == client_id) & 
@@ -1957,6 +2069,9 @@ def perform_targeted_cell_writeback(df, template_file):
             print(f"  ⚠️ No worksheet found for {facility_name}")
             continue
         
+        # Add plan_group column from PLAN
+        facility_df['plan_group'] = facility_df['PLAN'].apply(lambda x: infer_plan_group_and_variant(x)[0])
+        
         # Special handling for Sherman Oaks (H3180)
         if client_id == 'H3180':
             # Split variants for duplicate blocks
@@ -1964,7 +2079,7 @@ def perform_targeted_cell_writeback(df, template_file):
             variant2_keywords = ['2', 'TWO', 'SECOND']
             
             # Process EPO blocks
-            epo_df = facility_df[facility_df['PLAN TYPE'] == 'EPO']
+            epo_df = facility_df[facility_df['plan_group'] == 'EPO']
             if not epo_df.empty:
                 # Split between blocks (simple 50/50 or by some criteria)
                 mid = len(epo_df) // 2
@@ -1986,7 +2101,7 @@ def perform_targeted_cell_writeback(df, template_file):
                     write_summary.append(f"  {client_id} EPO_2 {tier}: {cell} = {count}")
             
             # Process VALUE blocks similarly
-            value_df = facility_df[facility_df['PLAN TYPE'] == 'VALUE']
+            value_df = facility_df[facility_df['plan_group'] == 'VALUE']
             if not value_df.empty:
                 mid = len(value_df) // 2
                 value1_df = value_df.iloc[:mid]
@@ -2008,7 +2123,7 @@ def perform_targeted_cell_writeback(df, template_file):
         else:
             # Standard facilities (non-Sherman Oaks)
             for plan_type, tier_cells in cell_map.items():
-                plan_df = facility_df[facility_df['PLAN TYPE'] == plan_type]
+                plan_df = facility_df[facility_df['plan_group'] == plan_type]
                 
                 for tier, cell in tier_cells.items():
                     # Handle combined Child(ren) tier
@@ -2045,6 +2160,12 @@ def main():
     """
     Main execution with tier reconciliation and targeted write-back
     """
+    # Reset global trackers at the start of each run
+    global unknown_tiers_tracker, waterfall_stages, removed_rows_samples
+    unknown_tiers_tracker = Counter()
+    waterfall_stages = []
+    removed_rows_samples = {}
+    
     # FILE PATHS
     source_file = "data/input/source_data.xlsx"
     template_file = r"C:\Users\becas\Prime_EFR\Prime Enrollment Funding by Facility for August.xlsx"
