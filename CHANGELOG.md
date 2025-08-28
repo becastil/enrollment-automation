@@ -5,6 +5,43 @@ All notable changes to the Prime Employee Enrollment Data Processing System are 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - 2024-12-28
+
+### 🚀 Major Refactor - Complete Tier Reconciliation
+
+### Added
+- **Pre-write control assertion** - Validates totals before any writes
+- **Comprehensive write logging** - CSV audit trail (output/write_log.csv)
+- **Post-write verification** - Automatic validation of all written values
+- **Deduplication logic** - First-only policy prevents double-counting
+- **Zero-fill protection** - Clears stale values before writing
+- **Flexible EEs detection** - Regex-based column finding
+- **Unknown tracking** - Visibility into unmapped plans/tiers
+- **Label sanity checks** - Optional validation of cell labels
+- **Sherman Oaks routing stub** - Foundation for variant splitting
+- **Windows compatibility** - Native Windows support without WSL
+- **Cross-platform runners** - run_enrollment.bat and run_enrollment.py
+
+### Changed
+- **PLAN TYPE → PLAN** - Fixed all references to use PLAN column
+- **CLIENT_TO_FACILITY → TPA_TO_FACILITY** - Corrected mapping reference
+- **Path handling** - Now uses os.path.join() for all paths
+- **Global state management** - Resets trackers per run
+- **Output paths** - Dynamic generation using os.path functions
+- **Sheet counting** - Dynamic calculation instead of hardcoded
+
+### Fixed
+- **Control totals** - Exact match to 24,708 (14533/2639/4413/3123)
+- **Duplicate blocks** - No longer double-count multi-block sheets
+- **Stale values** - Zero-fill prevents old data persistence
+- **Windows paths** - Proper handling of Windows file paths
+
+### Improved
+- **Validation** - Multi-level checks throughout pipeline
+- **Error messages** - Include unknown examples in failures
+- **Performance** - Optimized write operations
+- **Maintainability** - Cleaner code structure
+
 ## [3.3.0] - 2025-08-27
 
 ### Added

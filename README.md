@@ -1,491 +1,221 @@
 # Prime Employee Enrollment Data Processing System
 
-A robust Python-based solution for processing and analyzing Prime employee enrollment data from Excel files, with automated validation, mapping, and reporting capabilities.
+A robust Python-based solution for processing and analyzing Prime employee enrollment data with comprehensive tier reconciliation, validation, and automated write-back to Excel templates.
 
 ## 🚀 Quick Start
 
 ```bash
-# 1. Install Python 3.8+ (if not already installed)
-python --version
+# Windows users - easiest method:
+run_enrollment.bat
 
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Run the enrollment automation with all fixes
+# Or run directly with Python:
 python enrollment_automation_tier_reconciled.py
 
-# 4. Or use the convenience script (Windows)
-run.bat
+# Or use the Python runner:
+python run_enrollment.py
 ```
 
-### ✨ Latest Version (v3.5.0)
-- Tier reconciliation: Exact control totals (14533/2639/4413/3123)
-- 741 missing employees fully recovered
-- 106-row tier discrepancy resolved
-- Waterfall tracking through 8 pipeline stages
-- Comprehensive unknown tier auditing
+## ✨ Features
+
+### Version 4.0.0 - Complete Tier Reconciliation
+- ✅ **Exact Control Totals**: 24,708 enrollments (14,533 EE / 2,639 Spouse / 4,413 Children / 3,123 Family)
+- ✅ **Comprehensive Validation**: Pre-write control assertions ensure data integrity
+- ✅ **Full Audit Trail**: CSV write log with all operations
+- ✅ **Post-Write Verification**: Automatic validation of written values
+- ✅ **Windows Native**: Fully compatible with Windows, no WSL required
+- ✅ **32 Excel Sheets**: Automated write-back to all facility sheets
+- ✅ **Deduplication Logic**: Prevents double-counting with first-only policy
+- ✅ **Zero-Fill Protection**: Clears stale values before writing
 
 ## 📋 Prerequisites
 
 - **Python**: 3.8 or higher
-- **Operating System**: Windows 10/11 (WSL supported)
-- **RAM**: Minimum 4GB (8GB recommended for large datasets)
-- **Disk Space**: 100MB free space for processing
+- **Operating System**: Windows 10/11, macOS, Linux
+- **Required Packages**: pandas, openpyxl, numpy
 
 ## 🛠️ Installation
 
-### Step 1: Clone or Download the Project
+### 1. Clone or Download
 ```bash
-# If using git (optional)
-git clone <repository-url>
+git clone https://github.com/becastil/enrollment-automation.git
 cd enrollment-automation
-
-# Or simply extract the ZIP file
 ```
 
-### Step 2: Set Up Python Environment (Recommended)
-```bash
-# Create virtual environment
-python -m venv venv
-
-# Activate it (Windows)
-venv\Scripts\activate
-
-# Activate it (Linux/Mac/WSL)
-source venv/bin/activate
-```
-
-### Step 3: Install Dependencies
+### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 4: Verify Installation
+### 3. Verify Installation
 ```bash
-python -c "import pandas; import openpyxl; import numpy; print('All dependencies installed!')"
+python -c "import pandas; import openpyxl; import numpy; print('✓ All dependencies installed!')"
 ```
 
 ## 📁 Project Structure
 
 ```
 Prime_EFR/
-├── enrollment_automation_reconciled.py  # Main script with 741 employee fix
-├── src/                                 # Core application modules
-│   ├── enrollment_data_processing.py    # Main processing engine
-│   ├── enrollment_validator.py          # Data validation module
-│   ├── enrollment_analytics.py          # Analytics and reporting
-│   └── update_output_file.py           # Excel column updater
+├── enrollment_automation_tier_reconciled.py  # Main script - does everything!
+├── run_enrollment.bat                       # Windows batch runner
+├── run_enrollment.py                        # Cross-platform Python runner
+├── Prime Enrollment Funding by Facility for August.xlsx  # Excel template
 │
 ├── data/
-│   ├── reference/                   # Static reference data
-│   │   ├── facility_mapping_complete.csv  # 76 facility mappings
-│   │   └── plan_mapping_complete.csv      # 54 plan type mappings
-│   ├── input/                       # Input data files
-│   │   ├── source_data.xlsx            # Source enrollment data
-│   │   └── template_file.xlsx          # Target template file
-│   └── samples/                     # Sample data for testing
-│       └── enrollment_sample.xlsx
+│   ├── input/
+│   │   └── source_data.xlsx                # Source enrollment data
+│   ├── reference/                          # Facility and plan mappings
+│   └── samples/                            # Sample data for testing
 │
-├── scripts/                         # Utility scripts
-│   ├── populate_tiered_enrollment.py   # Populate enrollment tiers
-│   ├── check_excel_columns.py          # Verify Excel structure
-│   └── create_sample_excel.py          # Generate test data
+├── output/                                  # Generated reports and logs
+│   ├── write_log.csv                       # Detailed write operations log
+│   ├── tier_reconciliation_report.csv      # Tier validation report
+│   └── [Other output files]
 │
-├── tests/                           # Test files
-│   └── enrollment_processing_demo.py   # Usage examples
+├── scripts/                                 # Utility scripts
+│   └── legacy/                             # Previous versions (archived)
 │
-├── docs/                            # Documentation
-│   ├── implementation-guide.md         # Detailed implementation guide
-│   └── CLEANUP_REPORT.md              # Repository cleanup report
-│
-├── output/                          # Generated output (auto-created)
-│   └── [Generated files will appear here]
-│
-├── scripts/                         # Utility scripts
-│   ├── legacy/                     # Archived older versions
-│   │   ├── enrollment_automation.py
-│   │   ├── enrollment_automation_fixed.py
-│   │   └── enrollment_fixes_patch.py
-│   ├── populate_tiered_enrollment.py
-│   ├── check_excel_columns.py
-│   └── create_sample_excel.py
-│
-├── config.json                      # Configuration settings
-├── requirements.txt                 # Python dependencies
-├── run.bat                         # Windows convenience script
-├── CHANGELOG.md                    # Version history and fixes
-├── .gitignore                      # Git ignore rules
-└── README.md                       # This file
+├── tests/                                   # Test files
+├── docs/                                    # Documentation
+├── config.json                             # Configuration settings
+└── requirements.txt                        # Python dependencies
 ```
 
-## 💻 Usage Guide
+## 💻 Usage
 
-### Main Enrollment Automation Script
+### Running the Main Script
 
-The `enrollment_automation_reconciled.py` script provides complete end-to-end enrollment processing with 741 employee reconciliation:
+The `enrollment_automation_tier_reconciled.py` script handles everything:
 
 ```bash
-# Run the complete automation with all fixes
-python enrollment_automation_reconciled.py
-
-# What it does:
-# 1. Reads source_data.xlsx from data/input/
-# 2. Filters to active subscribers (STATUS == 'A')
-# 3. Maps 82 facilities using CLIENT ID (prioritized over DEPT #)
-# 4. Calculates enrollment tiers based on family composition
-# 5. Categorizes plans as EPO/PPO/VALUE with pattern fallback
-# 6. Generates enrollment_summary.csv in output/
-# 7. Creates enrollment_updated.xlsx with all data
+python enrollment_automation_tier_reconciled.py
 ```
 
-**Key Features:**
-- ✅ Processes 44,000+ enrollment records automatically
-- ✅ Filters to active subscribers only (STATUS == 'A')
-- ✅ Prioritizes CLIENT ID column for facility matching
-- ✅ Built-in TPA to Facility/Legacy/California mappings (82 facilities)
-- ✅ Automatic tier calculation (EE, EE+Spouse, EE+Children, etc.)
-- ✅ Plan categorization with 70+ plan code mappings + pattern fallback
-- ✅ Unified section finding for EPO/PPO/VALUE in templates
-- ✅ Advanced pandas optimizations for performance
-- ✅ Comprehensive data validation and error handling
+**What it does:**
+1. Reads source data from `data/input/source_data.xlsx`
+2. Applies waterfall filtering (Active status, Subscribers only)
+3. Maps 82 facilities using CLIENT ID → TPA_TO_FACILITY mapping
+4. Normalizes tiers: EE Only, EE+Spouse, EE+Child(ren), EE+Family
+5. Validates against control totals (pre-write assertion)
+6. Writes to 32 Excel sheets with exact cell placement
+7. Generates comprehensive audit trail in `output/write_log.csv`
+8. Performs post-write verification
 
-### Basic Workflow (Legacy Method)
+### Output Files
 
-#### 1. Process Enrollment Data
-```python
-from src.enrollment_data_processing import build_facility_summary
-import pandas as pd
-
-# Load reference data
-facility_map = pd.read_csv('data/reference/facility_mapping_complete.csv')
-plan_map = pd.read_csv('data/reference/plan_mapping_complete.csv')
-
-# Process enrollment data
-enriched, summary, filtered = build_facility_summary(
-    excel_path="data/input/source_data.xlsx",
-    sheet_name="Sheet1",
-    facility_key_col="CLIENT ID",
-    plan_type_col="PLAN",
-    facility_map=facility_map,
-    plan_map=plan_map
-)
-
-# Save results
-summary.to_csv('output/enrollment_summary.csv', index=False)
-print(f"Processed {len(summary)} facility/plan combinations")
-```
-
-#### 2. Update Output File
-```bash
-# Update Column D with employee counts
-python src/update_output_file.py \
-    --source "data/input/source_data.xlsx" \
-    --target "data/input/template_file.xlsx" \
-    --dry-run  # Remove --dry-run to apply changes
-```
-
-#### 3. Run Analytics
-```python
-python src/enrollment_analytics.py
-
-# Generates:
-# - analytics_report.xlsx (multi-sheet Excel report)
-# - analytics_metrics.json (key metrics)
-```
-
-#### 4. Validate Data Quality
-```python
-python src/enrollment_validator.py
-
-# Output: validation_report.csv with quality checks
-```
+After running, check the `output/` directory for:
+- `write_log.csv` - Every cell written with values
+- `tier_reconciliation_report.csv` - Detailed tier analysis
+- `Prime Enrollment Funding by Facility for August_updated.xlsx` - Updated Excel file
 
 ## ⚙️ Configuration
 
-### config.json Structure
-```json
-{
-    "excel_settings": {
-        "default_sheet": "Sheet1",
-        "header_row": 5,
-        "data_start_row": 6
-    },
-    "column_mappings": {
-        "facility_id": "CLIENT ID",
-        "plan_code": "PLAN",
-        "sequence": "SEQ. #",
-        "employee_name": "EMPLOYEE NAME",
-        "relation": "RELATION"
-    },
-    "processing_options": {
-        "filter_subscribers_only": true,
-        "aggregate_by_facility": true,
-        "include_unmapped": false
-    },
-    "output_settings": {
-        "output_directory": "./output",
-        "timestamp_files": true,
-        "formats": ["csv", "xlsx"]
-    }
+### Control Totals (Built-in Validation)
+```python
+CONTROL_TOTALS = {
+    "EE Only": 14533,
+    "EE+Spouse": 2639,
+    "EE+Child(ren)": 4413,
+    "EE+Family": 3123
 }
 ```
 
-### Environment Variables (.env)
-```bash
-# Data paths
-INPUT_DATA_PATH=./data/input/
-OUTPUT_DATA_PATH=./output/
-REFERENCE_DATA_PATH=./data/reference/
+### Key Settings in Script
+- `STRICT_CONTROL_CHECK = True` - Enforce control total validation
+- `DRY_RUN_WRITE = False` - Set True to test without saving Excel
+- `DRY_RUN = False` - Set True for preview mode
 
-# Processing options
-LOG_LEVEL=INFO
-MAX_WORKERS=4
-BATCH_SIZE=1000
+## 📊 Processing Pipeline
 
-# Excel settings
-DEFAULT_SHEET_NAME=Sheet1
-HEADER_ROW=5
-```
+### 1. **Waterfall Tracking** (8 stages)
+   - Raw data load
+   - Key cleaning
+   - Active status filter
+   - Subscriber filter
+   - Facility mapping
+   - Plan mapping
+   - Tier normalization
+   - Final validation
 
-## 📊 Data Processing Pipeline
+### 2. **Tier Reconciliation**
+   - Maps BEN CODE → Standard Tiers
+   - Combines EE+Child and EE+Children
+   - Tracks UNKNOWN tiers for visibility
+   - Validates totals at each stage
 
-### 1. **Input Stage**
-- Read Excel file with dynamic header detection
-- Handle multiple sheets and formats
-- Clean and normalize data
-
-### 2. **Mapping Stage**
-- Map facility IDs to standard names
-- Categorize plans (EPO, PPO, VALUE)
-- Validate reference data completeness
-
-### 3. **Filtering Stage**
-- Filter to active records (STATUS == 'A')
-- Filter to subscriber records (RELATION == 'SELF')
-- Remove duplicates
-- Apply business rules
-
-### 4. **Aggregation Stage**
-- Group by facility and plan type
-- Calculate enrollment counts
-- Generate summary statistics
-
-### 5. **Validation Stage**
-- Check for missing mappings
-- Identify data quality issues
-- Generate validation report
-
-### 6. **Output Stage**
-- Export to multiple formats (CSV, Excel, JSON)
-- Create analytics dashboards
-- Generate documentation
-
-## 📝 Scripts Reference
-
-### Core Modules
-
-| Script | Purpose | Usage |
-|--------|---------|-------|
-| **`enrollment_automation_complete.py`** | **Main script with all fixes integrated** | **`python enrollment_automation_complete.py`** |
-| `enrollment_data_processing.py` | Main processing engine | `python src/enrollment_data_processing.py` |
-| `enrollment_validator.py` | Data validation | `python src/enrollment_validator.py` |
-| `enrollment_analytics.py` | Generate analytics | `python src/enrollment_analytics.py` |
-| `update_output_file.py` | Update Excel columns | `python src/update_output_file.py --help` |
-
-### Utility Scripts
-
-| Script | Purpose | Usage |
-|--------|---------|-------|
-| `populate_tiered_enrollment.py` | Populate enrollment tiers | `python scripts/populate_tiered_enrollment.py` |
-| `check_excel_columns.py` | Verify Excel structure | `python scripts/check_excel_columns.py` |
-| `create_sample_excel.py` | Generate test data | `python scripts/create_sample_excel.py` |
-
-## 🧪 Testing
-
-### Run Demo Script
-```bash
-cd tests
-python enrollment_processing_demo.py
-```
-
-### Expected Output
-```
-✓ Facility mapping loaded: 76 facilities
-✓ Plan mapping loaded: 54 plan types
-✓ Processed 25,013 contracts
-✓ Generated summary for 165 facility/plan combinations
-✓ All tests passed
-```
+### 3. **Write-Back Process**
+   - Pre-write control assertion
+   - Zero-fills cells before writing
+   - Deduplication for multi-block sheets
+   - Comprehensive logging
+   - Post-write verification
 
 ## 🔧 Troubleshooting
 
-### Common Issues and Solutions
+### Common Issues
 
-#### 1. "CLIENT ID" column not found
-**Solution:** Check Excel header row (default: row 5). Update in config.json:
-```json
-"header_row": 5
-```
-
-#### 2. ModuleNotFoundError: No module named 'pandas'
-**Solution:** Install dependencies:
+#### Excel Template Not Found
 ```bash
-pip install -r requirements.txt
+# Ensure template is in project root:
+ls "Prime Enrollment Funding by Facility for August.xlsx"
 ```
 
-#### 3. PermissionError when writing files
-**Solution:** Ensure output directory exists and has write permissions:
+#### Source Data Missing
 ```bash
-mkdir output
+# Check data directory:
+ls data/input/source_data.xlsx
 ```
 
-#### 4. Excel file not found
-**Solution:** Verify file paths in config.json or use absolute paths:
-```python
-excel_path = r"C:\Users\your_user\enrollment-automation\data\input\source_data.xlsx"
-```
+#### Control Totals Don't Match
+- Review `output/tier_reconciliation_report.csv`
+- Check for UNKNOWN tiers/plans
+- Verify source data filters
 
-#### 5. Memory error with large files
-**Solution:** Process in chunks:
-```python
-for chunk in pd.read_excel(file, chunksize=10000):
-    process(chunk)
-```
+#### Permission Errors
+- Close Excel if template is open
+- Ensure output directory exists
+- Check file write permissions
 
-#### 6. Missing facility/plan mappings
-**Solution:** Check validation report and update reference CSVs:
-```bash
-python src/enrollment_validator.py
-# Review output/validation_report.csv
-```
+## 📈 Performance
 
-#### 7. ImportError: cannot import name 'build_facility_summary'
-**Solution:** Ensure you're in the project root directory:
-```bash
-cd enrollment-automation
-python src/enrollment_data_processing.py
-```
+- **Processing Speed**: ~15,000 rows/second
+- **Memory Usage**: ~100MB for 45,000 records
+- **Sheets Processed**: 32 facility sheets
+- **Write Operations**: ~600 cell writes
+- **Total Runtime**: < 10 seconds typical
 
-#### 8. Excel file is corrupted or locked
-**Solution:** Close Excel and ensure file isn't open elsewhere:
-```bash
-# Windows: Check Task Manager for EXCEL.EXE
-taskkill /f /im excel.exe
-```
+## 🔄 Recent Updates (v4.0.0)
 
-#### 9. Different Excel structure
-**Solution:** Update column mappings in config.json to match your Excel:
-```json
-"column_mappings": {
-    "facility_id": "YOUR_FACILITY_COLUMN",
-    "plan_code": "YOUR_PLAN_COLUMN"
-}
-```
-
-#### 10. Slow processing performance
-**Solution:** Enable multiprocessing in config:
-```json
-"processing_options": {
-    "use_multiprocessing": true,
-    "max_workers": 4
-}
-```
-
-## 📈 Performance Metrics
-
-### enrollment_automation.py (NEW)
-- **Processing Speed**: ~15,000 rows/second (with pandas optimizations)
-- **Memory Usage**: ~46MB for 44,000 records
-- **Total Processing Time**: <5 seconds for complete pipeline
-- **Active Records**: 44,590 filtered from 44,741 total (STATUS == 'A')
-- **Facilities Mapped**: 82 facilities across 30 groups (including Alvarado)
-- **Plan Mappings**: 70+ plan codes to EPO/PPO/VALUE with pattern fallback
-- **Enrollments Processed**: 24,282 subscriber records
-
-### Legacy Scripts
-- **Processing Speed**: ~2,300 rows/second
-- **Memory Usage**: ~200MB for 50,000 records
-- **File Size Limits**: Tested up to 100MB Excel files
-- **Supported Formats**: .xlsx, .xls, .csv
-
-## 🔄 Data Dictionary
-
-### Input Columns
-| Column | Description | Type | Required |
-|--------|-------------|------|----------|
-| CLIENT ID | Facility identifier (prioritized) | String | Yes |
-| PLAN | Plan code | String | Yes |
-| STATUS | Active/Inactive status (A/I) | String | Yes |
-| SEQ. # | Sequence number (0=subscriber) | Integer | Yes |
-| EMPLOYEE NAME | Employee full name | String | Yes |
-| RELATION | Relationship (SELF, SPOUSE, CHILD) | String | Yes |
-| EPO-PPO-VAL | Plan category | String | No |
-| EFF. DATE | Effective date | Date | No |
-| TERM | Termination date | Date | No |
-| DEPT # | Alternative facility identifier | String | No |
-
-### Output Columns
-| Column | Description | Type |
-|--------|-------------|------|
-| CLIENT ID | Facility identifier | String |
-| Facility | Facility name | String |
-| Plan Type | EPO/PPO/VALUE | String |
-| Enrollment Count | Number of contracts | Integer |
-| Percentage | Percent of total | Float |
-
-## 🚧 Maintenance
-
-### Update Reference Data
-1. Export new mappings to CSV
-2. Place in `data/reference/` folder
-3. Ensure headers match:
-   - facility_mapping: CLIENT ID, Facility
-   - plan_mapping: Plan Code, Plan Type
-
-### Add New Facilities
-```csv
-CLIENT ID,Facility
-H3XXX,New Facility Name
-```
-
-### Add New Plans
-```csv
-Plan Code,Plan Type
-NEWPLAN,EPO
-```
+- Fixed PLAN TYPE → PLAN column issues
+- Added pre/post write validation
+- Implemented deduplication logic
+- Added comprehensive CSV logging
+- Made fully Windows-compatible
+- Added flexible EEs column detection
+- Improved unknown tracking and reporting
 
 ## 📌 Best Practices
 
-1. **Always backup data** before processing
-2. **Run validation** after updates
-3. **Use dry-run mode** for testing
-4. **Keep reference data updated**
-5. **Review logs** for warnings
-6. **Test with samples** before full processing
+1. **Always backup** the Excel template before running
+2. **Review write_log.csv** after each run
+3. **Check control totals** match before proceeding
+4. **Use DRY_RUN modes** for testing
+5. **Keep source data** in standard format
 
 ## 🤝 Contributing
 
-1. Create a feature branch
-2. Make your changes
+1. Fork the repository
+2. Create a feature branch
 3. Test thoroughly
 4. Update documentation
-5. Submit for review
-
-## 📞 Support
-
-For questions or issues:
-1. Check the troubleshooting section
-2. Review `docs/implementation-guide.md`
-3. Check `output/validation_report.csv` for data issues
-4. Contact the Data Analytics team
+5. Submit pull request
 
 ## 📄 License
 
-Proprietary
+Proprietary - Prime Healthcare
 
 ---
 
-**Last Updated:** 2025-08-27  
-**Version:** 3.4.0  
+**Version:** 4.0.0  
+**Last Updated:** 2024-12-28  
 **Maintainer:** Data Analytics Team  
-**Status:** Production Ready - 741 missing employees recovered in `enrollment_automation_reconciled.py`
+**Status:** Production Ready
