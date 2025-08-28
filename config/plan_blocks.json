@@ -1,0 +1,28 @@
+{
+  "_comment": "Multi-block routing decisions keyed by (tab, client_id, plan_type)",
+  "routings": {
+    "Lower Bucks|H3330|EPO": {
+      "blocks": [
+        {"label": "PRIME EPO PLAN (Self-Insured) - IUOE", "variant": "IUOE"},
+        {"label": "PRIME EPO PLAN (Self-Insured) - PASNAP & Non-Union", "variant": "PASNAP_NONUNION"}
+      ],
+      "routing": "variant"
+    },
+    "Legacy|H3180|EPO": {
+      "_comment": "Sherman Oaks Hospital",
+      "blocks": [
+        {"label": "PRIME EPO PLAN Block 1", "variant": "BLOCK1"},
+        {"label": "PRIME EPO PLAN Block 2", "variant": "BLOCK2"}
+      ],
+      "routing": "proportional"
+    },
+    "Legacy|H3180|VALUE": {
+      "_comment": "Sherman Oaks Hospital",
+      "blocks": [
+        {"label": "PRIME VALUE PLAN Block 1", "variant": "BLOCK1"},
+        {"label": "PRIME VALUE PLAN Block 2", "variant": "BLOCK2"}
+      ],
+      "routing": "proportional"
+    }
+  }
+}
