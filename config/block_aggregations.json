@@ -1,0 +1,234 @@
+{
+  "_comment": "Tab → Client ID → Plan Type → Block Label mappings with specific PLAN codes to aggregate",
+  "Lower Bucks": {
+    "H3330": {
+      "EPO": {
+        "PRIME EPO PLAN (Self-Insured) - IUOE": {
+          "sum_of": ["PRIMEMMLBEPO"]
+        },
+        "PRIME EPO PLAN (Self-Insured) - PASNAP & Non-Union": {
+          "sum_of": ["PRIMELBHEPO"]
+        }
+      },
+      "VALUE": {
+        "PRIME VALUE PLAN (Self-Insured) - Union & Non-Union": {
+          "sum_of": ["PRIMEMMVAL", "PRIMEMMVALUE"]
+        }
+      },
+      "_children_policy": "combined"
+    }
+  },
+  
+  "Encino-Garden Grove": {
+    "H3250": {
+      "EPO": {
+        "PRIME SEIU 121 RN EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMEPOLEUN"]
+        },
+        "PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMEPO3", "PRIMEMMEPOLE", "PRIMEPOPRE21"]
+        }
+      },
+      "VALUE": {
+        "PRIME VALUE PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMVAL", "PRIMEMMVALUE"]
+        }
+      },
+      "_children_policy": "split"
+    },
+    "H3260": {
+      "EPO": {
+        "PRIME UNAC EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMEPO3"]
+        },
+        "PRIME Non-Union UNIFIED EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMEPOLE", "PRIMEPOPRE21"]
+        }
+      },
+      "VALUE": {
+        "PRIME VALUE PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMVAL", "PRIMEMMVALUE"]
+        }
+      },
+      "_children_policy": "split"
+    },
+    "H3220": {
+      "_comment": "West Anaheim Medical Center - simple mapping",
+      "EPO": {
+        "PRIME EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMWAEPO"]
+        }
+      },
+      "VALUE": {
+        "PRIME VALUE PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMWAVALUE"]
+        }
+      },
+      "_children_policy": "split"
+    }
+  },
+  
+  "St. Francis": {
+    "H3275": {
+      "EPO": {
+        "PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMESFSEEPO"]
+        },
+        "PRIME UNAC D1 UNIFIED EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMESFUNEPO"]
+        },
+        "PRIME Non-Union D1 UNIFIED EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMSFEPO"]
+        }
+      },
+      "VALUE": {
+        "PRIME VALUE PLAN (Self-Insured)": {
+          "sum_of": ["PRIMESFMCVAL"]
+        }
+      },
+      "_children_policy": "combined"
+    },
+    "H3276": {
+      "_comment": "St Francis Physician",
+      "EPO": {
+        "PRIME EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMEPOLE"]
+        }
+      },
+      "VALUE": {
+        "PRIME VALUE PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMVALUE"]
+        }
+      },
+      "_children_policy": "combined"
+    },
+    "H3277": {
+      "_comment": "St Francis PT",
+      "_children_policy": "combined"
+    }
+  },
+  
+  "Saint Mary's Reno": {
+    "H3395": {
+      "EPO": {
+        "PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMSMMSMRMCEPO"]
+        },
+        "PRIME CWA 2020 D2 UNIFIED EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMSMECW"]
+        },
+        "PRIME CNA 2019 D2 UNIFIED EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMSMECN"]
+        }
+      },
+      "VALUE": {
+        "PRIME VALUE PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMVAL", "PRIMEMMVALUE", "PRIMEMMSMVALUE"]
+        }
+      },
+      "_children_policy": "combined"
+    },
+    "H3394": {
+      "_comment": "Saint Mary's Regional Medical Center",
+      "EPO": {
+        "PRIME EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMSREPO"]
+        }
+      },
+      "VALUE": {
+        "PRIME VALUE PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMSRVALUE"]
+        }
+      },
+      "_children_policy": "combined"
+    },
+    "H3396": {
+      "_comment": "Saint Mary's PT",
+      "_children_policy": "combined"
+    }
+  },
+  
+  "St. Michael's": {
+    "H3530": {
+      "EPO": {
+        "PRIME NON-UNION EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMSTEPO"]
+        },
+        "PRIME CIR EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMCIR"]
+        },
+        "PRIME IUOE EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMIUOE"]
+        },
+        "PRIME JNESO EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMJNESO"]
+        },
+        "PRIME EPO PLUS PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMEPPLUS"]
+        }
+      },
+      "VALUE": {
+        "PRIME VALUE PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMVAL", "PRIMEMMSTJVALUE"]
+        }
+      },
+      "_children_policy": "combined"
+    }
+  },
+  
+  "North Vista": {
+    "H3398": {
+      "EPO": {
+        "PRIME EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMNVEPO"]
+        }
+      },
+      "VALUE": {
+        "PRIME VALUE PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMNVVALUE"]
+        }
+      },
+      "_children_policy": "split"
+    }
+  },
+  
+  "Legacy": {
+    "H3180": {
+      "_comment": "Sherman Oaks Hospital - multi-block",
+      "EPO": {
+        "PRIME EPO PLAN Block 1": {
+          "sum_of": ["PRIMEMMEPOLE"]
+        },
+        "PRIME EPO PLAN Block 2": {
+          "sum_of": ["PRIMEMMEPOLE2"]
+        }
+      },
+      "VALUE": {
+        "PRIME VALUE PLAN Block 1": {
+          "sum_of": ["PRIMEMMVALUE"]
+        },
+        "PRIME VALUE PLAN Block 2": {
+          "sum_of": ["PRIMEMMVAL"]
+        }
+      },
+      "_children_policy": "combined"
+    },
+    "H3170": {
+      "_comment": "San Dimas Community Hospital",
+      "EPO": {
+        "PRIME EPO PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMEPOLE"]
+        }
+      },
+      "VALUE": {
+        "PRIME VALUE PLAN (Self-Insured)": {
+          "sum_of": ["PRIMEMMVALUE"]
+        }
+      },
+      "_children_policy": "combined"
+    }
+  },
+  
+  "_default_children_policy": "combined",
+  "_excluded_cids": ["H3310"]
+}
