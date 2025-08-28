@@ -172,11 +172,10 @@ def is_subscriber(relation):
     r = str(relation).strip().upper()
     return r in ['SELF', 'EE', 'EMPLOYEE', 'SUBSCRIBER', 'SUB', 'EMP', 'S']
 
-def normalize_tier_strict(raw_tier, use_five_tier=False):
+def normalize_tier_strict(raw_tier):
     """
     Strictly normalize raw tier text
-    For 4-tier: Returns 'EE Only', 'EE+Spouse', 'EE+Child(ren)', 'EE+Family', or 'UNKNOWN'
-    For 5-tier: Returns 'EE Only', 'EE+Spouse', 'EE+1 Dep', 'EE+Child', 'EE+Family', or 'UNKNOWN'
+    Returns one of: 'EE Only', 'EE+Spouse', 'EE+Child(ren)', 'EE+Family', or 'UNKNOWN'
     """
     global unknown_tiers_tracker
     
@@ -187,21 +186,7 @@ def normalize_tier_strict(raw_tier, use_five_tier=False):
     # Clean the input
     tier_str = str(raw_tier).strip().upper()
     
-    # Direct mapping for BEN CODE values
-    if tier_str == 'EMP':
-        return 'EE Only'
-    elif tier_str == 'ESP':
-        return 'EE+Spouse'
-    elif tier_str == 'FAM':
-        return 'EE+Family'
-    elif tier_str == 'E1D':
-        # E1D handling depends on tier mode
-        return 'EE+1 Dep' if use_five_tier else 'EE+Child(ren)'
-    elif tier_str == 'ECH':
-        # ECH handling depends on tier mode
-        return 'EE+Child' if use_five_tier else 'EE+Child(ren)'
-    
-    # Normalize separators for more complex variants
+    # Normalize separators
     for sep in ['&', '+', '/', ' AND ', '  ']:
         tier_str = tier_str.replace(sep, ' ')
     
@@ -210,7 +195,7 @@ def normalize_tier_strict(raw_tier, use_five_tier=False):
     
     # Employee Only variants
     ee_only_variants = [
-        'EE', 'EMPLOYEE ONLY', 'EE ONLY', 'EMPLOYEE', 'E',
+        'EMP', 'EE', 'EMPLOYEE ONLY', 'EE ONLY', 'EMPLOYEE', 'E',
         'SELF ONLY', 'SELF', 'SUBSCRIBER ONLY', 'SUBSCRIBER',
         'EMP ONLY', 'E ONLY'
     ]
@@ -219,15 +204,15 @@ def normalize_tier_strict(raw_tier, use_five_tier=False):
     
     # Employee + Spouse variants
     spouse_variants = [
-        'EE SPOUSE', 'EMPLOYEE SPOUSE', 'ES', 'E S',
+        'ESP', 'EE SPOUSE', 'EMPLOYEE SPOUSE', 'ES', 'E S',
         'EMP SPOUSE', 'EMP SP', 'EMPLOYEE SP', 'EE SP'
     ]
     if tier_str in spouse_variants:
         return 'EE+Spouse'
     
-    # Employee + Child(ren) variants - handled based on tier mode
+    # Employee + Child(ren) variants
     child_variants = [
-        'EE CHILD', 'EMPLOYEE CHILD', 'EE CHILDREN',
+        'ECH', 'E1D', 'EE CHILD', 'EMPLOYEE CHILD', 'EE CHILDREN',
         'EMPLOYEE CHILDREN', 'EC', 'E C', 'E CHILD', 'E CHILDREN',
         'EMP CHILD', 'EMP CHILDREN', 'CHILD', 'CHILDREN',
         'EE CHILD REN', 'CHILD REN', 'E1C', 'E2C',
@@ -238,7 +223,7 @@ def normalize_tier_strict(raw_tier, use_five_tier=False):
     
     # Employee + Family variants
     family_variants = [
-        'EE FAMILY', 'EMPLOYEE FAMILY', 'FAMILY', 'E F',
+        'FAM', 'EE FAMILY', 'EMPLOYEE FAMILY', 'FAMILY', 'E F',
         'EMP FAMILY', 'EMP FAM', 'EF', 'E FAM'
     ]
     if tier_str in family_variants:
@@ -424,33 +409,7 @@ def read_and_prepare_data(file_path, plan_mappings):
     df = log_stage('tab_map', df)
     
     # Stage 7: Tier normalization
-    # Use CALCULATED BEN CODE for 5-tier tabs, BEN CODE for others
-    if 'CLIENT ID' in df.columns and 'CALCULATED BEN CODE' in df.columns:
-        # Define 5-tier tabs
-        FIVE_TIER_TABS = ['Encino-Garden Grove', 'North Vista']
-        
-        def get_appropriate_ben_code(row):
-            """Choose between BEN CODE and CALCULATED BEN CODE based on tab"""
-            tab_name = row.get('tab_name', '')
-            if tab_name in FIVE_TIER_TABS and pd.notna(row.get('CALCULATED BEN CODE')):
-                return row['CALCULATED BEN CODE']
-            elif 'BEN CODE' in row and pd.notna(row.get('BEN CODE')):
-                return row['BEN CODE']
-            else:
-                return None
-        
-        # Apply the appropriate BEN CODE with 5-tier support
-        df['ben_code_to_use'] = df.apply(get_appropriate_ben_code, axis=1)
-        
-        def normalize_with_context(row):
-            """Normalize tier based on tab context"""
-            ben_code = row.get('ben_code_to_use')
-            tab_name = row.get('tab_name', '')
-            use_five_tier = tab_name in FIVE_TIER_TABS
-            return normalize_tier_strict(ben_code, use_five_tier)
-        
-        df['tier'] = df.apply(normalize_with_context, axis=1)
-    elif 'BEN CODE' in df.columns:
+    if 'BEN CODE' in df.columns:
         df['tier'] = df['BEN CODE'].apply(normalize_tier_strict)
     else:
         df['tier'] = 'UNKNOWN'
@@ -480,15 +439,11 @@ def read_and_prepare_data(file_path, plan_mappings):
 def build_tier_data_from_source(df, block_aggregations, allow_ppo=False):
     """
     Build tier data with block-level aggregation based on config
-    Supports both 4-tier and 5-tier structures
     """
     global unassigned_plans
     
-    # Define 5-tier tabs
-    FIVE_TIER_TABS = ['Encino-Garden Grove', 'North Vista']
-    
     tier_data = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: {
-        'EE Only': 0, 'EE+Spouse': 0, 'EE+1 Dep': 0, 'EE+Child': 0, 'EE+Child(ren)': 0, 'EE+Children': 0, 'EE+Family': 0
+        'EE Only': 0, 'EE+Spouse': 0, 'EE+Child': 0, 'EE+Children': 0, 'EE+Family': 0
     })))
     
     unassigned_plans = []
@@ -540,8 +495,11 @@ def build_tier_data_from_source(df, block_aggregations, allow_ppo=False):
             block_label = f"{plan_group} (Default)"
         
         # Aggregate tier counts
-        # Store directly - we'll handle 4-tier vs 5-tier mapping later
-        tier_data[client_id][plan_group][block_label][tier] += 1
+        if tier == 'EE+Child(ren)':
+            # Map to EE+Children for consistency
+            tier_data[client_id][plan_group][block_label]['EE+Children'] += 1
+        else:
+            tier_data[client_id][plan_group][block_label][tier] += 1
     
     # Print block diagnostics
     print("\n" + "="*80)
@@ -593,12 +551,7 @@ def assert_control_from_tier_data(tier_data):
             for block_counts in plan_blocks.values():
                 totals['EE Only'] += int(block_counts.get('EE Only', 0))
                 totals['EE+Spouse'] += int(block_counts.get('EE+Spouse', 0))
-                # For 5-tier tabs: EE+1 Dep and EE+Child are separate
-                # For 4-tier tabs: EE+Child(ren) combines both
-                child_total = (int(block_counts.get('EE+Child', 0)) + 
-                              int(block_counts.get('EE+Children', 0)) + 
-                              int(block_counts.get('EE+1 Dep', 0)) +
-                              int(block_counts.get('EE+Child(ren)', 0)))
+                child_total = int(block_counts.get('EE+Child', 0)) + int(block_counts.get('EE+Children', 0))
                 totals['EE+Child(ren)'] += child_total
                 totals['EE+Family'] += int(block_counts.get('EE+Family', 0))
     
@@ -729,13 +682,8 @@ def write_to_specific_sheet(wb, sheet_name, write_map, tier_data, block_aggregat
             continue
         seen_blocks.add(key)
         
-        # Define 5-tier tabs
-        FIVE_TIER_TABS = ['Encino-Garden Grove', 'North Vista']
-        is_five_tier = sheet_name in FIVE_TIER_TABS
-        
         # Get tier counts for this block
-        tier_counts = {'EE Only': 0, 'EE+Spouse': 0, 'EE+1 Dep': 0, 'EE+Child': 0, 
-                      'EE+Children': 0, 'EE+Child(ren)': 0, 'EE+Family': 0}
+        tier_counts = {'EE Only': 0, 'EE+Spouse': 0, 'EE+Child': 0, 'EE+Children': 0, 'EE+Family': 0}
         
         # Find matching block in tier_data
         if client_id in tier_data and plan_type in tier_data[client_id]:
@@ -759,25 +707,12 @@ def write_to_specific_sheet(wb, sheet_name, write_map, tier_data, block_aggregat
                                 tier_counts[tier] = int(count)
                             break
         
-        # Apply children policy based on tier structure
+        # Apply children policy
         children_policy = get_children_policy(sheet_name, client_id, block_aggregations)
-        
-        if is_five_tier:
-            # For 5-tier tabs (Encino-Garden Grove, North Vista)
-            # E1D stays separate as EE+1 Dep, ECH stays as EE+Child
-            # Map E1D to the EE+Children cell row in Excel
-            pass  # Keep tiers as-is for 5-tier structure
-        else:
-            # For 4-tier tabs, combine child tiers
-            if children_policy == 'combined':
-                combined_children = (tier_counts.get('EE+Child', 0) + 
-                                   tier_counts.get('EE+Children', 0) + 
-                                   tier_counts.get('EE+Child(ren)', 0) +
-                                   tier_counts.get('EE+1 Dep', 0))  # Include E1D in combined
-                tier_counts['EE+Children'] = combined_children
-                tier_counts['EE+Child'] = 0
-                tier_counts['EE+Child(ren)'] = 0
-                tier_counts['EE+1 Dep'] = 0
+        if children_policy == 'combined':
+            combined_children = tier_counts['EE+Child'] + tier_counts['EE+Children']
+            tier_counts['EE+Children'] = combined_children
+            tier_counts['EE+Child'] = 0
         
         # Zero-fill all cells first
         for cell in cells.values():
@@ -786,41 +721,22 @@ def write_to_specific_sheet(wb, sheet_name, write_map, tier_data, block_aggregat
         # Write values
         written_total = 0
         for tier_label, cell in cells.items():
-            # Map label variants based on tier structure
-            if is_five_tier:
-                # 5-tier mapping for Encino-Garden Grove and North Vista
-                if 'EE' in tier_label and 'Spouse' in tier_label:
-                    value = tier_counts.get('EE+Spouse', 0)
-                elif 'EE' in tier_label and 'Children' in tier_label:
-                    # E1D maps to "EE & Children" row
-                    value = tier_counts.get('EE+1 Dep', 0)
-                elif 'EE' in tier_label and 'Child' in tier_label and 'Children' not in tier_label:
-                    # ECH maps to "EE & Child" row
-                    value = tier_counts.get('EE+Child', 0)
-                elif 'EE' in tier_label and 'Family' in tier_label:
-                    value = tier_counts.get('EE+Family', 0)
-                elif tier_label in ['EE', 'EEs', 'Employees', 'EE Only']:
-                    value = tier_counts.get('EE Only', 0)
+            # Map label variants
+            if 'EE' in tier_label and 'Spouse' in tier_label:
+                value = tier_counts['EE+Spouse']
+            elif 'EE' in tier_label and ('Child' in tier_label or 'Children' in tier_label):
+                if children_policy == 'split' and 'Children' in tier_label:
+                    value = tier_counts['EE+Children']
+                elif children_policy == 'split' and 'Child' in tier_label and 'Children' not in tier_label:
+                    value = tier_counts['EE+Child']
                 else:
-                    value = tier_counts.get(tier_label, 0)
+                    value = tier_counts['EE+Children']
+            elif 'EE' in tier_label and 'Family' in tier_label:
+                value = tier_counts['EE+Family']
+            elif tier_label in ['EE', 'EEs', 'Employees']:
+                value = tier_counts['EE Only']
             else:
-                # 4-tier mapping for all other tabs
-                if 'EE' in tier_label and 'Spouse' in tier_label:
-                    value = tier_counts.get('EE+Spouse', 0)
-                elif 'EE' in tier_label and ('Child' in tier_label or 'Children' in tier_label):
-                    if children_policy == 'split' and 'Children' in tier_label:
-                        value = tier_counts.get('EE+Children', 0)
-                    elif children_policy == 'split' and 'Child' in tier_label and 'Children' not in tier_label:
-                        value = tier_counts.get('EE+Child', 0)
-                    else:
-                        # Combined child tiers
-                        value = tier_counts.get('EE+Children', 0) + tier_counts.get('EE+Child(ren)', 0)
-                elif 'EE' in tier_label and 'Family' in tier_label:
-                    value = tier_counts.get('EE+Family', 0)
-                elif tier_label in ['EE', 'EEs', 'Employees', 'EE Only']:
-                    value = tier_counts.get('EE Only', 0)
-                else:
-                    value = tier_counts.get(tier_label, 0)
+                value = tier_counts.get(tier_label, 0)
             
             ws[cell] = int(value)
             written_total += int(value)
