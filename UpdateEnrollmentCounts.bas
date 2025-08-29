@@ -9,7 +9,7 @@ Attribute VB_Name = "UpdateEnrollmentCounts"
 Option Explicit
 
 ' Constants for file paths (update these as needed)
-Const CSV_FILE_PATH As String = "C:\Users\becas\Prime_EFR\enrollment_data.csv"
+Const CSV_FILE_PATH As String = "C:\Users\becas\Prime_EFR\enrollment_data_detailed.csv"
 Const DISCOVERY_MAP_PATH As String = "C:\Users\becas\Prime_EFR\config\enrollment_discovery_map.json"
 
 ' Main update procedure
@@ -50,6 +50,7 @@ Public Sub UpdateEnrollmentFromCSV()
             record("Tab"), _
             record("ClientID"), _
             record("PlanType"), _
+            record("PlanName"), _
             record("Tier"), _
             record("Value") _
         )
@@ -141,7 +142,7 @@ End Function
 
 ' Update a single enrollment cell
 Private Function UpdateEnrollmentCell(tabName As String, clientID As String, _
-                                     planType As String, tier As String, _
+                                     planType As String, planName As String, tier As String, _
                                      value As Variant) As Boolean
     On Error GoTo ErrorHandler
     
@@ -170,7 +171,7 @@ Private Function UpdateEnrollmentCell(tabName As String, clientID As String, _
     End If
     
     ' Find the target cell for this tier
-    Set targetCell = FindTierCell(ws, foundCell, planType, tier)
+    Set targetCell = FindTierCell(ws, foundCell, planType, planName, tier)
     
     If targetCell Is Nothing Then
         Debug.Print "Tier cell not found for: " & clientID & "/" & planType & "/" & tier
@@ -214,7 +215,7 @@ End Function
 
 ' Find the target cell for a specific tier
 Private Function FindTierCell(ws As Worksheet, clientIDCell As Range, _
-                             planType As String, tier As String) As Range
+                             planType As String, planName As String, tier As String) As Range
     Dim searchRow As Long
     Dim maxRows As Long
     Dim cellValue As String
@@ -326,7 +327,7 @@ Public Sub TestSingleUpdate()
     Dim result As Boolean
     
     ' Test with a known facility
-    result = UpdateEnrollmentCell("Monroe", "H3397", "EPO", "EE+Family", 100)
+    result = UpdateEnrollmentCell("Monroe", "H3397", "EPO", "EPO (Default)", "EE+Family", 100)
     
     If result Then
         MsgBox "Test update successful!", vbInformation

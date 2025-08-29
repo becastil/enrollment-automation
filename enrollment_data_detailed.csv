@@ -1,0 +1,515 @@
+Tab,ClientID,PlanType,PlanName,Tier,Value
+Centinela,H3270,EPO,EPO (Default),EE Only,506
+Centinela,H3270,EPO,EPO (Default),EE+Child(ren),120
+Centinela,H3270,EPO,EPO (Default),EE+Family,84
+Centinela,H3270,EPO,EPO (Default),EE+Spouse,73
+Centinela,H3270,VALUE,VALUE (Default),EE Only,73
+Centinela,H3270,VALUE,VALUE (Default),EE+Child(ren),13
+Centinela,H3270,VALUE,VALUE (Default),EE+Family,3
+Centinela,H3270,VALUE,VALUE (Default),EE+Spouse,3
+Centinela,H3272,EPO,EPO (Default),EE Only,2
+Centinela,H3272,VALUE,VALUE (Default),EE Only,3
+Coshocton,H3591,EPO,EPO (Default),EE Only,104
+Coshocton,H3591,EPO,EPO (Default),EE+Child(ren),41
+Coshocton,H3591,EPO,EPO (Default),EE+Family,24
+Coshocton,H3591,EPO,EPO (Default),EE+Spouse,37
+Coshocton,H3591,VALUE,VALUE (Default),EE Only,8
+Coshocton,H3591,VALUE,VALUE (Default),EE+Family,3
+Dallas Medical Center,H3335,EPO,EPO (Default),EE Only,115
+Dallas Medical Center,H3335,EPO,EPO (Default),EE+Child(ren),35
+Dallas Medical Center,H3335,EPO,EPO (Default),EE+Family,35
+Dallas Medical Center,H3335,EPO,EPO (Default),EE+Spouse,24
+Dallas Medical Center,H3335,VALUE,VALUE (Default),EE Only,10
+Dallas Medical Center,H3335,VALUE,VALUE (Default),EE+Child(ren),5
+Dallas Medical Center,H3335,VALUE,VALUE (Default),EE+Family,1
+Dallas Medical Center,H3335,VALUE,VALUE (Default),EE+Spouse,1
+Dallas Regional,H3337,EPO,EPO (Default),EE Only,164
+Dallas Regional,H3337,EPO,EPO (Default),EE+Child(ren),64
+Dallas Regional,H3337,EPO,EPO (Default),EE+Family,54
+Dallas Regional,H3337,EPO,EPO (Default),EE+Spouse,37
+Dallas Regional,H3337,VALUE,VALUE (Default),EE Only,43
+Dallas Regional,H3337,VALUE,VALUE (Default),EE+Child(ren),12
+Dallas Regional,H3337,VALUE,VALUE (Default),EE+Family,10
+Dallas Regional,H3337,VALUE,VALUE (Default),EE+Spouse,6
+East Liverpool,H3592,EPO,EPO (Default),EE Only,194
+East Liverpool,H3592,EPO,EPO (Default),EE+Child(ren),42
+East Liverpool,H3592,EPO,EPO (Default),EE+Family,51
+East Liverpool,H3592,EPO,EPO (Default),EE+Spouse,50
+East Liverpool,H3592,VALUE,VALUE (Default),EE Only,10
+East Liverpool,H3592,VALUE,VALUE (Default),EE+Child(ren),6
+East Liverpool,H3592,VALUE,VALUE (Default),EE+Family,1
+East Liverpool,H3592,VALUE,VALUE (Default),EE+Spouse,2
+Encino-Garden Grove,H3220,EPO,EPO (Default),EE Only,421
+Encino-Garden Grove,H3220,EPO,EPO (Default),EE+1 Dep,47
+Encino-Garden Grove,H3220,EPO,EPO (Default),EE+Child,37
+Encino-Garden Grove,H3220,EPO,EPO (Default),EE+Family,83
+Encino-Garden Grove,H3220,EPO,EPO (Default),EE+Spouse,42
+Encino-Garden Grove,H3220,VALUE,VALUE (Default),EE Only,60
+Encino-Garden Grove,H3220,VALUE,VALUE (Default),EE+1 Dep,3
+Encino-Garden Grove,H3220,VALUE,VALUE (Default),EE+Child,3
+Encino-Garden Grove,H3220,VALUE,VALUE (Default),EE+Family,8
+Encino-Garden Grove,H3220,VALUE,VALUE (Default),EE+Spouse,3
+Encino-Garden Grove,H3250,EPO,PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured),EE Only,78
+Encino-Garden Grove,H3250,EPO,PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured),EE+1 Dep,11
+Encino-Garden Grove,H3250,EPO,PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured),EE+Child,4
+Encino-Garden Grove,H3250,EPO,PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured),EE+Family,29
+Encino-Garden Grove,H3250,EPO,PRIME Non-Union & SEIU-UHW UNIFIED EPO PLAN (Self-Insured),EE+Spouse,27
+Encino-Garden Grove,H3250,EPO,PRIME SEIU 121 RN EPO PLAN (Self-Insured),EE Only,28
+Encino-Garden Grove,H3250,EPO,PRIME SEIU 121 RN EPO PLAN (Self-Insured),EE+1 Dep,3
+Encino-Garden Grove,H3250,EPO,PRIME SEIU 121 RN EPO PLAN (Self-Insured),EE+Child,9
+Encino-Garden Grove,H3250,EPO,PRIME SEIU 121 RN EPO PLAN (Self-Insured),EE+Family,9
+Encino-Garden Grove,H3250,EPO,PRIME SEIU 121 RN EPO PLAN (Self-Insured),EE+Spouse,8
+Encino-Garden Grove,H3250,VALUE,PRIME VALUE PLAN (Self-Insured),EE Only,19
+Encino-Garden Grove,H3250,VALUE,PRIME VALUE PLAN (Self-Insured),EE+1 Dep,2
+Encino-Garden Grove,H3250,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Child,4
+Encino-Garden Grove,H3250,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Family,1
+Encino-Garden Grove,H3250,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Spouse,7
+Encino-Garden Grove,H3260,EPO,PRIME Non-Union UNIFIED EPO PLAN (Self-Insured),EE Only,104
+Encino-Garden Grove,H3260,EPO,PRIME Non-Union UNIFIED EPO PLAN (Self-Insured),EE+1 Dep,8
+Encino-Garden Grove,H3260,EPO,PRIME Non-Union UNIFIED EPO PLAN (Self-Insured),EE+Child,8
+Encino-Garden Grove,H3260,EPO,PRIME Non-Union UNIFIED EPO PLAN (Self-Insured),EE+Family,25
+Encino-Garden Grove,H3260,EPO,PRIME Non-Union UNIFIED EPO PLAN (Self-Insured),EE+Spouse,14
+Encino-Garden Grove,H3260,EPO,PRIME UNAC EPO PLAN (Self-Insured),EE Only,47
+Encino-Garden Grove,H3260,EPO,PRIME UNAC EPO PLAN (Self-Insured),EE+1 Dep,15
+Encino-Garden Grove,H3260,EPO,PRIME UNAC EPO PLAN (Self-Insured),EE+Child,7
+Encino-Garden Grove,H3260,EPO,PRIME UNAC EPO PLAN (Self-Insured),EE+Family,29
+Encino-Garden Grove,H3260,EPO,PRIME UNAC EPO PLAN (Self-Insured),EE+Spouse,15
+Encino-Garden Grove,H3260,VALUE,PRIME VALUE PLAN (Self-Insured),EE Only,24
+Encino-Garden Grove,H3260,VALUE,PRIME VALUE PLAN (Self-Insured),EE+1 Dep,3
+Encino-Garden Grove,H3260,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Family,4
+Encino-Garden Grove,H3260,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Spouse,1
+Garden City,H3375,EPO,EPO (Default),EE Only,257
+Garden City,H3375,EPO,EPO (Default),EE+Child(ren),96
+Garden City,H3375,EPO,EPO (Default),EE+Family,47
+Garden City,H3375,EPO,EPO (Default),EE+Spouse,54
+Garden City,H3375,VALUE,VALUE (Default),EE Only,48
+Garden City,H3375,VALUE,VALUE (Default),EE+Child(ren),11
+Garden City,H3375,VALUE,VALUE (Default),EE+Family,6
+Garden City,H3375,VALUE,VALUE (Default),EE+Spouse,6
+Garden City,H3380,EPO,EPO (Default),EE Only,4
+Garden City,H3380,EPO,EPO (Default),EE+Child(ren),1
+Garden City,H3380,EPO,EPO (Default),EE+Family,2
+Garden City,H3380,VALUE,VALUE (Default),EE+Family,1
+Garden City,H3385,EPO,EPO (Default),EE Only,45
+Garden City,H3385,EPO,EPO (Default),EE+Child(ren),1
+Garden City,H3385,EPO,EPO (Default),EE+Family,4
+Garden City,H3385,EPO,EPO (Default),EE+Spouse,5
+Garden City,H3385,VALUE,VALUE (Default),EE Only,4
+Garden City,H3385,VALUE,VALUE (Default),EE+Family,1
+Harlingen,H3370,EPO,EPO (Default),EE Only,254
+Harlingen,H3370,EPO,EPO (Default),EE+Child(ren),146
+Harlingen,H3370,EPO,EPO (Default),EE+Family,63
+Harlingen,H3370,EPO,EPO (Default),EE+Spouse,57
+Harlingen,H3370,VALUE,VALUE (Default),EE Only,32
+Harlingen,H3370,VALUE,VALUE (Default),EE+Child(ren),5
+Harlingen,H3370,VALUE,VALUE (Default),EE+Family,4
+Harlingen,H3370,VALUE,VALUE (Default),EE+Spouse,4
+Illinois,H3605,EPO,EPO (Default),EE Only,166
+Illinois,H3605,EPO,EPO (Default),EE+Child(ren),58
+Illinois,H3605,EPO,EPO (Default),EE+Family,31
+Illinois,H3605,EPO,EPO (Default),EE+Spouse,29
+Illinois,H3605,VALUE,VALUE (Default),EE Only,32
+Illinois,H3605,VALUE,VALUE (Default),EE+Child(ren),13
+Illinois,H3605,VALUE,VALUE (Default),EE+Family,8
+Illinois,H3605,VALUE,VALUE (Default),EE+Spouse,4
+Illinois,H3615,EPO,EPO (Default),EE Only,331
+Illinois,H3615,EPO,EPO (Default),EE+Child(ren),109
+Illinois,H3615,EPO,EPO (Default),EE+Family,72
+Illinois,H3615,EPO,EPO (Default),EE+Spouse,75
+Illinois,H3615,VALUE,VALUE (Default),EE Only,47
+Illinois,H3615,VALUE,VALUE (Default),EE+Child(ren),8
+Illinois,H3615,VALUE,VALUE (Default),EE+Family,4
+Illinois,H3615,VALUE,VALUE (Default),EE+Spouse,6
+Illinois,H3625,EPO,EPO (Default),EE Only,368
+Illinois,H3625,EPO,EPO (Default),EE+Child(ren),57
+Illinois,H3625,EPO,EPO (Default),EE+Family,43
+Illinois,H3625,EPO,EPO (Default),EE+Spouse,38
+Illinois,H3625,VALUE,VALUE (Default),EE Only,47
+Illinois,H3625,VALUE,VALUE (Default),EE+Child(ren),10
+Illinois,H3625,VALUE,VALUE (Default),EE+Family,9
+Illinois,H3625,VALUE,VALUE (Default),EE+Spouse,6
+Illinois,H3630,EPO,EPO (Default),EE Only,145
+Illinois,H3630,EPO,EPO (Default),EE+Child(ren),55
+Illinois,H3630,EPO,EPO (Default),EE+Family,36
+Illinois,H3630,EPO,EPO (Default),EE+Spouse,23
+Illinois,H3630,VALUE,VALUE (Default),EE Only,14
+Illinois,H3630,VALUE,VALUE (Default),EE+Child(ren),6
+Illinois,H3630,VALUE,VALUE (Default),EE+Family,1
+Illinois,H3630,VALUE,VALUE (Default),EE+Spouse,5
+Illinois,H3635,EPO,EPO (Default),EE Only,344
+Illinois,H3635,EPO,EPO (Default),EE+Child(ren),127
+Illinois,H3635,EPO,EPO (Default),EE+Family,87
+Illinois,H3635,EPO,EPO (Default),EE+Spouse,50
+Illinois,H3635,VALUE,VALUE (Default),EE Only,40
+Illinois,H3635,VALUE,VALUE (Default),EE+Child(ren),24
+Illinois,H3635,VALUE,VALUE (Default),EE+Family,7
+Illinois,H3635,VALUE,VALUE (Default),EE+Spouse,6
+Illinois,H3645,EPO,EPO (Default),EE Only,131
+Illinois,H3645,EPO,EPO (Default),EE+Child(ren),72
+Illinois,H3645,EPO,EPO (Default),EE+Family,36
+Illinois,H3645,EPO,EPO (Default),EE+Spouse,29
+Illinois,H3645,VALUE,VALUE (Default),EE Only,16
+Illinois,H3645,VALUE,VALUE (Default),EE+Child(ren),3
+Illinois,H3645,VALUE,VALUE (Default),EE+Family,2
+Illinois,H3645,VALUE,VALUE (Default),EE+Spouse,1
+Illinois,H3655,EPO,EPO (Default),EE Only,432
+Illinois,H3655,EPO,EPO (Default),EE+Child(ren),95
+Illinois,H3655,EPO,EPO (Default),EE+Family,46
+Illinois,H3655,EPO,EPO (Default),EE+Spouse,43
+Illinois,H3655,VALUE,VALUE (Default),EE Only,51
+Illinois,H3655,VALUE,VALUE (Default),EE+Child(ren),12
+Illinois,H3655,VALUE,VALUE (Default),EE+Family,6
+Illinois,H3655,VALUE,VALUE (Default),EE+Spouse,4
+Illinois,H3660,EPO,EPO (Default),EE Only,78
+Illinois,H3660,EPO,EPO (Default),EE+Child(ren),27
+Illinois,H3660,EPO,EPO (Default),EE+Family,37
+Illinois,H3660,EPO,EPO (Default),EE+Spouse,20
+Illinois,H3660,VALUE,VALUE (Default),EE Only,11
+Illinois,H3660,VALUE,VALUE (Default),EE+Child(ren),4
+Illinois,H3660,VALUE,VALUE (Default),EE+Family,2
+Illinois,H3660,VALUE,VALUE (Default),EE+Spouse,3
+Illinois,H3665,EPO,EPO (Default),EE Only,35
+Illinois,H3665,EPO,EPO (Default),EE+Child(ren),15
+Illinois,H3665,EPO,EPO (Default),EE+Family,14
+Illinois,H3665,EPO,EPO (Default),EE+Spouse,9
+Illinois,H3665,VALUE,VALUE (Default),EE Only,3
+Illinois,H3665,VALUE,VALUE (Default),EE+Child(ren),1
+Illinois,H3665,VALUE,VALUE (Default),EE+Family,2
+Illinois,H3665,VALUE,VALUE (Default),EE+Spouse,2
+Illinois,H3670,EPO,EPO (Default),EE Only,224
+Illinois,H3670,EPO,EPO (Default),EE+Child(ren),86
+Illinois,H3670,EPO,EPO (Default),EE+Family,69
+Illinois,H3670,EPO,EPO (Default),EE+Spouse,47
+Illinois,H3670,VALUE,VALUE (Default),EE Only,25
+Illinois,H3670,VALUE,VALUE (Default),EE+Child(ren),9
+Illinois,H3670,VALUE,VALUE (Default),EE+Family,11
+Illinois,H3670,VALUE,VALUE (Default),EE+Spouse,9
+Illinois,H3675,EPO,EPO (Default),EE Only,40
+Illinois,H3675,EPO,EPO (Default),EE+Child(ren),20
+Illinois,H3675,EPO,EPO (Default),EE+Family,7
+Illinois,H3675,EPO,EPO (Default),EE+Spouse,9
+Illinois,H3675,VALUE,VALUE (Default),EE Only,3
+Illinois,H3675,VALUE,VALUE (Default),EE+Child(ren),2
+Illinois,H3680,EPO,EPO (Default),EE Only,56
+Illinois,H3680,EPO,EPO (Default),EE+Child(ren),20
+Illinois,H3680,EPO,EPO (Default),EE+Family,8
+Illinois,H3680,EPO,EPO (Default),EE+Spouse,14
+Illinois,H3680,VALUE,VALUE (Default),EE Only,6
+Illinois,H3680,VALUE,VALUE (Default),EE+Child(ren),2
+Illinois,H3680,VALUE,VALUE (Default),EE+Family,2
+Illinois,H3680,VALUE,VALUE (Default),EE+Spouse,3
+Knapp,H3355,EPO,EPO (Default),EE Only,228
+Knapp,H3355,EPO,EPO (Default),EE+Child(ren),110
+Knapp,H3355,EPO,EPO (Default),EE+Family,67
+Knapp,H3355,EPO,EPO (Default),EE+Spouse,44
+Knapp,H3355,VALUE,VALUE (Default),EE Only,15
+Knapp,H3355,VALUE,VALUE (Default),EE+Child(ren),7
+Knapp,H3355,VALUE,VALUE (Default),EE+Family,6
+Knapp,H3355,VALUE,VALUE (Default),EE+Spouse,3
+Knapp,H3360,EPO,EPO (Default),EE Only,3
+Knapp,H3360,EPO,EPO (Default),EE+Child(ren),2
+Knapp,H3360,EPO,EPO (Default),EE+Family,2
+Lake Huron,H3381,EPO,EPO (Default),EE Only,139
+Lake Huron,H3381,EPO,EPO (Default),EE+Child(ren),49
+Lake Huron,H3381,EPO,EPO (Default),EE+Family,24
+Lake Huron,H3381,EPO,EPO (Default),EE+Spouse,32
+Lake Huron,H3381,VALUE,VALUE (Default),EE Only,12
+Lake Huron,H3381,VALUE,VALUE (Default),EE+Child(ren),4
+Lake Huron,H3381,VALUE,VALUE (Default),EE+Family,1
+Lake Huron,H3381,VALUE,VALUE (Default),EE+Spouse,5
+Lake Huron,H3382,EPO,EPO (Default),EE Only,14
+Lake Huron,H3382,EPO,EPO (Default),EE+Child(ren),6
+Lake Huron,H3382,EPO,EPO (Default),EE+Family,6
+Lake Huron,H3382,EPO,EPO (Default),EE+Spouse,4
+Landmark,H3392,EPO,EPO (Default),EE Only,225
+Landmark,H3392,EPO,EPO (Default),EE+Child(ren),46
+Landmark,H3392,EPO,EPO (Default),EE+Family,72
+Landmark,H3392,EPO,EPO (Default),EE+Spouse,69
+Landmark,H3392,VALUE,VALUE (Default),EE Only,16
+Landmark,H3392,VALUE,VALUE (Default),EE+Child(ren),4
+Landmark,H3392,VALUE,VALUE (Default),EE+Family,2
+Landmark,H3392,VALUE,VALUE (Default),EE+Spouse,2
+Legacy,H3100,EPO,EPO (Default),EE Only,146
+Legacy,H3100,EPO,EPO (Default),EE+Child(ren),25
+Legacy,H3100,EPO,EPO (Default),EE+Family,11
+Legacy,H3100,EPO,EPO (Default),EE+Spouse,19
+Legacy,H3100,VALUE,VALUE (Default),EE Only,12
+Legacy,H3100,VALUE,VALUE (Default),EE+Spouse,1
+Legacy,H3110,EPO,EPO (Default),EE Only,756
+Legacy,H3110,EPO,EPO (Default),EE+Child(ren),217
+Legacy,H3110,EPO,EPO (Default),EE+Family,169
+Legacy,H3110,EPO,EPO (Default),EE+Spouse,107
+Legacy,H3110,VALUE,VALUE (Default),EE Only,34
+Legacy,H3110,VALUE,VALUE (Default),EE+Child(ren),11
+Legacy,H3110,VALUE,VALUE (Default),EE+Family,14
+Legacy,H3110,VALUE,VALUE (Default),EE+Spouse,4
+Legacy,H3115,EPO,EPO (Default),EE Only,4
+Legacy,H3115,EPO,EPO (Default),EE+Child(ren),1
+Legacy,H3115,EPO,EPO (Default),EE+Family,1
+Legacy,H3130,EPO,EPO (Default),EE Only,217
+Legacy,H3130,EPO,EPO (Default),EE+Child(ren),47
+Legacy,H3130,EPO,EPO (Default),EE+Family,40
+Legacy,H3130,EPO,EPO (Default),EE+Spouse,34
+Legacy,H3130,VALUE,VALUE (Default),EE Only,18
+Legacy,H3130,VALUE,VALUE (Default),EE+Child(ren),4
+Legacy,H3130,VALUE,VALUE (Default),EE+Family,1
+Legacy,H3130,VALUE,VALUE (Default),EE+Spouse,1
+Legacy,H3140,EPO,EPO (Default),EE Only,319
+Legacy,H3140,EPO,EPO (Default),EE+Child(ren),171
+Legacy,H3140,EPO,EPO (Default),EE+Family,85
+Legacy,H3140,EPO,EPO (Default),EE+Spouse,50
+Legacy,H3140,VALUE,VALUE (Default),EE Only,28
+Legacy,H3140,VALUE,VALUE (Default),EE+Child(ren),10
+Legacy,H3140,VALUE,VALUE (Default),EE+Family,3
+Legacy,H3140,VALUE,VALUE (Default),EE+Spouse,2
+Legacy,H3150,EPO,EPO (Default),EE Only,89
+Legacy,H3150,EPO,EPO (Default),EE+Child(ren),40
+Legacy,H3150,EPO,EPO (Default),EE+Family,28
+Legacy,H3150,EPO,EPO (Default),EE+Spouse,20
+Legacy,H3150,VALUE,VALUE (Default),EE Only,1
+Legacy,H3150,VALUE,VALUE (Default),EE+Child(ren),3
+Legacy,H3150,VALUE,VALUE (Default),EE+Family,3
+Legacy,H3160,EPO,EPO (Default),EE Only,98
+Legacy,H3160,EPO,EPO (Default),EE+Child(ren),17
+Legacy,H3160,EPO,EPO (Default),EE+Family,24
+Legacy,H3160,EPO,EPO (Default),EE+Spouse,17
+Legacy,H3160,VALUE,VALUE (Default),EE Only,18
+Legacy,H3160,VALUE,VALUE (Default),EE+Child(ren),4
+Legacy,H3160,VALUE,VALUE (Default),EE+Family,1
+Legacy,H3160,VALUE,VALUE (Default),EE+Spouse,3
+Legacy,H3170,EPO,PRIME EPO PLAN (Self-Insured),EE Only,111
+Legacy,H3170,EPO,PRIME EPO PLAN (Self-Insured),EE+Child(ren),44
+Legacy,H3170,EPO,PRIME EPO PLAN (Self-Insured),EE+Family,23
+Legacy,H3170,EPO,PRIME EPO PLAN (Self-Insured),EE+Spouse,24
+Legacy,H3170,VALUE,PRIME VALUE PLAN (Self-Insured),EE Only,11
+Legacy,H3170,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Child(ren),4
+Legacy,H3170,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Family,4
+Legacy,H3170,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Spouse,2
+Legacy,H3180,EPO,PRIME EPO PLAN Block 1,EE Only,198
+Legacy,H3180,EPO,PRIME EPO PLAN Block 1,EE+Child(ren),40
+Legacy,H3180,EPO,PRIME EPO PLAN Block 1,EE+Family,38
+Legacy,H3180,EPO,PRIME EPO PLAN Block 1,EE+Spouse,54
+Legacy,H3180,VALUE,PRIME VALUE PLAN Block 1,EE Only,30
+Legacy,H3180,VALUE,PRIME VALUE PLAN Block 1,EE+Child(ren),3
+Legacy,H3180,VALUE,PRIME VALUE PLAN Block 1,EE+Family,3
+Legacy,H3180,VALUE,PRIME VALUE PLAN Block 1,EE+Spouse,4
+Legacy,H3200,EPO,EPO (Default),EE Only,147
+Legacy,H3200,EPO,EPO (Default),EE+Child(ren),30
+Legacy,H3200,EPO,EPO (Default),EE+Family,22
+Legacy,H3200,EPO,EPO (Default),EE+Spouse,29
+Legacy,H3200,VALUE,VALUE (Default),EE Only,16
+Legacy,H3200,VALUE,VALUE (Default),EE+Child(ren),2
+Legacy,H3200,VALUE,VALUE (Default),EE+Family,3
+Legacy,H3200,VALUE,VALUE (Default),EE+Spouse,2
+Legacy,H3210,EPO,EPO (Default),EE Only,161
+Legacy,H3210,EPO,EPO (Default),EE+Child(ren),42
+Legacy,H3210,EPO,EPO (Default),EE+Family,21
+Legacy,H3210,EPO,EPO (Default),EE+Spouse,17
+Legacy,H3210,VALUE,VALUE (Default),EE Only,33
+Legacy,H3210,VALUE,VALUE (Default),EE+Child(ren),3
+Legacy,H3210,VALUE,VALUE (Default),EE+Family,3
+Legacy,H3210,VALUE,VALUE (Default),EE+Spouse,4
+Legacy,H3230,EPO,EPO (Default),EE Only,329
+Legacy,H3230,EPO,EPO (Default),EE+Child(ren),59
+Legacy,H3230,EPO,EPO (Default),EE+Family,38
+Legacy,H3230,EPO,EPO (Default),EE+Spouse,57
+Legacy,H3230,VALUE,VALUE (Default),EE Only,26
+Legacy,H3230,VALUE,VALUE (Default),EE+Child(ren),9
+Legacy,H3230,VALUE,VALUE (Default),EE+Family,3
+Legacy,H3230,VALUE,VALUE (Default),EE+Spouse,8
+Legacy,H3240,EPO,EPO (Default),EE Only,2
+Legacy,H3240,EPO,EPO (Default),EE+Family,2
+Legacy,H3280,EPO,EPO (Default),EE Only,295
+Legacy,H3280,EPO,EPO (Default),EE+Child(ren),107
+Legacy,H3280,EPO,EPO (Default),EE+Family,106
+Legacy,H3280,EPO,EPO (Default),EE+Spouse,94
+Legacy,H3280,VALUE,VALUE (Default),EE Only,21
+Legacy,H3280,VALUE,VALUE (Default),EE+Child(ren),6
+Legacy,H3280,VALUE,VALUE (Default),EE+Family,7
+Legacy,H3280,VALUE,VALUE (Default),EE+Spouse,2
+Legacy,H3285,EPO,EPO (Default),EE Only,14
+Legacy,H3285,EPO,EPO (Default),EE+Child(ren),7
+Legacy,H3285,EPO,EPO (Default),EE+Family,3
+Legacy,H3285,EPO,EPO (Default),EE+Spouse,4
+Legacy,H3300,EPO,EPO (Default),EE Only,41
+Legacy,H3300,EPO,EPO (Default),EE+Child(ren),9
+Legacy,H3300,EPO,EPO (Default),EE+Family,8
+Legacy,H3300,EPO,EPO (Default),EE+Spouse,7
+Legacy,H3300,VALUE,VALUE (Default),EE Only,3
+Legacy,H3300,VALUE,VALUE (Default),EE+Child(ren),1
+Legacy,H3300,VALUE,VALUE (Default),EE+Family,2
+Lower Bucks,H3330,EPO,PRIME EPO PLAN (Self-Insured) - IUOE,EE Only,11
+Lower Bucks,H3330,EPO,PRIME EPO PLAN (Self-Insured) - IUOE,EE+Child(ren),1
+Lower Bucks,H3330,EPO,PRIME EPO PLAN (Self-Insured) - IUOE,EE+Family,1
+Lower Bucks,H3330,EPO,PRIME EPO PLAN (Self-Insured) - IUOE,EE+Spouse,3
+Lower Bucks,H3330,EPO,PRIME EPO PLAN (Self-Insured) - PASNAP & Non-Union,EE Only,184
+Lower Bucks,H3330,EPO,PRIME EPO PLAN (Self-Insured) - PASNAP & Non-Union,EE+Child(ren),36
+Lower Bucks,H3330,EPO,PRIME EPO PLAN (Self-Insured) - PASNAP & Non-Union,EE+Family,41
+Lower Bucks,H3330,EPO,PRIME EPO PLAN (Self-Insured) - PASNAP & Non-Union,EE+Spouse,46
+Lower Bucks,H3330,VALUE,PRIME VALUE PLAN (Self-Insured) - Union & Non-Union,EE Only,21
+Lower Bucks,H3330,VALUE,PRIME VALUE PLAN (Self-Insured) - Union & Non-Union,EE+Child(ren),8
+Lower Bucks,H3330,VALUE,PRIME VALUE PLAN (Self-Insured) - Union & Non-Union,EE+Family,2
+Mission,H3540,EPO,EPO (Default),EE Only,303
+Mission,H3540,EPO,EPO (Default),EE+Child(ren),168
+Mission,H3540,EPO,EPO (Default),EE+Family,100
+Mission,H3540,EPO,EPO (Default),EE+Spouse,60
+Mission,H3540,VALUE,VALUE (Default),EE Only,28
+Mission,H3540,VALUE,VALUE (Default),EE+Child(ren),7
+Mission,H3540,VALUE,VALUE (Default),EE+Family,10
+Mission,H3540,VALUE,VALUE (Default),EE+Spouse,4
+Monroe,H3397,EPO,EPO (Default),EE Only,92
+Monroe,H3397,EPO,EPO (Default),EE+Child(ren),42
+Monroe,H3397,EPO,EPO (Default),EE+Family,23
+Monroe,H3397,EPO,EPO (Default),EE+Spouse,19
+Monroe,H3397,VALUE,VALUE (Default),EE Only,12
+Monroe,H3397,VALUE,VALUE (Default),EE+Child(ren),5
+Monroe,H3397,VALUE,VALUE (Default),EE+Family,1
+North Vista,H3398,EPO,PRIME EPO PLAN (Self-Insured),EE Only,336
+North Vista,H3398,EPO,PRIME EPO PLAN (Self-Insured),EE+1 Dep,53
+North Vista,H3398,EPO,PRIME EPO PLAN (Self-Insured),EE+Child,57
+North Vista,H3398,EPO,PRIME EPO PLAN (Self-Insured),EE+Family,70
+North Vista,H3398,EPO,PRIME EPO PLAN (Self-Insured),EE+Spouse,45
+North Vista,H3398,VALUE,PRIME VALUE PLAN (Self-Insured),EE Only,48
+North Vista,H3398,VALUE,PRIME VALUE PLAN (Self-Insured),EE+1 Dep,7
+North Vista,H3398,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Child,5
+North Vista,H3398,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Family,5
+North Vista,H3398,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Spouse,2
+Ohio Valley HHC,H3594,EPO,EPO (Default),EE Only,3
+Ohio Valley HHC,H3594,EPO,EPO (Default),EE+Child(ren),4
+Ohio Valley HHC,H3594,EPO,EPO (Default),EE+Spouse,1
+Pampa,H3320,EPO,EPO (Default),EE Only,91
+Pampa,H3320,EPO,EPO (Default),EE+Child(ren),56
+Pampa,H3320,EPO,EPO (Default),EE+Family,28
+Pampa,H3320,EPO,EPO (Default),EE+Spouse,23
+Pampa,H3320,VALUE,VALUE (Default),EE Only,4
+Pampa,H3320,VALUE,VALUE (Default),EE+Child(ren),3
+Pampa,H3320,VALUE,VALUE (Default),EE+Family,2
+Pampa,H3320,VALUE,VALUE (Default),EE+Spouse,1
+Providence & St John,H3340,EPO,EPO (Default),EE Only,239
+Providence & St John,H3340,EPO,EPO (Default),EE+Child(ren),70
+Providence & St John,H3340,EPO,EPO (Default),EE+Family,44
+Providence & St John,H3340,EPO,EPO (Default),EE+Spouse,59
+Providence & St John,H3340,VALUE,VALUE (Default),EE Only,17
+Providence & St John,H3340,VALUE,VALUE (Default),EE+Child(ren),4
+Providence & St John,H3340,VALUE,VALUE (Default),EE+Family,6
+Providence & St John,H3340,VALUE,VALUE (Default),EE+Spouse,2
+Providence & St John,H3345,EPO,EPO (Default),EE Only,67
+Providence & St John,H3345,EPO,EPO (Default),EE+Child(ren),37
+Providence & St John,H3345,EPO,EPO (Default),EE+Family,16
+Providence & St John,H3345,EPO,EPO (Default),EE+Spouse,16
+Providence & St John,H3345,VALUE,VALUE (Default),EE Only,8
+Providence & St John,H3345,VALUE,VALUE (Default),EE+Child(ren),1
+Providence & St John,H3345,VALUE,VALUE (Default),EE+Family,1
+River Valley Pri.,H3595,EPO,EPO (Default),EE Only,18
+River Valley Pri.,H3595,EPO,EPO (Default),EE+Child(ren),1
+River Valley Pri.,H3595,EPO,EPO (Default),EE+Family,7
+River Valley Pri.,H3595,EPO,EPO (Default),EE+Spouse,5
+River Valley Pri.,H3595,VALUE,VALUE (Default),EE Only,2
+River Valley Pri.,H3595,VALUE,VALUE (Default),EE+Spouse,1
+Riverview & Gadsden,H3338,EPO,EPO (Default),EE Only,257
+Riverview & Gadsden,H3338,EPO,EPO (Default),EE+Child(ren),69
+Riverview & Gadsden,H3338,EPO,EPO (Default),EE+Family,58
+Riverview & Gadsden,H3338,EPO,EPO (Default),EE+Spouse,69
+Riverview & Gadsden,H3338,VALUE,VALUE (Default),EE Only,40
+Riverview & Gadsden,H3338,VALUE,VALUE (Default),EE+Child(ren),8
+Riverview & Gadsden,H3338,VALUE,VALUE (Default),EE+Family,4
+Riverview & Gadsden,H3338,VALUE,VALUE (Default),EE+Spouse,7
+Riverview & Gadsden,H3339,EPO,EPO (Default),EE Only,19
+Riverview & Gadsden,H3339,EPO,EPO (Default),EE+Child(ren),4
+Riverview & Gadsden,H3339,EPO,EPO (Default),EE+Family,6
+Riverview & Gadsden,H3339,EPO,EPO (Default),EE+Spouse,5
+Riverview & Gadsden,H3339,VALUE,VALUE (Default),EE+Family,1
+Roxborough,H3325,EPO,EPO (Default),EE Only,172
+Roxborough,H3325,EPO,EPO (Default),EE+Child(ren),33
+Roxborough,H3325,EPO,EPO (Default),EE+Family,17
+Roxborough,H3325,EPO,EPO (Default),EE+Spouse,16
+Roxborough,H3325,VALUE,VALUE (Default),EE Only,46
+Roxborough,H3325,VALUE,VALUE (Default),EE+Child(ren),10
+Roxborough,H3325,VALUE,VALUE (Default),EE+Family,3
+Roxborough,H3325,VALUE,VALUE (Default),EE+Spouse,3
+Saint Clare's,H3500,EPO,EPO (Default),EE Only,740
+Saint Clare's,H3500,EPO,EPO (Default),EE+Child(ren),194
+Saint Clare's,H3500,EPO,EPO (Default),EE+Family,168
+Saint Clare's,H3500,EPO,EPO (Default),EE+Spouse,144
+Saint Clare's,H3500,VALUE,VALUE (Default),EE Only,77
+Saint Clare's,H3500,VALUE,VALUE (Default),EE+Child(ren),16
+Saint Clare's,H3500,VALUE,VALUE (Default),EE+Family,7
+Saint Clare's,H3500,VALUE,VALUE (Default),EE+Spouse,11
+Saint Mary's Passaic,H3505,EPO,EPO (Default),EE Only,334
+Saint Mary's Passaic,H3505,EPO,EPO (Default),EE+Child(ren),54
+Saint Mary's Passaic,H3505,EPO,EPO (Default),EE+Family,51
+Saint Mary's Passaic,H3505,EPO,EPO (Default),EE+Spouse,52
+Saint Mary's Passaic,H3505,VALUE,VALUE (Default),EE Only,38
+Saint Mary's Passaic,H3505,VALUE,VALUE (Default),EE+Child(ren),14
+Saint Mary's Passaic,H3505,VALUE,VALUE (Default),EE+Family,11
+Saint Mary's Passaic,H3505,VALUE,VALUE (Default),EE+Spouse,4
+Saint Mary's Reno,H3394,VALUE,PRIME VALUE PLAN (Self-Insured),EE Only,1
+Saint Mary's Reno,H3395,EPO,PRIME CNA 2019 D2 UNIFIED EPO PLAN (Self-Insured),EE Only,107
+Saint Mary's Reno,H3395,EPO,PRIME CNA 2019 D2 UNIFIED EPO PLAN (Self-Insured),EE+Child(ren),39
+Saint Mary's Reno,H3395,EPO,PRIME CNA 2019 D2 UNIFIED EPO PLAN (Self-Insured),EE+Family,28
+Saint Mary's Reno,H3395,EPO,PRIME CNA 2019 D2 UNIFIED EPO PLAN (Self-Insured),EE+Spouse,22
+Saint Mary's Reno,H3395,EPO,PRIME CWA 2020 D2 UNIFIED EPO PLAN (Self-Insured),EE Only,122
+Saint Mary's Reno,H3395,EPO,PRIME CWA 2020 D2 UNIFIED EPO PLAN (Self-Insured),EE+Child(ren),38
+Saint Mary's Reno,H3395,EPO,PRIME CWA 2020 D2 UNIFIED EPO PLAN (Self-Insured),EE+Family,35
+Saint Mary's Reno,H3395,EPO,PRIME CWA 2020 D2 UNIFIED EPO PLAN (Self-Insured),EE+Spouse,46
+Saint Mary's Reno,H3395,EPO,PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured),EE Only,115
+Saint Mary's Reno,H3395,EPO,PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured),EE+Child(ren),33
+Saint Mary's Reno,H3395,EPO,PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured),EE+Family,29
+Saint Mary's Reno,H3395,EPO,PRIME Non-Union 2020 D2 UNIFIED EPO PLAN (Self-Insured),EE+Spouse,38
+Saint Mary's Reno,H3395,VALUE,PRIME VALUE PLAN (Self-Insured),EE Only,35
+Saint Mary's Reno,H3395,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Child(ren),7
+Saint Mary's Reno,H3395,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Family,8
+Saint Mary's Reno,H3395,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Spouse,5
+Saint Mary's Reno,H3396,EPO,,EE Only,47
+Saint Mary's Reno,H3396,EPO,,EE+Child(ren),17
+Saint Mary's Reno,H3396,EPO,,EE+Family,16
+Saint Mary's Reno,H3396,EPO,,EE+Spouse,10
+Saint Mary's Reno,H3396,VALUE,,EE Only,4
+Saint Mary's Reno,H3396,VALUE,,EE+Child(ren),1
+Southern Regional,H3510,EPO,EPO (Default),EE Only,250
+Southern Regional,H3510,EPO,EPO (Default),EE+Child(ren),74
+Southern Regional,H3510,EPO,EPO (Default),EE+Family,45
+Southern Regional,H3510,EPO,EPO (Default),EE+Spouse,37
+Southern Regional,H3510,VALUE,VALUE (Default),EE Only,49
+Southern Regional,H3510,VALUE,VALUE (Default),EE+Child(ren),21
+Southern Regional,H3510,VALUE,VALUE (Default),EE+Family,7
+Southern Regional,H3510,VALUE,VALUE (Default),EE+Spouse,7
+St Michael's,H3530,EPO,EPO (Default),EE Only,270
+St Michael's,H3530,EPO,EPO (Default),EE+Child(ren),45
+St Michael's,H3530,EPO,EPO (Default),EE+Family,51
+St Michael's,H3530,EPO,EPO (Default),EE+Spouse,55
+St Michael's,H3530,VALUE,VALUE (Default),EE Only,21
+St Michael's,H3530,VALUE,VALUE (Default),EE+Child(ren),6
+St Michael's,H3530,VALUE,VALUE (Default),EE+Family,3
+St Michael's,H3530,VALUE,VALUE (Default),EE+Spouse,3
+St. Francis,H3275,EPO,PRIME Non-Union D1 UNIFIED EPO PLAN (Self-Insured),EE Only,97
+St. Francis,H3275,EPO,PRIME Non-Union D1 UNIFIED EPO PLAN (Self-Insured),EE+Child(ren),27
+St. Francis,H3275,EPO,PRIME Non-Union D1 UNIFIED EPO PLAN (Self-Insured),EE+Family,26
+St. Francis,H3275,EPO,PRIME Non-Union D1 UNIFIED EPO PLAN (Self-Insured),EE+Spouse,14
+St. Francis,H3275,EPO,PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured),EE Only,265
+St. Francis,H3275,EPO,PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured),EE+Child(ren),97
+St. Francis,H3275,EPO,PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured),EE+Family,65
+St. Francis,H3275,EPO,PRIME SEIU 2020 D1 UNIFIED EPO PLAN (Self-Insured),EE+Spouse,46
+St. Francis,H3275,EPO,PRIME UNAC D1 UNIFIED EPO PLAN (Self-Insured),EE Only,174
+St. Francis,H3275,EPO,PRIME UNAC D1 UNIFIED EPO PLAN (Self-Insured),EE+Child(ren),57
+St. Francis,H3275,EPO,PRIME UNAC D1 UNIFIED EPO PLAN (Self-Insured),EE+Family,51
+St. Francis,H3275,EPO,PRIME UNAC D1 UNIFIED EPO PLAN (Self-Insured),EE+Spouse,23
+St. Francis,H3275,VALUE,PRIME VALUE PLAN (Self-Insured),EE Only,93
+St. Francis,H3275,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Child(ren),16
+St. Francis,H3275,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Family,9
+St. Francis,H3275,VALUE,PRIME VALUE PLAN (Self-Insured),EE+Spouse,7
+St. Francis,H3276,EPO,PRIME EPO PLAN (Self-Insured),EE Only,1
+St. Francis,H3276,EPO,PRIME EPO PLAN (Self-Insured),EE+Child(ren),1
+St. Francis,H3276,VALUE,PRIME VALUE PLAN (Self-Insured),EE Only,1
+St. Francis,H3277,EPO,,EE Only,2
+St. Francis,H3277,VALUE,,EE Only,2
+St. Francis,H3277,VALUE,,EE+Child(ren),3
+Suburban,H3598,EPO,EPO (Default),EE Only,27
+Suburban,H3598,EPO,EPO (Default),EE+Child(ren),1
+Suburban,H3598,EPO,EPO (Default),EE+Family,4
+Suburban,H3598,EPO,EPO (Default),EE+Spouse,1
+Suburban,H3598,VALUE,VALUE (Default),EE Only,2
+Suburban,H3599,EPO,EPO (Default),EE Only,5
+Suburban,H3599,EPO,EPO (Default),EE+Child(ren),3
+Suburban,H3599,EPO,EPO (Default),EE+Family,3
+Suburban,H3599,EPO,EPO (Default),EE+Spouse,1
