@@ -194,6 +194,10 @@ ls data/input/source_data.xlsx
 - 29-sheet allowlist with Alvarado exclusion
 - Config-driven aggregations in `config/block_aggregations.json`
 
+## 🧭 Dashboard Prompts
+
+- Universal, stack-agnostic dashboard prompts live in `docs/universal_dashboard_prompts.md`. Each entry includes implementation guidance and acceptance criteria.
+
 ### Version 5.0.0 
 - Fixed 17 critical issues including multi-block bugs
 - Added CLI arguments and config persistence
