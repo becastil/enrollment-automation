@@ -1,0 +1,46 @@
+services:
+  # Backend API Service
+  - type: web
+    name: prime-efr-api
+    env: node
+    repo: https://github.com/yourusername/prime-efr-web
+    branch: main
+    rootDir: server
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: CORS_ORIGIN
+        value: https://prime-efr-web.onrender.com
+    healthCheckPath: /health
+    
+  # Frontend Static Site  
+  - type: web
+    name: prime-efr-web
+    env: static
+    repo: https://github.com/yourusername/prime-efr-web
+    branch: main
+    rootDir: client
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://prime-efr-api.onrender.com/api
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+        
+# Optional PostgreSQL Database
+databases:
+  - name: prime-efr-db
+    plan: starter
+    databaseName: prime_efr
+    user: prime_user
