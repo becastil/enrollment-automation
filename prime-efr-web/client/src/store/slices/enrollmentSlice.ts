@@ -6,8 +6,9 @@ export interface EnrollmentRecord {
   PLAN: string;
   BEN_CODE: string;
   plan_type?: string;
-  tier?: string;
+  tier?: keyof TierTotals;
   count: number;
+  [key: string]: any;
 }
 
 export interface TabData {
@@ -64,12 +65,110 @@ const initialState: EnrollmentState = {
   error: null,
 };
 
+const BEN_CODE_TO_TIER: Record<string, keyof TierTotals> = {
+  EMP: 'EE',
+  ESP: 'EE & Spouse',
+  ECH: 'EE & Children',
+  FAM: 'EE & Family',
+  E1D: 'EE & Children',
+};
+
+const TIER_LABEL_NORMALIZERS: Record<string, keyof TierTotals> = {
+  'EE': 'EE',
+  'EE ONLY': 'EE',
+  'EE ONLY ': 'EE',
+  'EE & SPOUSE': 'EE & Spouse',
+  'EE+SPOUSE': 'EE & Spouse',
+  'EE SPOUSE': 'EE & Spouse',
+  'EE & CHILDREN': 'EE & Children',
+  'EE+CHILD(REN)': 'EE & Children',
+  'EE CHILDREN': 'EE & Children',
+  'EE & FAMILY': 'EE & Family',
+  'EE+FAMILY': 'EE & Family',
+};
+
+const NUMERIC_FIELD_FALLBACKS = ['count', 'COUNT', 'Count', 'Value', 'VALUE', 'value', 'TOTAL', 'Total', 'total'];
+
+const VALID_TIER_KEYS = new Set<keyof TierTotals>(['EE', 'EE & Spouse', 'EE & Children', 'EE & Family']);
+
+function normalizeTierLabel(rawTier: string | undefined, benCode: string | undefined): keyof TierTotals | undefined {
+  if (rawTier) {
+    const normalized = rawTier.trim().toUpperCase();
+    if (normalized in TIER_LABEL_NORMALIZERS) {
+      return TIER_LABEL_NORMALIZERS[normalized];
+    }
+    if (VALID_TIER_KEYS.has(rawTier as keyof TierTotals)) {
+      return rawTier as keyof TierTotals;
+    }
+  }
+
+  if (benCode) {
+    const mapped = BEN_CODE_TO_TIER[benCode.trim().toUpperCase()];
+    if (mapped) {
+      return mapped;
+    }
+  }
+
+  return undefined;
+}
+
+function parseNumeric(value: unknown): number | null {
+  if (value === undefined || value === null || value === '') {
+    return null;
+  }
+
+  if (typeof value === 'number') {
+    return Number.isFinite(value) ? value : null;
+  }
+
+  if (typeof value === 'string') {
+    const normalized = value.replace(/,/g, '').trim();
+    if (normalized === '') {
+      return null;
+    }
+
+    const parsed = Number(normalized);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+
+  return null;
+}
+
+function normalizeCount(record: EnrollmentRecord): number {
+  const direct = parseNumeric(record.count);
+  if (direct !== null) {
+    return direct;
+  }
+
+  for (const field of NUMERIC_FIELD_FALLBACKS) {
+    if (field in record) {
+      const parsed = parseNumeric((record as Record<string, unknown>)[field]);
+      if (parsed !== null) {
+        return parsed;
+      }
+    }
+  }
+
+  return 0;
+}
+
 const enrollmentSlice = createSlice({
   name: 'enrollment',
   initialState,
   reducers: {
     setSourceData: (state, action: PayloadAction<EnrollmentRecord[]>) => {
-      state.sourceData = action.payload;
+      const normalized = action.payload.map((record) => {
+        const tier = normalizeTierLabel(record.tier, record.BEN_CODE);
+        const count = normalizeCount(record);
+
+        return {
+          ...record,
+          tier,
+          count: Number.isFinite(count) ? count : 0,
+        };
+      });
+
+      state.sourceData = normalized;
       // Calculate control totals
       const totals: TierTotals = {
         'EE': 0,
@@ -77,8 +176,8 @@ const enrollmentSlice = createSlice({
         'EE & Children': 0,
         'EE & Family': 0,
       };
-      action.payload.forEach(record => {
-        if (record.tier && record.tier in totals) {
+      normalized.forEach(record => {
+        if (record.tier && Object.prototype.hasOwnProperty.call(totals, record.tier)) {
           totals[record.tier as keyof TierTotals] += record.count;
         }
       });

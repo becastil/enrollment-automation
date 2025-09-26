@@ -37,6 +37,49 @@ const upload = multer({
   }
 });
 
+const numberFieldCandidates = [
+  'COUNT',
+  'Count',
+  'count',
+  'VALUE',
+  'Value',
+  'value',
+  'TOTAL',
+  'Total',
+  'total'
+];
+
+function parseNumeric(value: any): number | null {
+  if (value === undefined || value === null || value === '') {
+    return null;
+  }
+
+  if (typeof value === 'number') {
+    return Number.isFinite(value) ? value : null;
+  }
+
+  const normalized = String(value).replace(/,/g, '').trim();
+  if (normalized === '') {
+    return null;
+  }
+
+  const parsed = Number(normalized);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function extractCount(row: Record<string, unknown>): number | null {
+  for (const field of numberFieldCandidates) {
+    if (field in row) {
+      const parsed = parseNumeric(row[field]);
+      if (parsed !== null) {
+        return parsed;
+      }
+    }
+  }
+
+  return null;
+}
+
 // Parse Excel file endpoint
 router.post('/parse', upload.single('file'), async (req: Request, res: Response) => {
   try {
@@ -56,12 +99,19 @@ router.post('/parse', upload.single('file'), async (req: Request, res: Response)
     fs.unlinkSync(filePath);
     
     // Process data
-    const processedData = data.map((row: any) => ({
-      CLIENT_ID: row['CLIENT_ID'] || row['Client ID'],
-      PLAN: row['PLAN'] || row['Plan'],
-      BEN_CODE: row['BEN CODE'] || row['Ben Code'] || row['BEN_CODE'],
-      // Add more field mappings as needed
-    }));
+    const processedData = data.map((row: any) => {
+      const clientId = row['CLIENT_ID'] || row['Client ID'] || row['client_id'];
+      const plan = row['PLAN'] || row['Plan'] || row['plan'];
+      const benCode = row['BEN CODE'] || row['Ben Code'] || row['BEN_CODE'] || row['ben_code'];
+      const count = extractCount(row);
+
+      return {
+        CLIENT_ID: clientId,
+        PLAN: plan,
+        BEN_CODE: benCode,
+        count,
+      };
+    });
     
     res.json({
       success: true,
