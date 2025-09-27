@@ -26,7 +26,8 @@ python run_enrollment.py
 
 ## 📋 Prerequisites
 
-- **Python**: 3.8 or higher
+- **Python**: 3.8 or higher (Render deployment: pin `runtime.txt` to `python-3.11.9` to avoid
+  Python 3.13 builder issues)
 - **Operating System**: Windows 10/11, macOS, Linux
 - **Required Packages**: pandas, openpyxl, numpy
 
