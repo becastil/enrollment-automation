@@ -1,20 +1,21 @@
-import { useCallback, useState } from 'react';
-import { useDropzone } from 'react-dropzone';
-import { Upload, FileSpreadsheet, X, CheckCircle } from 'lucide-react';
+import { useState } from 'react';
+import { Upload, Card, Alert, Button, Progress, Table } from 'antd';
+import { InboxOutlined, DeleteOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch, RootState } from '../store';
 import { uploadFile, setLoading, setError, setSourceData } from '../store/slices/enrollmentSlice';
 import { uploadAPI } from '../services/api';
+import type { UploadFile, UploadProps } from 'antd/es/upload/interface';
+
+const { Dragger } = Upload;
 
 export default function FileUpload() {
   const dispatch = useDispatch<AppDispatch>();
   const { uploadedFile, loading, error } = useSelector((state: RootState) => state.enrollment);
   const [preview, setPreview] = useState<any[]>([]);
+  const [fileList, setFileList] = useState<UploadFile[]>([]);
 
-  const onDrop = useCallback(async (acceptedFiles: File[]) => {
-    if (acceptedFiles.length === 0) return;
-    
-    const file = acceptedFiles[0];
+  const handleUpload = async (file: File) => {
     dispatch(uploadFile(file));
     
     try {
@@ -27,124 +28,111 @@ export default function FileUpload() {
       dispatch(setLoading(false));
     } catch (err: any) {
       dispatch(setError(err.response?.data?.error || err.message || 'Failed to parse file'));
+      setFileList([]);
     }
-  }, [dispatch]);
+  };
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,
-    accept: {
-      'application/vnd.ms-excel': ['.xls'],
-      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['.xlsx'],
-      'text/csv': ['.csv'],
+  const uploadProps: UploadProps = {
+    name: 'file',
+    multiple: false,
+    accept: '.xlsx,.xls,.csv',
+    fileList,
+    beforeUpload: (file) => {
+      handleUpload(file);
+      setFileList([{
+        uid: file.name,
+        name: file.name,
+        status: 'uploading',
+        originFileObj: file,
+      }]);
+      return false; // Prevent default upload
     },
-    maxFiles: 1,
-  });
+    onRemove: () => {
+      dispatch(uploadFile(null as any));
+      setPreview([]);
+      setFileList([]);
+    },
+    showUploadList: {
+      showRemoveIcon: true,
+      removeIcon: <DeleteOutlined />,
+    },
+  };
 
   const clearFile = () => {
     dispatch(uploadFile(null as any));
     setPreview([]);
+    setFileList([]);
   };
 
+  // Create columns for preview table
+  const previewColumns = preview.length > 0 
+    ? Object.keys(preview[0]).map(key => ({
+        title: key,
+        dataIndex: key,
+        key,
+        ellipsis: true,
+      }))
+    : [];
+
+  const previewData = preview.map((row, index) => ({
+    ...row,
+    key: index,
+  }));
+
   return (
-    <div className="card">
-      <h2 className="text-xl font-semibold mb-md">Upload Source Data</h2>
-      
-      {!uploadedFile ? (
-        <div
-          {...getRootProps()}
-          className={`border-2 border-dashed rounded-lg p-xl text-center cursor-pointer transition-colors ${
-            isDragActive
-              ? 'border-primary bg-primary-soft'
-              : 'border-border hover:border-border-strong hover:bg-surface-subtle'
-          }`}
-        >
-          <input {...getInputProps()} />
-          <Upload className="mx-auto h-12 w-12 text-text-muted mb-md" />
-          <p className="text-text-muted mb-xs">
-            {isDragActive
-              ? 'Drop the file here...'
-              : 'Drag and drop your Excel file here, or click to browse'}
-          </p>
-          <p className="text-sm text-text-muted">
-            Supports .xlsx, .xls, and .csv files
-          </p>
-        </div>
-      ) : (
-        <div className="space-y-md">
-          <div className="flex items-center justify-between p-md bg-surface-subtle rounded-lg">
-            <div className="flex items-center">
-              <FileSpreadsheet className="h-8 w-8 text-primary mr-sm" />
-              <div>
-                <p className="font-medium text-text">{uploadedFile.name}</p>
-                <p className="text-sm text-text-muted">
-                  {(uploadedFile.size / 1024).toFixed(2)} KB
-                </p>
-              </div>
-            </div>
-            <button
-              onClick={clearFile}
-              className="p-xs hover:bg-surface rounded-lg transition-colors"
-            >
-              <X className="h-5 w-5 text-text-muted" />
-            </button>
-          </div>
-          
-          {loading && (
-            <div className="text-center py-md">
-              <div className="inline-flex items-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-                <span className="ml-sm text-text-muted">Processing file...</span>
-              </div>
-            </div>
-          )}
-          
-          {error && (
-            <div className="alert-error">
-              <p className="font-medium">Error processing file</p>
-              <p className="text-sm mt-xs">{error}</p>
-            </div>
-          )}
-          
-          {preview.length > 0 && !loading && !error && (
-            <div>
-              <div className="flex items-center mb-xs">
-                <CheckCircle className="h-5 w-5 text-success mr-xs" />
-                <p className="font-medium text-text">File parsed successfully</p>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-border">
-                  <thead className="bg-surface-subtle">
-                    <tr>
-                      {Object.keys(preview[0] || {}).map((key) => (
-                        <th
-                          key={key}
-                          className="px-sm py-xs text-left text-xs font-medium text-text-muted uppercase"
-                        >
-                          {key}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody className="bg-surface divide-y divide-border">
-                    {preview.map((row, idx) => (
-                      <tr key={idx}>
-                        {Object.values(row).map((val: any, i) => (
-                          <td key={i} className="px-sm py-xs text-sm text-text">
-                            {val}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <p className="text-sm text-text-muted mt-sm">
-                Showing first 5 rows of {preview.length} total
-              </p>
-            </div>
-          )}
+    <Card title="Upload Source Data" className="mb-6">
+      {error && (
+        <Alert
+          message="Upload Error"
+          description={error}
+          type="error"
+          showIcon
+          closable
+          className="mb-4"
+          onClose={() => dispatch(setError(''))}
+        />
+      )}
+
+      <Dragger {...uploadProps} style={{ marginBottom: preview.length > 0 ? 24 : 0 }}>
+        <p className="ant-upload-drag-icon">
+          <InboxOutlined />
+        </p>
+        <p className="ant-upload-text">Click or drag file to this area to upload</p>
+        <p className="ant-upload-hint">
+          Supports Excel (.xlsx, .xls) and CSV files. Single file upload only.
+        </p>
+      </Dragger>
+
+      {loading && (
+        <div className="mb-4">
+          <Progress percent={undefined} status="active" />
+          <p className="text-sm text-gray-500 mt-2">Processing file...</p>
         </div>
       )}
-    </div>
+
+      {uploadedFile && !loading && (
+        <Alert
+          message="File processed successfully"
+          type="success"
+          showIcon
+          icon={<CheckCircleOutlined />}
+          className="mb-4"
+        />
+      )}
+
+      {preview.length > 0 && (
+        <div>
+          <h3 className="text-base font-medium mb-3">Preview (First 5 rows)</h3>
+          <Table
+            columns={previewColumns}
+            dataSource={previewData}
+            pagination={false}
+            scroll={{ x: true }}
+            size="small"
+            bordered
+          />
+        </div>
+      )}
+    </Card>
   );
 }

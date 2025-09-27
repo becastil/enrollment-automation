@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import { Card, Statistic, Row, Col, Alert, List } from 'antd';
+import { CheckCircleOutlined, CloseCircleOutlined, WarningOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import type { RootState } from '../store';
-import { CheckCircle, XCircle, AlertTriangle, Info } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 import { useTheme } from '../theme/ThemeProvider';
 import { getChartPalette } from '../utils/theme';
@@ -21,156 +22,174 @@ export default function ValidationDashboard() {
   const getIssueIcon = (type: string) => {
     switch (type) {
       case 'error':
-        return <XCircle className="h-5 w-5 text-danger" />;
+        return <CloseCircleOutlined style={{ color: '#ff4d4f' }} />;
       case 'warning':
-        return <AlertTriangle className="h-5 w-5 text-warning" />;
+        return <WarningOutlined style={{ color: '#faad14' }} />;
       case 'info':
-        return <Info className="h-5 w-5 text-primary" />;
+        return <InfoCircleOutlined style={{ color: '#1890ff' }} />;
       default:
-        return null;
+        return <InfoCircleOutlined />;
     }
   };
 
-  return (
-    <div className="space-y-lg">
-      <div className="card">
-        <h2 className="text-xl font-semibold mb-md">Control Totals</h2>
-        
-        <div className="grid grid-cols-1 gap-lg lg:grid-cols-2">
-          <div>
-            <h3 className="text-sm font-medium text-text-muted mb-sm">Tier Distribution</h3>
-            <div className="space-y-xs">
-              {Object.entries(controlTotals).map(([tier, count]) => (
-                <div key={tier} className="flex justify-between items-center">
-                  <span className="text-sm text-text-muted">{tier}:</span>
-                  <span className="font-semibold">{count.toLocaleString()}</span>
-                </div>
-              ))}
-              <div className="pt-xs border-t border-border">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium text-text">Total:</span>
-                  <span className="font-bold text-lg">
-                    {Object.values(controlTotals).reduce((a, b) => a + b, 0).toLocaleString()}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={tierData}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  outerRadius={80}
-                  fill="var(--color-primary)"
-                  dataKey="value"
-                >
-                  {tierData.map((_, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-                <Legend />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-      </div>
+  const getIssueAlertType = (type: string): 'error' | 'warning' | 'info' => {
+    switch (type) {
+      case 'error':
+        return 'error';
+      case 'warning':
+        return 'warning';
+      case 'info':
+      default:
+        return 'info';
+    }
+  };
 
-      <div className="card">
-        <h2 className="text-xl font-semibold mb-md">Validation Summary</h2>
-        
-        {summary ? (
-          <div className="space-y-md">
-            <div className="grid grid-cols-1 gap-md sm:grid-cols-2 lg:grid-cols-3">
-              <div className="bg-danger-soft rounded-lg p-md border border-danger">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-danger font-medium">Errors</p>
-                    <p className="text-2xl font-bold text-danger">{summary.errors}</p>
-                  </div>
-                  <XCircle className="h-8 w-8 text-danger" />
-                </div>
-              </div>
-              
-              <div className="bg-warning-soft rounded-lg p-md border border-warning">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-warning font-medium">Warnings</p>
-                    <p className="text-2xl font-bold text-warning">{summary.warnings}</p>
-                  </div>
-                  <AlertTriangle className="h-8 w-8 text-warning" />
-                </div>
-              </div>
-              
-              <div className="bg-primary-soft rounded-lg p-md border border-primary">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-primary font-medium">Info</p>
-                    <p className="text-2xl font-bold text-primary">{summary.info}</p>
-                  </div>
-                  <Info className="h-8 w-8 text-primary" />
-                </div>
+  const totalEnrollment = Object.values(controlTotals).reduce((a, b) => a + b, 0);
+
+  return (
+    <div className="space-y-6">
+      <Card title="Control Totals">
+        <Row gutter={[24, 24]}>
+          <Col xs={24} lg={12}>
+            <div className="space-y-4">
+              <h4 className="text-base font-medium text-gray-600 mb-3">Tier Distribution</h4>
+              <Row gutter={[16, 16]}>
+                {Object.entries(controlTotals).map(([tier, count]) => (
+                  <Col xs={12} sm={8} key={tier}>
+                    <Statistic 
+                      title={tier}
+                      value={count}
+                      formatter={(value) => value?.toLocaleString()}
+                      valueStyle={{ fontSize: '18px' }}
+                    />
+                  </Col>
+                ))}
+              </Row>
+              <div className="pt-4 border-t border-gray-200">
+                <Statistic 
+                  title="Total Enrollment"
+                  value={totalEnrollment}
+                  formatter={(value) => value?.toLocaleString()}
+                  valueStyle={{ fontSize: '24px', fontWeight: 'bold', color: '#1890ff' }}
+                />
               </div>
             </div>
+          </Col>
+          
+          <Col xs={24} lg={12}>
+            <div style={{ height: 300 }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={tierData}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    outerRadius={80}
+                    fill="var(--color-primary)"
+                    dataKey="value"
+                  >
+                    {tierData.map((_, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+          </Col>
+        </Row>
+      </Card>
+
+      <Card title="Validation Summary">
+        {summary ? (
+          <div className="space-y-6">
+            <Row gutter={[16, 16]}>
+              <Col xs={24} sm={8}>
+                <Card>
+                  <Statistic
+                    title="Errors"
+                    value={summary.errors}
+                    prefix={<CloseCircleOutlined />}
+                    valueStyle={{ color: '#ff4d4f' }}
+                  />
+                </Card>
+              </Col>
+              <Col xs={24} sm={8}>
+                <Card>
+                  <Statistic
+                    title="Warnings"
+                    value={summary.warnings}
+                    prefix={<WarningOutlined />}
+                    valueStyle={{ color: '#faad14' }}
+                  />
+                </Card>
+              </Col>
+              <Col xs={24} sm={8}>
+                <Card>
+                  <Statistic
+                    title="Info"
+                    value={summary.info}
+                    prefix={<InfoCircleOutlined />}
+                    valueStyle={{ color: '#1890ff' }}
+                  />
+                </Card>
+              </Col>
+            </Row>
 
             <div>
-              <h3 className="text-sm font-medium text-text-muted mb-xs">Recent Issues</h3>
-              <div className="space-y-xs max-h-64 overflow-y-auto">
-                {issues.slice(0, 5).map((issue) => (
-                  <div
-                    key={issue.id}
-                    className="flex items-start space-x-sm p-sm bg-surface-subtle rounded-lg"
-                  >
-                    {getIssueIcon(issue.type)}
-                    <div className="flex-1">
-                      <p className="text-sm font-medium text-text">{issue.message}</p>
-                      {issue.tab && (
-                        <p className="text-xs text-text-muted mt-xs">Tab: {issue.tab}</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <h4 className="text-base font-medium mb-3">Recent Issues</h4>
+              <List
+                size="small"
+                dataSource={issues.slice(0, 5)}
+                renderItem={(issue) => (
+                  <List.Item>
+                    <Alert
+                      message={issue.message}
+                      description={issue.tab ? `Tab: ${issue.tab}` : undefined}
+                      type={getIssueAlertType(issue.type)}
+                      showIcon
+                      style={{ width: '100%' }}
+                    />
+                  </List.Item>
+                )}
+                style={{ maxHeight: 300, overflow: 'auto' }}
+              />
             </div>
           </div>
         ) : (
-          <div className="text-center py-xl text-text-muted">
-            <CheckCircle className="h-12 w-12 mx-auto mb-sm text-success" />
-            <p>No validation issues found</p>
+          <div className="text-center py-12">
+            <CheckCircleOutlined style={{ fontSize: 48, color: '#52c41a', marginBottom: 16 }} />
+            <p className="text-gray-500">No validation issues found</p>
           </div>
         )}
-      </div>
+      </Card>
 
-      <div className="card">
-        <h2 className="text-xl font-semibold mb-md">Tab Validation Status</h2>
-        
-        <div className="grid grid-cols-1 gap-md sm:grid-cols-2">
+      <Card title="Tab Validation Status">
+        <Row gutter={[16, 16]}>
           {tabData.slice(0, 10).map((tab) => (
-            <div
-              key={tab.name}
-              className={`p-sm rounded-lg border ${
-                tab.hasDiscrepancies
-                  ? 'bg-danger-soft border-danger'
-                  : 'bg-success-soft border-success'
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <span className="font-medium text-sm">{tab.name}</span>
-                {tab.hasDiscrepancies ? (
-                  <XCircle className="h-4 w-4 text-danger" />
-                ) : (
-                  <CheckCircle className="h-4 w-4 text-success" />
-                )}
-              </div>
-            </div>
+            <Col xs={12} sm={8} md={6} key={tab.name}>
+              <Card 
+                size="small"
+                style={{
+                  borderColor: tab.hasDiscrepancies ? '#ff4d4f' : '#52c41a',
+                  backgroundColor: tab.hasDiscrepancies ? '#fff2f0' : '#f6ffed'
+                }}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-medium truncate">{tab.name}</span>
+                  {tab.hasDiscrepancies ? (
+                    <CloseCircleOutlined style={{ color: '#ff4d4f' }} />
+                  ) : (
+                    <CheckCircleOutlined style={{ color: '#52c41a' }} />
+                  )}
+                </div>
+              </Card>
+            </Col>
           ))}
-        </div>
-      </div>
+        </Row>
+      </Card>
     </div>
   );
 }
