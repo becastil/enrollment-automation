@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: enrollment-automation
+    env: node
+    rootDir: prime-efr-web/server
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: starter
+    region: oregon
+    envVars:
+      - key: NODE_ENV
+        value: production
