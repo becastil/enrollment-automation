@@ -7,6 +7,3 @@ services:
     startCommand: npm start
     plan: starter
     region: oregon
-    envVars:
-      - key: NODE_ENV
-        value: production
