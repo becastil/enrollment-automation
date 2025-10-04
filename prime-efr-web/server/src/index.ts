@@ -23,10 +23,20 @@ app.use('/api/validation', validationRoutes);
 app.use('/api/config', configRoutes);
 app.use('/api/upload', uploadRoutes);
 
-// Health check
-app.get('/health', (req, res) => {
-  res.json({ status: 'healthy', timestamp: new Date().toISOString() });
-});
+// Serve static files from the React app in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../../client/dist')));
+
+  // Catch-all handler to serve React app for any route not handled by API
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
+  });
+} else {
+  // Health check (only in development, as it would be caught by * in production)
+  app.get('/health', (req, res) => {
+    res.json({ status: 'healthy', timestamp: new Date().toISOString() });
+  });
+}
 
 // Error handling middleware
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
