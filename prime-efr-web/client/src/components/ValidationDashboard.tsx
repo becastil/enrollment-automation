@@ -18,9 +18,6 @@ export default function ValidationDashboard() {
   }));
 
   const COLORS = useMemo(() => getChartPalette(), [theme]);
-        return <InfoCircleOutlined />;
-    }
-  };
 
   const getIssueAlertType = (type: string): 'error' | 'warning' | 'info' => {
     switch (type) {
