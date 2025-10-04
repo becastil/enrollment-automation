@@ -58,11 +58,6 @@ export default function FileUpload() {
     },
   };
 
-  const clearFile = () => {
-    dispatch(uploadFile(null as any));
-    setPreview([]);
-    setFileList([]);
-  };
 
   // Create columns for preview table
   const previewColumns = preview.length > 0 
