@@ -18,16 +18,6 @@ export default function ValidationDashboard() {
   }));
 
   const COLORS = useMemo(() => getChartPalette(), [theme]);
-
-  const getIssueIcon = (type: string) => {
-    switch (type) {
-      case 'error':
-        return <CloseCircleOutlined style={{ color: '#ff4d4f' }} />;
-      case 'warning':
-        return <WarningOutlined style={{ color: '#faad14' }} />;
-      case 'info':
-        return <InfoCircleOutlined style={{ color: '#1890ff' }} />;
-      default:
         return <InfoCircleOutlined />;
     }
   };
